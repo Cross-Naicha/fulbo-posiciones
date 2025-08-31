@@ -1,6 +1,6 @@
 [
   {
-    "id": 6,
+    "n": 1,
     "jugador": "Lombardo, Emiliano",
     "partidos": 1,
     "puntos": "3",
@@ -8,7 +8,7 @@
     "promedio": "0.52"
   },
   {
-    "id": 7,
+    "n": 2,
     "jugador": "Lombardo, Juan Pablo",
     "partidos": 1,
     "puntos": "3",
@@ -16,7 +16,7 @@
     "promedio": "0.52"
   },
   {
-    "id": 14,
+    "n": 3,
     "jugador": "Ramos Benitez, Matias",
     "partidos": 1,
     "puntos": "3",
@@ -24,7 +24,7 @@
     "promedio": "0.52"
   },
   {
-    "id": 12,
+    "n": 4,
     "jugador": "Chagay, Alexis",
     "partidos": 1,
     "puntos": "3",
@@ -32,7 +32,7 @@
     "promedio": "0.52"
   },
   {
-    "id": 13,
+    "n": 5,
     "jugador": "Ruiz, Mariano",
     "partidos": 1,
     "puntos": "3",
@@ -40,7 +40,7 @@
     "promedio": "0.52"
   },
   {
-    "id": 1,
+    "n": 6,
     "jugador": "Cesano, Leandro",
     "partidos": 1,
     "puntos": "0",
@@ -48,7 +48,7 @@
     "promedio": "0.48"
   },
   {
-    "id": 8,
+    "n": 7,
     "jugador": "Recalde, Facundo",
     "partidos": 1,
     "puntos": "0",
@@ -56,7 +56,7 @@
     "promedio": "0.48"
   },
   {
-    "id": 9,
+    "n": 8,
     "jugador": "Nuñez, Cesar",
     "partidos": 1,
     "puntos": "0",
@@ -64,7 +64,7 @@
     "promedio": "0.48"
   },
   {
-    "id": 10,
+    "n": 9,
     "jugador": "Ponce, Martin",
     "partidos": 1,
     "puntos": "0",
@@ -72,7 +72,7 @@
     "promedio": "0.48"
   },
   {
-    "id": 15,
+    "n": 10,
     "jugador": "Tosi, Marcelo",
     "partidos": 1,
     "puntos": "0",
