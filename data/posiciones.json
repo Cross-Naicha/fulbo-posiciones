@@ -1,18 +1,82 @@
 [
   {
-    "id": 1,
-    "jugador": "Nicolás",
-    "partidos": 10,
-    "puntos": "25",
-    "efectividad": "0.833",
-    "promedio": "2.5"
+    "id": 6,
+    "jugador": "Lombardo, Emiliano",
+    "partidos": 1,
+    "puntos": "3",
+    "efectividad": "1.000",
+    "promedio": "0.52"
   },
   {
-    "id": 2,
-    "jugador": "Carlos",
-    "partidos": 8,
-    "puntos": "18",
-    "efectividad": "0.750",
-    "promedio": "2.25"
+    "id": 7,
+    "jugador": "Lombardo, Juan Pablo",
+    "partidos": 1,
+    "puntos": "3",
+    "efectividad": "1.000",
+    "promedio": "0.52"
+  },
+  {
+    "id": 14,
+    "jugador": "Ramos Benitez, Matias",
+    "partidos": 1,
+    "puntos": "3",
+    "efectividad": "1.000",
+    "promedio": "0.52"
+  },
+  {
+    "id": 12,
+    "jugador": "Chagay, Alexis",
+    "partidos": 1,
+    "puntos": "3",
+    "efectividad": "1.000",
+    "promedio": "0.52"
+  },
+  {
+    "id": 13,
+    "jugador": "Ruiz, Mariano",
+    "partidos": 1,
+    "puntos": "3",
+    "efectividad": "1.000",
+    "promedio": "0.52"
+  },
+  {
+    "id": 1,
+    "jugador": "Cesano, Leandro",
+    "partidos": 1,
+    "puntos": "0",
+    "efectividad": "0.000",
+    "promedio": "0.48"
+  },
+  {
+    "id": 8,
+    "jugador": "Recalde, Facundo",
+    "partidos": 1,
+    "puntos": "0",
+    "efectividad": "0.000",
+    "promedio": "0.48"
+  },
+  {
+    "id": 9,
+    "jugador": "Nuñez, Cesar",
+    "partidos": 1,
+    "puntos": "0",
+    "efectividad": "0.000",
+    "promedio": "0.48"
+  },
+  {
+    "id": 10,
+    "jugador": "Ponce, Martin",
+    "partidos": 1,
+    "puntos": "0",
+    "efectividad": "0.000",
+    "promedio": "0.48"
+  },
+  {
+    "id": 15,
+    "jugador": "Tosi, Marcelo",
+    "partidos": 1,
+    "puntos": "0",
+    "efectividad": "0.000",
+    "promedio": "0.48"
   }
 ]
