@@ -70,7 +70,7 @@
         for(const r of rows){
           const tr = document.createElement("tr");
           tr.innerHTML = `
-            <td class="right">${r.id ?? ""}</td>
+            <td class="right">${r.n ?? ""}</td>
             <td>${r.jugador ?? ""}</td>
             <td class="right">${r.partidos ?? ""}</td>
             <td class="right">${r.puntos ?? ""}</td>
@@ -89,5 +89,6 @@
   </script>
 </body>
 </html>
+
 
 
