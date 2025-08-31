@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tabla de Posiciones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--ink); }
+    .wrap { max-width: 1080px; margin: 32px auto; padding: 0 16px; }
+    h1 { text-align:center; margin: 0 0 8px; }
+    .sub { text-align:center; color:var(--muted); margin-bottom:16px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.25); }
+    table { width:100%; border-collapse: collapse; }
+    thead th {
+      text-transform:uppercase; font-size:12px; letter-spacing:.6px;
+      background:linear-gradient(180deg, #162233, #141a23);
+      color:var(--muted); border-bottom:1px solid var(--line); padding:12px 10px; text-align:center;
+      position: sticky; top: 0; z-index: 1;
+    }
+    tbody td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:center; }
+    tbody tr:nth-child(even) { background:#0f141c; }
+    .right { text-align:right; }
+    .status { text-align:center; color:var(--muted); padding:10px; }
+    @media (max-width: 640px) { table { font-size: 14px; } thead th, tbody td { padding:10px 8px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Tabla de Posiciones</h1>
+    <div class="sub">Fuente: MySQL · Actualiza subiendo <code>data/posiciones.json</code></div>
+    <div class="card">
+      <div id="status" class="status">Cargando datos…</div>
+      <table id="tabla" style="display:none">
+        <thead>
+          <tr>
+            <th>id (int)</th>
+            <th>jugador (text)</th>
+            <th>partidos (bigint)</th>
+            <th>puntos (decimal(41,0))</th>
+            <th>efectividad (decimal(45,3))</th>
+            <th>promedio (varchar(61))</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const status = document.getElementById("status");
+    const tabla  = document.getElementById("tabla");
+    const tbody  = document.getElementById("tbody");
+
+    function setStatus(msg){ status.textContent = msg; status.style.display='block'; tabla.style.display='none'; }
+    function showTable(){ status.style.display='none'; tabla.style.display='table'; }
+
+    function fmt3(v){ const n = Number(v); return Number.isFinite(n) ? n.toFixed(3) : v; }
+
+    async function cargar(){
+      try{
+        setStatus("Cargando datos…");
+        const bust = Date.now();
+        const res = await fetch(`data/posiciones.json?v=${bust}`, { cache: "no-store" });
+        if(!res.ok) throw new Error("HTTP " + res.status);
+        const rows = await res.json();
+
+        tbody.innerHTML = "";
+        for(const r of rows){
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td class="right">${r.id ?? ""}</td>
+            <td>${r.jugador ?? ""}</td>
+            <td class="right">${r.partidos ?? ""}</td>
+            <td class="right">${r.puntos ?? ""}</td>
+            <td class="right">${fmt3(r.efectividad ?? "")}</td>
+            <td>${r.promedio ?? ""}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+        showTable();
+      }catch(err){
+        setStatus("Error al cargar datos: " + err.message);
+        console.error(err);
+      }
+    }
+    cargar();
+  </script>
+</body>
+</html>
