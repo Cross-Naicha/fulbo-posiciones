@@ -1,7 +1,7 @@
 [
   {
     "n": 1,
-    "jugador": "Lombardo, Emiliano",
+    "jugador": "Emi",
     "partidos": 1,
     "puntos": "3",
     "efectividad": "1.000",
@@ -9,7 +9,7 @@
   },
   {
     "n": 2,
-    "jugador": "Lombardo, Juan Pablo",
+    "jugador": "Lomba",
     "partidos": 1,
     "puntos": "3",
     "efectividad": "1.000",
@@ -17,7 +17,7 @@
   },
   {
     "n": 3,
-    "jugador": "Ramos Benitez, Matias",
+    "jugador": "Mato",
     "partidos": 1,
     "puntos": "3",
     "efectividad": "1.000",
@@ -25,7 +25,7 @@
   },
   {
     "n": 4,
-    "jugador": "Chagay, Alexis",
+    "jugador": "Chagay",
     "partidos": 1,
     "puntos": "3",
     "efectividad": "1.000",
@@ -33,7 +33,7 @@
   },
   {
     "n": 5,
-    "jugador": "Ruiz, Mariano (*)",
+    "jugador": "Mario (*)",
     "partidos": 1,
     "puntos": "3",
     "efectividad": "1.000",
@@ -41,7 +41,7 @@
   },
   {
     "n": 6,
-    "jugador": "Cesano, Leandro",
+    "jugador": "Chicho",
     "partidos": 1,
     "puntos": "0",
     "efectividad": "0.000",
@@ -49,7 +49,7 @@
   },
   {
     "n": 7,
-    "jugador": "Recalde, Facundo",
+    "jugador": "Facu",
     "partidos": 1,
     "puntos": "0",
     "efectividad": "0.000",
@@ -57,7 +57,7 @@
   },
   {
     "n": 8,
-    "jugador": "Nuñez, Cesar",
+    "jugador": "Cesar",
     "partidos": 1,
     "puntos": "0",
     "efectividad": "0.000",
@@ -65,7 +65,7 @@
   },
   {
     "n": 9,
-    "jugador": "Ponce, Martin",
+    "jugador": "P11",
     "partidos": 1,
     "puntos": "0",
     "efectividad": "0.000",
@@ -73,7 +73,7 @@
   },
   {
     "n": 10,
-    "jugador": "Tosi, Marcelo",
+    "jugador": "Marcelito",
     "partidos": 1,
     "puntos": "0",
     "efectividad": "0.000",
