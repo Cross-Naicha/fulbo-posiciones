@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Perfil del jugador</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042; --accent:#2f8bfd; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
+    a { color: var(--accent); text-decoration: none; }
+    .wrap { max-width:1080px; margin:32px auto; padding:0 16px; }
+    header { display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:12px; }
+    .back { display:inline-flex; align-items:center; gap:8px; background:transparent; border:1px solid var(--line); padding:10px 14px; border-radius:12px; color:var(--ink); }
+    .title { margin:0; font-size:26px; }
+    .sub { color:var(--muted); margin:0; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.25); }
+    .status { text-align:center; color:var(--muted); padding:18px; }
+    @media (max-width: 860px) { header { flex-direction:column; align-items:flex-start; gap:6px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="back" href="./">← Volver a la tabla</a>
+      <div>
+        <h1 class="title" id="player-name">Jugador</h1>
+        <p class="sub" id="subtitle">Cargando…</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <div id="status" class="status">Buscando datos del jugador…</div>
+    </div>
+  </div>
+
+  <script>
+    // --- utilidades ---
+    const qs = new URLSearchParams(location.search);
+    const bust = () => Date.now();
+    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+
+    // Lee ?id= o ?slug= de la URL y resuelve contra data/players/index.json
+    async function resolvePlayerRef() {
+      const idParam = qs.get('id');
+      const slugParam = qs.get('slug');
+
+      const res = await fetch(`data/players/index.json?v=${bust()}`, { cache: "no-store" });
+      if (!res.ok) throw new Error("No se pudo leer data/players/index.json");
+      const list = await res.json(); // [{id, slug, jugador}, ...]
+
+      if (idParam) {
+        const idNum = Number(idParam);
+        const it = list.find(p => Number(p.id) === idNum);
+        if (it) return it;
+      }
+      if (slugParam) {
+        const it = list.find(p => (p.slug || "") === slugParam);
+        if (it) return it;
+      }
+      throw new Error("Parámetro inválido: usa ?id= o ?slug= con un jugador existente.");
+    }
+
+    // Carga el JSON del jugador (por id) y devuelve el objeto
+    async function loadPlayerData(playerRef) {
+      const url = `data/players/${playerRef.id}.json?v=${bust()}`;
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error("No se encontró el JSON del jugador.");
+      return await res.json(); // { id, jugador, ... }
+    }
+
+    async function boot() {
+      const status = document.getElementById('status');
+      try {
+        const ref = await resolvePlayerRef();
+        const data = await loadPlayerData(ref);
+
+        // Título y subtítulo (por ahora sólo nombre)
+        const nombre = data.jugador || ref.jugador || "Jugador";
+        document.title = `${nombre} — Perfil`;
+        setText('player-name', nombre);
+        setText('subtitle', `Perfil público`);
+        status.textContent = "Datos cargados.";
+      } catch (err) {
+        console.error(err);
+        status.textContent = err.message + "  Volvé a la tabla y elegí un jugador válido.";
+      }
+    }
+
+    boot();
+  </script>
+</body>
+</html>
