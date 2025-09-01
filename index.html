@@ -72,7 +72,7 @@
           const tr = document.createElement("tr");
           tr.innerHTML = `
             <td class="right">${r.n ?? ""}</td>
-            <td>${r.jugador ?? ""}</td>
+            <td><a href="jugador.html?id=${r.id}">${r.jugador ?? ""}</a></td>
             <td class="right">${r.partidos ?? ""}</td>
             <td class="right">${r.puntos ?? ""}</td>
             <td class="right">${fmt3(r.efectividad ?? "")}</td>
