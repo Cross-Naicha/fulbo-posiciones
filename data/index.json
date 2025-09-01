@@ -1,1 +1,12 @@
-{"id":1,"slug":"nicolas","jugador":"Cesano, Leandro"}
+[
+  { "id": 1,  "slug": "chicho",     "jugador": "Chicho" },
+  { "id": 6,  "slug": "emi",        "jugador": "Emi" },
+  { "id": 7,  "slug": "lomba",      "jugador": "Lomba" },
+  { "id": 8,  "slug": "facu",       "jugador": "Facu" },
+  { "id": 9,  "slug": "cesar",      "jugador": "Cesar" },
+  { "id": 10, "slug": "p11",        "jugador": "P11" },
+  { "id": 12, "slug": "chagay",     "jugador": "Chagay" },
+  { "id": 13, "slug": "mario",      "jugador": "Mario (*)" },
+  { "id": 14, "slug": "mato",       "jugador": "Mato" },
+  { "id": 15, "slug": "marcelito",  "jugador": "Marcelito" }
+]
