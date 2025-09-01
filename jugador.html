@@ -55,24 +55,31 @@
     }
 
     async function boot() {
-        const status = document.getElementById('status');
-        try {
+    const status = document.getElementById('status');
+    try {
         const id = qs.get('id');
         const slug = qs.get('slug');
-        const data = id ? await loadById(id) :
-                    slug ? await loadBySlug(slug) :
-                    (() => { throw new Error("Falta ?id= o ?slug=") })();
+
+        let data;
+        if (id) {
+        data = await loadById(id);   // directo al archivo players/<id>.json
+        } else if (slug) {
+        data = await loadBySlug(slug); // este sí usa index.json
+        } else {
+        throw new Error("Falta ?id= o ?slug=");
+        }
 
         const nombre = data.jugador || "Jugador";
         document.title = `${nombre} — Perfil`;
         setText('player-name', nombre);
         setText('subtitle', `Perfil público`);
         status.textContent = "Datos cargados.";
-        } catch (err) {
+    } catch (err) {
         console.error(err);
         status.textContent = err.message + "  Volvé a la tabla y elegí un jugador válido.";
-        }
     }
+}
+
 
     boot();
 </script>
