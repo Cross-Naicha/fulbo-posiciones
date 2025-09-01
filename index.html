@@ -24,6 +24,12 @@
     .right { text-align:right; }
     .status { text-align:center; color:var(--muted); padding:10px; }
     @media (max-width: 640px) { table { font-size: 14px; } thead th, tbody td { padding:10px 8px; } }
+
+    /* --- corrección: links como texto plano --- */
+    a, a:visited, a:hover, a:active, a:focus {
+      color: inherit;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -90,6 +96,3 @@
   </script>
 </body>
 </html>
-
-
-
