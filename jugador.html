@@ -34,60 +34,48 @@
     </div>
   </div>
 
-  <script>
-    // --- utilidades ---
+<script>
     const qs = new URLSearchParams(location.search);
     const bust = () => Date.now();
     const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
 
-    // Lee ?id= o ?slug= de la URL y resuelve contra data/players/index.json
-    async function resolvePlayerRef() {
-      const idParam = qs.get('id');
-      const slugParam = qs.get('slug');
-
-      const res = await fetch(`data/players/index.json?v=${bust()}`, { cache: "no-store" });
-      if (!res.ok) throw new Error("No se pudo leer data/players/index.json");
-      const list = await res.json(); // [{id, slug, jugador}, ...]
-
-      if (idParam) {
-        const idNum = Number(idParam);
-        const it = list.find(p => Number(p.id) === idNum);
-        if (it) return it;
-      }
-      if (slugParam) {
-        const it = list.find(p => (p.slug || "") === slugParam);
-        if (it) return it;
-      }
-      throw new Error("Parámetro inválido: usa ?id= o ?slug= con un jugador existente.");
+    async function loadById(id) {
+        const res = await fetch(`data/players/${id}.json?v=${bust()}`, { cache: "no-store" });
+        if (!res.ok) throw new Error("No se encontró el JSON del jugador.");
+        return await res.json();
     }
 
-    // Carga el JSON del jugador (por id) y devuelve el objeto
-    async function loadPlayerData(playerRef) {
-      const url = `data/players/${playerRef.id}.json?v=${bust()}`;
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) throw new Error("No se encontró el JSON del jugador.");
-      return await res.json(); // { id, jugador, ... }
+    async function loadBySlug(slug) {
+        const res = await fetch(`data/players/index.json?v=${bust()}`, { cache: "no-store" });
+        if (!res.ok) throw new Error("No se pudo leer data/players/index.json");
+        const lista = await res.json();
+        const ref = lista.find(p => (p.slug || "") === slug);
+        if (!ref) throw new Error("Slug inválido.");
+        return await loadById(ref.id);
     }
 
     async function boot() {
-      const status = document.getElementById('status');
-      try {
-        const ref = await resolvePlayerRef();
-        const data = await loadPlayerData(ref);
+        const status = document.getElementById('status');
+        try {
+        const id = qs.get('id');
+        const slug = qs.get('slug');
+        const data = id ? await loadById(id) :
+                    slug ? await loadBySlug(slug) :
+                    (() => { throw new Error("Falta ?id= o ?slug=") })();
 
-        // Título y subtítulo (por ahora sólo nombre)
-        const nombre = data.jugador || ref.jugador || "Jugador";
+        const nombre = data.jugador || "Jugador";
         document.title = `${nombre} — Perfil`;
         setText('player-name', nombre);
         setText('subtitle', `Perfil público`);
         status.textContent = "Datos cargados.";
-      } catch (err) {
+        } catch (err) {
         console.error(err);
         status.textContent = err.message + "  Volvé a la tabla y elegí un jugador válido.";
-      }
+        }
     }
 
     boot();
-  </script>
+</script>
+
 </body>
 </html>
