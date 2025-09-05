@@ -26,16 +26,67 @@
     @media (max-width: 640px) { table { font-size: 14px; } thead th, tbody td { padding:10px 8px; } }
 
     /* --- corrección: links como texto plano --- */
-    a, a:visited, a:hover, a:active, a:focus {
-      color: inherit;
-      text-decoration: none;
+    a, a:visited, a:hover, a:active, a:focus { color: inherit; text-decoration: none; }
+
+    /* ===== NUEVO: separador y tarjetas de partidos ===== */
+    .sep { height:1px; background:var(--line); margin:28px 0; border-radius:1px; }
+    h2 { margin:0 0 8px; font-size:20px; text-align:center; }
+    .sub2 { text-align:center; color:var(--muted); margin-bottom:16px; font-size:14px; }
+
+    .matches-card { padding:12px; }
+    .matches-status { text-align:center; color:var(--muted); padding:8px 10px; }
+    .matches-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:12px;
+      padding:8px;
     }
+    .match {
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px;
+      background: linear-gradient(180deg, #10151c, #0f141b);
+    }
+    .match-head {
+      font-size:12px; color:var(--muted);
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:8px;
+    }
+    .match-body {
+      display:grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items:center;
+      gap:8px;
+    }
+    .team {
+      font-size:13px; line-height:1.25;
+      color:var(--ink);
+      opacity:.95;
+    }
+    .score {
+      font-size:28px; font-weight:700; letter-spacing:.5px;
+      padding:4px 8px; border-radius:8px; border:1px solid var(--line);
+      text-align:center; min-width:84px;
+    }
+    .win { outline:1px solid #2a3b52; box-shadow:0 0 0 2px rgba(42,59,82,.25) inset; border-radius:8px; padding:6px; }
+    .badge {
+      font-size:10px; text-transform:uppercase; letter-spacing:.6px;
+      color:#cbe1ff; background:#1a2635; border:1px solid #27405d;
+      border-radius:999px; padding:2px 6px;
+    }
+    .tiny-note { font-size:11px; color:var(--muted); margin-top:8px; text-align:center; }
+    @media (max-width: 480px){
+      .score { font-size:24px; min-width:72px; }
+      .team  { font-size:12px; }
+    }
+    /* ===== FIN NUEVO ===== */
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>PROMIEDOS (PMX)</h1>
     <div class="sub"> TORNEO DE TRANSICIÓN: CHIQUI NAICHA </code></div>
+
     <div class="card">
       <div id="status" class="status">Cargando datos…</div>
       <table id="tabla" style="display:none">
@@ -53,6 +104,18 @@
       </table>
     </div>
     <p> (*) Ultimo campeón.</p>
+
+    <!-- ===== NUEVO: separador y sección Partidos ===== -->
+    <div class="sep"></div>
+    <h2>Partidos</h2>
+    <div class="sub2">Resultados recientes (más nuevos primero)</div>
+    <div class="card matches-card">
+      <div id="matchesStatus" class="matches-status">Cargando partidos…</div>
+      <div id="matchesGrid" class="matches-grid" style="display:none"></div>
+      <div id="matchesEmpty" class="matches-status" style="display:none">No hay partidos cargados todavía.</div>
+    </div>
+    <!-- ===== FIN NUEVO ===== -->
+
   </div>
 
   <script>
@@ -93,6 +156,151 @@
       }
     }
     cargar();
+
+    /* ===================== NUEVO: Partidos como tarjetas ===================== */
+
+    const matchesStatus = document.getElementById('matchesStatus');
+    const matchesGrid   = document.getElementById('matchesGrid');
+    const matchesEmpty  = document.getElementById('matchesEmpty');
+
+    const fmtFecha = (iso) => {
+      // Espera YYYY-MM-DD; muestra en es-AR tipo "mié 03 sep 2025"
+      try{
+        const [y,m,d] = iso.split('-').map(Number);
+        const dt = new Date(Date.UTC(y, (m-1), d, 12)); // 12:00 UTC para evitar TZ edge cases
+        return new Intl.DateTimeFormat('es-AR', { weekday:'short', day:'2-digit', month:'short', year:'numeric' })
+          .format(dt).replaceAll('.', '');
+      }catch{ return iso; }
+    };
+
+    function parseLinea(linea){
+      // "Equipo A | 12 VS. 11 | Equipo B"
+      const partes = linea.split('|').map(s => s.trim());
+      if(partes.length !== 3) return { raw: linea, ok:false };
+      const [equipoA, marcador, equipoB] = partes;
+      const m = marcador.match(/(\d+)\s*VS\.\s*(\d+)/i);
+      if(!m) return { raw: linea, equipoA, equipoB, marcadorRaw: marcador, ok:false };
+      const golesA = Number(m[1]), golesB = Number(m[2]);
+      return { equipoA, equipoB, golesA, golesB, ok:true };
+    }
+
+    function teamBlock(text, isWinner){
+      const div = document.createElement('div');
+      div.className = 'team' + (isWinner ? ' win' : '');
+      div.textContent = text;
+      if (/\*/.test(text)) div.title = 'Último campeón';
+      return div;
+    }
+
+    function scoreBlock(a, b){
+      const s = document.createElement('div');
+      s.className = 'score';
+      s.setAttribute('aria-label', `${a} a ${b}`);
+      s.textContent = `${a} - ${b}`;
+      return s;
+    }
+
+    function badge(text){
+      const b = document.createElement('span');
+      b.className = 'badge';
+      b.textContent = text;
+      return b;
+    }
+
+    async function cargarPartidos(){
+      matchesStatus.style.display = 'block';
+      matchesGrid.style.display   = 'none';
+      matchesEmpty.style.display  = 'none';
+
+      try{
+        const bust = Date.now();
+        const res  = await fetch(`data/partidos.json?v=${bust}`, { cache:'no-store' });
+        if(!res.ok) throw new Error("HTTP " + res.status);
+        const obj  = await res.json();
+
+        const entries = Object.entries(obj)
+          .filter(([fecha, linea]) => typeof linea === 'string' && fecha)
+          .sort(([f1],[f2]) => f2.localeCompare(f1)); // más reciente primero (YYYY-MM-DD)
+
+        matchesGrid.innerHTML = '';
+
+        if(entries.length === 0){
+          matchesStatus.style.display = 'none';
+          matchesEmpty.style.display  = 'block';
+          return;
+        }
+
+        for(const [fecha, linea] of entries){
+          const parsed = parseLinea(linea);
+          const card   = document.createElement('article');
+          card.className = 'match';
+          card.setAttribute('role','group');
+          card.setAttribute('aria-labelledby', `m-${fecha}`);
+
+          // header
+          const head = document.createElement('div');
+          head.className = 'match-head';
+          const hleft = document.createElement('div');
+          hleft.id = `m-${fecha}`;
+          hleft.textContent = fmtFecha(fecha);
+          head.appendChild(hleft);
+
+          // cuerpo
+          const body = document.createElement('div');
+          body.className = 'match-body';
+
+          if(parsed.ok){
+            const winA = parsed.golesA > parsed.golesB;
+            const winB = parsed.golesB > parsed.golesA;
+
+            const left  = teamBlock(parsed.equipoA, winA);
+            const score = scoreBlock(parsed.golesA, parsed.golesB);
+            const right = teamBlock(parsed.equipoB, winB);
+
+            body.append(left, score, right);
+
+            // badge para ganador (si no fue empate)
+            if (winA || winB){
+              const b = badge('Ganó');
+              (winA ? left : right).prepend(b);
+              b.style.marginRight = '6px';
+            } else {
+              head.appendChild(badge('Empate'));
+            }
+
+            // “partido cerrado” si diferencia 1
+            if (Math.abs(parsed.golesA - parsed.golesB) === 1){
+              const tiny = document.createElement('div');
+              tiny.className = 'tiny-note';
+              tiny.textContent = 'Partido cerrado';
+              card.appendChild(tiny);
+            }
+
+          } else {
+            // fallback: mostramos crudo si no matchea el formato
+            const raw = document.createElement('div');
+            raw.className = 'team';
+            raw.textContent = linea;
+            body.style.gridTemplateColumns = '1fr';
+            body.appendChild(raw);
+            head.appendChild(badge('Formato desconocido'));
+          }
+
+          card.prepend(head);
+          card.appendChild(body);
+          matchesGrid.appendChild(card);
+        }
+
+        matchesStatus.style.display = 'none';
+        matchesGrid.style.display   = 'grid';
+      }catch(err){
+        console.error(err);
+        matchesStatus.textContent = 'Error al cargar partidos: ' + err.message;
+      }
+    }
+
+    cargarPartidos();
+    /* =================== FIN NUEVO =================== */
   </script>
 </body>
 </html>
