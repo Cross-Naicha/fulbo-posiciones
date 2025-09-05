@@ -69,11 +69,6 @@
       text-align:center; min-width:84px;
     }
     .win { outline:1px solid #2a3b52; box-shadow:0 0 0 2px rgba(42,59,82,.25) inset; border-radius:8px; padding:6px; }
-    .badge {
-      font-size:10px; text-transform:uppercase; letter-spacing:.6px;
-      color:#cbe1ff; background:#1a2635; border:1px solid #27405d;
-      border-radius:999px; padding:2px 6px;
-    }
     .tiny-note { font-size:11px; color:var(--muted); margin-top:8px; text-align:center; }
     @media (max-width: 480px){
       .score { font-size:24px; min-width:72px; }
@@ -200,13 +195,6 @@
       return s;
     }
 
-    function badge(text){
-      const b = document.createElement('span');
-      b.className = 'badge';
-      b.textContent = text;
-      return b;
-    }
-
     async function cargarPartidos(){
       matchesStatus.style.display = 'block';
       matchesGrid.style.display   = 'none';
@@ -259,15 +247,6 @@
 
             body.append(left, score, right);
 
-            // badge para ganador (si no fue empate)
-            if (winA || winB){
-              const b = badge('Ganó');
-              (winA ? left : right).prepend(b);
-              b.style.marginRight = '6px';
-            } else {
-              head.appendChild(badge('Empate'));
-            }
-
             // “partido cerrado” si diferencia 1
             if (Math.abs(parsed.golesA - parsed.golesB) === 1){
               const tiny = document.createElement('div');
@@ -283,7 +262,6 @@
             raw.textContent = linea;
             body.style.gridTemplateColumns = '1fr';
             body.appendChild(raw);
-            head.appendChild(badge('Formato desconocido'));
           }
 
           card.prepend(head);
