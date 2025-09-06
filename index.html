@@ -245,6 +245,92 @@
       return s;
     }
 
+    /* ===== Rachas ===== */
+    const streaksStatus = document.getElementById('streaksStatus');
+    const streaksGrid   = document.getElementById('streaksGrid');
+    const streaksEmpty  = document.getElementById('streaksEmpty');
+
+    function fmtFechaCorta(iso){
+      try{
+        const [y,m,d] = iso.split('-').map(Number);
+        const dt = new Date(Date.UTC(y,(m-1),d,12));
+        return new Intl.DateTimeFormat('es-AR', { day:'2-digit', month:'short', year:'numeric' })
+          .format(dt).replaceAll('.', '');
+      }catch{ return iso; }
+    }
+
+    function streakCard(item){
+      const el = document.createElement('article');
+      const isPos = (item.racha || '').toLowerCase().startsWith('pos');
+      el.className = `streak ${isPos ? 'pos':'neg'}`;
+
+      const top = document.createElement('div');
+      top.className = 'streak-top';
+      const badge = document.createElement('span');
+      badge.className = `badge ${isPos ? 'pos':'neg'}`;
+      badge.textContent = item.racha || '';
+      top.appendChild(badge);
+
+      const main = document.createElement('div');
+      main.className = 'streak-main';
+      const name = document.createElement('div');
+      name.className = 'streak-name';
+      name.textContent = item.jugador || '';
+      const len = document.createElement('div');
+      len.className = 'streak-len';
+      len.textContent = `x${item.extension ?? 0}`;
+      main.append(name, len);
+
+      const dates = document.createElement('div');
+      dates.className = 'streak-dates';
+      dates.textContent = `Desde ${fmtFechaCorta(item.inicio)}`;
+
+      el.append(top, main, dates);
+      return el;
+    }
+
+    async function cargarRachas(){
+      streaksStatus.style.display = 'block';
+      streaksGrid.style.display   = 'none';
+      streaksEmpty.style.display  = 'none';
+      try{
+        const bust = Date.now();
+        const res = await fetch(`data/rachas.json?v=${bust}`, { cache:'no-store' });
+        if(!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const arr = Array.isArray(data) ? data : [];
+
+        if(arr.length === 0){
+          streaksStatus.style.display = 'none';
+          streaksEmpty.style.display  = 'block';
+          return;
+        }
+
+        // orden sugerido: positivas primero, luego negativas; dentro de cada una por extensión desc
+        arr.sort((a,b)=>{
+          const ra = (a.racha||'').toLowerCase().startsWith('pos') ? 0 : 1;
+          const rb = (b.racha||'').toLowerCase().startsWith('pos') ? 0 : 1;
+          if(ra !== rb) return ra - rb;
+          return (b.extension||0) - (a.extension||0);
+        });
+
+        streaksGrid.innerHTML = '';
+        for(const s of arr) streaksGrid.appendChild(streakCard(s));
+
+        streaksStatus.style.display = 'none';
+        streaksGrid.style.display   = 'grid';
+      }catch(err){
+        console.error(err);
+        streaksStatus.textContent = 'Error al cargar rachas: ' + err.message;
+      }
+    }
+    /* ===== fin Rachas ===== */
+
+    // ya llamás cargar() arriba; ahora llamá también:
+    cargarRachas();
+    // y luego el resto:
+    cargarPartidos();
+
     async function cargarPartidos(){
       matchesStatus.style.display = 'block';
       matchesGrid.style.display   = 'none';
