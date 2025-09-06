@@ -63,6 +63,9 @@
       color:var(--ink);
       opacity:.95;
     }
+    .team.right {
+      text-align: right;
+    }
     .score {
       font-size:28px; font-weight:700; letter-spacing:.5px;
       padding:4px 8px; border-radius:8px; border:1px solid var(--line);
@@ -163,7 +166,8 @@
       <div id="matchesEmpty" class="matches-status" style="display:none">No hay partidos cargados todavía.</div>
     </div>
     <!-- ===== fin sección Partidos ===== -->
-
+    <div class="sep"></div>
+    <div class="sep"></div>
   </div>
 
   <script>
@@ -232,13 +236,15 @@
       return { equipoA, equipoB, golesA, golesB, ok:true };
     }
 
-    function teamBlock(text){
+    function teamBlock(text, align = 'left'){
       const div = document.createElement('div');
       div.className = 'team';
+      if (align === 'right') div.classList.add('right');
       div.textContent = text;
       if (/\*/.test(text)) div.title = 'Último campeón';
       return div;
-    }
+}
+
 
     function scoreBlock(a, b){
       const s = document.createElement('div');
@@ -377,9 +383,9 @@
           body.className = 'match-body';
 
           if(parsed.ok){
-            const left  = teamBlock(parsed.equipoA);
+            const left  = teamBlock(parsed.equipoA, 'left');
             const score = scoreBlock(parsed.golesA, parsed.golesB);
-            const right = teamBlock(parsed.equipoB);
+            const right = teamBlock(parsed.equipoB, 'right');
             body.append(left, score, right);
           } else {
             // fallback: mostramos crudo si no matchea el formato
