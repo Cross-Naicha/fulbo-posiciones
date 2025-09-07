@@ -103,7 +103,7 @@
       </section>
 
       <section class="card" style="grid-column: span 12;">
-        <h3>Balance vs</h3>
+        <h3>Balance</h3>
         <div class="body" id="balance">
           <div class="status">Cargando enfrentamientos…</div>
         </div>
@@ -288,9 +288,11 @@
 
     root.innerHTML = '';
     root.append(
-      mkSection('A favor', pos, 'ok'),
-      mkSection('Parejos', zero, 'off'),
-      mkSection('En contra', neg, 'bad')
+      mkSection('Paternidad', pos, 'ok'),
+      div('separator'),
+      mkSection('Sin Reconocer', zero, 'off'),
+      div('separator'),
+      mkSection('Filiación', neg, 'bad')
     );
   }
 
@@ -319,8 +321,9 @@
 
     root.innerHTML = '';
     root.append(
-      mkSection('Mejores compañeros (victorias juntos)', best, 'ok'),
-      mkSection('Peores compañeros (derrotas juntos)', worst, 'bad')
+      mkSection('Mejores', best, 'ok'),
+      div('separator'),
+      mkSection('Peores', worst, 'bad')
     );
   }
 
