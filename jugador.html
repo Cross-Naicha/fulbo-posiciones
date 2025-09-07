@@ -183,7 +183,8 @@
     if (data.jugador || apodo){
       const nombre = data.jugador || 'Jugador';
       document.title = `${nombre} — Perfil`;
-      setText('player-name', nombre);
+      setText('player-name',`${nombre}${data.basic_statistics?.apodo ? ' ('+data.basic_statistics.apodo+')' : ''}`);
+
       setText('subtitle', 'Perfil público');
     }
   }
@@ -222,7 +223,7 @@
       } else {
         rango = '—';
       }
-      const dates = div('muted', `${rango} · extensión: ${obj.extension ?? '—'}`);
+      const dates = div('muted', `${rango} · Extensión: ${obj.extension ?? '—'}`);
 
 
       row.append(head, dates);
@@ -355,7 +356,8 @@
 
       const nombre = data.jugador || 'Jugador';
       document.title = `${nombre} — Perfil`;
-      setText('player-name', nombre);
+      setText('player-name',`${nombre}${data.basic_statistics?.apodo ? ' ('+data.basic_statistics.apodo+')' : ''}`);
+
       setText('subtitle', 'Perfil público');
 
       renderSummary(summary, data);
