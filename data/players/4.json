@@ -1,4 +1,53 @@
 {
-  "id": 4,
-  "jugador": "Guillou, Bernardo"
+  "basic_statistics": {
+    "partidos": 1,
+    "apodo": "Bag",
+    "puntos": 3,
+    "efectividad": 1.0,
+    "promedio": 0.583,
+    "ganados": 1,
+    "empatados": 0,
+    "perdidos": 0
+  },
+  "winning_streak_statistics": {
+    "empieza": "2025-09-03",
+    "termina": "2025-09-03",
+    "extension": 1,
+    "puntos acumulados": 3,
+    "victorias": 1,
+    "empates": 0,
+    "actual": 1
+  },
+  "present_streak_statistics": {
+    "empieza": "2025-09-03",
+    "termina": "2025-09-03",
+    "extension": 1,
+    "actual": true
+  },
+  "last_5": {
+    "2025-09-03": "G",
+    "2025-08-27": "A"
+  },
+  "balance_vs": {
+    "Cesano, Leandro": 1,
+    "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1,
+    "Tosi, Marcelo": 1,
+    "Daher, Camilo": 1
+  },
+  "best_partner": {
+    "Caballero, Alejandro": 1,
+    "Lombardo, Emiliano": 1,
+    "Lombardo, Juan Pablo": 1,
+    "Nuñez, Cesar": 1
+  },
+  "worse_partner": {},
+  "paternity": {
+    "Cesano, Leandro": 1,
+    "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1,
+    "Tosi, Marcelo": 1,
+    "Daher, Camilo": 1
+  },
+  "filiation": {}
 }

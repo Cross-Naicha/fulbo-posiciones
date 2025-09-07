@@ -5,7 +5,8 @@
   <title>Perfil del jugador</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root { --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042; --accent:#2f8bfd; }
+    :root { --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042; --accent:#2f8bfd;
+            --ok:#2ecc71; --warn:#f1c40f; --bad:#e74c3c; --off:#7f8c8d; }
     * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
     a { color: var(--accent); text-decoration: none; }
@@ -14,9 +15,46 @@
     .back { display:inline-flex; align-items:center; gap:8px; background:transparent; border:1px solid var(--line); padding:10px 14px; border-radius:12px; color:var(--ink); }
     .title { margin:0; font-size:26px; }
     .sub { color:var(--muted); margin:0; }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; }
     .card { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.25); }
+    .card h3 { margin:0; padding:14px 16px; border-bottom:1px solid var(--line); font-size:16px; }
+    .card .body { padding:14px 16px; }
     .status { text-align:center; color:var(--muted); padding:18px; }
-    @media (max-width: 860px) { header { flex-direction:column; align-items:flex-start; gap:6px; } }
+    .kpis { display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap:10px; }
+    .kpi { border:1px solid var(--line); border-radius:12px; padding:10px; text-align:center; }
+    .kpi .label { color:var(--muted); font-size:12px; }
+    .kpi .val { font-size:20px; font-weight:600; margin-top:2px; }
+    .wld { display:flex; gap:8px; justify-content:center; margin-top:10px; }
+    .badge { border:1px solid var(--line); padding:4px 8px; border-radius:999px; font-size:12px; }
+    .badge.ok { color:var(--ok); border-color:var(--ok); }
+    .badge.warn { color:var(--warn); border-color:var(--warn); }
+    .badge.bad { color:var(--bad); border-color:var(--bad); }
+    .row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .muted { color:var(--muted); }
+    .pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; }
+    .dot { width:10px; height:10px; border-radius:50%; background:var(--off); flex:0 0 10px; }
+    .dot.ok { background:var(--ok); }
+    .dot.warn { background:var(--warn); }
+    .dot.bad { background:var(--bad); }
+    .dot.off { background:var(--off); }
+    .last5 { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .last5 .item { display:flex; align-items:center; gap:8px; }
+    .cols-3 { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; }
+    .list { display:flex; flex-direction:column; gap:8px; }
+    .kv { display:flex; justify-content:space-between; gap:12px; border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
+    .kv .name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .kv .val { color:var(--muted); }
+    .hint { font-size:12px; color:var(--muted); margin-top:6px; }
+    .tag { font-size:11px; color:var(--muted); border:1px dashed var(--line); border-radius:999px; padding:2px 8px; }
+    @media (max-width: 960px) {
+      .kpis { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .kpis { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .grid { grid-template-columns: repeat(1, 1fr); }
+      header { flex-direction:column; align-items:flex-start; gap:6px; }
+    }
   </style>
 </head>
 <body>
@@ -29,59 +67,346 @@
       </div>
     </header>
 
-    <div class="card">
-      <div id="status" class="status">Buscando datos del jugador…</div>
+    <div class="grid">
+      <section class="card" style="grid-column: span 12;">
+        <h3>Resumen</h3>
+        <div class="body" id="summary">
+          <div class="status">Buscando datos del jugador…</div>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: span 12;">
+        <h3>Rachas</h3>
+        <div class="body" id="streaks">
+          <div class="status">Cargando rachas…</div>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: span 12;">
+        <h3>Últimos 5</h3>
+        <div class="body" id="last5">
+          <div class="status">Cargando últimos resultados…</div>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: span 12;">
+        <h3>Balance vs</h3>
+        <div class="body" id="balance">
+          <div class="status">Cargando enfrentamientos…</div>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: span 12;">
+        <h3>Compañeros</h3>
+        <div class="body" id="partners">
+          <div class="status">Cargando compañeros…</div>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: span 12;">
+        <h3>Paternidad / Filiación</h3>
+        <div class="body" id="paternity">
+          <div class="status">Cargando…</div>
+        </div>
+      </section>
     </div>
   </div>
 
 <script>
-    const qs = new URLSearchParams(location.search);
-    const bust = () => Date.now();
-    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  const qs = new URLSearchParams(location.search);
+  const bust = () => Date.now();
+  const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  const fmtDate = (iso) => {
+    if (!iso) return '—';
+    const d = new Date(iso + 'T00:00:00'); // evitar TZ
+    const dd = d.getDate().toString().padStart(2,'0');
+    const mm = (d.getMonth()+1).toString().padStart(2,'0');
+    const yyyy = d.getFullYear();
+    return `${dd}/${mm}/${yyyy}`;
+  };
 
-    async function loadById(id) {
-        const res = await fetch(`data/players/${id}.json?v=${bust()}`, { cache: "no-store" });
-        if (!res.ok) throw new Error("No se encontró el JSON del jugador.");
-        return await res.json();
+  // Fetchers
+  async function loadById(id) {
+    const res = await fetch(`data/players/${id}.json?v=${bust()}`, { cache: "no-store" });
+    if (!res.ok) throw new Error("No se encontró el JSON del jugador.");
+    return await res.json();
+  }
+  async function loadBySlug(slug) {
+    const res = await fetch(`data/players/index.json?v=${bust()}`, { cache: "no-store" });
+    if (!res.ok) throw new Error("No se pudo leer data/players/index.json");
+    const lista = await res.json();
+    const ref = lista.find(p => (p.slug || "") === slug);
+    if (!ref) throw new Error("Slug inválido.");
+    return await loadById(ref.id);
+  }
+
+  // Helpers de UI
+  const el = sel => document.querySelector(sel);
+  const div = (cls, html='') => {
+    const d = document.createElement('div'); if (cls) d.className = cls; d.innerHTML = html; return d;
+  };
+  const emptyOr = (container, fallbackText) => {
+    container.innerHTML = '';
+    return (text) => { container.innerHTML = `<div class="status">${text || fallbackText}</div>`; };
+  };
+
+  function renderSummary(root, data) {
+    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+    const b = data.basic_statistics;
+    if (!b) { no(); return; }
+
+    const { partidos, puntos, efectividad, promedio, ganados, empatados, perdidos, apodo } = b;
+    const kpis = div('kpis');
+
+    const makeKPI = (label, val) => {
+      const k = div('kpi');
+      k.innerHTML = `<div class="label">${label}</div><div class="val">${val ?? '—'}</div>`;
+      return k;
+    };
+
+    kpis.append(
+      makeKPI('Partidos', partidos ?? '—'),
+      makeKPI('Puntos', puntos ?? '—'),
+      makeKPI('Efectividad', (typeof efectividad === 'number') ? `${(efectividad*100).toFixed(0)}%` : '—'),
+      makeKPI('Promedios', (typeof promedio === 'number') ? promedio : '—'),
+      makeKPI('Ganados', ganados ?? '—'),
+      makeKPI('Emp./Perd.', (empatados ?? '—') + ' / ' + (perdidos ?? '—'))
+    );
+
+    root.innerHTML = '';
+    root.appendChild(kpis);
+
+    const wld = div('wld');
+    const wb = div('badge ok','W '+(ganados ?? 0));
+    const db = div('badge warn','D '+(empatados ?? 0));
+    const lb = div('badge bad','L '+(perdidos ?? 0));
+    wld.append(wb, db, lb);
+    root.appendChild(wld);
+
+    if (data.jugador || apodo) {
+      const nombre = data.jugador || 'Jugador';
+      document.title = `${nombre} — Perfil`;
+      setText('player-name', nombre + (apodo ? ` (${apodo})` : ''));
+      setText('subtitle', `Perfil público`);
     }
+  }
 
-    async function loadBySlug(slug) {
-        const res = await fetch(`data/players/index.json?v=${bust()}`, { cache: "no-store" });
-        if (!res.ok) throw new Error("No se pudo leer data/players/index.json");
-        const lista = await res.json();
-        const ref = lista.find(p => (p.slug || "") === slug);
-        if (!ref) throw new Error("Slug inválido.");
-        return await loadById(ref.id);
+  function renderStreaks(root, data) {
+    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+    const w = data.winning_streak_statistics;
+    const l = data.losses_streak_statistics;
+    const p = data.present_streak_statistics;
+    if (!w && !l && !p) { no(); return; }
+
+    root.innerHTML = '';
+    const makeRow = (title, obj, color) => {
+      if (!obj) {
+        const r = div('row muted', `<strong>${title}:</strong> Métrica no disponible`);
+        root.appendChild(r);
+        return;
+      }
+      const { empieza, termina, extension, actual } = obj;
+      const tag = div('tag', actual === true ? 'ACTIVA' : 'No activa');
+      const label = div('', `<strong>${title}:</strong> ${extension ?? '—'}&nbsp;<span class="muted">( ${fmtDate(empieza)} — ${fmtDate(termina)} )</span>`);
+      const pill = div('pill'); const d = div('dot'); if (color) d.classList.add(color); pill.append(d, tag);
+      const row = div('row'); row.append(label, pill); root.appendChild(row);
+    };
+
+    makeRow('Racha de victorias', w, 'ok');
+    makeRow('Racha de derrotas', l, 'bad');
+    makeRow('Asistencias consecutivas', p, 'warn');
+
+    // Hint por si la clave viene con espacio
+    const pa = (w && (w['puntos acumulados'] ?? w['puntos_acumulados']));
+    if (pa != null) {
+      const h = div('hint', `Puntos en racha de victorias: ${pa}`);
+      root.appendChild(h);
     }
+  }
 
-    async function boot() {
-    const status = document.getElementById('status');
+  function renderLast5(root, data) {
+    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+    const L = data.last_5;
+    if (!L || typeof L !== 'object' || Object.keys(L).length === 0) { no(); return; }
+
+    // Ordenar por fecha desc
+    const entries = Object.entries(L)
+      .map(([date, res]) => ({ date, res: (res || '').toUpperCase() }))
+      .sort((a,b) => new Date(b.date) - new Date(a.date));
+
+    // Normalizar a 5 (si hay menos, completar con “ausente”)
+    const normalized = entries.slice(0,5);
+    while (normalized.length < 5) normalized.push({ date: null, res: 'A' }); // Ausente/desconocido
+
+    const wrap = div('last5');
+    normalized.forEach(({date,res}) => {
+      let cls='off', txt='Ausente';
+      if (res === 'G') { cls='ok'; txt='Ganado'; }
+      else if (res === 'E') { cls='warn'; txt='Empatado'; }
+      else if (res === 'P') { cls='bad'; txt='Perdido'; }
+      const item = div('item');
+      const dot = div(`dot ${cls}`);
+      const label = div('muted', date ? `${fmtDate(date)} — ${txt}` : `— ${txt}`);
+      item.append(dot, label);
+      wrap.appendChild(item);
+    });
+
+    root.innerHTML = '';
+    root.appendChild(wrap);
+  }
+
+  function renderBalance(root, data) {
+    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+    const B = data.balance_vs;
+    if (!B || typeof B !== 'object') { no(); return; }
+
+    const pos=[], zero=[], neg=[];
+    Object.entries(B).forEach(([name, val]) => {
+      if (val > 0) pos.push([name,val]);
+      else if (val < 0) neg.push([name,val]);
+      else zero.push([name,val]);
+    });
+
+    const cols = div('cols-3');
+    const mkList = (title, arr, klass) => {
+      const sec = div('');
+      sec.appendChild(div('muted', title));
+      const list = div('list');
+      if (arr.length === 0) list.appendChild(div('muted','—'));
+      arr.sort((a,b)=>b[1]-a[1]).forEach(([name,val]) => {
+        const row = div('kv');
+        const n = div('name', name);
+        const v = div('val', (val>0?'+':'')+val);
+        if (klass==='ok') v.style.color = 'var(--ok)';
+        if (klass==='bad') v.style.color = 'var(--bad)';
+        list.appendChild(Object.assign(row, { appendChild: (child => { row.append(n,v); return row; })() }));
+        // fix append
+        row.innerHTML = `<span class="name">${name}</span><span class="val">${(val>0?'+':'')+val}</span>`;
+        if (klass==='ok') row.querySelector('.val').style.color = 'var(--ok)';
+        if (klass==='bad') row.querySelector('.val').style.color = 'var(--bad)';
+      });
+      sec.appendChild(list);
+      return sec;
+    };
+
+    cols.append(
+      mkList('A favor', pos, 'ok'),
+      mkList('Parejos', zero, 'off'),
+      mkList('En contra', neg, 'bad'),
+    );
+
+    root.innerHTML = '';
+    root.appendChild(cols);
+  }
+
+  function renderPartners(root, data) {
+    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+    const best = data.best_partner;
+    const worst = data.worse_partner;
+    if (!best && !worst) { no(); return; }
+
+    const cols = div('cols-3');
+    const mkList = (title, obj, cls) => {
+      const sec = div('');
+      sec.appendChild(div('muted', title));
+      const list = div('list');
+      if (!obj || Object.keys(obj).length===0) list.appendChild(div('muted','—'));
+      else {
+        Object.entries(obj).sort((a,b)=>b[1]-a[1]).forEach(([name, val]) => {
+          const row = div('kv');
+          row.innerHTML = `<span class="name">${name}</span><span class="val">${val ?? 0}</span>`;
+          if (cls==='ok') row.querySelector('.val').style.color = 'var(--ok)';
+          if (cls==='bad') row.querySelector('.val').style.color = 'var(--bad)';
+          list.appendChild(row);
+        });
+      }
+      sec.appendChild(list);
+      return sec;
+    };
+
+    cols.append(
+      mkList('Mejores compañeros (victorias juntos)', best, 'ok'),
+      div(''), // columna espaciadora en móviles se apila igual
+      mkList('Peores compañeros (derrotas juntos)', worst, 'bad'),
+    );
+
+    root.innerHTML = '';
+    root.appendChild(cols);
+  }
+
+  function renderPaternity(root, data) {
+    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+    const pat = data.paternity, fil = data.filiation;
+    if (!pat && !fil) { no(); return; }
+
+    const cols = div('cols-3');
+    const mkList = (title, obj, cls) => {
+      const sec = div('');
+      sec.appendChild(div('muted', title));
+      const list = div('list');
+      if (!obj || Object.keys(obj).length===0) list.appendChild(div('muted','—'));
+      else {
+        Object.entries(obj).forEach(([name, _]) => {
+          const row = div('kv');
+          row.innerHTML = `<span class="name">${name}</span><span class="val">●</span>`;
+          const val = row.querySelector('.val');
+          if (cls==='ok') val.style.color = 'var(--ok)';
+          if (cls==='bad') val.style.color = 'var(--bad)';
+          list.appendChild(row);
+        });
+      }
+      sec.appendChild(list);
+      return sec;
+    };
+
+    cols.append(
+      mkList('Paternidad (domina a)', pat, 'ok'),
+      div(''),
+      mkList('Filiación (lo dominan)', fil, 'bad'),
+    );
+
+    root.innerHTML = '';
+    root.appendChild(cols);
+  }
+
+  async function boot() {
+    const id = qs.get('id');
+    const slug = qs.get('slug');
+
+    const summary = el('#summary');
+    const streaks = el('#streaks');
+    const last5 = el('#last5');
+    const balance = el('#balance');
+    const partners = el('#partners');
+    const paternity = el('#paternity');
+
     try {
-        const id = qs.get('id');
-        const slug = qs.get('slug');
+      let data;
+      if (id) data = await loadById(id);
+      else if (slug) data = await loadBySlug(slug);
+      else throw new Error("Falta ?id= o ?slug=");
 
-        let data;
-        if (id) {
-        data = await loadById(id);   // directo al archivo players/<id>.json
-        } else if (slug) {
-        data = await loadBySlug(slug); // este sí usa index.json
-        } else {
-        throw new Error("Falta ?id= o ?slug=");
-        }
+      // Nombre / subtítulo (si no vino en basic_statistics)
+      const nombre = data.jugador || "Jugador";
+      document.title = `${nombre} — Perfil`;
+      setText('player-name', `${nombre}${data.basic_statistics?.apodo ? ' ('+data.basic_statistics.apodo+')' : ''}`);
+      setText('subtitle', 'Perfil público');
 
-        const nombre = data.jugador || "Jugador";
-        document.title = `${nombre} — Perfil`;
-        setText('player-name', nombre);
-        setText('subtitle', `Perfil público`);
-        status.textContent = "Para acceder a tus metricas suscribite a la version PRO (150 US$).";
+      renderSummary(summary, data);
+      renderStreaks(streaks, data);
+      renderLast5(last5, data);
+      renderBalance(balance, data);
+      renderPartners(partners, data);
+      renderPaternity(paternity, data);
+
     } catch (err) {
-        console.error(err);
-        status.textContent = err.message + "  Volvé a la tabla y elegí un jugador válido.";
+      console.error(err);
+      const blocks = [summary, streaks, last5, balance, partners, paternity];
+      blocks.forEach(b => b && (b.innerHTML = `<div class="status">${err.message}  Volvé a la tabla y elegí un jugador válido.</div>`));
     }
-}
+  }
 
-
-    boot();
+  boot();
 </script>
 
 </body>

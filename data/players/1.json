@@ -1,4 +1,68 @@
 {
-  "id": 1,
-  "jugador": "Cesano, Leandro"
+  "basic_statistics": {
+    "partidos": 2,
+    "apodo": "Chicho",
+    "puntos": 0,
+    "efectividad": 0.0,
+    "promedio": 0.357,
+    "ganados": 0,
+    "empatados": 0,
+    "perdidos": 2
+  },
+  "winning_streak_statistics": {
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
+    "victorias": 0,
+    "empates": 0,
+    "actual": false
+  },
+  "losses_streak_statistics": {
+    "empieza": "2025-08-27",
+    "termina": "2025-09-03",
+    "extension": 2,
+    "actual": true
+  },
+  "present_streak_statistics": {
+    "empieza": "2025-08-27",
+    "termina": "2025-09-03",
+    "extension": 2,
+    "actual": true
+  },
+  "last_5": {
+    "2025-09-03": "P",
+    "2025-08-27": "P"
+  },
+  "balance_vs": {
+    "Ramos Benitez, Matias": -1,
+    "Chagay, Alexis": -1,
+    "Ruiz, Mariano": -1,
+    "Guillou, Bernardo": -1,
+    "Nuñez, Cesar": -1,
+    "Caballero, Alejandro": -1,
+    "Lombardo, Emiliano": -2,
+    "Lombardo, Juan Pablo": -2
+  },
+  "best_partner": {},
+  "worse_partner": {
+    "Tosi, Marcelo": 2,
+    "Chagay, Alexis": 1,
+    "Daher, Camilo": 1,
+    "Nuñez, Cesar": 1,
+    "Ponce, Martin": 1,
+    "Recalde, Facundo": 1,
+    "Ruiz, Mariano": 1
+  },
+  "paternity": {},
+  "filiation": {
+    "Lombardo, Emiliano": 2,
+    "Lombardo, Juan Pablo": 2,
+    "Ramos Benitez, Matias": 1,
+    "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1,
+    "Guillou, Bernardo": 1,
+    "Nuñez, Cesar": 1,
+    "Caballero, Alejandro": 1
+  }
 }

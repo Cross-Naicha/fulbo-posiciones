@@ -1,4 +1,73 @@
 {
-  "id": 9,
-  "jugador": "Nuñez, Cesar"
+  "basic_statistics": {
+    "partidos": 2,
+    "apodo": "Cesar",
+    "puntos": 3,
+    "efectividad": 0.5,
+    "promedio": 0.5,
+    "ganados": 1,
+    "empatados": 0,
+    "perdidos": 1
+  },
+  "winning_streak_statistics": {
+    "empieza": "2025-09-03",
+    "termina": "2025-09-03",
+    "extension": 1,
+    "puntos acumulados": 3,
+    "victorias": 1,
+    "empates": 0,
+    "actual": 1
+  },
+  "losses_streak_statistics": {
+    "empieza": "2025-08-27",
+    "termina": "2025-08-27",
+    "extension": 1,
+    "actual": false
+  },
+  "present_streak_statistics": {
+    "empieza": "2025-08-27",
+    "termina": "2025-09-03",
+    "extension": 2,
+    "actual": true
+  },
+  "last_5": {
+    "2025-09-03": "G",
+    "2025-08-27": "P"
+  },
+  "balance_vs": {
+    "Cesano, Leandro": 1,
+    "Tosi, Marcelo": 1,
+    "Daher, Camilo": 1,
+    "Chagay, Alexis": 0,
+    "Ruiz, Mariano": 0,
+    "Lombardo, Emiliano": -1,
+    "Lombardo, Juan Pablo": -1,
+    "Ramos Benitez, Matias": -1
+  },
+  "best_partner": {
+    "Caballero, Alejandro": 1,
+    "Guillou, Bernardo": 1,
+    "Lombardo, Emiliano": 1,
+    "Lombardo, Juan Pablo": 1
+  },
+  "worse_partner": {
+    "Cesano, Leandro": 1,
+    "Ponce, Martin": 1,
+    "Recalde, Facundo": 1,
+    "Tosi, Marcelo": 1
+  },
+  "paternity": {
+    "Cesano, Leandro": 1,
+    "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1,
+    "Tosi, Marcelo": 1,
+    "Daher, Camilo": 1
+  },
+  "filiation": {
+    "Lombardo, Emiliano": 1,
+    "Lombardo, Juan Pablo": 1,
+    "Ramos Benitez, Matias": 1,
+    "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1
+  }
 }

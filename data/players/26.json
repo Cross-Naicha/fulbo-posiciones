@@ -1,22 +1,22 @@
 {
   "basic_statistics": {
-    "partidos": 2,
-    "apodo": "Mario*",
-    "puntos": 3,
-    "efectividad": 0.5,
-    "promedio": 0.5,
-    "ganados": 1,
+    "partidos": 1,
+    "apodo": "Camilo",
+    "puntos": 0,
+    "efectividad": 0.0,
+    "promedio": 0.417,
+    "ganados": 0,
     "empatados": 0,
     "perdidos": 1
   },
   "winning_streak_statistics": {
-    "empieza": "2025-08-27",
-    "termina": "2025-08-27",
-    "extension": 1,
-    "puntos acumulados": 3,
-    "victorias": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
+    "victorias": 0,
     "empates": 0,
-    "actual": 0
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2025-09-03",
@@ -25,45 +25,30 @@
     "actual": true
   },
   "present_streak_statistics": {
-    "empieza": "2025-08-27",
+    "empieza": "2025-09-03",
     "termina": "2025-09-03",
-    "extension": 2,
+    "extension": 1,
     "actual": true
   },
   "last_5": {
     "2025-09-03": "P",
-    "2025-08-27": "G"
+    "2025-08-27": "A"
   },
   "balance_vs": {
-    "Cesano, Leandro": 1,
-    "Recalde, Facundo": 1,
-    "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1,
-    "Nuñez, Cesar": 0,
     "Guillou, Bernardo": -1,
     "Lombardo, Emiliano": -1,
     "Lombardo, Juan Pablo": -1,
+    "Nuñez, Cesar": -1,
     "Caballero, Alejandro": -1
   },
-  "best_partner": {
-    "Chagay, Alexis": 1,
-    "Lombardo, Emiliano": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Ramos Benitez, Matias": 1
-  },
+  "best_partner": {},
   "worse_partner": {
     "Cesano, Leandro": 1,
     "Chagay, Alexis": 1,
-    "Daher, Camilo": 1,
+    "Ruiz, Mariano": 1,
     "Tosi, Marcelo": 1
   },
-  "paternity": {
-    "Cesano, Leandro": 1,
-    "Recalde, Facundo": 1,
-    "Nuñez, Cesar": 1,
-    "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1
-  },
+  "paternity": {},
   "filiation": {
     "Guillou, Bernardo": 1,
     "Lombardo, Emiliano": 1,

@@ -1,4 +1,59 @@
 {
-  "id": 8,
-  "jugador": "Recalde, Facundo"
+  "basic_statistics": {
+    "partidos": 1,
+    "apodo": "Facu",
+    "puntos": 0,
+    "efectividad": 0.0,
+    "promedio": 0.417,
+    "ganados": 0,
+    "empatados": 0,
+    "perdidos": 1
+  },
+  "winning_streak_statistics": {
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
+    "victorias": 0,
+    "empates": 0,
+    "actual": false
+  },
+  "losses_streak_statistics": {
+    "empieza": "2025-08-27",
+    "termina": "2025-08-27",
+    "extension": 1,
+    "actual": true
+  },
+  "present_streak_statistics": {
+    "empieza": "2025-08-27",
+    "termina": "2025-08-27",
+    "extension": 1,
+    "actual": false
+  },
+  "last_5": {
+    "2025-09-03": "A",
+    "2025-08-27": "P"
+  },
+  "balance_vs": {
+    "Lombardo, Emiliano": -1,
+    "Lombardo, Juan Pablo": -1,
+    "Ramos Benitez, Matias": -1,
+    "Chagay, Alexis": -1,
+    "Ruiz, Mariano": -1
+  },
+  "best_partner": {},
+  "worse_partner": {
+    "Cesano, Leandro": 1,
+    "Nuñez, Cesar": 1,
+    "Ponce, Martin": 1,
+    "Tosi, Marcelo": 1
+  },
+  "paternity": {},
+  "filiation": {
+    "Lombardo, Emiliano": 1,
+    "Lombardo, Juan Pablo": 1,
+    "Ramos Benitez, Matias": 1,
+    "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1
+  }
 }
