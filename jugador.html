@@ -168,7 +168,7 @@
       makeKPI('Partidos', partidos ?? '—'),
       makeKPI('Puntos', puntos ?? '—'),
       makeKPI('%', (typeof efectividad === 'number') ? `${(efectividad*100).toFixed(0)}%` : '—'),
-      makeKPI('Promiedo', (typeof promedio === 'number') ? promedio : '—')
+      makeKPI('PMX', (typeof promedio === 'number') ? promedio : '—')
     );
 
     root.innerHTML = '';
@@ -177,7 +177,7 @@
     // Etiquetas de colores (W/D/L) – permanecen
     const wld = div('wld');
     wld.append(
-      div('badge ok', 'W ' + (ganados ?? 0)),
+      div('badge ok', ' W ' + (ganados ?? 0) + ' '),
       div('badge warn', 'D ' + (empatados ?? 0)),
       div('badge bad', 'L ' + (perdidos ?? 0))
     );
