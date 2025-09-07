@@ -5,55 +5,65 @@
   <title>Perfil del jugador</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root { --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042; --accent:#2f8bfd;
-            --ok:#2ecc71; --warn:#f1c40f; --bad:#e74c3c; --off:#7f8c8d; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--ink); }
-    a { color: var(--accent); text-decoration: none; }
-    .wrap { max-width:1080px; margin:32px auto; padding:0 16px; }
-    header { display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:12px; }
-    .back { display:inline-flex; align-items:center; gap:8px; background:transparent; border:1px solid var(--line); padding:10px 14px; border-radius:12px; color:var(--ink); }
-    .title { margin:0; font-size:26px; }
-    .sub { color:var(--muted); margin:0; }
-    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.25); }
-    .card h3 { margin:0; padding:14px 16px; border-bottom:1px solid var(--line); font-size:16px; }
-    .card .body { padding:14px 16px; }
-    .status { text-align:center; color:var(--muted); padding:18px; }
-    .kpis { display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap:10px; }
-    .kpi { border:1px solid var(--line); border-radius:12px; padding:10px; text-align:center; }
-    .kpi .label { color:var(--muted); font-size:12px; }
-    .kpi .val { font-size:20px; font-weight:600; margin-top:2px; }
-    .wld { display:flex; gap:8px; justify-content:center; margin-top:10px; }
-    .badge { border:1px solid var(--line); padding:4px 8px; border-radius:999px; font-size:12px; }
-    .badge.ok { color:var(--ok); border-color:var(--ok); }
-    .badge.warn { color:var(--warn); border-color:var(--warn); }
-    .badge.bad { color:var(--bad); border-color:var(--bad); }
-    .row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
-    .muted { color:var(--muted); }
-    .pill { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; }
-    .dot { width:10px; height:10px; border-radius:50%; background:var(--off); flex:0 0 10px; }
-    .dot.ok { background:var(--ok); }
-    .dot.warn { background:var(--warn); }
-    .dot.bad { background:var(--bad); }
-    .dot.off { background:var(--off); }
-    .last5 { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-    .last5 .item { display:flex; align-items:center; gap:8px; }
-    .cols-3 { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; }
-    .list { display:flex; flex-direction:column; gap:8px; }
-    .kv { display:flex; justify-content:space-between; gap:12px; border:1px solid var(--line); border-radius:10px; padding:8px 10px; }
-    .kv .name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-    .kv .val { color:var(--muted); }
-    .hint { font-size:12px; color:var(--muted); margin-top:6px; }
-    .tag { font-size:11px; color:var(--muted); border:1px dashed var(--line); border-radius:999px; padding:2px 8px; }
-    @media (max-width: 960px) {
-      .kpis { grid-template-columns: repeat(3,minmax(0,1fr)); }
-      .grid { grid-template-columns: repeat(6, 1fr); }
+    :root { 
+      --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042; --accent:#2f8bfd;
+      --ok:#22c55e; --warn:#eab308; --bad:#ef4444; --off:#64748b; --present:#2f8bfd;
     }
-    @media (max-width: 640px) {
-      .kpis { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .grid { grid-template-columns: repeat(1, 1fr); }
-      header { flex-direction:column; align-items:flex-start; gap:6px; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:1080px;margin:32px auto;padding:0 16px}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .back{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--line);padding:10px 14px;border-radius:12px;color:var(--ink)}
+    .title{margin:0;font-size:26px}
+    .sub{color:var(--muted);margin:0}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+    .card h3{margin:0;padding:14px 16px;border-bottom:1px solid var(--line);font-size:16px}
+    .card .body{padding:14px 16px}
+    .status{text-align:center;color:var(--muted);padding:18px}
+
+    /* KPIs */
+    .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+    .kpi{border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+    .kpi .label{color:var(--muted);font-size:12px}
+    .kpi .val{font-size:20px;font-weight:600;margin-top:2px}
+    .wld{display:flex;gap:8px;justify-content:center;margin-top:10px}
+    .badge{border:1px solid var(--line);padding:4px 8px;border-radius:999px;font-size:12px}
+    .badge.ok{color:var(--ok);border-color:var(--ok)}
+    .badge.warn{color:var(--warn);border-color:var(--warn)}
+    .badge.bad{color:var(--bad);border-color:var(--bad)}
+
+    /* Generic helpers */
+    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .muted{color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:999px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--off);flex:0 0 10px}
+    .dot.ok{background:var(--ok)}
+    .dot.warn{background:var(--warn)}
+    .dot.bad{background:var(--bad)}
+    .dot.off{background:var(--off)}
+    .dot.present{background:var(--present)}
+
+    /* Últimos 5: cada uno en su propio renglón */
+    .last5{display:flex;flex-direction:column;gap:8px}
+    .last5 .item{display:flex;gap:8px;align-items:center;width:100%}
+
+    /* Listas de pares clave-valor (secciones apiladas) */
+    .section-title{margin:10px 0 6px 0;font-weight:600;color:var(--muted)}
+    .list{display:flex;flex-direction:column;gap:8px}
+    .kv{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+    .kv .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .kv .val{color:var(--muted)}
+    .hint{font-size:12px;color:var(--muted);margin-top:6px}
+
+    @media (max-width:960px){
+      .grid{grid-template-columns:repeat(6,1fr)}
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:repeat(1,1fr)}
+      header{flex-direction:column;align-items:flex-start;gap:6px}
     }
   </style>
 </head>
@@ -118,136 +128,131 @@
   const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
   const fmtDate = (iso) => {
     if (!iso) return '—';
-    const d = new Date(iso + 'T00:00:00'); // evitar TZ
+    const d = new Date(iso + 'T00:00:00');
     const dd = d.getDate().toString().padStart(2,'0');
     const mm = (d.getMonth()+1).toString().padStart(2,'0');
     const yyyy = d.getFullYear();
     return `${dd}/${mm}/${yyyy}`;
   };
 
-  // Fetchers
-  async function loadById(id) {
-    const res = await fetch(`data/players/${id}.json?v=${bust()}`, { cache: "no-store" });
-    if (!res.ok) throw new Error("No se encontró el JSON del jugador.");
+  async function loadById(id){
+    const res = await fetch(`data/players/${id}.json?v=${bust()}`, { cache: 'no-store' });
+    if(!res.ok) throw new Error('No se encontró el JSON del jugador.');
     return await res.json();
   }
-  async function loadBySlug(slug) {
-    const res = await fetch(`data/players/index.json?v=${bust()}`, { cache: "no-store" });
-    if (!res.ok) throw new Error("No se pudo leer data/players/index.json");
+  async function loadBySlug(slug){
+    const res = await fetch(`data/players/index.json?v=${bust()}`, { cache: 'no-store' });
+    if(!res.ok) throw new Error('No se pudo leer data/players/index.json');
     const lista = await res.json();
-    const ref = lista.find(p => (p.slug || "") === slug);
-    if (!ref) throw new Error("Slug inválido.");
+    const ref = lista.find(p => (p.slug || '') === slug);
+    if(!ref) throw new Error('Slug inválido.');
     return await loadById(ref.id);
   }
 
-  // Helpers de UI
   const el = sel => document.querySelector(sel);
-  const div = (cls, html='') => {
-    const d = document.createElement('div'); if (cls) d.className = cls; d.innerHTML = html; return d;
-  };
-  const emptyOr = (container, fallbackText) => {
-    container.innerHTML = '';
-    return (text) => { container.innerHTML = `<div class="status">${text || fallbackText}</div>`; };
-  };
+  const div = (cls, html='') => { const d = document.createElement('div'); if(cls) d.className = cls; d.innerHTML = html; return d; };
+  const emptyOr = (container, fallbackText) => { container.innerHTML = ''; return (text) => { container.innerHTML = `<div class="status">${text || fallbackText}</div>`; }; };
 
-  function renderSummary(root, data) {
-    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+  // ===================== Resumen =====================
+  function renderSummary(root, data){
+    const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
     const b = data.basic_statistics;
-    if (!b) { no(); return; }
+    if(!b){ no(); return; }
 
-    const { partidos, puntos, efectividad, promedio, ganados, empatados, perdidos, apodo } = b;
+    const { partidos, puntos, efectividad, promedio, ganados=0, empatados=0, perdidos=0, apodo } = b;
     const kpis = div('kpis');
 
-    const makeKPI = (label, val) => {
-      const k = div('kpi');
-      k.innerHTML = `<div class="label">${label}</div><div class="val">${val ?? '—'}</div>`;
-      return k;
-    };
+    const makeKPI = (label, val) => { const k = div('kpi'); k.innerHTML = `<div class="label">${label}</div><div class="val">${val ?? '—'}</div>`; return k; };
 
     kpis.append(
       makeKPI('Partidos', partidos ?? '—'),
       makeKPI('Puntos', puntos ?? '—'),
       makeKPI('Efectividad', (typeof efectividad === 'number') ? `${(efectividad*100).toFixed(0)}%` : '—'),
-      makeKPI('Promedios', (typeof promedio === 'number') ? promedio : '—'),
-      makeKPI('Ganados', ganados ?? '—'),
-      makeKPI('Emp./Perd.', (empatados ?? '—') + ' / ' + (perdidos ?? '—'))
+      makeKPI('Promedios', (typeof promedio === 'number') ? promedio : '—')
     );
 
     root.innerHTML = '';
     root.appendChild(kpis);
 
+    // Etiquetas de colores (W/D/L) – permanecen
     const wld = div('wld');
-    const wb = div('badge ok','W '+(ganados ?? 0));
-    const db = div('badge warn','D '+(empatados ?? 0));
-    const lb = div('badge bad','L '+(perdidos ?? 0));
-    wld.append(wb, db, lb);
+    wld.append(
+      div('badge ok', 'W ' + (ganados ?? 0)),
+      div('badge warn', 'D ' + (empatados ?? 0)),
+      div('badge bad', 'L ' + (perdidos ?? 0))
+    );
     root.appendChild(wld);
 
-    if (data.jugador || apodo) {
+    if (data.jugador || apodo){
       const nombre = data.jugador || 'Jugador';
       document.title = `${nombre} — Perfil`;
       setText('player-name', nombre + (apodo ? ` (${apodo})` : ''));
-      setText('subtitle', `Perfil público`);
+      setText('subtitle', 'Perfil público');
     }
   }
 
-  function renderStreaks(root, data) {
-    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
-    const w = data.winning_streak_statistics;
-    const l = data.losses_streak_statistics;
-    const p = data.present_streak_statistics;
-    if (!w && !l && !p) { no(); return; }
+  // ===================== Rachas =====================
+  function renderStreaks(root, data){
+    const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
+    const w = data.winning_streak_statistics; // Victoria
+    const l = data.losses_streak_statistics;  // Derrota
+    const p = data.present_streak_statistics; // Presente
+    if(!w && !l && !p){ no(); return; }
 
     root.innerHTML = '';
-    const makeRow = (title, obj, color) => {
-      if (!obj) {
-        const r = div('row muted', `<strong>${title}:</strong> Métrica no disponible`);
-        root.appendChild(r);
-        return;
-      }
-      const { empieza, termina, extension, actual } = obj;
-      const tag = div('tag', actual === true ? 'ACTIVA' : 'No activa');
-      const label = div('', `<strong>${title}:</strong> ${extension ?? '—'}&nbsp;<span class="muted">( ${fmtDate(empieza)} — ${fmtDate(termina)} )</span>`);
-      const pill = div('pill'); const d = div('dot'); if (color) d.classList.add(color); pill.append(d, tag);
-      const row = div('row'); row.append(label, pill); root.appendChild(row);
+    const makeRow = (titulo, obj, activeColorClass) => {
+      // obj esperado: { empieza, termina, extension, actual }
+      const row = div('');
+      if(!obj){ row.appendChild(div('row muted', `<strong>${titulo}:</strong> Métrica no disponible`)); return row; }
+
+      const estado = obj.actual ? 'ACTIVA' : 'Inactiva';
+      const dotClass = obj.actual ? activeColorClass : 'off';
+
+      // Encabezado: Título + etiqueta estado + dot
+      const head = div('row');
+      const pill = div('pill');
+      const dot = div(`dot ${dotClass}`);
+      pill.append(dot, div('', estado));
+      head.append(div('', `<strong>${titulo}</strong>`), pill);
+
+      // Segundo renglón: fechas y extensión
+      const dates = div('muted', `${fmtDate(obj.empieza)} — ${fmtDate(obj.termina)} · extensión: ${obj.extension ?? '—'}`);
+
+      row.append(head, dates);
+      return row;
     };
 
-    makeRow('Racha de victorias', w, 'ok');
-    makeRow('Racha de derrotas', l, 'bad');
-    makeRow('Asistencias consecutivas', p, 'warn');
+    root.append(
+      makeRow('Victoria', w, 'ok'),
+      makeRow('Derrota', l, 'bad'),
+      makeRow('Presente', p, 'present')
+    );
 
-    // Hint por si la clave viene con espacio
     const pa = (w && (w['puntos acumulados'] ?? w['puntos_acumulados']));
-    if (pa != null) {
-      const h = div('hint', `Puntos en racha de victorias: ${pa}`);
-      root.appendChild(h);
-    }
+    if (pa != null) root.appendChild(div('hint', `Puntos en racha de victoria: ${pa}`));
   }
 
-  function renderLast5(root, data) {
-    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+  // ===================== Últimos 5 =====================
+  function renderLast5(root, data){
+    const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
     const L = data.last_5;
-    if (!L || typeof L !== 'object' || Object.keys(L).length === 0) { no(); return; }
+    if(!L || typeof L !== 'object' || Object.keys(L).length===0){ no(); return; }
 
-    // Ordenar por fecha desc
     const entries = Object.entries(L)
-      .map(([date, res]) => ({ date, res: (res || '').toUpperCase() }))
-      .sort((a,b) => new Date(b.date) - new Date(a.date));
+      .map(([date, res]) => ({ date, res: (res||'').toUpperCase() }))
+      .sort((a,b)=> new Date(b.date) - new Date(a.date));
 
-    // Normalizar a 5 (si hay menos, completar con “ausente”)
     const normalized = entries.slice(0,5);
-    while (normalized.length < 5) normalized.push({ date: null, res: 'A' }); // Ausente/desconocido
+    while (normalized.length < 5) normalized.push({ date:null, res:'A' });
 
     const wrap = div('last5');
     normalized.forEach(({date,res}) => {
       let cls='off', txt='Ausente';
-      if (res === 'G') { cls='ok'; txt='Ganado'; }
-      else if (res === 'E') { cls='warn'; txt='Empatado'; }
-      else if (res === 'P') { cls='bad'; txt='Perdido'; }
+      if(res==='G'){ cls='ok'; txt='Ganado'; }
+      else if(res==='E'){ cls='warn'; txt='Empatado'; }
+      else if(res==='P'){ cls='bad'; txt='Perdido'; }
       const item = div('item');
-      const dot = div(`dot ${cls}`);
-      const label = div('muted', date ? `${fmtDate(date)} — ${txt}` : `— ${txt}`);
-      item.append(dot, label);
+      item.append(div(`dot ${cls}`), div('', date ? `${fmtDate(date)} — ${txt}` : `— ${txt}`));
       wrap.appendChild(item);
     });
 
@@ -255,121 +260,101 @@
     root.appendChild(wrap);
   }
 
-  function renderBalance(root, data) {
-    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
+  // ===================== Balance vs (secciones apiladas) =====================
+  function renderBalance(root, data){
+    const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
     const B = data.balance_vs;
-    if (!B || typeof B !== 'object') { no(); return; }
+    if(!B || typeof B !== 'object'){ no(); return; }
 
     const pos=[], zero=[], neg=[];
-    Object.entries(B).forEach(([name, val]) => {
-      if (val > 0) pos.push([name,val]);
-      else if (val < 0) neg.push([name,val]);
-      else zero.push([name,val]);
-    });
+    Object.entries(B).forEach(([name,val])=>{ if(val>0) pos.push([name,val]); else if(val<0) neg.push([name,val]); else zero.push([name,val]); });
 
-    const cols = div('cols-3');
-    const mkList = (title, arr, klass) => {
+    const mkSection = (title, arr, cls) => {
       const sec = div('');
-      sec.appendChild(div('muted', title));
+      sec.appendChild(div('section-title', title));
       const list = div('list');
-      if (arr.length === 0) list.appendChild(div('muted','—'));
-      arr.sort((a,b)=>b[1]-a[1]).forEach(([name,val]) => {
+      if(arr.length===0) list.appendChild(div('muted','—'));
+      arr.sort((a,b)=> b[1]-a[1]).forEach(([name,val]) => {
         const row = div('kv');
-        const n = div('name', name);
-        const v = div('val', (val>0?'+':'')+val);
-        if (klass==='ok') v.style.color = 'var(--ok)';
-        if (klass==='bad') v.style.color = 'var(--bad)';
-        list.appendChild(Object.assign(row, { appendChild: (child => { row.append(n,v); return row; })() }));
-        // fix append
         row.innerHTML = `<span class="name">${name}</span><span class="val">${(val>0?'+':'')+val}</span>`;
-        if (klass==='ok') row.querySelector('.val').style.color = 'var(--ok)';
-        if (klass==='bad') row.querySelector('.val').style.color = 'var(--bad)';
+        const v = row.querySelector('.val');
+        if(cls==='ok') v.style.color = 'var(--ok)';
+        if(cls==='bad') v.style.color = 'var(--bad)';
+        list.appendChild(row);
       });
       sec.appendChild(list);
       return sec;
     };
 
-    cols.append(
-      mkList('A favor', pos, 'ok'),
-      mkList('Parejos', zero, 'off'),
-      mkList('En contra', neg, 'bad'),
-    );
-
     root.innerHTML = '';
-    root.appendChild(cols);
+    root.append(
+      mkSection('A favor', pos, 'ok'),
+      mkSection('Parejos', zero, 'off'),
+      mkSection('En contra', neg, 'bad')
+    );
   }
 
-  function renderPartners(root, data) {
-    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
-    const best = data.best_partner;
-    const worst = data.worse_partner;
-    if (!best && !worst) { no(); return; }
+  // ===================== Compañeros (secciones apiladas) =====================
+  function renderPartners(root, data){
+    const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
+    const best = data.best_partner; const worst = data.worse_partner;
+    if(!best && !worst){ no(); return; }
 
-    const cols = div('cols-3');
-    const mkList = (title, obj, cls) => {
+    const mkSection = (title, obj, cls) => {
       const sec = div('');
-      sec.appendChild(div('muted', title));
+      sec.appendChild(div('section-title', title));
       const list = div('list');
-      if (!obj || Object.keys(obj).length===0) list.appendChild(div('muted','—'));
-      else {
-        Object.entries(obj).sort((a,b)=>b[1]-a[1]).forEach(([name, val]) => {
-          const row = div('kv');
-          row.innerHTML = `<span class="name">${name}</span><span class="val">${val ?? 0}</span>`;
-          if (cls==='ok') row.querySelector('.val').style.color = 'var(--ok)';
-          if (cls==='bad') row.querySelector('.val').style.color = 'var(--bad)';
-          list.appendChild(row);
-        });
-      }
+      if(!obj || Object.keys(obj).length===0) list.appendChild(div('muted','—'));
+      else Object.entries(obj).sort((a,b)=> b[1]-a[1]).forEach(([name,val]) => {
+        const row = div('kv');
+        row.innerHTML = `<span class="name">${name}</span><span class="val">${val ?? 0}</span>`;
+        const v = row.querySelector('.val');
+        if(cls==='ok') v.style.color = 'var(--ok)';
+        if(cls==='bad') v.style.color = 'var(--bad)';
+        list.appendChild(row);
+      });
       sec.appendChild(list);
       return sec;
     };
 
-    cols.append(
-      mkList('Mejores compañeros (victorias juntos)', best, 'ok'),
-      div(''), // columna espaciadora en móviles se apila igual
-      mkList('Peores compañeros (derrotas juntos)', worst, 'bad'),
-    );
-
     root.innerHTML = '';
-    root.appendChild(cols);
+    root.append(
+      mkSection('Mejores compañeros (victorias juntos)', best, 'ok'),
+      mkSection('Peores compañeros (derrotas juntos)', worst, 'bad')
+    );
   }
 
-  function renderPaternity(root, data) {
-    const no = emptyOr(root, "Métrica no disponible / necesita más partidos");
-    const pat = data.paternity, fil = data.filiation;
-    if (!pat && !fil) { no(); return; }
+  // ===================== Paternidad / Filiación (secciones + valores) =====================
+  function renderPaternity(root, data){
+    const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
+    const pat = data.paternity; const fil = data.filiation;
+    if(!pat && !fil){ no(); return; }
 
-    const cols = div('cols-3');
-    const mkList = (title, obj, cls) => {
+    const mkSection = (title, obj, cls) => {
       const sec = div('');
-      sec.appendChild(div('muted', title));
+      sec.appendChild(div('section-title', title));
       const list = div('list');
-      if (!obj || Object.keys(obj).length===0) list.appendChild(div('muted','—'));
-      else {
-        Object.entries(obj).forEach(([name, _]) => {
-          const row = div('kv');
-          row.innerHTML = `<span class="name">${name}</span><span class="val">●</span>`;
-          const val = row.querySelector('.val');
-          if (cls==='ok') val.style.color = 'var(--ok)';
-          if (cls==='bad') val.style.color = 'var(--bad)';
-          list.appendChild(row);
-        });
-      }
+      if(!obj || Object.keys(obj).length===0) list.appendChild(div('muted','—'));
+      else Object.entries(obj).sort((a,b)=> b[1]-a[1]).forEach(([name,val]) => {
+        const row = div('kv');
+        row.innerHTML = `<span class="name">${name}</span><span class="val">${val ?? 0}</span>`;
+        const v = row.querySelector('.val');
+        if(cls==='ok') v.style.color = 'var(--ok)';
+        if(cls==='bad') v.style.color = 'var(--bad)';
+        list.appendChild(row);
+      });
       sec.appendChild(list);
       return sec;
     };
 
-    cols.append(
-      mkList('Paternidad (domina a)', pat, 'ok'),
-      div(''),
-      mkList('Filiación (lo dominan)', fil, 'bad'),
-    );
-
     root.innerHTML = '';
-    root.appendChild(cols);
+    root.append(
+      mkSection('Paternidad (domina a)', pat, 'ok'),
+      mkSection('Filiación (lo dominan)', fil, 'bad')
+    );
   }
 
-  async function boot() {
+  async function boot(){
     const id = qs.get('id');
     const slug = qs.get('slug');
 
@@ -380,14 +365,13 @@
     const partners = el('#partners');
     const paternity = el('#paternity');
 
-    try {
+    try{
       let data;
       if (id) data = await loadById(id);
       else if (slug) data = await loadBySlug(slug);
-      else throw new Error("Falta ?id= o ?slug=");
+      else throw new Error('Falta ?id= o ?slug=');
 
-      // Nombre / subtítulo (si no vino en basic_statistics)
-      const nombre = data.jugador || "Jugador";
+      const nombre = data.jugador || 'Jugador';
       document.title = `${nombre} — Perfil`;
       setText('player-name', `${nombre}${data.basic_statistics?.apodo ? ' ('+data.basic_statistics.apodo+')' : ''}`);
       setText('subtitle', 'Perfil público');
@@ -399,7 +383,7 @@
       renderPartners(partners, data);
       renderPaternity(paternity, data);
 
-    } catch (err) {
+    } catch (err){
       console.error(err);
       const blocks = [summary, streaks, last5, balance, partners, paternity];
       blocks.forEach(b => b && (b.innerHTML = `<div class="status">${err.message}  Volvé a la tabla y elegí un jugador válido.</div>`));
@@ -408,6 +392,5 @@
 
   boot();
 </script>
-
 </body>
 </html>
