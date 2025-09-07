@@ -183,7 +183,7 @@
     if (data.jugador || apodo){
       const nombre = data.jugador || 'Jugador';
       document.title = `${nombre} — Perfil`;
-      setText('player-name',`${nombre}${data.basic_statistics?.apodo ? ' ('+data.basic_statistics.apodo+')' : ''}`);
+      setText('player-name',`${nombre}${data.basic_statistics?.apodo ? ': '+data.basic_statistics.apodo : ''}`);
 
       setText('subtitle', 'Perfil público');
     }
@@ -358,7 +358,7 @@
       document.title = `${nombre} — Perfil`;
       setText('player-name',`${nombre}${data.basic_statistics?.apodo ? ': '+data.basic_statistics.apodo : ''}`);
 
-      setText('subtitle', 'Perfil público');
+      setText('subtitle', 'Perfil');
 
       renderSummary(summary, data);
       renderStreaks(streaks, data);
