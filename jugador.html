@@ -212,8 +212,18 @@
       pill.append(dot, div('', estado));
       head.append(div('', `<strong>${titulo}</strong>`), pill);
 
-      // Segundo renglón: fechas y extensión
-      const dates = div('muted', `${fmtDate(obj.empieza)} — ${fmtDate(obj.termina)} · Extensión: ${obj.extension ?? '—'}`);
+      // Segundo renglón: fechas (colapsa si empieza === termina) y extensión
+      const sameDay = obj.empieza && obj.termina && obj.empieza === obj.termina;
+      let rango;
+      if (obj.empieza && obj.termina) {
+        rango = sameDay ? fmtDate(obj.empieza) : `${fmtDate(obj.empieza)} — ${fmtDate(obj.termina)}`;
+      } else if (obj.empieza || obj.termina) {
+        rango = fmtDate(obj.empieza || obj.termina);
+      } else {
+        rango = '—';
+      }
+      const dates = div('muted', `${rango} · extensión: ${obj.extension ?? '—'}`);
+
 
       row.append(head, dates);
       return row;
