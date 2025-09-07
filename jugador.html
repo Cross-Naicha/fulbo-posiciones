@@ -116,12 +116,6 @@
         </div>
       </section>
 
-      <section class="card" style="grid-column: span 12;">
-        <h3>Paternidad / Filiación</h3>
-        <div class="body" id="paternity">
-          <div class="status">Cargando…</div>
-        </div>
-      </section>
     </div>
   </div>
 
@@ -219,22 +213,23 @@
       head.append(div('', `<strong>${titulo}</strong>`), pill);
 
       // Segundo renglón: fechas y extensión
-      const dates = div('muted', `${fmtDate(obj.empieza)} — ${fmtDate(obj.termina)} · extensión: ${obj.extension ?? '—'}`);
+      const dates = div('muted', `${fmtDate(obj.empieza)} — ${fmtDate(obj.termina)} · Extensión: ${obj.extension ?? '—'}`);
 
       row.append(head, dates);
       return row;
     };
 
     root.append(
-      makeRow('Victoria', w, 'ok'),
+      makeRow('Victorias', w, 'ok'),
       div('separator'),
-      makeRow('Derrota', l, 'bad'),
+      makeRow('Derrotas', l, 'bad'),
       div('separator'),
-      makeRow('Presente', p, 'present')
+      makeRow('Presentes', p, 'present'),
+      div('separator'),
     );
 
     const pa = (w && (w['puntos acumulados'] ?? w['puntos_acumulados']));
-    if (pa != null) root.appendChild(div('hint', `Puntos en racha de victoria: ${pa}`));
+    if (pa != null) root.appendChild(div('hint', `Racha de victoria (PTS): ${pa}`));
   }
 
   // ===================== Últimos 5 =====================
@@ -329,36 +324,6 @@
     );
   }
 
-  // ===================== Paternidad / Filiación (secciones + valores) =====================
-  function renderPaternity(root, data){
-    const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
-    const pat = data.paternity; const fil = data.filiation;
-    if(!pat && !fil){ no(); return; }
-
-    const mkSection = (title, obj, cls) => {
-      const sec = div('');
-      sec.appendChild(div('section-title', title));
-      const list = div('list');
-      if(!obj || Object.keys(obj).length===0) list.appendChild(div('muted','—'));
-      else Object.entries(obj).sort((a,b)=> b[1]-a[1]).forEach(([name,val]) => {
-        const row = div('kv');
-        row.innerHTML = `<span class="name">${name}</span><span class="val">${val ?? 0}</span>`;
-        const v = row.querySelector('.val');
-        if(cls==='ok') v.style.color = 'var(--ok)';
-        if(cls==='bad') v.style.color = 'var(--bad)';
-        list.appendChild(row);
-      });
-      sec.appendChild(list);
-      return sec;
-    };
-
-    root.innerHTML = '';
-    root.append(
-      mkSection('Paternidad (domina a)', pat, 'ok'),
-      mkSection('Filiación (lo dominan)', fil, 'bad')
-    );
-  }
-
   async function boot(){
     const id = qs.get('id');
     const slug = qs.get('slug');
@@ -368,7 +333,6 @@
     const last5 = el('#last5');
     const balance = el('#balance');
     const partners = el('#partners');
-    const paternity = el('#paternity');
 
     try{
       let data;
@@ -386,11 +350,10 @@
       renderLast5(last5, data);
       renderBalance(balance, data);
       renderPartners(partners, data);
-      renderPaternity(paternity, data);
 
     } catch (err){
       console.error(err);
-      const blocks = [summary, streaks, last5, balance, partners, paternity];
+      const blocks = [summary, streaks, last5, balance, partners];
       blocks.forEach(b => b && (b.innerHTML = `<div class="status">${err.message}  Volvé a la tabla y elegí un jugador válido.</div>`));
     }
   }
