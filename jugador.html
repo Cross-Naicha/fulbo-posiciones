@@ -186,7 +186,7 @@
     if (data.jugador || apodo){
       const nombre = data.jugador || 'Jugador';
       document.title = `${nombre} — Perfil`;
-      setText('player-name', nombre + (apodo ? ` (${apodo})` : ''));
+      setText('player-name', nombre);
       setText('subtitle', 'Perfil público');
     }
   }
