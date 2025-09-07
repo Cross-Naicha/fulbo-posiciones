@@ -167,8 +167,8 @@
     kpis.append(
       makeKPI('Partidos', partidos ?? '—'),
       makeKPI('Puntos', puntos ?? '—'),
-      makeKPI('Efectividad', (typeof efectividad === 'number') ? `${(efectividad*100).toFixed(0)}%` : '—'),
-      makeKPI('Promedios', (typeof promedio === 'number') ? promedio : '—')
+      makeKPI('%', (typeof efectividad === 'number') ? `${(efectividad*100).toFixed(0)}%` : '—'),
+      makeKPI('Promiedo', (typeof promedio === 'number') ? promedio : '—')
     );
 
     root.innerHTML = '';
