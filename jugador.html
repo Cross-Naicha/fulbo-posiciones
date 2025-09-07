@@ -373,7 +373,7 @@
 
       const nombre = data.jugador || 'Jugador';
       document.title = `${nombre} — Perfil`;
-      setText(nombre);
+      setText('player-name', nombre);
       setText('subtitle', 'Perfil público');
 
       renderSummary(summary, data);
