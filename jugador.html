@@ -70,7 +70,7 @@
 <body>
   <div class="wrap">
     <header>
-      <a class="back" href="./">← Volver a la tabla</a>
+      <a class="back" href="./">← Volver</a>
       <div>
         <h1 class="title" id="player-name">Jugador</h1>
         <p class="sub" id="subtitle">Cargando…</p>
@@ -373,7 +373,7 @@
 
       const nombre = data.jugador || 'Jugador';
       document.title = `${nombre} — Perfil`;
-      setText('player-name', `${nombre}${data.basic_statistics?.apodo ? ' ('+data.basic_statistics.apodo+')' : ''}`);
+      setText(nombre);
       setText('subtitle', 'Perfil público');
 
       renderSummary(summary, data);
