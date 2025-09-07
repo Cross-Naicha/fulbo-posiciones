@@ -177,9 +177,9 @@
     // Etiquetas de colores (W/D/L) – permanecen
     const wld = div('wld');
     wld.append(
-      div('badge ok', ' W ' + (ganados ?? 0) + ' '),
-      div('badge warn', 'D ' + (empatados ?? 0)),
-      div('badge bad', 'L ' + (perdidos ?? 0))
+      div('badge ok', (ganados ?? 0)),
+      div('badge warn', (empatados ?? 0)),
+      div('badge bad', (perdidos ?? 0))
     );
     root.appendChild(wld);
 
