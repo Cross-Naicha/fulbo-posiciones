@@ -45,6 +45,9 @@
     .dot.bad{background:var(--bad)}
     .dot.off{background:var(--off)}
     .dot.present{background:var(--present)}
+    .separator {border-top: 1px solid var(--line);margin: 8px 0;opacity: 0.4;
+}
+
 
     /* Últimos 5: cada uno en su propio renglón */
     .last5{display:flex;flex-direction:column;gap:8px}
@@ -224,7 +227,9 @@
 
     root.append(
       makeRow('Victoria', w, 'ok'),
+      div('separator'),
       makeRow('Derrota', l, 'bad'),
+      div('separator'),
       makeRow('Presente', p, 'present')
     );
 
