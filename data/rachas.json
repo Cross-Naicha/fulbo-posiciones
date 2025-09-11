@@ -3,24 +3,12 @@
     "racha": "Positiva",
     "jugador": "Lombardo, Emiliano",
     "inicio": "2025-08-27",
-    "extension": 2
-  },
-  {
-    "racha": "Positiva",
-    "jugador": "Lombardo, Juan Pablo",
-    "inicio": "2025-08-27",
-    "extension": 2
+    "extension": 3
   },
   {
     "racha": "Negativa",
     "jugador": "Cesano, Leandro",
     "inicio": "2025-08-27",
-    "extension": 2
-  },
-  {
-    "racha": "Negativa",
-    "jugador": "Tosi, Marcelo",
-    "inicio": "2025-08-27",
-    "extension": 2
+    "extension": 3
   }
 ]
