@@ -4,7 +4,7 @@
     "apodo": "Mato",
     "puntos": 3,
     "efectividad": 1.0,
-    "promedio": 0.583,
+    "promedio": 0.417,
     "ganados": 1,
     "empatados": 0,
     "perdidos": 0
@@ -16,7 +16,7 @@
     "puntos acumulados": 3,
     "victorias": 1,
     "empates": 0,
-    "actual": 0
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
@@ -25,6 +25,7 @@
     "actual": false
   },
   "last_5": {
+    "2025-09-10": "A",
     "2025-09-03": "A",
     "2025-08-27": "G"
   },

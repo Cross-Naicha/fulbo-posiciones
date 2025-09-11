@@ -4,7 +4,7 @@
     "apodo": "Camilo",
     "puntos": 0,
     "efectividad": 0.0,
-    "promedio": 0.417,
+    "promedio": 0.25,
     "ganados": 0,
     "empatados": 0,
     "perdidos": 1
@@ -28,9 +28,10 @@
     "empieza": "2025-09-03",
     "termina": "2025-09-03",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-09-10": "A",
     "2025-09-03": "P",
     "2025-08-27": "A"
   },

@@ -4,7 +4,7 @@
     "apodo": "Cesar",
     "puntos": 3,
     "efectividad": 0.5,
-    "promedio": 0.5,
+    "promedio": 0.357,
     "ganados": 1,
     "empatados": 0,
     "perdidos": 1
@@ -16,7 +16,7 @@
     "puntos acumulados": 3,
     "victorias": 1,
     "empates": 0,
-    "actual": 1
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2025-08-27",
@@ -28,9 +28,10 @@
     "empieza": "2025-08-27",
     "termina": "2025-09-03",
     "extension": 2,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-09-10": "A",
     "2025-09-03": "G",
     "2025-08-27": "P"
   },

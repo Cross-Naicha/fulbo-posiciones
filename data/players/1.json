@@ -1,12 +1,12 @@
 {
   "basic_statistics": {
-    "partidos": 2,
+    "partidos": 3,
     "apodo": "Chicho",
-    "puntos": 0,
-    "efectividad": 0.0,
-    "promedio": 0.357,
+    "puntos": 1,
+    "efectividad": 0.111,
+    "promedio": 0.188,
     "ganados": 0,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 2
   },
   "winning_streak_statistics": {
@@ -20,49 +20,56 @@
   },
   "losses_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-09-03",
-    "extension": 2,
+    "termina": "2025-09-10",
+    "extension": 3,
     "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-09-03",
-    "extension": 2,
+    "termina": "2025-09-10",
+    "extension": 3,
     "actual": true
   },
   "last_5": {
+    "2025-09-10": "P",
     "2025-09-03": "P",
     "2025-08-27": "P"
   },
   "balance_vs": {
     "Ramos Benitez, Matias": -1,
-    "Chagay, Alexis": -1,
     "Ruiz, Mariano": -1,
-    "Guillou, Bernardo": -1,
     "Nuñez, Cesar": -1,
     "Caballero, Alejandro": -1,
-    "Lombardo, Emiliano": -2,
-    "Lombardo, Juan Pablo": -2
+    "Ponce, Martin": -1,
+    "Tosi, Marcelo": -1,
+    "Lombardo, Juan Pablo": -2,
+    "Chagay, Alexis": -2,
+    "Guillou, Bernardo": -2,
+    "Lombardo, Emiliano": -3
   },
   "best_partner": {},
   "worse_partner": {
+    "Recalde, Facundo": 2,
+    "Ruiz, Mariano": 2,
     "Tosi, Marcelo": 2,
     "Chagay, Alexis": 1,
     "Daher, Camilo": 1,
+    "Gimenez, Yamil": 1,
+    "Lombardo, Juan Pablo": 1,
     "Nuñez, Cesar": 1,
-    "Ponce, Martin": 1,
-    "Recalde, Facundo": 1,
-    "Ruiz, Mariano": 1
+    "Ponce, Martin": 1
   },
   "paternity": {},
   "filiation": {
-    "Lombardo, Emiliano": 2,
+    "Lombardo, Emiliano": 3,
     "Lombardo, Juan Pablo": 2,
     "Ramos Benitez, Matias": 1,
-    "Chagay, Alexis": 1,
+    "Chagay, Alexis": 2,
     "Ruiz, Mariano": 1,
-    "Guillou, Bernardo": 1,
+    "Guillou, Bernardo": 2,
     "Nuñez, Cesar": 1,
-    "Caballero, Alejandro": 1
+    "Caballero, Alejandro": 1,
+    "Ponce, Martin": 1,
+    "Tosi, Marcelo": 1
   }
 }
