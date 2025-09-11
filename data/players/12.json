@@ -2,21 +2,21 @@
   "basic_statistics": {
     "partidos": 3,
     "apodo": "Chagay",
-    "puntos": 4,
-    "efectividad": 0.444,
-    "promedio": 0.312,
-    "ganados": 1,
-    "empatados": 1,
+    "puntos": 6,
+    "efectividad": 0.667,
+    "promedio": 0.438,
+    "ganados": 2,
+    "empatados": 0,
     "perdidos": 1
   },
   "winning_streak_statistics": {
-    "empieza": "2025-09-10",
-    "termina": "2025-09-10",
+    "empieza": "2025-08-27",
+    "termina": "2025-08-27",
     "extension": 1,
-    "puntos acumulados": 1,
-    "victorias": 0,
-    "empates": 1,
-    "actual": true
+    "puntos acumulados": 3,
+    "victorias": 1,
+    "empates": 0,
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2025-09-03",
@@ -31,7 +31,7 @@
     "actual": true
   },
   "last_5": {
-    "2025-09-10": "E",
+    "2025-09-10": "G",
     "2025-09-03": "P",
     "2025-08-27": "G"
   },

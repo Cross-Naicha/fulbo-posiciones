@@ -2,12 +2,12 @@
   "basic_statistics": {
     "partidos": 3,
     "apodo": "Chicho",
-    "puntos": 1,
-    "efectividad": 0.111,
+    "puntos": 0,
+    "efectividad": 0.0,
     "promedio": 0.188,
     "ganados": 0,
-    "empatados": 1,
-    "perdidos": 2
+    "empatados": 0,
+    "perdidos": 3
   },
   "winning_streak_statistics": {
     "empieza": null,

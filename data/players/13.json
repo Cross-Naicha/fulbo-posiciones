@@ -2,12 +2,12 @@
   "basic_statistics": {
     "partidos": 3,
     "apodo": "Mario*",
-    "puntos": 4,
-    "efectividad": 0.444,
+    "puntos": 3,
+    "efectividad": 0.333,
     "promedio": 0.312,
     "ganados": 1,
-    "empatados": 1,
-    "perdidos": 1
+    "empatados": 0,
+    "perdidos": 2
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",

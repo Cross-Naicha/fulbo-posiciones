@@ -2,20 +2,20 @@
   "basic_statistics": {
     "partidos": 3,
     "apodo": "Emi",
-    "puntos": 7,
-    "efectividad": 0.778,
-    "promedio": 0.438,
-    "ganados": 2,
-    "empatados": 1,
+    "puntos": 9,
+    "efectividad": 1.0,
+    "promedio": 0.562,
+    "ganados": 3,
+    "empatados": 0,
     "perdidos": 0
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",
     "termina": "2025-09-10",
     "extension": 3,
-    "puntos acumulados": 7,
-    "victorias": 2,
-    "empates": 1,
+    "puntos acumulados": 9,
+    "victorias": 3,
+    "empates": 0,
     "actual": true
   },
   "present_streak_statistics": {
@@ -25,7 +25,7 @@
     "actual": true
   },
   "last_5": {
-    "2025-09-10": "E",
+    "2025-09-10": "G",
     "2025-09-03": "G",
     "2025-08-27": "G"
   },

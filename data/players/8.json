@@ -2,12 +2,12 @@
   "basic_statistics": {
     "partidos": 2,
     "apodo": "Facu",
-    "puntos": 1,
-    "efectividad": 0.167,
+    "puntos": 0,
+    "efectividad": 0.0,
     "promedio": 0.214,
     "ganados": 0,
-    "empatados": 1,
-    "perdidos": 1
+    "empatados": 0,
+    "perdidos": 2
   },
   "winning_streak_statistics": {
     "empieza": null,

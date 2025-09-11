@@ -2,12 +2,12 @@
   "basic_statistics": {
     "partidos": 3,
     "apodo": "Lomba",
-    "puntos": 7,
-    "efectividad": 0.778,
+    "puntos": 6,
+    "efectividad": 0.667,
     "promedio": 0.438,
     "ganados": 2,
-    "empatados": 1,
-    "perdidos": 0
+    "empatados": 0,
+    "perdidos": 1
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",

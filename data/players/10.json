@@ -2,20 +2,20 @@
   "basic_statistics": {
     "partidos": 2,
     "apodo": "P11",
-    "puntos": 1,
-    "efectividad": 0.167,
-    "promedio": 0.214,
-    "ganados": 0,
-    "empatados": 1,
+    "puntos": 3,
+    "efectividad": 0.5,
+    "promedio": 0.357,
+    "ganados": 1,
+    "empatados": 0,
     "perdidos": 1
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-10",
     "termina": "2025-09-10",
     "extension": 1,
-    "puntos acumulados": 1,
-    "victorias": 0,
-    "empates": 1,
+    "puntos acumulados": 3,
+    "victorias": 1,
+    "empates": 0,
     "actual": true
   },
   "losses_streak_statistics": {
@@ -31,7 +31,7 @@
     "actual": false
   },
   "last_5": {
-    "2025-09-10": "E",
+    "2025-09-10": "G",
     "2025-09-03": "A",
     "2025-08-27": "P"
   },
