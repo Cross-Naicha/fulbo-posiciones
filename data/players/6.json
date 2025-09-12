@@ -2,20 +2,20 @@
   "basic_statistics": {
     "partidos": 3,
     "apodo": "Emi",
-    "puntos": 9,
-    "efectividad": 1.0,
-    "promedio": 0.562,
-    "ganados": 3,
-    "empatados": 0,
+    "puntos": 7,
+    "efectividad": 0.778,
+    "promedio": 0.438,
+    "ganados": 2,
+    "empatados": 1,
     "perdidos": 0
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",
     "termina": "2025-09-10",
     "extension": 3,
-    "puntos acumulados": 9,
-    "victorias": 3,
-    "empates": 0,
+    "puntos acumulados": 7,
+    "victorias": 2,
+    "empates": 1,
     "actual": true
   },
   "present_streak_statistics": {
@@ -25,21 +25,19 @@
     "actual": true
   },
   "last_5": {
-    "2025-09-10": "G",
+    "2025-09-10": "E",
     "2025-09-03": "G",
     "2025-08-27": "G"
   },
   "balance_vs": {
-    "Cesano, Leandro": 3,
-    "Recalde, Facundo": 2,
+    "Cesano, Leandro": 2,
     "Tosi, Marcelo": 2,
-    "Ruiz, Mariano": 2,
+    "Recalde, Facundo": 1,
     "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
     "Chagay, Alexis": 1,
-    "Daher, Camilo": 1,
-    "Gimenez, Yamil": 1,
-    "Lombardo, Juan Pablo": 1
+    "Ruiz, Mariano": 1,
+    "Daher, Camilo": 1
   },
   "best_partner": {
     "Chagay, Alexis": 2,
@@ -54,16 +52,14 @@
   },
   "worse_partner": {},
   "paternity": {
-    "Cesano, Leandro": 3,
-    "Recalde, Facundo": 2,
+    "Cesano, Leandro": 2,
+    "Recalde, Facundo": 1,
     "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
     "Tosi, Marcelo": 2,
     "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 2,
-    "Daher, Camilo": 1,
-    "Gimenez, Yamil": 1,
-    "Lombardo, Juan Pablo": 1
+    "Ruiz, Mariano": 1,
+    "Daher, Camilo": 1
   },
   "filiation": {}
 }

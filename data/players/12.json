@@ -2,27 +2,21 @@
   "basic_statistics": {
     "partidos": 3,
     "apodo": "Chagay",
-    "puntos": 6,
-    "efectividad": 0.667,
-    "promedio": 0.438,
-    "ganados": 2,
-    "empatados": 0,
+    "puntos": 4,
+    "efectividad": 0.444,
+    "promedio": 0.312,
+    "ganados": 1,
+    "empatados": 1,
     "perdidos": 1
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-08-27",
-    "extension": 1,
-    "puntos acumulados": 3,
+    "termina": "2025-09-10",
+    "extension": 3,
+    "puntos acumulados": 5,
     "victorias": 1,
-    "empates": 0,
-    "actual": false
-  },
-  "losses_streak_statistics": {
-    "empieza": "2025-09-03",
-    "termina": "2025-09-03",
-    "extension": 1,
-    "actual": false
+    "empates": 2,
+    "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
@@ -31,21 +25,19 @@
     "actual": true
   },
   "last_5": {
-    "2025-09-10": "G",
-    "2025-09-03": "P",
+    "2025-09-10": "E",
+    "2025-09-03": "E",
     "2025-08-27": "G"
   },
   "balance_vs": {
-    "Cesano, Leandro": 2,
-    "Recalde, Facundo": 2,
+    "Cesano, Leandro": 1,
+    "Recalde, Facundo": 1,
     "Ponce, Martin": 1,
     "Tosi, Marcelo": 1,
-    "Gimenez, Yamil": 1,
-    "Ruiz, Mariano": 1,
     "Nuñez, Cesar": 0,
-    "Lombardo, Juan Pablo": 0,
     "Guillou, Bernardo": -1,
     "Lombardo, Emiliano": -1,
+    "Lombardo, Juan Pablo": -1,
     "Caballero, Alejandro": -1
   },
   "best_partner": {
@@ -64,14 +56,11 @@
     "Tosi, Marcelo": 1
   },
   "paternity": {
-    "Cesano, Leandro": 2,
-    "Recalde, Facundo": 2,
+    "Cesano, Leandro": 1,
+    "Recalde, Facundo": 1,
     "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1,
-    "Gimenez, Yamil": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Ruiz, Mariano": 1
+    "Tosi, Marcelo": 1
   },
   "filiation": {
     "Guillou, Bernardo": 1,

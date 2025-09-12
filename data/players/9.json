@@ -10,18 +10,12 @@
     "perdidos": 1
   },
   "winning_streak_statistics": {
-    "empieza": "2025-09-03",
-    "termina": "2025-09-03",
-    "extension": 1,
-    "puntos acumulados": 3,
-    "victorias": 1,
-    "empates": 0,
-    "actual": false
-  },
-  "losses_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-08-27",
-    "extension": 1,
+    "termina": "2025-09-03",
+    "extension": 2,
+    "puntos acumulados": 4,
+    "victorias": 1,
+    "empates": 1,
     "actual": false
   },
   "present_streak_statistics": {
@@ -33,7 +27,7 @@
   "last_5": {
     "2025-09-10": "A",
     "2025-09-03": "G",
-    "2025-08-27": "P"
+    "2025-08-27": "E"
   },
   "balance_vs": {
     "Cesano, Leandro": 1,

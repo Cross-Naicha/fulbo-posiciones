@@ -2,26 +2,20 @@
   "basic_statistics": {
     "partidos": 3,
     "apodo": "Lomba",
-    "puntos": 6,
-    "efectividad": 0.667,
+    "puntos": 7,
+    "efectividad": 0.778,
     "promedio": 0.438,
     "ganados": 2,
-    "empatados": 0,
-    "perdidos": 1
+    "empatados": 1,
+    "perdidos": 0
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-09-03",
-    "extension": 2,
-    "puntos acumulados": 6,
-    "victorias": 2,
-    "empates": 0,
-    "actual": false
-  },
-  "losses_streak_statistics": {
-    "empieza": "2025-09-10",
     "termina": "2025-09-10",
-    "extension": 1,
+    "extension": 3,
+    "puntos acumulados": 7,
+    "victorias": 2,
+    "empates": 1,
     "actual": true
   },
   "present_streak_statistics": {
@@ -31,21 +25,19 @@
     "actual": true
   },
   "last_5": {
-    "2025-09-10": "P",
+    "2025-09-10": "E",
     "2025-09-03": "G",
     "2025-08-27": "G"
   },
   "balance_vs": {
     "Cesano, Leandro": 2,
+    "Tosi, Marcelo": 2,
     "Recalde, Facundo": 1,
     "Nuñez, Cesar": 1,
-    "Tosi, Marcelo": 1,
+    "Ponce, Martin": 1,
+    "Chagay, Alexis": 1,
     "Ruiz, Mariano": 1,
-    "Daher, Camilo": 1,
-    "Ponce, Martin": 0,
-    "Chagay, Alexis": 0,
-    "Guillou, Bernardo": -1,
-    "Lombardo, Emiliano": -1
+    "Daher, Camilo": 1
   },
   "best_partner": {
     "Lombardo, Emiliano": 2,
@@ -72,11 +64,5 @@
     "Ruiz, Mariano": 1,
     "Daher, Camilo": 1
   },
-  "filiation": {
-    "Guillou, Bernardo": 1,
-    "Lombardo, Emiliano": 1,
-    "Ponce, Martin": 1,
-    "Chagay, Alexis": 1,
-    "Tosi, Marcelo": 1
-  }
+  "filiation": {}
 }

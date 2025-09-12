@@ -2,26 +2,20 @@
   "basic_statistics": {
     "partidos": 1,
     "apodo": "Yamil",
-    "puntos": 0,
-    "efectividad": 0.0,
+    "puntos": 1,
+    "efectividad": 0.333,
     "promedio": 0.25,
     "ganados": 0,
-    "empatados": 0,
-    "perdidos": 1
+    "empatados": 1,
+    "perdidos": 0
   },
   "winning_streak_statistics": {
-    "empieza": null,
-    "termina": null,
-    "extension": 0,
-    "puntos_acumulados": 0,
-    "victorias": 0,
-    "empates": 0,
-    "actual": false
-  },
-  "losses_streak_statistics": {
     "empieza": "2025-09-10",
     "termina": "2025-09-10",
     "extension": 1,
+    "puntos acumulados": 1,
+    "victorias": 0,
+    "empates": 1,
     "actual": true
   },
   "present_streak_statistics": {
@@ -31,16 +25,9 @@
     "actual": true
   },
   "last_5": {
-    "2025-09-10": "P",
+    "2025-09-10": "E",
     "2025-09-03": "A",
     "2025-08-27": "A"
-  },
-  "balance_vs": {
-    "Guillou, Bernardo": -1,
-    "Lombardo, Emiliano": -1,
-    "Ponce, Martin": -1,
-    "Chagay, Alexis": -1,
-    "Tosi, Marcelo": -1
   },
   "best_partner": {},
   "worse_partner": {
@@ -50,11 +37,5 @@
     "Ruiz, Mariano": 1
   },
   "paternity": {},
-  "filiation": {
-    "Guillou, Bernardo": 1,
-    "Lombardo, Emiliano": 1,
-    "Ponce, Martin": 1,
-    "Chagay, Alexis": 1,
-    "Tosi, Marcelo": 1
-  }
+  "filiation": {}
 }

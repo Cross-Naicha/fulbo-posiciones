@@ -4,17 +4,17 @@
     "id": 6,
     "jugador": "Emi",
     "partidos": 3,
-    "puntos": "9",
-    "efectividad": "1.000",
-    "promedio": "0.562"
+    "puntos": "7",
+    "efectividad": "0.778",
+    "promedio": "0.438"
   },
   {
     "n": 2,
     "id": 7,
     "jugador": "Lomba",
     "partidos": 3,
-    "puntos": "6",
-    "efectividad": "0.667",
+    "puntos": "7",
+    "efectividad": "0.778",
     "promedio": "0.438"
   },
   {
@@ -22,39 +22,30 @@
     "id": 12,
     "jugador": "Chagay",
     "partidos": 3,
-    "puntos": "6",
-    "efectividad": "0.667",
-    "promedio": "0.438"
+    "puntos": "4",
+    "efectividad": "0.444",
+    "promedio": "0.312"
   },
   {
     "n": 4,
-    "id": 4,
-    "jugador": "Bag",
-    "partidos": 2,
-    "puntos": "6",
-    "efectividad": "1.000",
-    "promedio": "0.500"
-  },
-  {
-    "n": 5,
-    "id": 15,
-    "jugador": "Marcelito",
-    "partidos": 3,
-    "puntos": "3",
-    "efectividad": "0.333",
-    "promedio": "0.312"
-  },
-  {
-    "n": 6,
     "id": 13,
     "jugador": "Mario*",
     "partidos": 3,
-    "puntos": "3",
-    "efectividad": "0.333",
+    "puntos": "4",
+    "efectividad": "0.444",
     "promedio": "0.312"
   },
   {
-    "n": 7,
+    "n": 5,
+    "id": 4,
+    "jugador": "Bag",
+    "partidos": 2,
+    "puntos": "4",
+    "efectividad": "0.667",
+    "promedio": "0.357"
+  },
+  {
+    "n": 6,
     "id": 9,
     "jugador": "Cesar",
     "partidos": 2,
@@ -63,16 +54,7 @@
     "promedio": "0.357"
   },
   {
-    "n": 8,
-    "id": 10,
-    "jugador": "P11",
-    "partidos": 2,
-    "puntos": "3",
-    "efectividad": "0.500",
-    "promedio": "0.357"
-  },
-  {
-    "n": 9,
+    "n": 7,
     "id": 14,
     "jugador": "Mato",
     "partidos": 1,
@@ -81,7 +63,7 @@
     "promedio": "0.417"
   },
   {
-    "n": 10,
+    "n": 8,
     "id": 25,
     "jugador": "Pelao Khe",
     "partidos": 1,
@@ -90,36 +72,54 @@
     "promedio": "0.417"
   },
   {
-    "n": 11,
+    "n": 9,
     "id": 1,
     "jugador": "Chicho",
     "partidos": 3,
-    "puntos": "0",
-    "efectividad": "0.000",
+    "puntos": "1",
+    "efectividad": "0.111",
     "promedio": "0.188"
   },
   {
-    "n": 12,
+    "n": 10,
+    "id": 15,
+    "jugador": "Marcelito",
+    "partidos": 3,
+    "puntos": "1",
+    "efectividad": "0.111",
+    "promedio": "0.188"
+  },
+  {
+    "n": 11,
     "id": 8,
     "jugador": "Facu",
     "partidos": 2,
-    "puntos": "0",
-    "efectividad": "0.000",
+    "puntos": "1",
+    "efectividad": "0.167",
+    "promedio": "0.214"
+  },
+  {
+    "n": 12,
+    "id": 10,
+    "jugador": "P11",
+    "partidos": 2,
+    "puntos": "1",
+    "efectividad": "0.167",
     "promedio": "0.214"
   },
   {
     "n": 13,
-    "id": 26,
-    "jugador": "Camilo",
+    "id": 5,
+    "jugador": "Yamil",
     "partidos": 1,
-    "puntos": "0",
-    "efectividad": "0.000",
+    "puntos": "1",
+    "efectividad": "0.333",
     "promedio": "0.250"
   },
   {
     "n": 14,
-    "id": 5,
-    "jugador": "Yamil",
+    "id": 26,
+    "jugador": "Camilo",
     "partidos": 1,
     "puntos": "0",
     "efectividad": "0.000",

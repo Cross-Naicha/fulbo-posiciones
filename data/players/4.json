@@ -2,20 +2,20 @@
   "basic_statistics": {
     "partidos": 2,
     "apodo": "Bag",
-    "puntos": 6,
-    "efectividad": 1.0,
-    "promedio": 0.5,
-    "ganados": 2,
-    "empatados": 0,
+    "puntos": 4,
+    "efectividad": 0.667,
+    "promedio": 0.357,
+    "ganados": 1,
+    "empatados": 1,
     "perdidos": 0
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-03",
     "termina": "2025-09-10",
     "extension": 2,
-    "puntos acumulados": 6,
-    "victorias": 2,
-    "empates": 0,
+    "puntos acumulados": 4,
+    "victorias": 1,
+    "empates": 1,
     "actual": true
   },
   "present_streak_statistics": {
@@ -25,19 +25,16 @@
     "actual": true
   },
   "last_5": {
-    "2025-09-10": "G",
+    "2025-09-10": "E",
     "2025-09-03": "G",
     "2025-08-27": "A"
   },
   "balance_vs": {
-    "Cesano, Leandro": 2,
-    "Ruiz, Mariano": 2,
+    "Cesano, Leandro": 1,
     "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1,
     "Tosi, Marcelo": 1,
-    "Daher, Camilo": 1,
-    "Gimenez, Yamil": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Recalde, Facundo": 1
+    "Daher, Camilo": 1
   },
   "best_partner": {
     "Lombardo, Emiliano": 2,
@@ -50,14 +47,11 @@
   },
   "worse_partner": {},
   "paternity": {
-    "Cesano, Leandro": 2,
+    "Cesano, Leandro": 1,
     "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 2,
+    "Ruiz, Mariano": 1,
     "Tosi, Marcelo": 1,
-    "Daher, Camilo": 1,
-    "Gimenez, Yamil": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Recalde, Facundo": 1
+    "Daher, Camilo": 1
   },
   "filiation": {}
 }
