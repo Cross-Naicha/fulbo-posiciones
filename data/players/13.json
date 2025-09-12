@@ -10,13 +10,19 @@
     "perdidos": 1
   },
   "winning_streak_statistics": {
-    "empieza": "2025-08-27",
+    "empieza": "2025-09-10",
     "termina": "2025-09-10",
-    "extension": 3,
-    "puntos acumulados": 5,
-    "victorias": 1,
-    "empates": 2,
+    "extension": 1,
+    "puntos acumulados": 1,
+    "victorias": 0,
+    "empates": 1,
     "actual": true
+  },
+  "losses_streak_statistics": {
+    "empieza": "2025-09-03",
+    "termina": "2025-09-03",
+    "extension": 1,
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
@@ -26,7 +32,7 @@
   },
   "last_5": {
     "2025-09-10": "E",
-    "2025-09-03": "E",
+    "2025-09-03": "P",
     "2025-08-27": "G"
   },
   "balance_vs": {
