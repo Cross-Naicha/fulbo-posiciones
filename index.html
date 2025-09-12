@@ -261,6 +261,31 @@
     const streaksGrid   = document.getElementById('streaksGrid');
     const streaksEmpty  = document.getElementById('streaksEmpty');
 
+    function esPositiva(racha){
+      const t = (racha || '')
+        .normalize('NFD').replace(/\p{Diacritic}/gu,'')
+        .toLowerCase().trim();
+
+      // agregá acá todos los alias que quieras tratar como positivos
+      return t.startsWith('pos')      // "Positiva", "Pos."
+          || t.startsWith('victor')   // "Victorias"
+          || t.startsWith('invicto'); // "Invicto"
+    }
+
+    function streakCard(item){
+      const el = document.createElement('article');
+      const isPos = esPositiva(item.racha);   // <-- usa el helper
+      el.className = `streak ${isPos ? 'pos':'neg'}`;
+
+      const top = document.createElement('div');
+      top.className = 'streak-top';
+      const badge = document.createElement('span');
+      badge.className = `badge ${isPos ? 'pos':'neg'}`;
+      badge.textContent = item.racha || '';
+      top.appendChild(badge);
+    }
+
+
     function fmtFechaCorta(iso){
       try{
         const [y,m,d] = iso.split('-').map(Number);
