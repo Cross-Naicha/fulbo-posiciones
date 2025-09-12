@@ -272,20 +272,6 @@
           || t.startsWith('invicto'); // "Invicto"
     }
 
-    function streakCard(item){
-      const el = document.createElement('article');
-      const isPos = esPositiva(item.racha);   // <-- usa el helper
-      el.className = `streak ${isPos ? 'pos':'neg'}`;
-
-      const top = document.createElement('div');
-      top.className = 'streak-top';
-      const badge = document.createElement('span');
-      badge.className = `badge ${isPos ? 'pos':'neg'}`;
-      badge.textContent = item.racha || '';
-      top.appendChild(badge);
-    }
-
-
     function fmtFechaCorta(iso){
       try{
         const [y,m,d] = iso.split('-').map(Number);
@@ -297,7 +283,7 @@
 
     function streakCard(item){
       const el = document.createElement('article');
-      const isPos = (item.racha || '').toLowerCase().startsWith('pos');
+      const isPos = esPositiva(item.racha);
       el.className = `streak ${isPos ? 'pos':'neg'}`;
 
       const top = document.createElement('div');
@@ -344,8 +330,8 @@
 
         // orden sugerido: positivas primero, luego negativas; dentro de cada una por extensión desc
         arr.sort((a,b)=>{
-          const ra = (a.racha||'').toLowerCase().startsWith('pos') ? 0 : 1;
-          const rb = (b.racha||'').toLowerCase().startsWith('pos') ? 0 : 1;
+          const ra = esPositiva(a.racha) ? 0 : 1;
+          const rb = esPositiva(b.racha) ? 0 : 1;
           if(ra !== rb) return ra - rb;
           return (b.extension||0) - (a.extension||0);
         });
