@@ -45,12 +45,7 @@
     "Lombardo, Emiliano": -2,
     "Lombardo, Juan Pablo": -2
   },
-  "best_partner": {
-    "Chagay, Alexis": 1,
-    "Guillou, Bernardo": 1,
-    "Lombardo, Emiliano": 1,
-    "Ponce, Martin": 1
-  },
+  "best_partner": {},
   "worse_partner": {
     "Cesano, Leandro": 2,
     "Chagay, Alexis": 1,

@@ -42,12 +42,7 @@
     "Chagay, Alexis": -1,
     "Ruiz, Mariano": -1
   },
-  "best_partner": {
-    "Chagay, Alexis": 1,
-    "Guillou, Bernardo": 1,
-    "Lombardo, Emiliano": 1,
-    "Tosi, Marcelo": 1
-  },
+  "best_partner": {},
   "worse_partner": {
     "Cesano, Leandro": 1,
     "Nuñez, Cesar": 1,
