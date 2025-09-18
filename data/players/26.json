@@ -25,10 +25,10 @@
     "actual": false
   },
   "present_streak_statistics": {
-    "empieza": "2025-09-03",
-    "termina": "2025-09-03",
+    "empieza": "2025-09-17",
+    "termina": "2025-09-17",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "last_5": {
     "2025-09-17": "G",
