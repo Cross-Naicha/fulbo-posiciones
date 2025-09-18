@@ -10,13 +10,13 @@
     "perdidos": 1
   },
   "winning_streak_statistics": {
-    "empieza": "2025-08-27",
-    "termina": "2025-08-27",
-    "extension": 1,
-    "puntos acumulados": 3,
+    "empieza": "2025-09-10",
+    "termina": "2025-09-17",
+    "extension": 2,
+    "puntos acumulados": 4,
     "victorias": 1,
-    "empates": 0,
-    "actual": false
+    "empates": 1,
+    "actual": true
   },
   "losses_streak_statistics": {
     "empieza": "2025-09-03",
@@ -44,7 +44,7 @@
     "Daruich, Nicolas": 1,
     "Gimenez, Yamil": 1,
     "Ferreyra, Jose Maria": 1,
-    "Vara, Negro": 1,
+    "Varas, Franco": 1,
     "Nuñez, Cesar": 0,
     "Lombardo, Juan Pablo": 0,
     "Guillou, Bernardo": -1,
@@ -76,7 +76,7 @@
     "Gimenez, Yamil": 1,
     "Lombardo, Juan Pablo": 1,
     "Ferreyra, Jose Maria": 1,
-    "Vara, Negro": 1
+    "Varas, Franco": 1
   },
   "filiation": {
     "Guillou, Bernardo": 1,
