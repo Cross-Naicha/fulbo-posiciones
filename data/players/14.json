@@ -1,11 +1,11 @@
 {
   "basic_statistics": {
-    "partidos": 1,
+    "partidos": 2,
     "apodo": "Mato",
-    "puntos": 3,
+    "puntos": 6,
     "efectividad": 1.0,
-    "promedio": 0.417,
-    "ganados": 1,
+    "promedio": 0.5,
+    "ganados": 2,
     "empatados": 0,
     "perdidos": 0
   },
@@ -25,6 +25,7 @@
     "actual": false
   },
   "last_5": {
+    "2025-09-17": "G",
     "2025-09-10": "A",
     "2025-09-03": "A",
     "2025-08-27": "G"
@@ -34,12 +35,20 @@
     "Recalde, Facundo": 1,
     "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1
+    "Tosi, Marcelo": 1,
+    "Daruich, Nicolas": 1,
+    "Gimenez, Yamil": 1,
+    "Lombardo, Juan Pablo": 1,
+    "Ferreyra, Jose Maria": 1,
+    "Vara, Negro": 1
   },
   "best_partner": {
-    "Chagay, Alexis": 1,
+    "Chagay, Alexis": 2,
+    "Cesano, Leandro": 1,
+    "Daher, Camilo": 1,
     "Lombardo, Emiliano": 1,
     "Lombardo, Juan Pablo": 1,
+    "Nuñez, Cesar": 1,
     "Ruiz, Mariano": 1
   },
   "worse_partner": {},
@@ -48,7 +57,12 @@
     "Recalde, Facundo": 1,
     "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1
+    "Tosi, Marcelo": 1,
+    "Daruich, Nicolas": 1,
+    "Gimenez, Yamil": 1,
+    "Lombardo, Juan Pablo": 1,
+    "Ferreyra, Jose Maria": 1,
+    "Vara, Negro": 1
   },
   "filiation": {}
 }

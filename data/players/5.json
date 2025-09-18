@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 1,
+    "partidos": 2,
     "apodo": "Yamil",
     "puntos": 1,
-    "efectividad": 0.333,
-    "promedio": 0.25,
+    "efectividad": 0.167,
+    "promedio": 0.214,
     "ganados": 0,
     "empatados": 1,
-    "perdidos": 0
+    "perdidos": 1
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-10",
@@ -16,21 +16,46 @@
     "puntos acumulados": 1,
     "victorias": 0,
     "empates": 1,
+    "actual": false
+  },
+  "losses_streak_statistics": {
+    "empieza": "2025-09-17",
+    "termina": "2025-09-17",
+    "extension": 1,
     "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-09-10",
-    "termina": "2025-09-10",
-    "extension": 1,
+    "termina": "2025-09-17",
+    "extension": 2,
     "actual": true
   },
   "last_5": {
+    "2025-09-17": "P",
     "2025-09-10": "E",
     "2025-09-03": "A",
     "2025-08-27": "A"
   },
+  "balance_vs": {
+    "Cesano, Leandro": -1,
+    "Nuñez, Cesar": -1,
+    "Chagay, Alexis": -1,
+    "Ramos Benitez, Matias": -1,
+    "Daher, Camilo": -1
+  },
   "best_partner": {},
-  "worse_partner": {},
+  "worse_partner": {
+    "Daruich, Nicolas": 1,
+    "Ferreyra, Jose Maria": 1,
+    "Lombardo, Juan Pablo": 1,
+    "Vara, Negro": 1
+  },
   "paternity": {},
-  "filiation": {}
+  "filiation": {
+    "Cesano, Leandro": 1,
+    "Nuñez, Cesar": 1,
+    "Chagay, Alexis": 1,
+    "Ramos Benitez, Matias": 1,
+    "Daher, Camilo": 1
+  }
 }

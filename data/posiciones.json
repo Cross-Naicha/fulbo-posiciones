@@ -1,6 +1,24 @@
 [
   {
     "n": 1,
+    "id": 7,
+    "jugador": "Lomba",
+    "partidos": 4,
+    "puntos": "7",
+    "efectividad": "0.583",
+    "promedio": "0.389"
+  },
+  {
+    "n": 2,
+    "id": 12,
+    "jugador": "Chagay",
+    "partidos": 4,
+    "puntos": "7",
+    "efectividad": "0.583",
+    "promedio": "0.389"
+  },
+  {
+    "n": 3,
     "id": 6,
     "jugador": "Emi",
     "partidos": 3,
@@ -9,58 +27,40 @@
     "promedio": "0.438"
   },
   {
-    "n": 2,
-    "id": 7,
-    "jugador": "Lomba",
+    "n": 4,
+    "id": 9,
+    "jugador": "Cesar",
     "partidos": 3,
-    "puntos": "7",
-    "efectividad": "0.778",
+    "puntos": "6",
+    "efectividad": "0.667",
     "promedio": "0.438"
   },
   {
-    "n": 3,
-    "id": 12,
-    "jugador": "Chagay",
-    "partidos": 3,
-    "puntos": "4",
-    "efectividad": "0.444",
-    "promedio": "0.312"
+    "n": 5,
+    "id": 14,
+    "jugador": "Mato",
+    "partidos": 2,
+    "puntos": "6",
+    "efectividad": "1.000",
+    "promedio": "0.500"
   },
   {
-    "n": 4,
+    "n": 6,
+    "id": 1,
+    "jugador": "Chicho",
+    "partidos": 4,
+    "puntos": "4",
+    "efectividad": "0.333",
+    "promedio": "0.278"
+  },
+  {
+    "n": 7,
     "id": 13,
     "jugador": "Mario*",
     "partidos": 3,
     "puntos": "4",
     "efectividad": "0.444",
     "promedio": "0.312"
-  },
-  {
-    "n": 5,
-    "id": 4,
-    "jugador": "Bag",
-    "partidos": 2,
-    "puntos": "4",
-    "efectividad": "0.667",
-    "promedio": "0.357"
-  },
-  {
-    "n": 6,
-    "id": 9,
-    "jugador": "Cesar",
-    "partidos": 2,
-    "puntos": "3",
-    "efectividad": "0.500",
-    "promedio": "0.357"
-  },
-  {
-    "n": 7,
-    "id": 1,
-    "jugador": "Chicho",
-    "partidos": 3,
-    "puntos": "1",
-    "efectividad": "0.111",
-    "promedio": "0.188"
   },
   {
     "n": 8,

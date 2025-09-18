@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 1,
-    "apodo": "Naicha",
+    "apodo": "Vara",
     "puntos": 0,
     "efectividad": 0.0,
     "promedio": 0.25,
@@ -45,10 +45,10 @@
   },
   "best_partner": {},
   "worse_partner": {
+    "Daruich, Nicolas": 1,
     "Ferreyra, Jose Maria": 1,
     "Gimenez, Yamil": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Vara, Negro": 1
+    "Lombardo, Juan Pablo": 1
   },
   "paternity": {},
   "filiation": {

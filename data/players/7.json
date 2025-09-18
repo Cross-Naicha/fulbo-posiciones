@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 3,
+    "partidos": 4,
     "apodo": "Lomba",
     "puntos": 7,
-    "efectividad": 0.778,
-    "promedio": 0.438,
+    "efectividad": 0.583,
+    "promedio": 0.389,
     "ganados": 2,
     "empatados": 1,
-    "perdidos": 0
+    "perdidos": 1
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",
@@ -16,28 +16,36 @@
     "puntos acumulados": 7,
     "victorias": 2,
     "empates": 1,
+    "actual": false
+  },
+  "losses_streak_statistics": {
+    "empieza": "2025-09-17",
+    "termina": "2025-09-17",
+    "extension": 1,
     "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-09-10",
-    "extension": 3,
+    "termina": "2025-09-17",
+    "extension": 4,
     "actual": true
   },
   "last_5": {
+    "2025-09-17": "P",
     "2025-09-10": "E",
     "2025-09-03": "G",
     "2025-08-27": "G"
   },
   "balance_vs": {
-    "Cesano, Leandro": 2,
     "Tosi, Marcelo": 2,
+    "Cesano, Leandro": 1,
     "Recalde, Facundo": 1,
-    "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
-    "Chagay, Alexis": 1,
     "Ruiz, Mariano": 1,
-    "Daher, Camilo": 1
+    "Nuñez, Cesar": 0,
+    "Chagay, Alexis": 0,
+    "Daher, Camilo": 0,
+    "Ramos Benitez, Matias": -1
   },
   "best_partner": {
     "Lombardo, Emiliano": 2,
@@ -48,7 +56,12 @@
     "Ramos Benitez, Matias": 1,
     "Ruiz, Mariano": 1
   },
-  "worse_partner": {},
+  "worse_partner": {
+    "Daruich, Nicolas": 1,
+    "Ferreyra, Jose Maria": 1,
+    "Gimenez, Yamil": 1,
+    "Vara, Negro": 1
+  },
   "paternity": {
     "Cesano, Leandro": 2,
     "Recalde, Facundo": 1,
@@ -59,5 +72,11 @@
     "Ruiz, Mariano": 1,
     "Daher, Camilo": 1
   },
-  "filiation": {}
+  "filiation": {
+    "Cesano, Leandro": 1,
+    "Nuñez, Cesar": 1,
+    "Chagay, Alexis": 1,
+    "Ramos Benitez, Matias": 1,
+    "Daher, Camilo": 1
+  }
 }

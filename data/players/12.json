@@ -1,22 +1,22 @@
 {
   "basic_statistics": {
-    "partidos": 3,
+    "partidos": 4,
     "apodo": "Chagay",
-    "puntos": 4,
-    "efectividad": 0.444,
-    "promedio": 0.312,
-    "ganados": 1,
+    "puntos": 7,
+    "efectividad": 0.583,
+    "promedio": 0.389,
+    "ganados": 2,
     "empatados": 1,
     "perdidos": 1
   },
   "winning_streak_statistics": {
-    "empieza": "2025-09-10",
-    "termina": "2025-09-10",
+    "empieza": "2025-08-27",
+    "termina": "2025-08-27",
     "extension": 1,
-    "puntos acumulados": 1,
-    "victorias": 0,
-    "empates": 1,
-    "actual": true
+    "puntos acumulados": 3,
+    "victorias": 1,
+    "empates": 0,
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2025-09-03",
@@ -26,11 +26,12 @@
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-09-10",
-    "extension": 3,
+    "termina": "2025-09-17",
+    "extension": 4,
     "actual": true
   },
   "last_5": {
+    "2025-09-17": "G",
     "2025-09-10": "E",
     "2025-09-03": "P",
     "2025-08-27": "G"
@@ -40,16 +41,23 @@
     "Recalde, Facundo": 1,
     "Ponce, Martin": 1,
     "Tosi, Marcelo": 1,
+    "Daruich, Nicolas": 1,
+    "Gimenez, Yamil": 1,
+    "Ferreyra, Jose Maria": 1,
+    "Vara, Negro": 1,
     "Nuñez, Cesar": 0,
+    "Lombardo, Juan Pablo": 0,
     "Guillou, Bernardo": -1,
     "Lombardo, Emiliano": -1,
-    "Lombardo, Juan Pablo": -1,
     "Caballero, Alejandro": -1
   },
   "best_partner": {
+    "Ramos Benitez, Matias": 2,
+    "Cesano, Leandro": 1,
+    "Daher, Camilo": 1,
     "Lombardo, Emiliano": 1,
     "Lombardo, Juan Pablo": 1,
-    "Ramos Benitez, Matias": 1,
+    "Nuñez, Cesar": 1,
     "Ruiz, Mariano": 1
   },
   "worse_partner": {
@@ -63,7 +71,12 @@
     "Recalde, Facundo": 1,
     "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1
+    "Tosi, Marcelo": 1,
+    "Daruich, Nicolas": 1,
+    "Gimenez, Yamil": 1,
+    "Lombardo, Juan Pablo": 1,
+    "Ferreyra, Jose Maria": 1,
+    "Vara, Negro": 1
   },
   "filiation": {
     "Guillou, Bernardo": 1,
