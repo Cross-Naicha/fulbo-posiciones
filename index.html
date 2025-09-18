@@ -5,7 +5,15 @@
   <title>Tabla de Posiciones</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root { --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042; }
+    :root {
+      --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042;
+      /* ==== imágenes del medallón (cambiá estas rutas) ==== */
+      --medal-a: url("img/medallon-a.webp");
+      --medal-b: url("img/medallon-b.webp");
+      /* velocidades (podés ajustar) */
+      --ticker-speed: 18s;   /* cuanto tarda en recorrer medio track */
+      --coin-speed:   5s;    /* cuanto tarda en dar una vuelta */
+    }
     * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--ink); }
     .wrap { max-width: 1080px; margin: 32px auto; padding: 0 16px; }
@@ -63,9 +71,7 @@
       color:var(--ink);
       opacity:.95;
     }
-    .team.right {
-      text-align: right;
-    }
+    .team.right { text-align: right; }
     .score {
       font-size:28px; font-weight:700; letter-spacing:.5px;
       padding:4px 8px; border-radius:8px; border:1px solid var(--line);
@@ -75,7 +81,6 @@
       .score { font-size:24px; min-width:72px; }
       .team  { font-size:12px; }
     }
-    /* ===== fin partidos ===== */
 
     /* ===== Rachas (positivas / negativas) ===== */
     :root { --pos:#2fbf71; --neg:#ff6b6b; }
@@ -118,14 +123,109 @@
     .streak-dates { font-size:12px; color:var(--muted); }
     @media (max-width: 480px){ .streak-len{ font-size:16px; } }
 
+    /* ===================== Ticker con medallones ===================== */
+    .ticker {
+      display:flex; align-items:center; gap:12px;
+      background: linear-gradient(180deg, #162233, #141a23);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:8px 12px;
+      margin-bottom:16px;
+    }
+    .ticker-viewport {
+      position:relative; overflow:hidden; flex:1; min-height:28px;
+    }
+    .ticker-track {
+      display:inline-flex; align-items:center; gap:48px;
+      white-space:nowrap;
+      will-change: transform;
+      animation: ticker-move var(--ticker-speed) linear infinite;
+    }
+    .ticker-msg { text-transform:uppercase; letter-spacing:.6px; color:var(--ink); opacity:.95; font-size:14px; }
+    .ticker-sep::before { content:"•"; opacity:.6; margin:0 8px; }
+
+    /* Medallón (mismo en ambos lados) */
+    .medallion {
+      width:44px; height:44px; border-radius:50%;
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      overflow:hidden;
+      perspective: 800px;
+      flex:0 0 auto;
+      background: #0f141b;
+    }
+    .coin {
+      position:relative; width:82%; height:82%;
+      border-radius:50%;
+      transform-style: preserve-3d;
+      will-change: transform;
+      animation: coin-flip var(--coin-speed) linear infinite;
+    }
+    .face {
+      position:absolute; inset:0; border-radius:50%;
+      background-position:center; background-size:cover; background-repeat:no-repeat;
+      backface-visibility: hidden;
+    }
+    .face.front { background-image: var(--medal-a); transform: rotateY(0deg) translateZ(1px); }
+    .face.back  { background-image: var(--medal-b); transform: rotateY(180deg) translateZ(1px); }
+
+    /* Hover/Focus: pausar animaciones (opcional) */
+    .ticker:hover .ticker-track,
+    .ticker:focus-within .ticker-track { animation-play-state: paused; }
+    .ticker:hover .coin,
+    .ticker:focus-within .coin { animation-play-state: paused; }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .ticker-track, .coin { animation: none !important; }
+    }
+
+    @keyframes ticker-move {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); } /* recorremos media pista porque está duplicada */
+    }
+    @keyframes coin-flip {
+      from { transform: rotateY(0); }
+      to   { transform: rotateY(360deg); }
+    }
+    /* =================== FIN Ticker =================== */
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>PROMIEDOS (PMX)</h1>
-    <div class="sub"> TORNEO DE TRANSICIÓN: CHIQUI NAICHA </code></div>
+    <div class="sub"> TORNEO DE TRANSICIÓN: CHIQUI NAICHA </div>
+
+    <!-- ====== Ticker NUEVO (reemplaza la línea “FINAL: Lomba vs Chagay”) ====== -->
+    <div class="ticker" role="region" aria-label="Anuncio principal">
+      <div class="medallion" aria-hidden="true">
+        <div class="coin">
+          <div class="face front"></div>
+          <div class="face back"></div>
+        </div>
+      </div>
+
+      <div class="ticker-viewport">
+        <!-- Pista duplicada para bucle perfecto -->
+        <div class="ticker-track" id="tickerTrack">
+          <span class="ticker-msg" id="tickerA"></span>
+          <span class="ticker-msg ticker-sep"> </span>
+          <span class="ticker-msg" id="tickerB"></span>
+          <span class="ticker-msg ticker-sep"> </span>
+        </div>
+      </div>
+
+      <div class="medallion" aria-hidden="true">
+        <div class="coin">
+          <div class="face front"></div>
+          <div class="face back"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ====== FIN Ticker ====== -->
+
     <div class="sep"></div>
-    <div class="sub"> FINAL: Lomba vs Chagay </code></div>
+    <div class="sub2">FINAL: Lomba vs Chagay</div> <!-- (si querés, podés borrar esta línea redundante) -->
 
     <div class="card">
       <div id="status" class="status">Cargando datos…</div>
@@ -144,7 +244,7 @@
       </table>
     </div>
     <p> (*) Ultimo campeón.</p>
-    <p> Reglamento (Novedades): 
+    <p> Reglamento (Novedades):
       El proximo partido es la final, y a la vez el comienzo de la liga de primavera XD
     </p>
     <p>Para mantenerte al tanto, solicita tu acreditacion al <a href="https://es.wikipedia.org/wiki/Claudio_Tapia">MEDIA DAY</a> <- ENLACE</p>
@@ -176,6 +276,19 @@
   </div>
 
   <script>
+    /* ================= Texto del Ticker =================
+       Editá este string y se actualiza en ambas copias para el bucle */
+    const TICKER_TEXT = "FINAL: Lomba vs Chagay — ¡Comienza la liga de primavera!";
+    (function initTicker(){
+      const a = document.getElementById('tickerA');
+      const b = document.getElementById('tickerB');
+      if(a && b){
+        a.textContent = TICKER_TEXT;
+        b.textContent = TICKER_TEXT;
+      }
+    })();
+    /* =================================================== */
+
     const status = document.getElementById("status");
     const tabla  = document.getElementById("tabla");
     const tbody  = document.getElementById("tbody");
@@ -214,7 +327,7 @@
     }
     cargar();
 
-    /* ===================== Partidos como tarjetas (sin badges ni resaltados) ===================== */
+    /* ===================== Partidos como tarjetas ===================== */
 
     const matchesStatus = document.getElementById('matchesStatus');
     const matchesGrid   = document.getElementById('matchesGrid');
@@ -248,8 +361,7 @@
       div.textContent = text;
       if (/\*/.test(text)) div.title = 'Último campeón';
       return div;
-}
-
+    }
 
     function scoreBlock(a, b){
       const s = document.createElement('div');
@@ -269,10 +381,7 @@
         .normalize('NFD').replace(/\p{Diacritic}/gu,'')
         .toLowerCase().trim();
 
-      // agregá acá todos los alias que quieras tratar como positivos
-      return t.startsWith('pos')      // "Positiva", "Pos."
-          || t.startsWith('victor')   // "Victorias"
-          || t.startsWith('invicto'); // "Invicto"
+      return t.startsWith('pos') || t.startsWith('victor') || t.startsWith('invicto');
     }
 
     function fmtFechaCorta(iso){
@@ -331,7 +440,6 @@
           return;
         }
 
-        // orden sugerido: positivas primero, luego negativas; dentro de cada una por extensión desc
         arr.sort((a,b)=>{
           const ra = esPositiva(a.racha) ? 0 : 1;
           const rb = esPositiva(b.racha) ? 0 : 1;
@@ -349,12 +457,7 @@
         streaksStatus.textContent = 'Error al cargar rachas: ' + err.message;
       }
     }
-    /* ===== fin Rachas ===== */
-
-    // ya llamás cargar() arriba; ahora llamá también:
     cargarRachas();
-    // y luego el resto:
-    cargarPartidos();
 
     async function cargarPartidos(){
       matchesStatus.style.display = 'block';
@@ -404,7 +507,6 @@
             const right = teamBlock(parsed.equipoB, 'right');
             body.append(left, score, right);
           } else {
-            // fallback: mostramos crudo si no matchea el formato
             const raw = document.createElement('div');
             raw.className = 'team';
             raw.textContent = linea;
