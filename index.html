@@ -88,6 +88,36 @@
     }
 
     /* ===== Rachas (positivas / negativas) ===== */
+    /* solapa superior */
+    .top-tab {
+      width: 100%;
+      height: 70px;
+      background: linear-gradient(90deg, #2f8bfd, #7b2ff7);
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* solapa inferior */
+    .bottom-tab {
+      width: 100%;
+      height: 50px;
+      background: #11161c;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 32px;
+    }
+
+    /* ===== Rachas (positivas / negativas) ===== */
     .streaks-card { padding:12px; }
     .streaks-status { text-align:center; color:var(--muted); padding:8px 10px; }
     .streaks-grid {
@@ -213,6 +243,7 @@
   </style>
 </head>
 <body>
+  <div class="top-tab">⚽ Liga de Transición – PROMIEDOS</div>
   <div class="wrap">
     <h1>PROMIEDOS (PMX)</h1>
     <div class="sub"> LIGA DE TRANSICIÓN: CHIQUI NAICHA </div>
@@ -313,6 +344,7 @@
         <div class="muted">Por cada día que pase, una regla cambia. Un equipo asciende, y un descenso se pierde.</div>
       </div>
     </div>
+  <div class="bottom-tab">© 2025 Liga Fulbo · Hecho con 💙 en Tucumán</div>
   </div>
   <!-- ======== FIN OVERLAY ======== -->
 
