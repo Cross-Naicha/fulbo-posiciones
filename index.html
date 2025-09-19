@@ -168,14 +168,20 @@
     /* ============= BLOQUEO: blur del contenido + overlay ============= */
     body.locked .wrap { filter: blur(4px) brightness(.8); pointer-events:none; user-select:none; }
     .lock-overlay {
-      position: fixed; inset: 0; display: none; place-items: center; padding: 24px;
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 16px;                /* un poco menos para móviles */
       background: radial-gradient(1200px 1200px at 50% 50%, rgba(12,16,22,.82), rgba(8,10,14,.9));
       z-index: 9999;
     }
     body.locked .lock-overlay { display: grid; }
     .lock-panel {
-      width: min(720px, 96vw);
-      border:1px solid var(--overlay-border);
+      max-width: 600px;             /* límite más chico y seguro */
+      width: 100%;                  /* ocupa todo el ancho disponible */
+      margin: 0 auto;               /* centrado horizontal */
+      border: 1px solid var(--overlay-border);
       border-radius: 16px;
       background: linear-gradient(180deg, #0f141b, #0c1219);
       box-shadow: 0 10px 40px rgba(0,0,0,.45);
