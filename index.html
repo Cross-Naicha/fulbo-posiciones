@@ -195,6 +195,35 @@
     @keyframes coin-flip { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
     /* =================== FIN Ticker =================== */
 
+    /* ===== Botón flotante "ir arriba" ===== */
+    .to-top {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 9000;
+      display: grid;
+      place-items: center;
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--accent, #2f8bfd);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,.35);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .18s ease, transform .18s ease, background .18s ease;
+    }
+    .to-top:hover { filter: brightness(1.05); }
+    .to-top:active { transform: translateY(10px) scale(.98); }
+    .to-top.show { opacity: 1; transform: translateY(0); }
+    /* Ocultalo cuando el overlay bloquea la página */
+    body.locked .to-top { display: none; }
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .to-top { transition: none; }
+    }
+
     /* ============= BLOQUEO: blur del contenido + overlay ============= */
     body.locked .wrap { filter: blur(4px) brightness(.8); pointer-events:none; user-select:none; }
     .lock-overlay {
@@ -349,6 +378,38 @@
   <!-- ======== FIN OVERLAY ======== -->
 
   <script>
+
+      // ===== Botón "ir arriba" =====
+    (function initScrollToTop(){
+      const btn = document.getElementById('toTopBtn');
+      if (!btn) return;
+
+      const toggle = () => {
+        if (window.scrollY > 300 && !document.body.classList.contains('locked')){
+          btn.classList.add('show');
+        } else {
+          btn.classList.remove('show');
+        }
+      };
+
+      window.addEventListener('scroll', toggle, { passive: true });
+      window.addEventListener('resize', toggle);
+      document.addEventListener('DOMContentLoaded', toggle);
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Accesible con teclado (Enter/Espacio)
+      btn.addEventListener('keydown', (e)=>{
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+})();
+
     /* ================= Configuración del bloqueo =================
        Editá estos valores y listo (no se lee ningún archivo externo)
     */
@@ -664,5 +725,8 @@
     cargarRachas();
     cargarPartidos();
   </script>
+  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">
+  ▲
+  </button>
 </body>
 </html>
