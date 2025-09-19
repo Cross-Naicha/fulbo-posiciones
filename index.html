@@ -13,6 +13,11 @@
       /* velocidades (podés ajustar) */
       --ticker-speed: 18s;   /* cuanto tarda en recorrer medio track */
       --coin-speed:   5s;    /* cuanto tarda en dar una vuelta */
+      /* overlay */
+      --overlay-bg: rgba(10,14,20,0.78);
+      --overlay-border: #263649;
+      --accent:#2f8bfd;
+      --pos:#2fbf71; --neg:#ff6b6b;
     }
     * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--ink); }
@@ -83,7 +88,6 @@
     }
 
     /* ===== Rachas (positivas / negativas) ===== */
-    :root { --pos:#2fbf71; --neg:#ff6b6b; }
     .streaks-card { padding:12px; }
     .streaks-status { text-align:center; color:var(--muted); padding:8px 10px; }
     .streaks-grid {
@@ -132,9 +136,7 @@
       padding:8px 12px;
       margin-bottom:16px;
     }
-    .ticker-viewport {
-      position:relative; overflow:hidden; flex:1; min-height:28px;
-    }
+    .ticker-viewport { position:relative; overflow:hidden; flex:1; min-height:28px; }
     .ticker-track {
       display:inline-flex; align-items:center; gap:48px;
       white-space:nowrap;
@@ -143,8 +145,6 @@
     }
     .ticker-msg { text-transform:uppercase; letter-spacing:.6px; color:var(--ink); opacity:.95; font-size:14px; }
     .ticker-sep::before { content:"•"; opacity:.6; margin:0 8px; }
-
-    /* Medallón (mismo en ambos lados) */
     .medallion {
       width:44px; height:44px; border-radius:50%;
       border:1px solid var(--line);
@@ -154,41 +154,56 @@
       flex:0 0 auto;
       background: #0f141b;
     }
-    .coin {
-      position:relative; width:82%; height:82%;
-      border-radius:50%;
-      transform-style: preserve-3d;
-      will-change: transform;
-      animation: coin-flip var(--coin-speed) linear infinite;
-    }
-    .face {
-      position:absolute; inset:0; border-radius:50%;
-      background-position:center; background-size:cover; background-repeat:no-repeat;
-      backface-visibility: hidden;
-    }
+    .coin { position:relative; width:82%; height:82%; border-radius:50%; transform-style: preserve-3d; will-change: transform; animation: coin-flip var(--coin-speed) linear infinite; }
+    .face { position:absolute; inset:0; border-radius:50%; background-position:center; background-size:cover; background-repeat:no-repeat; backface-visibility: hidden; }
     .face.front { background-image: var(--medal-a); transform: rotateY(0deg) translateZ(1px); }
     .face.back  { background-image: var(--medal-b); transform: rotateY(180deg) translateZ(1px); }
-
-    /* Hover/Focus: pausar animaciones (opcional) */
-    .ticker:hover .ticker-track,
-    .ticker:focus-within .ticker-track { animation-play-state: paused; }
-    .ticker:hover .coin,
-    .ticker:focus-within .coin { animation-play-state: paused; }
-
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      .ticker-track, .coin { animation: none !important; }
-    }
-
-    @keyframes ticker-move {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); } /* recorremos media pista porque está duplicada */
-    }
-    @keyframes coin-flip {
-      from { transform: rotateY(0); }
-      to   { transform: rotateY(360deg); }
-    }
+    .ticker:hover .ticker-track, .ticker:focus-within .ticker-track { animation-play-state: paused; }
+    .ticker:hover .coin, .ticker:focus-within .coin { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce){ .ticker-track, .coin { animation: none !important; } }
+    @keyframes ticker-move { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes coin-flip { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
     /* =================== FIN Ticker =================== */
+
+    /* ============= BLOQUEO: blur del contenido + overlay ============= */
+    body.locked .wrap { filter: blur(4px) brightness(.8); pointer-events:none; user-select:none; }
+    .lock-overlay {
+      position: fixed; inset: 0; display: none; place-items: center; padding: 24px;
+      background: radial-gradient(1200px 1200px at 50% 50%, rgba(12,16,22,.82), rgba(8,10,14,.9));
+      z-index: 9999;
+    }
+    body.locked .lock-overlay { display: grid; }
+    .lock-panel {
+      width: min(720px, 96vw);
+      border:1px solid var(--overlay-border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #0f141b, #0c1219);
+      box-shadow: 0 10px 40px rgba(0,0,0,.45);
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+    .lock-title { font-size: 20px; font-weight: 700; text-align: center; }
+    .lock-sub { color: var(--muted); font-size: 14px; text-align: center; }
+    .lock-actions { display: grid; gap: 12px; align-items: center; justify-items: center; }
+    .wa-btn {
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid var(--line); border-radius: 999px; padding:10px 14px;
+      background:#0f141b; cursor:pointer; user-select:none;
+    }
+    .wa-btn:hover { background:#121924; }
+    .qr {
+      display:grid; gap:8px; place-items:center;
+      border:1px dashed var(--overlay-border);
+      border-radius:12px; padding:12px;
+      background:#0d131b;
+    }
+    .qr img { width:160px; height:160px; object-fit:contain; image-rendering: crisp-edges; }
+    .muted { color: var(--muted); font-size: 12px; }
+    .inline-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background:#0f141b; border:1px solid var(--line); border-radius:8px; padding:4px 6px;
+    }
   </style>
 </head>
 <body>
@@ -197,7 +212,7 @@
     <div class="sub"> LIGA DE TRANSICIÓN: CHIQUI NAICHA </div>
     <div class="sep"></div>
 
-    <!-- ====== Ticker NUEVO (reemplaza la línea “FINAL: Lomba vs Chagay”) ====== -->
+    <!-- ====== Ticker ====== -->
     <div class="ticker" role="region" aria-label="Anuncio principal">
       <div class="medallion" aria-hidden="true">
         <div class="coin">
@@ -207,7 +222,6 @@
       </div>
 
       <div class="ticker-viewport">
-        <!-- Pista duplicada para bucle perfecto -->
         <div class="ticker-track" id="tickerTrack">
           <span class="ticker-msg" id="tickerA"></span>
           <span class="ticker-msg ticker-sep"> </span>
@@ -275,27 +289,112 @@
     <div class="sep"></div>
   </div>
 
+  <!-- ========= OVERLAY DE BLOQUEO ========= -->
+  <div class="lock-overlay" id="lockOverlay" aria-live="polite">
+    <div class="lock-panel" role="dialog" aria-labelledby="lockTitle" aria-describedby="lockDesc">
+      <div class="lock-title" id="lockTitle">⚽ La tabla está en pausa</div>
+      <div class="lock-sub" id="lockDesc">
+        Se desbloquea cuando llegue <strong>resultado + equipos</strong>.
+      </div>
+      <div class="lock-actions">
+        <a id="waBtn" class="wa-btn" href="#" target="_blank" rel="noopener">
+          <span>📲 Abrir WhatsApp</span>
+        </a>
+        <div class="qr">
+          <img id="waQR" alt="Escaneá con tu teléfono para enviar el resultado por WhatsApp" src="">
+          <div class="muted">Desde la compu: escaneá el QR</div>
+        </div>
+        <div class="muted">Formato sugerido: <span class="inline-code">Goles A–B | A: […] | B: […]</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- ======== FIN OVERLAY ======== -->
+
   <script>
-    /* ================= Texto del Ticker =================
-       Editá este string y se actualiza en ambas copias para el bucle */
+    /* ================= Configuración del bloqueo =================
+       Editá estos valores y listo (no se lee ningún archivo externo)
+    */
+    const CONFIG = {
+      manual_force_lock: false,             // true = bloquea SIEMPRE
+      auto_lock_enabled:  true,             // true = activa bloqueo automático Mié 21:00
+      last_unlock_at:    "2025-09-17T00:30:00-03:00", // último OK manual (ISO con -03:00)
+      whatsapp_link:     "https://wa.me/5493810000000?text=Resultado:%20A%E2%80%93B%0AEquipo%20A:%20[nombres]%0AEquipo%20B:%20[nombres]",
+      whatsapp_qr_src:   "data/qr-whatsapp.png"
+    };
     const TICKER_TEXT = "CONMEBOL Libertadores PAL - RIV, Vuelta: MIE 21.30 h - Liga Transición (FINAL) LOMBA vs CHAGAY (MIE 24/09) - FOX SPORTS 3 ";
+
+    /* =============== Ticker =============== */
     (function initTicker(){
       const a = document.getElementById('tickerA');
       const b = document.getElementById('tickerB');
-      if(a && b){
-        a.textContent = TICKER_TEXT;
-        b.textContent = TICKER_TEXT;
-      }
+      if(a && b){ a.textContent = TICKER_TEXT; b.textContent = TICKER_TEXT; }
     })();
-    /* =================================================== */
 
+    /* =============== Utilidades de fecha =============== */
+    function parseISO(s){
+      const t = Date.parse(s);
+      return Number.isFinite(t) ? new Date(t) : null;
+    }
+    // Último miércoles 21:00 que no esté en el futuro (usa hora LOCAL del navegador)
+    function currentRoundStart(now = new Date()){
+      const d = new Date(now);
+      const day = d.getDay(); // 0=Dom ... 3=Mié
+      const candidate = new Date(d);
+      candidate.setHours(21,0,0,0);
+      const daysSinceWed = (day + 7 - 3) % 7; // cuántos días pasaron desde el último miércoles
+      candidate.setDate(candidate.getDate() - daysSinceWed);
+      if (now < candidate) candidate.setDate(candidate.getDate() - 7);
+      return candidate;
+    }
+
+    /* =============== Evaluación de estado =============== */
+    function computeLockedState(){
+      const now = new Date();
+      if (CONFIG.manual_force_lock) return true;
+
+      if (!CONFIG.auto_lock_enabled) return false;
+
+      const roundStart = currentRoundStart(now);
+      const lastUnlock = parseISO(CONFIG.last_unlock_at);
+
+      // Regla: si es Mié 21:00 o después, y NO hay unlock posterior a ese inicio, bloquea.
+      const afterRoundStart = now >= roundStart;
+      const unlockedThisRound = lastUnlock && (lastUnlock >= roundStart);
+
+      return afterRoundStart && !unlockedThisRound;
+    }
+
+    function applyLockUI(locked){
+      const body = document.body;
+      const overlay = document.getElementById('lockOverlay');
+      const waBtn = document.getElementById('waBtn');
+      const waQR  = document.getElementById('waQR');
+
+      if (waBtn) waBtn.href = CONFIG.whatsapp_link || '#';
+      if (waQR)  waQR.src  = CONFIG.whatsapp_qr_src || '';
+
+      if (locked){
+        body.classList.add('locked');
+        if (overlay) overlay.style.display = 'grid';
+      } else {
+        body.classList.remove('locked');
+        if (overlay) overlay.style.display = 'none';
+      }
+    }
+
+    // Aplica estado al cargar y cada minuto (por si justo pasa Mié 21:00 con la página abierta)
+    function initLockCycle(){
+      applyLockUI(computeLockedState());
+      setInterval(()=>applyLockUI(computeLockedState()), 60_000);
+    }
+
+    /* ================== Tabla de posiciones ================== */
     const status = document.getElementById("status");
     const tabla  = document.getElementById("tabla");
     const tbody  = document.getElementById("tbody");
 
     function setStatus(msg){ status.textContent = msg; status.style.display='block'; tabla.style.display='none'; }
     function showTable(){ status.style.display='none'; tabla.style.display='table'; }
-
     function fmt3(v){ const n = Number(v); return Number.isFinite(n) ? n.toFixed(3) : v; }
 
     async function cargar(){
@@ -325,26 +424,22 @@
         console.error(err);
       }
     }
-    cargar();
 
     /* ===================== Partidos como tarjetas ===================== */
-
     const matchesStatus = document.getElementById('matchesStatus');
     const matchesGrid   = document.getElementById('matchesGrid');
     const matchesEmpty  = document.getElementById('matchesEmpty');
 
     const fmtFecha = (iso) => {
-      // Espera YYYY-MM-DD; muestra en es-AR tipo "mié 03 sep 2025"
       try{
         const [y,m,d] = iso.split('-').map(Number);
-        const dt = new Date(Date.UTC(y, (m-1), d, 12)); // 12:00 UTC para evitar edge cases de TZ
+        const dt = new Date(Date.UTC(y, (m-1), d, 12));
         return new Intl.DateTimeFormat('es-AR', { weekday:'short', day:'2-digit', month:'short', year:'numeric' })
           .format(dt).replaceAll('.', '');
       }catch{ return iso; }
     };
 
     function parseLinea(linea){
-      // "Equipo A | 12 VS. 11 | Equipo B"
       const partes = linea.split('|').map(s => s.trim());
       if(partes.length !== 3) return { raw: linea, ok:false };
       const [equipoA, marcador, equipoB] = partes;
@@ -380,7 +475,6 @@
       const t = (racha || '')
         .normalize('NFD').replace(/\p{Diacritic}/gu,'')
         .toLowerCase().trim();
-
       return t.startsWith('pos') || t.startsWith('victor') || t.startsWith('invicto');
     }
 
@@ -457,7 +551,6 @@
         streaksStatus.textContent = 'Error al cargar rachas: ' + err.message;
       }
     }
-    cargarRachas();
 
     async function cargarPartidos(){
       matchesStatus.style.display = 'block';
@@ -527,8 +620,11 @@
       }
     }
 
+    // Init
+    initLockCycle();
+    cargar();
+    cargarRachas();
     cargarPartidos();
-    /* =================== FIN Partidos =================== */
   </script>
 </body>
 </html>
