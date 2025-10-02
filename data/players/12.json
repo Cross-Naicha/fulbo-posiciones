@@ -55,20 +55,13 @@
   },
   "best_partner": {
     "Ramos Benitez, Matias": 2,
-    "Cesano, Leandro": 1,
-    "Daher, Camilo": 1,
     "Lombardo, Emiliano": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Nuñez, Cesar": 1,
-    "Ruiz, Mariano": 1
+    "Lombardo, Juan Pablo": 1
   },
   "worse_partner": {
-    "Ruiz, Mariano": 2,
     "Tosi, Marcelo": 2,
-    "Cesano, Leandro": 1,
-    "Daher, Camilo": 1,
-    "Gimenez, Yamil": 1,
-    "Nuñez, Cesar": 1
+    "Ruiz, Mariano": 1,
+    "Gimenez, Yamil": 1
   },
   "paternity": {
     "Cesano, Leandro": 1,

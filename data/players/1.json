@@ -52,18 +52,12 @@
     "Lombardo, Emiliano": -2
   },
   "best_partner": {
-    "Chagay, Alexis": 1,
-    "Daher, Camilo": 1,
-    "Nuñez, Cesar": 1,
     "Ramos Benitez, Matias": 1
   },
   "worse_partner": {
     "Tosi, Marcelo": 2,
-    "Chagay, Alexis": 1,
-    "Daher, Camilo": 1,
-    "Nuñez, Cesar": 1,
-    "Ponce, Martin": 1,
     "Recalde, Facundo": 1,
+    "Ponce, Martin": 1,
     "Ruiz, Mariano": 1
   },
   "paternity": {

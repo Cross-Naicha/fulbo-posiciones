@@ -50,19 +50,17 @@
     "Ramos Benitez, Matias": -1
   },
   "best_partner": {
-    "Caballero, Alejandro": 2,
-    "Guillou, Bernardo": 2,
     "Lombardo, Emiliano": 2,
     "Ramos Benitez, Matias": 2,
+    "Guillou, Bernardo": 2,
+    "Caballero, Alejandro": 2,
     "Chagay, Alexis": 1,
-    "Daruich, Nicolas": 1,
-    "Nuñez, Cesar": 1,
-    "Ruiz, Mariano": 1
+    "Ruiz, Mariano": 1,
+    "Nuñez, Cesar": 1
   },
   "worse_partner": {
-    "Daruich, Nicolas": 1,
-    "Ferreyra, Jose Maria": 1,
     "Gimenez, Yamil": 1,
+    "Ferreyra, Jose Maria": 1,
     "Varas, Franco": 1
   },
   "paternity": {

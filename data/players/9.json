@@ -54,22 +54,18 @@
     "Ramos Benitez, Matias": -2
   },
   "best_partner": {
-    "Caballero, Alejandro": 1,
-    "Cesano, Leandro": 1,
-    "Chagay, Alexis": 1,
-    "Daher, Camilo": 1,
     "Guillou, Bernardo": 1,
     "Lombardo, Emiliano": 1,
     "Lombardo, Juan Pablo": 1,
-    "Ramos Benitez, Matias": 1
+    "Caballero, Alejandro": 1,
+    "Ramos Benitez, Matias": 1,
+    "Daher, Camilo": 1
   },
   "worse_partner": {
     "Tosi, Marcelo": 2,
-    "Cesano, Leandro": 1,
-    "Chagay, Alexis": 1,
-    "Gimenez, Yamil": 1,
-    "Ponce, Martin": 1,
     "Recalde, Facundo": 1,
+    "Ponce, Martin": 1,
+    "Gimenez, Yamil": 1,
     "Ruiz, Mariano": 1
   },
   "paternity": {
