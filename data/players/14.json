@@ -16,15 +16,16 @@
     "puntos acumulados": 3,
     "victorias": 1,
     "empates": 0,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2025-09-17",
     "termina": "2025-09-17",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-10-01": "A",
     "2025-09-17": "G",
     "2025-09-10": "A",
     "2025-09-03": "A",
@@ -44,10 +45,13 @@
   },
   "best_partner": {
     "Chagay, Alexis": 2,
+    "Lombardo, Juan Pablo": 2,
+    "Caballero, Alejandro": 1,
     "Cesano, Leandro": 1,
     "Daher, Camilo": 1,
+    "Daruich, Nicolas": 1,
+    "Guillou, Bernardo": 1,
     "Lombardo, Emiliano": 1,
-    "Lombardo, Juan Pablo": 1,
     "Nuñez, Cesar": 1,
     "Ruiz, Mariano": 1
   },

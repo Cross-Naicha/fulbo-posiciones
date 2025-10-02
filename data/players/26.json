@@ -16,7 +16,7 @@
     "puntos acumulados": 3,
     "victorias": 1,
     "empates": 0,
-    "actual": true
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2025-09-03",
@@ -28,9 +28,10 @@
     "empieza": "2025-09-17",
     "termina": "2025-09-17",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-10-01": "A",
     "2025-09-17": "G",
     "2025-09-10": "A",
     "2025-09-03": "P",

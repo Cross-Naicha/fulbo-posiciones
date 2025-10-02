@@ -28,9 +28,10 @@
     "empieza": "2025-08-27",
     "termina": "2025-09-17",
     "extension": 4,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-10-01": "A",
     "2025-09-17": "P",
     "2025-09-10": "E",
     "2025-09-03": "G",
@@ -48,12 +49,13 @@
     "Ramos Benitez, Matias": -1
   },
   "best_partner": {
+    "Caballero, Alejandro": 2,
+    "Guillou, Bernardo": 2,
     "Lombardo, Emiliano": 2,
-    "Caballero, Alejandro": 1,
+    "Ramos Benitez, Matias": 2,
     "Chagay, Alexis": 1,
-    "Guillou, Bernardo": 1,
+    "Daruich, Nicolas": 1,
     "Nuñez, Cesar": 1,
-    "Ramos Benitez, Matias": 1,
     "Ruiz, Mariano": 1
   },
   "worse_partner": {

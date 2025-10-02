@@ -28,9 +28,10 @@
     "empieza": "2025-09-10",
     "termina": "2025-09-17",
     "extension": 2,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-10-01": "A",
     "2025-09-17": "P",
     "2025-09-10": "E",
     "2025-09-03": "A",
@@ -45,9 +46,13 @@
   },
   "best_partner": {},
   "worse_partner": {
+    "Chagay, Alexis": 1,
     "Daruich, Nicolas": 1,
     "Ferreyra, Jose Maria": 1,
     "Lombardo, Juan Pablo": 1,
+    "Nuñez, Cesar": 1,
+    "Ruiz, Mariano": 1,
+    "Tosi, Marcelo": 1,
     "Varas, Franco": 1
   },
   "paternity": {},

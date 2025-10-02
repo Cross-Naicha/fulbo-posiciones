@@ -28,9 +28,10 @@
     "empieza": "2025-09-17",
     "termina": "2025-09-17",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-10-01": "A",
     "2025-09-17": "P",
     "2025-09-10": "A",
     "2025-09-03": "A",
@@ -43,7 +44,12 @@
     "Ramos Benitez, Matias": -1,
     "Daher, Camilo": -1
   },
-  "best_partner": {},
+  "best_partner": {
+    "Caballero, Alejandro": 1,
+    "Guillou, Bernardo": 1,
+    "Lombardo, Juan Pablo": 1,
+    "Ramos Benitez, Matias": 1
+  },
   "worse_partner": {
     "Ferreyra, Jose Maria": 1,
     "Gimenez, Yamil": 1,
