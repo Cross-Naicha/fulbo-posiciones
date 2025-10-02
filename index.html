@@ -296,11 +296,11 @@
   </style>
 </head>
 <body>
-  <div class="top-tab">[Publicite Aqui]</div>
+  <div class="top-tab" id="auspiciante"></div>
   <div class="wrap">
     <h1 id="titulo"></h1>
-    <h2>Chiqui Naicha</h2>
-    <div class="sub">"Es necesario que cada uno de los dirigentes acompañe en esta democracia" - Claudio "El Chiqui" Tapia</div>
+    <h2 id="subtitlo"></h2>
+    <div class="sub" id="frase_chiqui"></div>
     <div class="sep"></div>
 
     <!-- ====== Ticker ====== -->
@@ -348,10 +348,8 @@
         <tbody id="tbody"></tbody>
       </table>
     </div>
-    <p> (*) Ultimo campeón.</p>
-    <p> Sin Novedades :
-    </p>
-    <p>Para mantenerte al tanto, solicita tu acreditacion al <a href="https://es.wikipedia.org/wiki/Claudio_Tapia">MEDIA DAY</a> <- ENLACE</p>
+    <p>Novedades de La Liga</p>
+    <p id="novedades"></p>
 
     <!-- ===== separador y sección Partidos ===== -->
     <div class="sep"></div>
@@ -379,6 +377,18 @@
     <div class="sep"></div>
   </div>
   <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
+
+      <!-- ========= OVERLAY ANUNCIOS ========= -->
+  <div class="lock-overlay" id="annOverlay">
+    <div class="lock-panel">
+      <div class="lock-title" id="annTitle"></div>
+      <div class="lock-sub" id="annBody"></div>
+      <div class="lock-actions">
+        <button id="annNextBtn" class="wa-btn">Siguiente</button>
+      </div>
+    </div>
+  </div>
+  <!-- ========= FIN OVERLAY ANUNCIOS ========= -->
 
   <!-- ========= OVERLAY DE BLOQUEO ========= -->
   <div class="lock-overlay" id="lockOverlay" aria-live="polite">
@@ -410,7 +420,12 @@
     fetch('textos.json')
       .then(response => response.json())
       .then(data => {
+        document.getElementById('auspiciante').textContent = data.auspiciante;
         document.getElementById('titulo').textContent = data.titulo;
+        document.getElementById('subtitlo').textContent = data.subtitlo;
+        document.getElementById('fechas').textContent = data.fechas;
+        document.getElementById('frases_chiqui').textContent = data.frases_chiqui;
+        document.getElementById('novedades').textContent = data.novedades;
       })
       .catch(error => console.error('Error cargando el JSON:', error));
 
@@ -463,6 +478,37 @@
       const b = document.getElementById('tickerB');
       if(a && b){ a.textContent = TICKER_TEXT; b.textContent = TICKER_TEXT; }
     })();
+
+        // ================== ANUNCIOS ==================
+    const ANNOUNCEMENTS = [
+      { title: "⚠️ Impugnación presentada", body: "El equipo finalista solicita la nulidad del partido..." },
+      { title: "📢 Nuevo Sponsor", body: "La Liga anuncia la incorporación de un patrocinador destacado..." },
+      { title: "✅ Resolución final", body: "La dirigencia proclama Campeón Único e Indiscutido." }
+    ];
+    let currentAnn = 0;
+    function showAnnouncement(i){
+      const overlay = document.getElementById("annOverlay");
+      if(i < ANNOUNCEMENTS.length){
+        document.body.classList.add("locked");
+        overlay.classList.add("active");
+        document.getElementById("annTitle").textContent = ANNOUNCEMENTS[i].title;
+        document.getElementById("annBody").textContent  = ANNOUNCEMENTS[i].body;
+      } else {
+        overlay.classList.remove("active");
+        document.body.classList.remove("locked");
+      }
+    }
+    function startAnnouncements(){
+      currentAnn = 0;
+      showAnnouncement(currentAnn);
+    }
+    document.getElementById("annNextBtn").addEventListener("click", ()=>{
+      currentAnn++;
+      showAnnouncement(currentAnn);
+    });
+
+    // Para activar anuncios en cualquier momento:
+    // startAnnouncements();
 
     /* =============== Utilidades de fecha =============== */
     function parseISO(s){
