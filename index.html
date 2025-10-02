@@ -221,7 +221,7 @@
     function startAnnouncements(){ currentAnn=0; showAnnouncement(currentAnn); }
     document.getElementById("annNextBtn").addEventListener("click", ()=>{ currentAnn++; showAnnouncement(currentAnn); });
 
-    startAnnouncements(); // descomentar para probar
+    startAnnouncements();
 
     function parseISO(s){ const t=Date.parse(s); return Number.isFinite(t)? new Date(t):null; }
     function currentRoundStart(now=new Date()){ const d=new Date(now); const day=d.getDay(); const candidate=new Date(d); candidate.setHours(21,0,0,0); const daysSinceWed=(day+7-3)%7; candidate.setDate(candidate.getDate()-daysSinceWed); if(now<candidate) candidate.setDate(candidate.getDate()-7); return candidate; }
