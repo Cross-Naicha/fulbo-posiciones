@@ -349,8 +349,7 @@
       </table>
     </div>
     <p> (*) Ultimo campeón.</p>
-    <p> Reglamento (Novedades):
-      El proximo partido es la final, y a la vez el comienzo de la liga de primavera XD
+    <p> Sin Novedades :
     </p>
     <p>Para mantenerte al tanto, solicita tu acreditacion al <a href="https://es.wikipedia.org/wiki/Claudio_Tapia">MEDIA DAY</a> <- ENLACE</p>
 
@@ -652,7 +651,7 @@
       try{
         const bust = Date.now();
         const res = await fetch(`data/rachas.json?v=${bust}`, { cache:'no-store' });
-        if(!res.ok) throw new Error('HTTP ' + res.status);
+        if(!res.ok) throw new Error('Proxima Temporada');
         const data = await res.json();
         const arr = Array.isArray(data) ? data : [];
 
