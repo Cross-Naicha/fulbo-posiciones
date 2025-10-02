@@ -128,6 +128,12 @@
       display: grid;
       gap: 14px;
     }
+    body.locked {
+      overflow: hidden;   /* ❌ quita scroll del body */
+      position: fixed;    /* fija el body para que no se mueva */
+      width: 100%;        /* evita “salto” lateral */
+    }
+
     #annOverlay .lock-sub {text-align: left;}
     #annBody {
     text-align: justify;         /* alineado formal */
