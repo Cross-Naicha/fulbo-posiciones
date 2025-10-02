@@ -129,6 +129,7 @@
       padding: 20px;
       display: grid;
       gap: 14px;
+      scrollbar-width: none;
     }
     body.locked {
       overflow: hidden;   /* ❌ quita scroll del body */
@@ -136,7 +137,8 @@
       width: 100%;        /* evita “salto” lateral */
     }
     .lock-panel::-webkit-scrollbar {
-      width: 6px;
+      width: 0;
+      background: transparent;
     }
     .lock-panel::-webkit-scrollbar-thumb {
       background: rgba(255,255,255,0.2);  /* gris clarito transparente */
