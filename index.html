@@ -119,7 +119,8 @@
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
-      scrollbar-gutter: stable both-edges; 
+      padding-right: 14px;
+      box-sizing: content-box;
       margin: 0 auto;
       border: 1px solid var(--overlay-border);
       border-radius: 16px;
@@ -271,7 +272,7 @@
     })();
 
     const CONFIG = { manual_force_lock:false, auto_lock_enabled:true, last_unlock_at:"2025-10-02T00:00:00-03:00", whatsapp_link:"https://wa.me/5493815303224?text=Querido%20Chiqui...", whatsapp_qr_src:"data/qr-whatsapp.png" };
-    const TICKER_TEXT = "Felicidades Lomba: Campeón de la Liga de Transición - PRONTA RECUPERACION CHIQUI!";
+    // const TICKER_TEXT = "Felicidades Lomba: Campeón de la Liga de Transición - PRONTA RECUPERACION CHIQUI!";
     (function initTicker(){ const a=document.getElementById('tickerA'); const b=document.getElementById('tickerB'); if(a&&b){ a.textContent=TICKER_TEXT; b.textContent=TICKER_TEXT; }})();
     
     let currentAnn=0;
