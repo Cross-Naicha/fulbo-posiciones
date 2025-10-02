@@ -221,99 +221,57 @@
     })
     .catch(err => console.error("Error cargando textos:", err));
 
-  // === Overlay de anuncios ===
-  let currentAnn = 0;
-  function showAnnouncement(i){
-    const overlay = document.getElementById("annOverlay");
-    if (i < ANNOUNCEMENTS.length){
-      document.body.classList.add("locked");
-      overlay.classList.add("active");
-      document.getElementById("annTitle").textContent = ANNOUNCEMENTS[i].title;
-      // Respetar saltos de línea del JSON
-      document.getElementById("annBody").innerHTML = ANNOUNCEMENTS[i].body.replace(/\n/g,"<br>");
-    } else {
-      overlay.classList.remove("active");
-      document.body.classList.remove("locked");
+    (function initScrollToTop(){
+      const btn = document.getElementById('toTopBtn'); if (!btn) return;
+      const toggle = () => { if (window.scrollY > 100 && !document.body.classList.contains('locked')) btn.classList.add('show'); else btn.classList.remove('show'); };
+      window.addEventListener('scroll', toggle, { passive: true }); window.addEventListener('resize', toggle); document.addEventListener('DOMContentLoaded', toggle);
+      btn.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+
+    const CONFIG = { manual_force_lock:false, auto_lock_enabled:true, last_unlock_at:"2025-10-02T00:00:00-03:00", whatsapp_link:"https://wa.me/5493815303224?text=Querido%20Chiqui...", whatsapp_qr_src:"data/qr-whatsapp.png" };
+    const TICKER_TEXT = "Felicidades Lomba: Campeón de la Liga de Transición - PRONTA RECUPERACION CHIQUI!";
+    (function initTicker(){ const a=document.getElementById('tickerA'); const b=document.getElementById('tickerB'); if(a&&b){ a.textContent=TICKER_TEXT; b.textContent=TICKER_TEXT; }})();
+    
+    let currentAnn=0;
+    function showAnnouncement(i){ const overlay=document.getElementById("annOverlay"); if(i<ANNOUNCEMENTS.length){ document.body.classList.add("locked"); overlay.classList.add("active"); document.getElementById("annTitle").textContent=ANNOUNCEMENTS[i].title; document.getElementById("annBody").textContent=ANNOUNCEMENTS[i].body; } else { overlay.classList.remove("active"); document.body.classList.remove("locked"); } }
+    function startAnnouncements(){ currentAnn=0; showAnnouncement(currentAnn); }
+    document.getElementById("annNextBtn").addEventListener("click", ()=>{ currentAnn++; showAnnouncement(currentAnn); });
+
+    startAnnouncements();
+
+    function parseISO(s){ const t=Date.parse(s); return Number.isFinite(t)? new Date(t):null; }
+    function currentRoundStart(now=new Date()){ const d=new Date(now); const day=d.getDay(); const candidate=new Date(d); candidate.setHours(21,0,0,0); const daysSinceWed=(day+7-3)%7; candidate.setDate(candidate.getDate()-daysSinceWed); if(now<candidate) candidate.setDate(candidate.getDate()-7); return candidate; }
+    function computeLockedState(){ const now=new Date(); if(CONFIG.manual_force_lock) return true; if(!CONFIG.auto_lock_enabled) return false; const roundStart=currentRoundStart(now); const lastUnlock=parseISO(CONFIG.last_unlock_at); const afterRoundStart=now>=roundStart; const unlockedThisRound=lastUnlock && (lastUnlock>=roundStart); return afterRoundStart && !unlockedThisRound; }
+
+    function applyLockUI(locked){
+      const overlay=document.getElementById('lockOverlay'); const waBtn=document.getElementById('waBtn'); const waQR=document.getElementById('waQR');
+      if(waBtn) waBtn.href=CONFIG.whatsapp_link||'#'; if(waQR) waQR.src=CONFIG.whatsapp_qr_src||'';
+      if(locked){ document.body.classList.add('locked'); overlay.classList.add('active'); } else { document.body.classList.remove('locked'); overlay.classList.remove('active'); }
     }
-  }
-  function startAnnouncements(){
-    currentAnn = 0;
-    showAnnouncement(currentAnn);
-  }
-  document.getElementById("annNextBtn").addEventListener("click", ()=>{
-    currentAnn++;
-    showAnnouncement(currentAnn);
-  });
+    function initLockCycle(){ applyLockUI(computeLockedState()); setInterval(()=>applyLockUI(computeLockedState()), 60000); }
 
-  // === Botón scroll arriba ===
-  (function initScrollToTop(){
-    const btn = document.getElementById('toTopBtn'); 
-    if (!btn) return;
-    const toggle = () => { 
-      if (window.scrollY > 100 && !document.body.classList.contains('locked')) 
-        btn.classList.add('show'); 
-      else btn.classList.remove('show'); 
-    };
-    window.addEventListener('scroll', toggle, { passive: true }); 
-    window.addEventListener('resize', toggle); 
-    document.addEventListener('DOMContentLoaded', toggle);
-    btn.addEventListener('click', e=>{ 
-      e.preventDefault(); 
-      window.scrollTo({ top: 0, behavior: 'smooth' }); 
-    });
-  })();
+    // === cargar tabla ===
+    const status=document.getElementById("status"); const tabla=document.getElementById("tabla"); const tbody=document.getElementById("tbody");
+    function setStatus(msg){ status.textContent=msg; status.style.display='block'; tabla.style.display='none'; }
+    function showTable(){ status.style.display='none'; tabla.style.display='table'; }
+    function fmt3(v){ const n=Number(v); return Number.isFinite(n)? n.toFixed(3):v; }
+    async function cargar(){ try{ setStatus("Cargando datos…"); const res=await fetch(`data/posiciones.json?v=${Date.now()}`,{cache:"no-store"}); if(!res.ok) throw new Error("HTTP "+res.status); const rows=await res.json(); tbody.innerHTML=""; for(const r of rows){ const tr=document.createElement("tr"); tr.innerHTML=`<td class="right">${r.n??""}</td><td><a href="jugador.html?id=${r.id}">${r.jugador??""}</a></td><td class="right">${r.partidos??""}</td><td class="right">${r.puntos??""}</td><td class="right">${fmt3(r.efectividad??"")}</td><td>${r.promedio??""}</td>`; tbody.appendChild(tr);} showTable(); }catch(err){ setStatus("Error al cargar datos: "+err.message); console.error(err); } }
 
-  // === Bloqueo de resultados ===
-  const CONFIG = { 
-    manual_force_lock:false, 
-    auto_lock_enabled:true, 
-    last_unlock_at:"2025-10-02T00:00:00-03:00", 
-    whatsapp_link:"https://wa.me/5493815303224?text=Querido%20Chiqui...", 
-    whatsapp_qr_src:"data/qr-whatsapp.png" 
-  };
-  function parseISO(s){ const t=Date.parse(s); return Number.isFinite(t)? new Date(t):null; }
-  function currentRoundStart(now=new Date()){ 
-    const d=new Date(now); 
-    const day=d.getDay(); 
-    const candidate=new Date(d); 
-    candidate.setHours(21,0,0,0); 
-    const daysSinceWed=(day+7-3)%7; 
-    candidate.setDate(candidate.getDate()-daysSinceWed); 
-    if(now<candidate) candidate.setDate(candidate.getDate()-7); 
-    return candidate; 
-  }
-  function computeLockedState(){ 
-    const now=new Date(); 
-    if(CONFIG.manual_force_lock) return true; 
-    if(!CONFIG.auto_lock_enabled) return false; 
-    const roundStart=currentRoundStart(now); 
-    const lastUnlock=parseISO(CONFIG.last_unlock_at); 
-    const afterRoundStart=now>=roundStart; 
-    const unlockedThisRound=lastUnlock && (lastUnlock>=roundStart); 
-    return afterRoundStart && !unlockedThisRound; 
-  }
-  function applyLockUI(locked){
-    const overlay=document.getElementById('lockOverlay'); 
-    const waBtn=document.getElementById('waBtn'); 
-    const waQR=document.getElementById('waQR');
-    if(waBtn) waBtn.href=CONFIG.whatsapp_link||'#'; 
-    if(waQR) waQR.src=CONFIG.whatsapp_qr_src||'';
-    if(locked){ 
-      document.body.classList.add('locked'); 
-      overlay.classList.add('active'); 
-    } else { 
-      document.body.classList.remove('locked'); 
-      overlay.classList.remove('active'); 
-    }
-  }
-  function initLockCycle(){ 
-    applyLockUI(computeLockedState()); 
-    setInterval(()=>applyLockUI(computeLockedState()), 60000); 
-  }
+    // === cargar rachas ===
+    const streaksStatus=document.getElementById('streaksStatus'); const streaksGrid=document.getElementById('streaksGrid'); const streaksEmpty=document.getElementById('streaksEmpty');
+    function esPositiva(racha){ const t=(racha||'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().trim(); return t.startsWith('pos')||t.startsWith('victor')||t.startsWith('invicto'); }
+    function fmtFechaCorta(iso){ try{ const [y,m,d]=iso.split('-').map(Number); const dt=new Date(Date.UTC(y,m-1,d,12)); return new Intl.DateTimeFormat('es-AR',{day:'2-digit',month:'short',year:'numeric'}).format(dt).replaceAll('.',''); }catch{return iso;} }
+    function streakCard(item){ const el=document.createElement('article'); const isPos=esPositiva(item.racha); el.className=`streak ${isPos?'pos':'neg'}`; const top=document.createElement('div'); top.className='streak-top'; const badge=document.createElement('span'); badge.className=`badge ${isPos?'pos':'neg'}`; badge.textContent=item.racha||''; top.appendChild(badge); const main=document.createElement('div'); main.className='streak-main'; const name=document.createElement('div'); name.className='streak-name'; name.textContent=item.jugador||''; const len=document.createElement('div'); len.className='streak-len'; len.textContent=`x${item.extension??0}`; main.append(name,len); const dates=document.createElement('div'); dates.className='streak-dates'; dates.textContent=`Desde ${fmtFechaCorta(item.inicio)}`; el.append(top,main,dates); return el; }
+    async function cargarRachas(){ streaksStatus.style.display='block'; streaksGrid.style.display='none'; streaksEmpty.style.display='none'; try{ const res=await fetch(`data/rachas.json?v=${Date.now()}`,{cache:'no-store'}); if(!res.ok) throw new Error('Proxima Temporada'); const arr=await res.json(); if(arr.length===0){ streaksStatus.style.display='none'; streaksEmpty.style.display='block'; return; } arr.sort((a,b)=>{ const ra=esPositiva(a.racha)?0:1; const rb=esPositiva(b.racha)?0:1; if(ra!==rb) return ra-rb; return (b.extension||0)-(a.extension||0); }); streaksGrid.innerHTML=''; for(const s of arr) streaksGrid.appendChild(streakCard(s)); streaksStatus.style.display='none'; streaksGrid.style.display='grid'; }catch(err){ console.error(err); streaksStatus.textContent='Error al cargar rachas: '+err.message; } }
 
-  // === Inicialización ===
-  initLockCycle();
-  cargar();      // tu función de posiciones
-  cargarRachas();
-  cargarPartidos();
-</script>
+    // === cargar partidos ===
+    const matchesStatus=document.getElementById('matchesStatus'); const matchesGrid=document.getElementById('matchesGrid'); const matchesEmpty=document.getElementById('matchesEmpty');
+    function parseLinea(linea){ const partes=linea.split('|').map(s=>s.trim()); if(partes.length!==3) return { raw:linea, ok:false }; const [equipoA, marcador, equipoB]=partes; const m=marcador.match(/(\d+)\s*VS\.\s*(\d+)/i); if(!m) return { raw:linea,equipoA,equipoB,marcadorRaw:marcador,ok:false }; return { equipoA,equipoB,golesA:Number(m[1]),golesB:Number(m[2]),ok:true }; }
+    function teamBlock(text,align='left'){ const div=document.createElement('div'); div.className='team'; if(align==='right') div.classList.add('right'); div.textContent=text; return div; }
+    function scoreBlock(a,b){ const s=document.createElement('div'); s.className='score'; s.setAttribute('aria-label',`${a} a ${b}`); s.textContent=`${a} - ${b}`; return s; }
+    async function cargarPartidos(){ matchesStatus.style.display='block'; matchesGrid.style.display='none'; matchesEmpty.style.display='none'; try{ const res=await fetch(`data/partidos.json?v=${Date.now()}`,{cache:'no-store'}); if(!res.ok) throw new Error("HTTP "+res.status); const obj=await res.json(); const entries=Object.entries(obj).filter(([f,l])=>typeof l==='string'&&f).sort(([f1],[f2])=>f2.localeCompare(f1)); matchesGrid.innerHTML=''; if(entries.length===0){ matchesStatus.style.display='none'; matchesEmpty.style.display='block'; return; } for(const [fecha,linea] of entries){ const parsed=parseLinea(linea); const card=document.createElement('article'); card.className='match'; const head=document.createElement('div'); head.className='match-head'; const hleft=document.createElement('div'); hleft.textContent=fecha; head.appendChild(hleft); const body=document.createElement('div'); body.className='match-body'; if(parsed.ok){ const left=teamBlock(parsed.equipoA,'left'); const score=scoreBlock(parsed.golesA,parsed.golesB); const right=teamBlock(parsed.equipoB,'right'); body.append(left,score,right); } else { const raw=document.createElement('div'); raw.className='team'; raw.textContent=linea; body.style.gridTemplateColumns='1fr'; body.appendChild(raw); } card.prepend(head); card.appendChild(body); matchesGrid.appendChild(card);} matchesStatus.style.display='none'; matchesGrid.style.display='grid'; }catch(err){ console.error(err); matchesStatus.textContent='Error al cargar partidos: '+err.message; } }
+
+    initLockCycle(); cargar(); cargarRachas(); cargarPartidos();
+  </script>
+</body>
+</html>
