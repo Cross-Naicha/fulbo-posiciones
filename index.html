@@ -116,6 +116,21 @@
     .lock-overlay.active { display: grid; }
     .lock-panel { max-width: 600px; width: 100%; margin: 0 auto; border: 1px solid var(--overlay-border); border-radius: 16px; background: linear-gradient(180deg, #0f141b, #0c1219); box-shadow: 0 10px 40px rgba(0,0,0,.45); padding: 20px; display: grid; gap: 14px; }
     #annOverlay .lock-sub {text-align: left;}
+    #annBody {
+    text-align: justify;         /* alineado formal */
+    line-height: 1.6;            /* más aire entre líneas */
+    font-size: 15px;             /* un pelín más grande */
+    color: var(--ink);           /* mismo color que el resto */
+    }
+
+    #annBody p {
+      margin-bottom: 12px;         /* espacio entre párrafos */
+    }
+
+    #annBody p:last-child {
+      margin-bottom: 0;            /* sin espacio extra al final */
+    }
+
     .lock-title { font-size: 20px; font-weight: 700; text-align: center; }
     .lock-sub { color: var(--muted); font-size: 14px; text-align: center; }
     .lock-actions { display: grid; gap: 12px; align-items: center; justify-items: center; }
