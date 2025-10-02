@@ -112,13 +112,27 @@
 
     /* === Overlays === */
     body.locked .wrap { filter: blur(4px) brightness(.8); pointer-events:none; user-select:none; }
-    .lock-overlay { position: fixed; inset: 0; display: none; place-items: center; padding: 16px; background: radial-gradient(1200px 1200px at 50% 50%, rgba(12,16,22,.82), rgba(8,10,14,.9)); z-index: 9999; overflow-y: auto;}
+
+    .lock-overlay { 
+      position: fixed; 
+      inset: 0; 
+      display: none; 
+      place-items: center; 
+      padding: 16px; 
+      background: radial-gradient(1200px 1200px at 50% 50%, rgba(12,16,22,.82), rgba(8,10,14,.9)); 
+      z-index: 9999; 
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
     .lock-overlay.active { display: grid; }
+
     .lock-panel {
       max-width: 600px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
+      overflow-x: hidden;
       padding-right: 14px;
       box-sizing: content-box;
       margin: 0 auto;
@@ -130,6 +144,7 @@
       display: grid;
       gap: 14px;
       scrollbar-width: none;
+      box-sizing: border-box;
     }
     body.locked {
       overflow: hidden;   /* ❌ quita scroll del body */
