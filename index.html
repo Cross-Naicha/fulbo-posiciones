@@ -129,7 +129,7 @@
   <div class="top-tab" id="auspiciante"></div>
   <div class="wrap">
     <h1 id="titulo"></h1>
-    <h2 id="subtitlo"></h2>
+    <h2 id="subtitulo"></h2>
     <div class="sub" id="frase_chiqui"></div>
     <div class="sep"></div>
 
@@ -195,8 +195,9 @@
     fetch('textos.json').then(r=>r.json()).then(data=>{
       document.getElementById('auspiciante').textContent = data.auspiciante;
       document.getElementById('titulo').textContent = data.titulo;
-      document.getElementById('subtitlo').textContent = data.subtitlo;
-      document.getElementById('frase_chiqui').textContent = data.frases_chiqui;
+      document.getElementById('subtitulo').textContent = data.subtitulo;
+      document.getElementById('fecha').textContent = data.fecha;
+      document.getElementById('frase_chiqui').textContent = data.frase_chiqui;
       document.getElementById('novedades').textContent = data.novedades;
     });
 
