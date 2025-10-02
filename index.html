@@ -298,7 +298,7 @@
 <body>
   <div class="top-tab">[Publicite Aqui]</div>
   <div class="wrap">
-    <h1>LIGA DE TRANSICIÓN</h1>
+    <h1 id="titulo"></h1>
     <h2>Chiqui Naicha</h2>
     <div class="sub">"Es necesario que cada uno de los dirigentes acompañe en esta democracia" - Claudio "El Chiqui" Tapia</div>
     <div class="sep"></div>
@@ -406,6 +406,13 @@
   </button>
 
   <script>
+
+    fetch('textos.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('titulo').textContent = data.titulo;
+      })
+      .catch(error => console.error('Error cargando el JSON:', error));
 
       // ===== Botón "ir arriba" =====
     (function initScrollToTop(){
