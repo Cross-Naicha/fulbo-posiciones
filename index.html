@@ -241,30 +241,36 @@
   <script>
   let ANNOUNCEMENTS = [];
   
-  fetch('textos.json')
-    .then(r => r.json())
-    .then(data => {
-      // ===== textos sueltos =====
-      document.getElementById('auspiciante').textContent = data.auspiciante;
-      document.getElementById('titulo').textContent = data.titulo;
-      document.getElementById('subtitulo').textContent = data.subtitulo;
-      document.getElementById('fecha').textContent = data.fechas;
-      document.getElementById('frase_chiqui').textContent = data.frase_chiqui;
-      document.getElementById('novedades').textContent = data.novedades;
+fetch('textos.json')
+  .then(r => r.json())
+  .then(data => {
+    // ===== textos sueltos =====
+    document.getElementById('auspiciante').textContent = data.auspiciante;
+    document.getElementById('titulo').textContent = data.titulo;
+    document.getElementById('subtitulo').textContent = data.subtitulo;
+    document.getElementById('fecha').textContent = data.fechas;
+    document.getElementById('frase_chiqui').textContent = data.frase_chiqui;
+    document.getElementById('novedades').textContent = data.novedades;
 
-      // ===== ticker =====
-      const a = document.getElementById('tickerA');
-      const b = document.getElementById('tickerB');
-      if (a && b) {
-        a.textContent = data.ticker;
-        b.textContent = data.ticker;
+    // ===== ticker =====
+    const a = document.getElementById('tickerA');
+    const b = document.getElementById('tickerB');
+    if (a && b) {
+      a.textContent = data.ticker;
+      b.textContent = data.ticker;
+    }
+
+    // ===== anuncios =====
+    ANNOUNCEMENTS = data.anuncios || [];
+    if (ANNOUNCEMENTS.length > 0) {
+      if (!sessionStorage.getItem("announcements_shown")) {
+        startAnnouncements();
+        sessionStorage.setItem("announcements_shown", "true");
       }
+    }
+  })
+  .catch(err => console.error("Error cargando textos:", err));
 
-      // ===== anuncios =====
-      ANNOUNCEMENTS = data.anuncios || [];
-      if (ANNOUNCEMENTS.length > 0) startAnnouncements();
-    })
-    .catch(err => console.error("Error cargando textos:", err));
 
     (function initScrollToTop(){
       const btn = document.getElementById('toTopBtn'); if (!btn) return;
