@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 3,
+    "partidos": 4,
     "apodo": "Mario*",
     "puntos": 4,
-    "efectividad": 0.444,
-    "promedio": 0.312,
+    "efectividad": 0.333,
+    "promedio": 0.278,
     "ganados": 1,
     "empatados": 1,
-    "perdidos": 1
+    "perdidos": 2
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-10",
@@ -19,10 +19,10 @@
     "actual": false
   },
   "losses_streak_statistics": {
-    "empieza": "2025-09-03",
-    "termina": "2025-09-03",
+    "empieza": "2025-10-01",
+    "termina": "2025-10-01",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
@@ -31,7 +31,7 @@
     "actual": false
   },
   "last_5": {
-    "2025-10-01": "A",
+    "2025-10-01": "P",
     "2025-09-17": "A",
     "2025-09-10": "E",
     "2025-09-03": "P",
@@ -43,10 +43,12 @@
     "Ponce, Martin": 1,
     "Tosi, Marcelo": 1,
     "Nuñez, Cesar": 0,
-    "Guillou, Bernardo": -1,
     "Lombardo, Emiliano": -1,
-    "Lombardo, Juan Pablo": -1,
-    "Caballero, Alejandro": -1
+    "Daruich, Nicolas": -1,
+    "Ramos Benitez, Matias": -1,
+    "Guillou, Bernardo": -2,
+    "Lombardo, Juan Pablo": -2,
+    "Caballero, Alejandro": -2
   },
   "best_partner": {
     "Chagay, Alexis": 1,
@@ -70,10 +72,12 @@
     "Tosi, Marcelo": 1
   },
   "filiation": {
-    "Guillou, Bernardo": 1,
+    "Guillou, Bernardo": 2,
     "Lombardo, Emiliano": 1,
-    "Lombardo, Juan Pablo": 1,
+    "Lombardo, Juan Pablo": 2,
     "Nuñez, Cesar": 1,
-    "Caballero, Alejandro": 1
+    "Caballero, Alejandro": 2,
+    "Daruich, Nicolas": 1,
+    "Ramos Benitez, Matias": 1
   }
 }

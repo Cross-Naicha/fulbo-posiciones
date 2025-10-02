@@ -1,42 +1,44 @@
 {
   "basic_statistics": {
-    "partidos": 1,
+    "partidos": 2,
     "apodo": "Pelao Khe",
-    "puntos": 3,
+    "puntos": 6,
     "efectividad": 1.0,
-    "promedio": 0.417,
-    "ganados": 1,
+    "promedio": 0.5,
+    "ganados": 2,
     "empatados": 0,
     "perdidos": 0
   },
   "winning_streak_statistics": {
-    "empieza": "2025-09-03",
-    "termina": "2025-09-03",
+    "empieza": "2025-10-01",
+    "termina": "2025-10-01",
     "extension": 1,
     "puntos acumulados": 3,
     "victorias": 1,
     "empates": 0,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
-    "empieza": "2025-09-03",
-    "termina": "2025-09-03",
+    "empieza": "2025-10-01",
+    "termina": "2025-10-01",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "last_5": {
-    "2025-10-01": "A",
+    "2025-10-01": "G",
     "2025-09-17": "A",
     "2025-09-10": "A",
     "2025-09-03": "G",
     "2025-08-27": "A"
   },
   "balance_vs": {
+    "Chagay, Alexis": 2,
+    "Ruiz, Mariano": 2,
+    "Tosi, Marcelo": 2,
     "Cesano, Leandro": 1,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1,
-    "Tosi, Marcelo": 1,
-    "Daher, Camilo": 1
+    "Daher, Camilo": 1,
+    "Gimenez, Yamil": 1,
+    "Nuñez, Cesar": 1
   },
   "best_partner": {
     "Guillou, Bernardo": 2,
@@ -49,10 +51,12 @@
   "worse_partner": {},
   "paternity": {
     "Cesano, Leandro": 1,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1,
-    "Tosi, Marcelo": 1,
-    "Daher, Camilo": 1
+    "Chagay, Alexis": 2,
+    "Ruiz, Mariano": 2,
+    "Tosi, Marcelo": 2,
+    "Daher, Camilo": 1,
+    "Gimenez, Yamil": 1,
+    "Nuñez, Cesar": 1
   },
   "filiation": {}
 }

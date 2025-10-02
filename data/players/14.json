@@ -1,47 +1,49 @@
 {
   "basic_statistics": {
-    "partidos": 2,
+    "partidos": 3,
     "apodo": "Mato",
-    "puntos": 6,
+    "puntos": 9,
     "efectividad": 1.0,
-    "promedio": 0.5,
-    "ganados": 2,
+    "promedio": 0.562,
+    "ganados": 3,
     "empatados": 0,
     "perdidos": 0
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-17",
-    "termina": "2025-09-17",
-    "extension": 1,
-    "puntos acumulados": 3,
-    "victorias": 1,
+    "termina": "2025-10-01",
+    "extension": 2,
+    "puntos acumulados": 6,
+    "victorias": 2,
     "empates": 0,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-09-17",
-    "termina": "2025-09-17",
-    "extension": 1,
-    "actual": false
+    "termina": "2025-10-01",
+    "extension": 2,
+    "actual": true
   },
   "last_5": {
-    "2025-10-01": "A",
+    "2025-10-01": "G",
     "2025-09-17": "G",
     "2025-09-10": "A",
     "2025-09-03": "A",
     "2025-08-27": "G"
   },
   "balance_vs": {
+    "Nuñez, Cesar": 2,
+    "Tosi, Marcelo": 2,
+    "Gimenez, Yamil": 2,
     "Cesano, Leandro": 1,
     "Recalde, Facundo": 1,
-    "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1,
     "Daruich, Nicolas": 1,
-    "Gimenez, Yamil": 1,
     "Lombardo, Juan Pablo": 1,
     "Ferreyra, Jose Maria": 1,
-    "Varas, Franco": 1
+    "Varas, Franco": 1,
+    "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1
   },
   "best_partner": {
     "Chagay, Alexis": 2,
@@ -59,14 +61,16 @@
   "paternity": {
     "Cesano, Leandro": 1,
     "Recalde, Facundo": 1,
-    "Nuñez, Cesar": 1,
+    "Nuñez, Cesar": 2,
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1,
+    "Tosi, Marcelo": 2,
     "Daruich, Nicolas": 1,
-    "Gimenez, Yamil": 1,
+    "Gimenez, Yamil": 2,
     "Lombardo, Juan Pablo": 1,
     "Ferreyra, Jose Maria": 1,
-    "Varas, Franco": 1
+    "Varas, Franco": 1,
+    "Chagay, Alexis": 1,
+    "Ruiz, Mariano": 1
   },
   "filiation": {}
 }

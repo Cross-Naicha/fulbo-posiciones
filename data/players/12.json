@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 4,
+    "partidos": 5,
     "apodo": "Chagay",
     "puntos": 7,
-    "efectividad": 0.583,
-    "promedio": 0.389,
+    "efectividad": 0.467,
+    "promedio": 0.35,
     "ganados": 2,
     "empatados": 1,
-    "perdidos": 1
+    "perdidos": 2
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-10",
@@ -19,19 +19,19 @@
     "actual": false
   },
   "losses_streak_statistics": {
-    "empieza": "2025-09-03",
-    "termina": "2025-09-03",
+    "empieza": "2025-10-01",
+    "termina": "2025-10-01",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-09-17",
-    "extension": 4,
-    "actual": false
+    "termina": "2025-10-01",
+    "extension": 5,
+    "actual": true
   },
   "last_5": {
-    "2025-10-01": "A",
+    "2025-10-01": "P",
     "2025-09-17": "G",
     "2025-09-10": "E",
     "2025-09-03": "P",
@@ -42,15 +42,16 @@
     "Recalde, Facundo": 1,
     "Ponce, Martin": 1,
     "Tosi, Marcelo": 1,
-    "Daruich, Nicolas": 1,
     "Gimenez, Yamil": 1,
     "Ferreyra, Jose Maria": 1,
     "Varas, Franco": 1,
     "Nuñez, Cesar": 0,
-    "Lombardo, Juan Pablo": 0,
-    "Guillou, Bernardo": -1,
+    "Daruich, Nicolas": 0,
+    "Lombardo, Juan Pablo": -1,
     "Lombardo, Emiliano": -1,
-    "Caballero, Alejandro": -1
+    "Ramos Benitez, Matias": -1,
+    "Guillou, Bernardo": -2,
+    "Caballero, Alejandro": -2
   },
   "best_partner": {
     "Ramos Benitez, Matias": 2,
@@ -82,10 +83,12 @@
     "Varas, Franco": 1
   },
   "filiation": {
-    "Guillou, Bernardo": 1,
+    "Guillou, Bernardo": 2,
     "Lombardo, Emiliano": 1,
-    "Lombardo, Juan Pablo": 1,
+    "Lombardo, Juan Pablo": 2,
     "Nuñez, Cesar": 1,
-    "Caballero, Alejandro": 1
+    "Caballero, Alejandro": 2,
+    "Daruich, Nicolas": 1,
+    "Ramos Benitez, Matias": 1
   }
 }

@@ -1,11 +1,11 @@
 {
   "basic_statistics": {
-    "partidos": 4,
+    "partidos": 5,
     "apodo": "Lomba",
-    "puntos": 7,
-    "efectividad": 0.583,
-    "promedio": 0.389,
-    "ganados": 2,
+    "puntos": 10,
+    "efectividad": 0.667,
+    "promedio": 0.45,
+    "ganados": 3,
     "empatados": 1,
     "perdidos": 1
   },
@@ -22,29 +22,30 @@
     "empieza": "2025-09-17",
     "termina": "2025-09-17",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-09-17",
-    "extension": 4,
-    "actual": false
+    "termina": "2025-10-01",
+    "extension": 5,
+    "actual": true
   },
   "last_5": {
-    "2025-10-01": "A",
+    "2025-10-01": "G",
     "2025-09-17": "P",
     "2025-09-10": "E",
     "2025-09-03": "G",
     "2025-08-27": "G"
   },
   "balance_vs": {
-    "Tosi, Marcelo": 2,
+    "Tosi, Marcelo": 3,
+    "Ruiz, Mariano": 2,
     "Cesano, Leandro": 1,
     "Recalde, Facundo": 1,
+    "Nuñez, Cesar": 1,
     "Ponce, Martin": 1,
-    "Ruiz, Mariano": 1,
-    "Nuñez, Cesar": 0,
-    "Chagay, Alexis": 0,
+    "Chagay, Alexis": 1,
+    "Gimenez, Yamil": 1,
     "Daher, Camilo": 0,
     "Ramos Benitez, Matias": -1
   },
@@ -67,12 +68,13 @@
   "paternity": {
     "Cesano, Leandro": 2,
     "Recalde, Facundo": 1,
-    "Nuñez, Cesar": 1,
+    "Nuñez, Cesar": 2,
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 2,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1,
-    "Daher, Camilo": 1
+    "Tosi, Marcelo": 3,
+    "Chagay, Alexis": 2,
+    "Ruiz, Mariano": 2,
+    "Daher, Camilo": 1,
+    "Gimenez, Yamil": 1
   },
   "filiation": {
     "Cesano, Leandro": 1,

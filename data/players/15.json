@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 3,
+    "partidos": 4,
     "apodo": "Marcelito",
     "puntos": 1,
-    "efectividad": 0.111,
-    "promedio": 0.188,
+    "efectividad": 0.083,
+    "promedio": 0.167,
     "ganados": 0,
     "empatados": 1,
-    "perdidos": 2
+    "perdidos": 3
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-10",
@@ -31,21 +31,22 @@
     "actual": false
   },
   "last_5": {
-    "2025-10-01": "A",
+    "2025-10-01": "P",
     "2025-09-17": "A",
     "2025-09-10": "E",
     "2025-09-03": "P",
     "2025-08-27": "P"
   },
   "balance_vs": {
-    "Ramos Benitez, Matias": -1,
     "Chagay, Alexis": -1,
     "Ruiz, Mariano": -1,
-    "Guillou, Bernardo": -1,
     "Nuñez, Cesar": -1,
-    "Caballero, Alejandro": -1,
+    "Daruich, Nicolas": -1,
     "Lombardo, Emiliano": -2,
-    "Lombardo, Juan Pablo": -2
+    "Ramos Benitez, Matias": -2,
+    "Guillou, Bernardo": -2,
+    "Caballero, Alejandro": -2,
+    "Lombardo, Juan Pablo": -3
   },
   "best_partner": {},
   "worse_partner": {
@@ -61,12 +62,13 @@
   "paternity": {},
   "filiation": {
     "Lombardo, Emiliano": 2,
-    "Lombardo, Juan Pablo": 2,
-    "Ramos Benitez, Matias": 1,
+    "Lombardo, Juan Pablo": 3,
+    "Ramos Benitez, Matias": 2,
     "Chagay, Alexis": 1,
     "Ruiz, Mariano": 1,
-    "Guillou, Bernardo": 1,
+    "Guillou, Bernardo": 2,
     "Nuñez, Cesar": 1,
-    "Caballero, Alejandro": 1
+    "Caballero, Alejandro": 2,
+    "Daruich, Nicolas": 1
   }
 }

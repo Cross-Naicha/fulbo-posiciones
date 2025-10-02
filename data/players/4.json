@@ -1,11 +1,11 @@
 {
   "basic_statistics": {
-    "partidos": 2,
+    "partidos": 3,
     "apodo": "Bag",
-    "puntos": 4,
-    "efectividad": 0.667,
-    "promedio": 0.357,
-    "ganados": 1,
+    "puntos": 7,
+    "efectividad": 0.778,
+    "promedio": 0.438,
+    "ganados": 2,
     "empatados": 1,
     "perdidos": 0
   },
@@ -25,18 +25,20 @@
     "actual": false
   },
   "last_5": {
-    "2025-10-01": "A",
+    "2025-10-01": "G",
     "2025-09-17": "A",
     "2025-09-10": "E",
     "2025-09-03": "G",
     "2025-08-27": "A"
   },
   "balance_vs": {
+    "Chagay, Alexis": 2,
+    "Ruiz, Mariano": 2,
+    "Tosi, Marcelo": 2,
     "Cesano, Leandro": 1,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1,
-    "Tosi, Marcelo": 1,
-    "Daher, Camilo": 1
+    "Daher, Camilo": 1,
+    "Gimenez, Yamil": 1,
+    "Nuñez, Cesar": 1
   },
   "best_partner": {
     "Caballero, Alejandro": 2,
@@ -49,10 +51,12 @@
   "worse_partner": {},
   "paternity": {
     "Cesano, Leandro": 1,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1,
-    "Tosi, Marcelo": 1,
-    "Daher, Camilo": 1
+    "Chagay, Alexis": 2,
+    "Ruiz, Mariano": 2,
+    "Tosi, Marcelo": 2,
+    "Daher, Camilo": 1,
+    "Gimenez, Yamil": 1,
+    "Nuñez, Cesar": 1
   },
   "filiation": {}
 }
