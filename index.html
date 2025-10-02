@@ -11,8 +11,8 @@
       --medal-a: url("data/img/Chiqui.jpg");
       --medal-b: url("data/img/Naicha.jpg");
       /* velocidades (podés ajustar) */
-      --ticker-speed: 18s;   /* cuanto tarda en recorrer medio track */
-      --coin-speed:   5s;    /* cuanto tarda en dar una vuelta */
+      --ticker-speed: 18s;
+      --coin-speed:   5s;
       /* overlay */
       --overlay-bg: rgba(10,14,20,0.78);
       --overlay-border: #263649;
@@ -38,261 +38,91 @@
     .status { text-align:center; color:var(--muted); padding:10px; }
     @media (max-width: 640px) { table { font-size: 14px; } thead th, tbody td { padding:10px 8px; } }
 
-    /* --- links como texto plano --- */
     a, a:visited, a:hover, a:active, a:focus { color: inherit; text-decoration: none; }
 
-    /* ===== separador y tarjetas de partidos ===== */
     .sep { height:1px; background:var(--line); margin:28px 0; border-radius:1px; }
     h2 { margin:0 0 8px; font-size:20px; text-align:center; }
     .sub2 { text-align:center; color:var(--muted); margin-bottom:16px; font-size:14px; }
 
+    /* === Matches === */
     .matches-card { padding:12px; }
     .matches-status { text-align:center; color:var(--muted); padding:8px 10px; }
-    .matches-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:12px;
-      padding:8px;
-    }
-    .match {
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:12px;
-      background: linear-gradient(180deg, #10151c, #0f141b);
-    }
-    .match-head {
-      font-size:12px; color:var(--muted);
-      display:flex; align-items:center; justify-content:space-between;
-      margin-bottom:8px;
-    }
-    .match-body {
-      display:grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items:center;
-      gap:8px;
-    }
-    .team {
-      font-size:13px; line-height:1.25;
-      color:var(--ink);
-      opacity:.95;
-    }
+    .matches-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:12px; padding:8px; }
+    .match { border:1px solid var(--line); border-radius:12px; padding:12px; background: linear-gradient(180deg, #10151c, #0f141b); }
+    .match-head { font-size:12px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+    .match-body { display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; gap:8px; }
+    .team { font-size:13px; line-height:1.25; color:var(--ink); opacity:.95; }
     .team.right { text-align: right; }
-    .score {
-      font-size:28px; font-weight:700; letter-spacing:.5px;
-      padding:4px 8px; border-radius:8px; border:1px solid var(--line);
-      text-align:center; min-width:84px;
-    }
-    @media (max-width: 480px){
-      .score { font-size:24px; min-width:72px; }
-      .team  { font-size:12px; }
-    }
+    .score { font-size:28px; font-weight:700; letter-spacing:.5px; padding:4px 8px; border-radius:8px; border:1px solid var(--line); text-align:center; min-width:84px; }
+    @media (max-width: 480px){ .score { font-size:24px; min-width:72px; } .team{ font-size:12px; } }
 
-    /* ===== Rachas (positivas / negativas) ===== */
-    /* solapa superior */
-    /* solapa superior RESPONSIVE (sin cambiar HTML) */
+    /* === Top tab === */
     .top-tab {
       width: 100%;
-      /* sacamos la altura fija y usamos padding + min-height */
       min-height: 56px;
       padding: 12px 16px;
-
       background: linear-gradient(90deg, #124380, #191434);
       border-bottom-left-radius: 24px;
       border-bottom-right-radius: 24px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      /* manejo de textos largos */
-      text-align: center;
-      white-space: normal;        /* permite múltiples líneas */
-      word-break: break-word;     /* corta palabras muy largas si hace falta */
-      hyphens: auto;              /* guiones automáticos en móviles compatibles */
-
-      font-weight: 700;
-      letter-spacing: .5px;
-      /* tamaño fluido según pantalla */
-      font-size: clamp(14px, 4.2vw, 20px);
-      line-height: 1.2;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; white-space: normal; word-break: break-word; hyphens: auto;
+      font-weight: 700; letter-spacing: .5px;
+      font-size: clamp(14px, 4.2vw, 20px); line-height: 1.2;
     }
-
     @media (max-width: 480px){
-      .top-tab{
-        padding: 12px;            /* más compacta en móvil */
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        font-size: clamp(13px, 5vw, 18px); /* un pelín más chico si hace falta */
-      }
+      .top-tab{ padding: 12px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; font-size: clamp(13px, 5vw, 18px); }
     }
 
-    /* solapa inferior */
-    .bottom-tab {
-      width: 100%;
-      height: 50px;
-      background: #11161c;
-      border-top-left-radius: 24px;
-      border-top-right-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 32px;
-    }
+    .bottom-tab { width: 100%; height: 50px; background: #11161c; border-top-left-radius: 24px; border-top-right-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); margin-top: 32px; }
 
-    /* ===== Rachas (positivas / negativas) ===== */
+    /* === Streaks === */
     .streaks-card { padding:12px; }
     .streaks-status { text-align:center; color:var(--muted); padding:8px 10px; }
-    .streaks-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:12px; padding:8px;
-    }
-    .streak {
-      border:1px solid var(--line);
-      border-left-width:4px;
-      border-radius:12px;
-      padding:12px;
-      background: linear-gradient(180deg, #10151c, #0f141b);
-      display:grid; gap:6px;
-    }
+    .streaks-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:12px; padding:8px; }
+    .streak { border:1px solid var(--line); border-left-width:4px; border-radius:12px; padding:12px; background: linear-gradient(180deg, #10151c, #0f141b); display:grid; gap:6px; }
     .streak.pos { border-left-color: color-mix(in srgb, var(--pos) 70%, transparent); }
     .streak.neg { border-left-color: color-mix(in srgb, var(--neg) 70%, transparent); }
-
-    .streak-top {
-      display:flex; align-items:center; justify-content:space-between;
-      font-size:12px; color:var(--muted);
-    }
-    .badge {
-      font-size:11px; text-transform:uppercase; letter-spacing:.5px;
-      padding:3px 8px; border-radius:999px; border:1px solid var(--line);
-      background:#0f141b90;
-    }
+    .streak-top { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--muted); }
+    .badge { font-size:11px; text-transform:uppercase; letter-spacing:.5px; padding:3px 8px; border-radius:999px; border:1px solid var(--line); background:#0f141b90; }
     .badge.pos { border-color: color-mix(in srgb, var(--pos) 60%, var(--line)); }
     .badge.neg { border-color: color-mix(in srgb, var(--neg) 60%, var(--line)); }
-
     .streak-main { display:flex; align-items:baseline; gap:10px; }
     .streak-name { font-size:14px; font-weight:600; color:var(--ink); }
-    .streak-len  {
-      margin-left:auto; font-weight:700; font-size:18px;
-      padding:2px 8px; border-radius:8px; border:1px solid var(--line);
-    }
+    .streak-len  { margin-left:auto; font-weight:700; font-size:18px; padding:2px 8px; border-radius:8px; border:1px solid var(--line); }
     .streak-dates { font-size:12px; color:var(--muted); }
-    @media (max-width: 480px){ .streak-len{ font-size:16px; } }
 
-    /* ===================== Ticker con medallones ===================== */
-    .ticker {
-      display:flex; align-items:center; gap:12px;
-      background: linear-gradient(180deg, #162233, #141a23);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:8px 12px;
-      margin-bottom:16px;
-    }
+    /* === Ticker === */
+    .ticker { display:flex; align-items:center; gap:12px; background: linear-gradient(180deg, #162233, #141a23); border:1px solid var(--line); border-radius:16px; padding:8px 12px; margin-bottom:16px; }
     .ticker-viewport { position:relative; overflow:hidden; flex:1; min-height:28px; }
-    .ticker-track {
-      display:inline-flex; align-items:center; gap:48px;
-      white-space:nowrap;
-      will-change: transform;
-      animation: ticker-move var(--ticker-speed) linear infinite;
-    }
+    .ticker-track { display:inline-flex; align-items:center; gap:48px; white-space:nowrap; will-change: transform; animation: ticker-move var(--ticker-speed) linear infinite; }
     .ticker-msg { text-transform:uppercase; letter-spacing:.6px; color:var(--ink); opacity:.95; font-size:14px; }
     .ticker-sep::before { content:"•"; opacity:.6; margin:0 8px; }
-    .medallion {
-      width:44px; height:44px; border-radius:50%;
-      border:1px solid var(--line);
-      display:grid; place-items:center;
-      overflow:hidden;
-      perspective: 800px;
-      flex:0 0 auto;
-      background: #0f141b;
-    }
+    .medallion { width:44px; height:44px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; overflow:hidden; perspective: 800px; flex:0 0 auto; background: #0f141b; }
     .coin { position:relative; width:82%; height:82%; border-radius:50%; transform-style: preserve-3d; will-change: transform; animation: coin-flip var(--coin-speed) linear infinite; }
     .face { position:absolute; inset:0; border-radius:50%; background-position:center; background-size:cover; background-repeat:no-repeat; backface-visibility: hidden; }
     .face.front { background-image: var(--medal-a); transform: rotateY(0deg) translateZ(1px); }
     .face.back  { background-image: var(--medal-b); transform: rotateY(180deg) translateZ(1px); }
-    .ticker:hover .ticker-track, .ticker:focus-within .ticker-track { animation-play-state: paused; }
-    .ticker:hover .coin, .ticker:focus-within .coin { animation-play-state: paused; }
-    @media (prefers-reduced-motion: reduce){ .ticker-track, .coin { animation: none !important; } }
     @keyframes ticker-move { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @keyframes coin-flip { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
-    /* =================== FIN Ticker =================== */
 
-    /* ===== Botón flotante "ir arriba" ===== */
-    .to-top {
-      position: fixed;
-      right: 16px;
-      bottom: 18px;
-      z-index: 9000;
-      display: grid;
-      place-items: center;
-      width: 44px; height: 44px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--accent, #2f8bfd);
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(0,0,0,.35);
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity .18s ease, transform .18s ease, background .18s ease;
-    }
-    .to-top:hover { filter: brightness(1.05); }
-    .to-top:active { transform: translateY(10px) scale(.98); }
+    /* === Botón ir arriba === */
+    .to-top { position: fixed; right: 16px; bottom: 18px; z-index: 9000; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line); background: var(--accent, #2f8bfd); color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.35); cursor: pointer; opacity: 0; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease, background .18s ease; }
     .to-top.show { opacity: 1; transform: translateY(0); }
-    /* Ocultalo cuando el overlay bloquea la página */
     body.locked .to-top { display: none; }
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      .to-top { transition: none; }
-    }
 
-    /* ============= BLOQUEO: blur del contenido + overlay ============= */
+    /* === Overlays === */
     body.locked .wrap { filter: blur(4px) brightness(.8); pointer-events:none; user-select:none; }
-    .lock-overlay {
-      position: fixed;
-      inset: 0;
-      display: none;
-      place-items: center;
-      padding: 16px;                /* un poco menos para móviles */
-      background: radial-gradient(1200px 1200px at 50% 50%, rgba(12,16,22,.82), rgba(8,10,14,.9));
-      z-index: 9999;
-    }
-    body.locked .lock-overlay { display: grid; }
-    .lock-panel {
-      max-width: 600px;             /* límite más chico y seguro */
-      width: 100%;                  /* ocupa todo el ancho disponible */
-      margin: 0 auto;               /* centrado horizontal */
-      border: 1px solid var(--overlay-border);
-      border-radius: 16px;
-      background: linear-gradient(180deg, #0f141b, #0c1219);
-      box-shadow: 0 10px 40px rgba(0,0,0,.45);
-      padding: 20px;
-      display: grid;
-      gap: 14px;
-    }
+    .lock-overlay { position: fixed; inset: 0; display: none; place-items: center; padding: 16px; background: radial-gradient(1200px 1200px at 50% 50%, rgba(12,16,22,.82), rgba(8,10,14,.9)); z-index: 9999; }
+    .lock-overlay.active { display: grid; }
+    .lock-panel { max-width: 600px; width: 100%; margin: 0 auto; border: 1px solid var(--overlay-border); border-radius: 16px; background: linear-gradient(180deg, #0f141b, #0c1219); box-shadow: 0 10px 40px rgba(0,0,0,.45); padding: 20px; display: grid; gap: 14px; }
     .lock-title { font-size: 20px; font-weight: 700; text-align: center; }
     .lock-sub { color: var(--muted); font-size: 14px; text-align: center; }
     .lock-actions { display: grid; gap: 12px; align-items: center; justify-items: center; }
-    .wa-btn {
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid var(--line); border-radius: 999px; padding:10px 14px;
-      background:#0f141b; cursor:pointer; user-select:none;
-    }
+    .wa-btn { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius: 999px; padding:10px 14px; background:#0f141b; cursor:pointer; user-select:none; }
     .wa-btn:hover { background:#121924; }
-    .qr {
-      display:grid; gap:8px; place-items:center;
-      border:1px dashed var(--overlay-border);
-      border-radius:12px; padding:12px;
-      background:#0d131b;
-    }
+    .qr { display:grid; gap:8px; place-items:center; border:1px dashed var(--overlay-border); border-radius:12px; padding:12px; background:#0d131b; }
     .qr img { width:160px; height:160px; object-fit:contain; image-rendering: crisp-edges; }
     .muted { color: var(--muted); font-size: 12px; }
-    .inline-code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      background:#0f141b; border:1px solid var(--line); border-radius:8px; padding:4px 6px;
-    }
   </style>
 </head>
 <body>
@@ -303,67 +133,33 @@
     <div class="sub" id="frase_chiqui"></div>
     <div class="sep"></div>
 
-    <!-- ====== Ticker ====== -->
     <div class="ticker" role="region" aria-label="Anuncio principal">
-      <div class="medallion" aria-hidden="true">
-        <div class="coin">
-          <div class="face front"></div>
-          <div class="face back"></div>
-        </div>
-      </div>
-
-      <div class="ticker-viewport">
-        <div class="ticker-track" id="tickerTrack">
-          <span class="ticker-msg" id="tickerA"></span>
-          <span class="ticker-msg ticker-sep"> </span>
-          <span class="ticker-msg" id="tickerB"></span>
-          <span class="ticker-msg ticker-sep"> </span>
-        </div>
-      </div>
-
-      <div class="medallion" aria-hidden="true">
-        <div class="coin">
-          <div class="face front"></div>
-          <div class="face back"></div>
-        </div>
-      </div>
+      <div class="medallion"><div class="coin"><div class="face front"></div><div class="face back"></div></div></div>
+      <div class="ticker-viewport"><div class="ticker-track" id="tickerTrack"><span class="ticker-msg" id="tickerA"></span><span class="ticker-msg ticker-sep"> </span><span class="ticker-msg" id="tickerB"></span><span class="ticker-msg ticker-sep"> </span></div></div>
+      <div class="medallion"><div class="coin"><div class="face front"></div><div class="face back"></div></div></div>
     </div>
-    <!-- ====== FIN Ticker ====== -->
 
     <div class="sep"></div>
-
     <div class="card">
       <div id="status" class="status">Cargando datos…</div>
       <table id="tabla" style="display:none">
-        <thead>
-          <tr>
-            <th>N°</th>
-            <th>Nombre</th>
-            <th>PJ</th>
-            <th>Pts.</th>
-            <th>%</th>
-            <th>PMX</th>
-          </tr>
-        </thead>
+        <thead><tr><th>N°</th><th>Nombre</th><th>PJ</th><th>Pts.</th><th>%</th><th>PMX</th></tr></thead>
         <tbody id="tbody"></tbody>
       </table>
     </div>
     <p>Novedades de La Liga</p>
     <p id="novedades"></p>
 
-    <!-- ===== separador y sección Partidos ===== -->
     <div class="sep"></div>
     <h2>Partidos</h2>
     <div class="sep"></div>
 
-    <!-- ===== Rachas ===== -->
     <div class="sub2">Rachas destacadas</div>
     <div class="card streaks-card">
       <div id="streaksStatus" class="streaks-status">Cargando rachas…</div>
       <div id="streaksGrid" class="streaks-grid" style="display:none"></div>
       <div id="streaksEmpty" class="streaks-status" style="display:none">No hay rachas para mostrar.</div>
     </div>
-    <!-- ===== fin Rachas ===== -->
 
     <div class="sep"></div>
     <div class="sub2">Últimos Resultados</div>
@@ -372,439 +168,94 @@
       <div id="matchesGrid" class="matches-grid" style="display:none"></div>
       <div id="matchesEmpty" class="matches-status" style="display:none">No hay partidos cargados todavía.</div>
     </div>
-    <!-- ===== fin sección Partidos ===== -->
-    <div class="sep"></div>
-    <div class="sep"></div>
+    <div class="sep"></div><div class="sep"></div>
   </div>
   <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
 
-      <!-- ========= OVERLAY ANUNCIOS ========= -->
+  <!-- === Overlays === -->
   <div class="lock-overlay" id="annOverlay">
-    <div class="lock-panel">
-      <div class="lock-title" id="annTitle"></div>
-      <div class="lock-sub" id="annBody"></div>
-      <div class="lock-actions">
-        <button id="annNextBtn" class="wa-btn">Siguiente</button>
-      </div>
-    </div>
+    <div class="lock-panel"><div class="lock-title" id="annTitle"></div><div class="lock-sub" id="annBody"></div><div class="lock-actions"><button id="annNextBtn" class="wa-btn">Siguiente</button></div></div>
   </div>
-  <!-- ========= FIN OVERLAY ANUNCIOS ========= -->
 
-  <!-- ========= OVERLAY DE BLOQUEO ========= -->
   <div class="lock-overlay" id="lockOverlay" aria-live="polite">
     <div class="lock-panel" role="dialog" aria-labelledby="lockTitle" aria-describedby="lockDesc">
       <div class="lock-title" id="lockTitle">⚽ La LIGA necesita tu ayuda! ⚽</div>
-      <div class="lock-sub" id="lockDesc">
-        Por favor, <strong>envia los resultados del último partido</strong> a través de las siguientes opciones.
-      </div>
+      <div class="lock-sub" id="lockDesc">Por favor, <strong>envia los resultados del último partido</strong> a través de las siguientes opciones.</div>
       <div class="lock-actions">
-        <a id="waBtn" class="wa-btn" href="#" target="_blank" rel="noopener">
-          <span>Abrir WhatsApp</span>
-        </a>
-        <div class="qr">
-          <img id="waQR" alt="Escaneá con tu teléfono para enviar el resultado por WhatsApp" src="">
-          <div class="muted">O bien, desde la PC escaneá el QR</div>
-        </div>
+        <a id="waBtn" class="wa-btn" href="#" target="_blank" rel="noopener"><span>Abrir WhatsApp</span></a>
+        <div class="qr"><img id="waQR" alt="Escaneá con tu teléfono para enviar el resultado por WhatsApp" src=""><div class="muted">O bien, desde la PC escaneá el QR</div></div>
         <div class="muted">Por cada día que pase, una regla cambia. Un equipo asciende, y un descenso se pierde.</div>
       </div>
     </div>
   </div>
-  <!-- ======== FIN OVERLAY ======== -->
 
-  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">
-  ▲
-  </button>
+  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
 
   <script>
-
-    fetch('textos.json')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('auspiciante').textContent = data.auspiciante;
-        document.getElementById('titulo').textContent = data.titulo;
-        document.getElementById('subtitlo').textContent = data.subtitlo;
-        document.getElementById('fechas').textContent = data.fechas;
-        document.getElementById('frases_chiqui').textContent = data.frases_chiqui;
-        document.getElementById('novedades').textContent = data.novedades;
-      })
-      .catch(error => console.error('Error cargando el JSON:', error));
-
-      // ===== Botón "ir arriba" =====
-    (function initScrollToTop(){
-      const btn = document.getElementById('toTopBtn');
-      if (!btn) return;
-
-      const toggle = () => {
-        if (window.scrollY > 100 && !document.body.classList.contains('locked')){
-          btn.classList.add('show');
-        } else {
-          btn.classList.remove('show');
-        }
-      };
-
-      window.addEventListener('scroll', toggle, { passive: true });
-      window.addEventListener('resize', toggle);
-      document.addEventListener('DOMContentLoaded', toggle);
-
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // Accesible con teclado (Enter/Espacio)
-      btn.addEventListener('keydown', (e)=>{
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-})();
-
-    /* ================= Configuración del bloqueo =================
-       Editá estos valores y listo (no se lee ningún archivo externo)
-    */
-    const CONFIG = {
-      manual_force_lock: false,             // true = bloquea SIEMPRE
-      auto_lock_enabled:  true,             // true = activa bloqueo automático Mié 21:00
-      last_unlock_at:    "2025-10-02T00:00:00-03:00", // último OK manual (ISO con -03:00)
-      whatsapp_link:     "https://wa.me/5493815303224?text=Querido%20Chiqui!%20Como%20estas?%20Te%20paso%20los%20resultados%20de%20la%20ultima%20fecha.%20Gracias%20lider!%0A%0AEquipo%20A%20(ganador):%20👉%0AEquipo%20B%20(perdedor):%20👉%0AResultado:%20👉",
-      whatsapp_qr_src:   "data/qr-whatsapp.png"
-    };
-    const TICKER_TEXT = "Felicidades Lomba: Campeón de la Liga de Transición - PRONTA RECUPERACION CHIQUI!";
-
-    /* =============== Ticker =============== */
-    (function initTicker(){
-      const a = document.getElementById('tickerA');
-      const b = document.getElementById('tickerB');
-      if(a && b){ a.textContent = TICKER_TEXT; b.textContent = TICKER_TEXT; }
-    })();
-
-        // ================== ANUNCIOS ==================
-    const ANNOUNCEMENTS = [
-      { title: "⚠️ Impugnación presentada", body: "El equipo finalista solicita la nulidad del partido..." },
-      { title: "📢 Nuevo Sponsor", body: "La Liga anuncia la incorporación de un patrocinador destacado..." },
-      { title: "✅ Resolución final", body: "La dirigencia proclama Campeón Único e Indiscutido." }
-    ];
-    let currentAnn = 0;
-    function showAnnouncement(i){
-      const overlay = document.getElementById("annOverlay");
-      if(i < ANNOUNCEMENTS.length){
-        document.body.classList.add("locked");
-        overlay.classList.add("active");
-        document.getElementById("annTitle").textContent = ANNOUNCEMENTS[i].title;
-        document.getElementById("annBody").textContent  = ANNOUNCEMENTS[i].body;
-      } else {
-        overlay.classList.remove("active");
-        document.body.classList.remove("locked");
-      }
-    }
-    function startAnnouncements(){
-      currentAnn = 0;
-      showAnnouncement(currentAnn);
-    }
-    document.getElementById("annNextBtn").addEventListener("click", ()=>{
-      currentAnn++;
-      showAnnouncement(currentAnn);
+    fetch('textos.json').then(r=>r.json()).then(data=>{
+      document.getElementById('auspiciante').textContent = data.auspiciante;
+      document.getElementById('titulo').textContent = data.titulo;
+      document.getElementById('subtitlo').textContent = data.subtitlo;
+      document.getElementById('frase_chiqui').textContent = data.frases_chiqui;
+      document.getElementById('novedades').textContent = data.novedades;
     });
 
-    // Para activar anuncios en cualquier momento:
-    startAnnouncements();
+    (function initScrollToTop(){
+      const btn = document.getElementById('toTopBtn'); if (!btn) return;
+      const toggle = () => { if (window.scrollY > 100 && !document.body.classList.contains('locked')) btn.classList.add('show'); else btn.classList.remove('show'); };
+      window.addEventListener('scroll', toggle, { passive: true }); window.addEventListener('resize', toggle); document.addEventListener('DOMContentLoaded', toggle);
+      btn.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
 
-    /* =============== Utilidades de fecha =============== */
-    function parseISO(s){
-      const t = Date.parse(s);
-      return Number.isFinite(t) ? new Date(t) : null;
-    }
-    // Último miércoles 21:00 que no esté en el futuro (usa hora LOCAL del navegador)
-    function currentRoundStart(now = new Date()){
-      const d = new Date(now);
-      const day = d.getDay(); // 0=Dom ... 3=Mié
-      const candidate = new Date(d);
-      candidate.setHours(21,0,0,0);
-      const daysSinceWed = (day + 7 - 3) % 7; // cuántos días pasaron desde el último miércoles
-      candidate.setDate(candidate.getDate() - daysSinceWed);
-      if (now < candidate) candidate.setDate(candidate.getDate() - 7);
-      return candidate;
-    }
+    const CONFIG = { manual_force_lock:false, auto_lock_enabled:true, last_unlock_at:"2025-10-02T00:00:00-03:00", whatsapp_link:"https://wa.me/5493815303224?text=Querido%20Chiqui...", whatsapp_qr_src:"data/qr-whatsapp.png" };
+    const TICKER_TEXT = "Felicidades Lomba: Campeón de la Liga de Transición - PRONTA RECUPERACION CHIQUI!";
+    (function initTicker(){ const a=document.getElementById('tickerA'); const b=document.getElementById('tickerB'); if(a&&b){ a.textContent=TICKER_TEXT; b.textContent=TICKER_TEXT; }})();
 
-    /* =============== Evaluación de estado =============== */
-    function computeLockedState(){
-      const now = new Date();
-      if (CONFIG.manual_force_lock) return true;
+    const ANNOUNCEMENTS = [
+      { title:"⚠️ Impugnación presentada", body:"El equipo finalista solicita la nulidad del partido..." },
+      { title:"📢 Nuevo Sponsor", body:"La Liga anuncia la incorporación de un patrocinador destacado..." },
+      { title:"✅ Resolución final", body:"La dirigencia proclama Campeón Único e Indiscutido." }
+    ];
+    let currentAnn=0;
+    function showAnnouncement(i){ const overlay=document.getElementById("annOverlay"); if(i<ANNOUNCEMENTS.length){ document.body.classList.add("locked"); overlay.classList.add("active"); document.getElementById("annTitle").textContent=ANNOUNCEMENTS[i].title; document.getElementById("annBody").textContent=ANNOUNCEMENTS[i].body; } else { overlay.classList.remove("active"); document.body.classList.remove("locked"); } }
+    function startAnnouncements(){ currentAnn=0; showAnnouncement(currentAnn); }
+    document.getElementById("annNextBtn").addEventListener("click", ()=>{ currentAnn++; showAnnouncement(currentAnn); });
 
-      if (!CONFIG.auto_lock_enabled) return false;
+    // startAnnouncements(); // descomentar para probar
 
-      const roundStart = currentRoundStart(now);
-      const lastUnlock = parseISO(CONFIG.last_unlock_at);
-
-      // Regla: si es Mié 21:00 o después, y NO hay unlock posterior a ese inicio, bloquea.
-      const afterRoundStart = now >= roundStart;
-      const unlockedThisRound = lastUnlock && (lastUnlock >= roundStart);
-
-      return afterRoundStart && !unlockedThisRound;
-    }
+    function parseISO(s){ const t=Date.parse(s); return Number.isFinite(t)? new Date(t):null; }
+    function currentRoundStart(now=new Date()){ const d=new Date(now); const day=d.getDay(); const candidate=new Date(d); candidate.setHours(21,0,0,0); const daysSinceWed=(day+7-3)%7; candidate.setDate(candidate.getDate()-daysSinceWed); if(now<candidate) candidate.setDate(candidate.getDate()-7); return candidate; }
+    function computeLockedState(){ const now=new Date(); if(CONFIG.manual_force_lock) return true; if(!CONFIG.auto_lock_enabled) return false; const roundStart=currentRoundStart(now); const lastUnlock=parseISO(CONFIG.last_unlock_at); const afterRoundStart=now>=roundStart; const unlockedThisRound=lastUnlock && (lastUnlock>=roundStart); return afterRoundStart && !unlockedThisRound; }
 
     function applyLockUI(locked){
-      const body = document.body;
-      const overlay = document.getElementById('lockOverlay');
-      const waBtn = document.getElementById('waBtn');
-      const waQR  = document.getElementById('waQR');
-
-      if (waBtn) waBtn.href = CONFIG.whatsapp_link || '#';
-      if (waQR)  waQR.src  = CONFIG.whatsapp_qr_src || '';
-
-      if (locked){
-        body.classList.add('locked');
-        if (overlay) overlay.style.display = 'grid';
-      } else {
-        body.classList.remove('locked');
-        if (overlay) overlay.style.display = 'none';
-      }
+      const overlay=document.getElementById('lockOverlay'); const waBtn=document.getElementById('waBtn'); const waQR=document.getElementById('waQR');
+      if(waBtn) waBtn.href=CONFIG.whatsapp_link||'#'; if(waQR) waQR.src=CONFIG.whatsapp_qr_src||'';
+      if(locked){ document.body.classList.add('locked'); overlay.classList.add('active'); } else { document.body.classList.remove('locked'); overlay.classList.remove('active'); }
     }
+    function initLockCycle(){ applyLockUI(computeLockedState()); setInterval(()=>applyLockUI(computeLockedState()), 60000); }
 
-    // Aplica estado al cargar y cada minuto (por si justo pasa Mié 21:00 con la página abierta)
-    function initLockCycle(){
-      applyLockUI(computeLockedState());
-      setInterval(()=>applyLockUI(computeLockedState()), 60_000);
-    }
-
-    /* ================== Tabla de posiciones ================== */
-    const status = document.getElementById("status");
-    const tabla  = document.getElementById("tabla");
-    const tbody  = document.getElementById("tbody");
-
-    function setStatus(msg){ status.textContent = msg; status.style.display='block'; tabla.style.display='none'; }
+    // === cargar tabla ===
+    const status=document.getElementById("status"); const tabla=document.getElementById("tabla"); const tbody=document.getElementById("tbody");
+    function setStatus(msg){ status.textContent=msg; status.style.display='block'; tabla.style.display='none'; }
     function showTable(){ status.style.display='none'; tabla.style.display='table'; }
-    function fmt3(v){ const n = Number(v); return Number.isFinite(n) ? n.toFixed(3) : v; }
+    function fmt3(v){ const n=Number(v); return Number.isFinite(n)? n.toFixed(3):v; }
+    async function cargar(){ try{ setStatus("Cargando datos…"); const res=await fetch(`data/posiciones.json?v=${Date.now()}`,{cache:"no-store"}); if(!res.ok) throw new Error("HTTP "+res.status); const rows=await res.json(); tbody.innerHTML=""; for(const r of rows){ const tr=document.createElement("tr"); tr.innerHTML=`<td class="right">${r.n??""}</td><td><a href="jugador.html?id=${r.id}">${r.jugador??""}</a></td><td class="right">${r.partidos??""}</td><td class="right">${r.puntos??""}</td><td class="right">${fmt3(r.efectividad??"")}</td><td>${r.promedio??""}</td>`; tbody.appendChild(tr);} showTable(); }catch(err){ setStatus("Error al cargar datos: "+err.message); console.error(err); } }
 
-    async function cargar(){
-      try{
-        setStatus("Cargando datos…");
-        const bust = Date.now();
-        const res = await fetch(`data/posiciones.json?v=${bust}`, { cache: "no-store" });
-        if(!res.ok) throw new Error("HTTP " + res.status);
-        const rows = await res.json();
+    // === cargar rachas ===
+    const streaksStatus=document.getElementById('streaksStatus'); const streaksGrid=document.getElementById('streaksGrid'); const streaksEmpty=document.getElementById('streaksEmpty');
+    function esPositiva(racha){ const t=(racha||'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().trim(); return t.startsWith('pos')||t.startsWith('victor')||t.startsWith('invicto'); }
+    function fmtFechaCorta(iso){ try{ const [y,m,d]=iso.split('-').map(Number); const dt=new Date(Date.UTC(y,m-1,d,12)); return new Intl.DateTimeFormat('es-AR',{day:'2-digit',month:'short',year:'numeric'}).format(dt).replaceAll('.',''); }catch{return iso;} }
+    function streakCard(item){ const el=document.createElement('article'); const isPos=esPositiva(item.racha); el.className=`streak ${isPos?'pos':'neg'}`; const top=document.createElement('div'); top.className='streak-top'; const badge=document.createElement('span'); badge.className=`badge ${isPos?'pos':'neg'}`; badge.textContent=item.racha||''; top.appendChild(badge); const main=document.createElement('div'); main.className='streak-main'; const name=document.createElement('div'); name.className='streak-name'; name.textContent=item.jugador||''; const len=document.createElement('div'); len.className='streak-len'; len.textContent=`x${item.extension??0}`; main.append(name,len); const dates=document.createElement('div'); dates.className='streak-dates'; dates.textContent=`Desde ${fmtFechaCorta(item.inicio)}`; el.append(top,main,dates); return el; }
+    async function cargarRachas(){ streaksStatus.style.display='block'; streaksGrid.style.display='none'; streaksEmpty.style.display='none'; try{ const res=await fetch(`data/rachas.json?v=${Date.now()}`,{cache:'no-store'}); if(!res.ok) throw new Error('Proxima Temporada'); const arr=await res.json(); if(arr.length===0){ streaksStatus.style.display='none'; streaksEmpty.style.display='block'; return; } arr.sort((a,b)=>{ const ra=esPositiva(a.racha)?0:1; const rb=esPositiva(b.racha)?0:1; if(ra!==rb) return ra-rb; return (b.extension||0)-(a.extension||0); }); streaksGrid.innerHTML=''; for(const s of arr) streaksGrid.appendChild(streakCard(s)); streaksStatus.style.display='none'; streaksGrid.style.display='grid'; }catch(err){ console.error(err); streaksStatus.textContent='Error al cargar rachas: '+err.message; } }
 
-        tbody.innerHTML = "";
-        for(const r of rows){
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td class="right">${r.n ?? ""}</td>
-            <td><a href="jugador.html?id=${r.id}">${r.jugador ?? ""}</a></td>
-            <td class="right">${r.partidos ?? ""}</td>
-            <td class="right">${r.puntos ?? ""}</td>
-            <td class="right">${fmt3(r.efectividad ?? "")}</td>
-            <td>${r.promedio ?? ""}</td>
-          `;
-          tbody.appendChild(tr);
-        }
-        showTable();
-      }catch(err){
-        setStatus("Error al cargar datos: " + err.message);
-        console.error(err);
-      }
-    }
+    // === cargar partidos ===
+    const matchesStatus=document.getElementById('matchesStatus'); const matchesGrid=document.getElementById('matchesGrid'); const matchesEmpty=document.getElementById('matchesEmpty');
+    function parseLinea(linea){ const partes=linea.split('|').map(s=>s.trim()); if(partes.length!==3) return { raw:linea, ok:false }; const [equipoA, marcador, equipoB]=partes; const m=marcador.match(/(\d+)\s*VS\.\s*(\d+)/i); if(!m) return { raw:linea,equipoA,equipoB,marcadorRaw:marcador,ok:false }; return { equipoA,equipoB,golesA:Number(m[1]),golesB:Number(m[2]),ok:true }; }
+    function teamBlock(text,align='left'){ const div=document.createElement('div'); div.className='team'; if(align==='right') div.classList.add('right'); div.textContent=text; return div; }
+    function scoreBlock(a,b){ const s=document.createElement('div'); s.className='score'; s.setAttribute('aria-label',`${a} a ${b}`); s.textContent=`${a} - ${b}`; return s; }
+    async function cargarPartidos(){ matchesStatus.style.display='block'; matchesGrid.style.display='none'; matchesEmpty.style.display='none'; try{ const res=await fetch(`data/partidos.json?v=${Date.now()}`,{cache:'no-store'}); if(!res.ok) throw new Error("HTTP "+res.status); const obj=await res.json(); const entries=Object.entries(obj).filter(([f,l])=>typeof l==='string'&&f).sort(([f1],[f2])=>f2.localeCompare(f1)); matchesGrid.innerHTML=''; if(entries.length===0){ matchesStatus.style.display='none'; matchesEmpty.style.display='block'; return; } for(const [fecha,linea] of entries){ const parsed=parseLinea(linea); const card=document.createElement('article'); card.className='match'; const head=document.createElement('div'); head.className='match-head'; const hleft=document.createElement('div'); hleft.textContent=fecha; head.appendChild(hleft); const body=document.createElement('div'); body.className='match-body'; if(parsed.ok){ const left=teamBlock(parsed.equipoA,'left'); const score=scoreBlock(parsed.golesA,parsed.golesB); const right=teamBlock(parsed.equipoB,'right'); body.append(left,score,right); } else { const raw=document.createElement('div'); raw.className='team'; raw.textContent=linea; body.style.gridTemplateColumns='1fr'; body.appendChild(raw); } card.prepend(head); card.appendChild(body); matchesGrid.appendChild(card);} matchesStatus.style.display='none'; matchesGrid.style.display='grid'; }catch(err){ console.error(err); matchesStatus.textContent='Error al cargar partidos: '+err.message; } }
 
-    /* ===================== Partidos como tarjetas ===================== */
-    const matchesStatus = document.getElementById('matchesStatus');
-    const matchesGrid   = document.getElementById('matchesGrid');
-    const matchesEmpty  = document.getElementById('matchesEmpty');
-
-    const fmtFecha = (iso) => {
-      try{
-        const [y,m,d] = iso.split('-').map(Number);
-        const dt = new Date(Date.UTC(y, (m-1), d, 12));
-        return new Intl.DateTimeFormat('es-AR', { weekday:'short', day:'2-digit', month:'short', year:'numeric' })
-          .format(dt).replaceAll('.', '');
-      }catch{ return iso; }
-    };
-
-    function parseLinea(linea){
-      const partes = linea.split('|').map(s => s.trim());
-      if(partes.length !== 3) return { raw: linea, ok:false };
-      const [equipoA, marcador, equipoB] = partes;
-      const m = marcador.match(/(\d+)\s*VS\.\s*(\d+)/i);
-      if(!m) return { raw: linea, equipoA, equipoB, marcadorRaw: marcador, ok:false };
-      const golesA = Number(m[1]), golesB = Number(m[2]);
-      return { equipoA, equipoB, golesA, golesB, ok:true };
-    }
-
-    function teamBlock(text, align = 'left'){
-      const div = document.createElement('div');
-      div.className = 'team';
-      if (align === 'right') div.classList.add('right');
-      div.textContent = text;
-      if (/\*/.test(text)) div.title = 'Último campeón';
-      return div;
-    }
-
-    function scoreBlock(a, b){
-      const s = document.createElement('div');
-      s.className = 'score';
-      s.setAttribute('aria-label', `${a} a ${b}`);
-      s.textContent = `${a} - ${b}`;
-      return s;
-    }
-
-    /* ===== Rachas ===== */
-    const streaksStatus = document.getElementById('streaksStatus');
-    const streaksGrid   = document.getElementById('streaksGrid');
-    const streaksEmpty  = document.getElementById('streaksEmpty');
-
-    function esPositiva(racha){
-      const t = (racha || '')
-        .normalize('NFD').replace(/\p{Diacritic}/gu,'')
-        .toLowerCase().trim();
-      return t.startsWith('pos') || t.startsWith('victor') || t.startsWith('invicto');
-    }
-
-    function fmtFechaCorta(iso){
-      try{
-        const [y,m,d] = iso.split('-').map(Number);
-        const dt = new Date(Date.UTC(y,(m-1),d,12));
-        return new Intl.DateTimeFormat('es-AR', { day:'2-digit', month:'short', year:'numeric' })
-          .format(dt).replaceAll('.', '');
-      }catch{ return iso; }
-    }
-
-    function streakCard(item){
-      const el = document.createElement('article');
-      const isPos = esPositiva(item.racha);
-      el.className = `streak ${isPos ? 'pos':'neg'}`;
-
-      const top = document.createElement('div');
-      top.className = 'streak-top';
-      const badge = document.createElement('span');
-      badge.className = `badge ${isPos ? 'pos':'neg'}`;
-      badge.textContent = item.racha || '';
-      top.appendChild(badge);
-
-      const main = document.createElement('div');
-      main.className = 'streak-main';
-      const name = document.createElement('div');
-      name.className = 'streak-name';
-      name.textContent = item.jugador || '';
-      const len = document.createElement('div');
-      len.className = 'streak-len';
-      len.textContent = `x${item.extension ?? 0}`;
-      main.append(name, len);
-
-      const dates = document.createElement('div');
-      dates.className = 'streak-dates';
-      dates.textContent = `Desde ${fmtFechaCorta(item.inicio)}`;
-
-      el.append(top, main, dates);
-      return el;
-    }
-
-    async function cargarRachas(){
-      streaksStatus.style.display = 'block';
-      streaksGrid.style.display   = 'none';
-      streaksEmpty.style.display  = 'none';
-      try{
-        const bust = Date.now();
-        const res = await fetch(`data/rachas.json?v=${bust}`, { cache:'no-store' });
-        if(!res.ok) throw new Error('Proxima Temporada');
-        const data = await res.json();
-        const arr = Array.isArray(data) ? data : [];
-
-        if(arr.length === 0){
-          streaksStatus.style.display = 'none';
-          streaksEmpty.style.display  = 'block';
-          return;
-        }
-
-        arr.sort((a,b)=>{
-          const ra = esPositiva(a.racha) ? 0 : 1;
-          const rb = esPositiva(b.racha) ? 0 : 1;
-          if(ra !== rb) return ra - rb;
-          return (b.extension||0) - (a.extension||0);
-        });
-
-        streaksGrid.innerHTML = '';
-        for(const s of arr) streaksGrid.appendChild(streakCard(s));
-
-        streaksStatus.style.display = 'none';
-        streaksGrid.style.display   = 'grid';
-      }catch(err){
-        console.error(err);
-        streaksStatus.textContent = 'Error al cargar rachas: ' + err.message;
-      }
-    }
-
-    async function cargarPartidos(){
-      matchesStatus.style.display = 'block';
-      matchesGrid.style.display   = 'none';
-      matchesEmpty.style.display  = 'none';
-
-      try{
-        const bust = Date.now();
-        const res  = await fetch(`data/partidos.json?v=${bust}`, { cache:'no-store' });
-        if(!res.ok) throw new Error("HTTP " + res.status);
-        const obj  = await res.json();
-
-        const entries = Object.entries(obj)
-          .filter(([fecha, linea]) => typeof linea === 'string' && fecha)
-          .sort(([f1],[f2]) => f2.localeCompare(f1)); // más reciente primero (YYYY-MM-DD)
-
-        matchesGrid.innerHTML = '';
-
-        if(entries.length === 0){
-          matchesStatus.style.display = 'none';
-          matchesEmpty.style.display  = 'block';
-          return;
-        }
-
-        for(const [fecha, linea] of entries){
-          const parsed = parseLinea(linea);
-          const card   = document.createElement('article');
-          card.className = 'match';
-          card.setAttribute('role','group');
-          card.setAttribute('aria-labelledby', `m-${fecha}`);
-
-          // header
-          const head = document.createElement('div');
-          head.className = 'match-head';
-          const hleft = document.createElement('div');
-          hleft.id = `m-${fecha}`;
-          hleft.textContent = fmtFecha(fecha);
-          head.appendChild(hleft);
-
-          // cuerpo
-          const body = document.createElement('div');
-          body.className = 'match-body';
-
-          if(parsed.ok){
-            const left  = teamBlock(parsed.equipoA, 'left');
-            const score = scoreBlock(parsed.golesA, parsed.golesB);
-            const right = teamBlock(parsed.equipoB, 'right');
-            body.append(left, score, right);
-          } else {
-            const raw = document.createElement('div');
-            raw.className = 'team';
-            raw.textContent = linea;
-            body.style.gridTemplateColumns = '1fr';
-            body.appendChild(raw);
-          }
-
-          card.prepend(head);
-          card.appendChild(body);
-          matchesGrid.appendChild(card);
-        }
-
-        matchesStatus.style.display = 'none';
-        matchesGrid.style.display   = 'grid';
-      }catch(err){
-        console.error(err);
-        matchesStatus.textContent = 'Error al cargar partidos: ' + err.message;
-      }
-    }
-
-    // Init
-    initLockCycle();
-    cargar();
-    cargarRachas();
-    cargarPartidos();
+    initLockCycle(); cargar(); cargarRachas(); cargarPartidos();
   </script>
 </body>
 </html>
