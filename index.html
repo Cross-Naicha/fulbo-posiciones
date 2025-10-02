@@ -133,6 +133,13 @@
       position: fixed;    /* fija el body para que no se mueva */
       width: 100%;        /* evita “salto” lateral */
     }
+    .lock-panel::-webkit-scrollbar {
+      width: 6px;
+    }
+    .lock-panel::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);  /* gris clarito transparente */
+      border-radius: 4px;
+    }
 
     #annOverlay .lock-sub {text-align: left;}
     #annBody {
