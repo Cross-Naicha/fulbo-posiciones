@@ -233,7 +233,21 @@
     (function initTicker(){ const a=document.getElementById('tickerA'); const b=document.getElementById('tickerB'); if(a&&b){ a.textContent=TICKER_TEXT; b.textContent=TICKER_TEXT; }})();
     
     let currentAnn=0;
-    function showAnnouncement(i){ const overlay=document.getElementById("annOverlay"); if(i<ANNOUNCEMENTS.length){ document.body.classList.add("locked"); overlay.classList.add("active"); document.getElementById("annTitle").textContent=ANNOUNCEMENTS[i].title; document.getElementById("annBody").textContent=ANNOUNCEMENTS[i].body; } else { overlay.classList.remove("active"); document.body.classList.remove("locked"); } }
+    function showAnnouncement(i){
+  const overlay=document.getElementById("annOverlay");
+  if(i<ANNOUNCEMENTS.length){
+    document.body.classList.add("locked");
+    overlay.classList.add("active");
+    document.getElementById("annTitle").textContent=ANNOUNCEMENTS[i].title;
+
+    // convertir saltos de línea en párrafos
+    document.getElementById("annBody").innerHTML =
+      ANNOUNCEMENTS[i].body.split("\n\n").map(p=>`<p>${p}</p>`).join("");
+  } else {
+    overlay.classList.remove("active");
+    document.body.classList.remove("locked");
+  }
+}
     function startAnnouncements(){ currentAnn=0; showAnnouncement(currentAnn); }
     document.getElementById("annNextBtn").addEventListener("click", ()=>{ currentAnn++; showAnnouncement(currentAnn); });
 
