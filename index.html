@@ -45,16 +45,47 @@
     .sub2 { text-align:center; color:var(--muted); margin-bottom:16px; font-size:14px; }
 
     /* === Matches === */
-    .matches-card { padding:12px; }
-    .matches-status { text-align:center; color:var(--muted); padding:8px 10px; }
-    .matches-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:12px; padding:8px; }
-    .match { border:1px solid var(--line); border-radius:12px; padding:12px; background: linear-gradient(180deg, #10151c, #0f141b); }
-    .match-head { font-size:12px; color:var(--muted); display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
-    .match-body { display:grid; grid-template-columns: 1fr auto 1fr; align-items:center; gap:8px; }
-    .team { font-size:13px; line-height:1.25; color:var(--ink); opacity:.95; }
-    .team.right { text-align: right; }
-    .score { font-size:28px; font-weight:700; letter-spacing:.5px; padding:4px 8px; border-radius:8px; border:1px solid var(--line); text-align:center; min-width:84px; }
-    @media (max-width: 480px){ .score { font-size:24px; min-width:72px; } .team{ font-size:12px; } }
+    .matches-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .match {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+      background: var(--card);
+    }
+
+    .match-head {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .match-body {
+      display: grid;
+      grid-template-columns: 1fr auto; /* equipos a la izquierda, balance a la derecha */
+      gap: 8px;
+      align-items: center;
+    }
+
+    .team {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .team.green { color: #4caf50; }
+    .team.red   { color: #e53935; }
+    .team.yellow { color: #fbc02d; }
+
+    .balance {
+      font-weight: bold;
+      font-size: 16px;
+      text-align: right;
+}
+
 
     /* === Top tab === */
     .top-tab {
@@ -305,7 +336,7 @@
     </div>
 
     <div class="sep"></div>
-    
+
   </div>
 
   <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
