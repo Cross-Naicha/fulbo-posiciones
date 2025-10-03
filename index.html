@@ -296,14 +296,18 @@
     </div>
 
     <div class="sep"></div>
-    <h2>Ultimos 5 partidos</h2>
+
+    <h2>Últimos 5 partidos</h2>
     <div class="card matches-card">
       <div id="matchesStatus" class="matches-status">Cargando partidos…</div>
       <div id="matchesGrid" class="matches-grid" style="display:none"></div>
       <div id="matchesEmpty" class="matches-status" style="display:none">No hay partidos cargados todavía.</div>
     </div>
+
     <div class="sep"></div>
+    
   </div>
+
   <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
 
   <!-- === Overlays === -->
@@ -514,13 +518,78 @@ fetch('textos.json')
       }
     }
 
+    // === cargar partidos (nuevo formato) ===
+    const matchesStatus = document.getElementById('matchesStatus');
+    const matchesGrid   = document.getElementById('matchesGrid');
+    const matchesEmpty  = document.getElementById('matchesEmpty');
 
-    // === cargar partidos ===
-    const matchesStatus=document.getElementById('matchesStatus'); const matchesGrid=document.getElementById('matchesGrid'); const matchesEmpty=document.getElementById('matchesEmpty');
-    function parseLinea(linea){ const partes=linea.split('|').map(s=>s.trim()); if(partes.length!==3) return { raw:linea, ok:false }; const [equipoA, marcador, equipoB]=partes; const m=marcador.match(/(\d+)\s*VS\.\s*(\d+)/i); if(!m) return { raw:linea,equipoA,equipoB,marcadorRaw:marcador,ok:false }; return { equipoA,equipoB,golesA:Number(m[1]),golesB:Number(m[2]),ok:true }; }
-    function teamBlock(text,align='left'){ const div=document.createElement('div'); div.className='team'; if(align==='right') div.classList.add('right'); div.textContent=text; return div; }
-    function scoreBlock(a,b){ const s=document.createElement('div'); s.className='score'; s.setAttribute('aria-label',`${a} a ${b}`); s.textContent=`${a} - ${b}`; return s; }
-    async function cargarPartidos(){ matchesStatus.style.display='block'; matchesGrid.style.display='none'; matchesEmpty.style.display='none'; try{ const res=await fetch(`data/partidos.json?v=${Date.now()}`,{cache:'no-store'}); if(!res.ok) throw new Error("HTTP "+res.status); const obj=await res.json(); const entries=Object.entries(obj).filter(([f,l])=>typeof l==='string'&&f).sort(([f1],[f2])=>f2.localeCompare(f1)); matchesGrid.innerHTML=''; if(entries.length===0){ matchesStatus.style.display='none'; matchesEmpty.style.display='block'; return; } for(const [fecha,linea] of entries){ const parsed=parseLinea(linea); const card=document.createElement('article'); card.className='match'; const head=document.createElement('div'); head.className='match-head'; const hleft=document.createElement('div'); hleft.textContent=fecha; head.appendChild(hleft); const body=document.createElement('div'); body.className='match-body'; if(parsed.ok){ const left=teamBlock(parsed.equipoA,'left'); const score=scoreBlock(parsed.golesA,parsed.golesB); const right=teamBlock(parsed.equipoB,'right'); body.append(left,score,right); } else { const raw=document.createElement('div'); raw.className='team'; raw.textContent=linea; body.style.gridTemplateColumns='1fr'; body.appendChild(raw); } card.prepend(head); card.appendChild(body); matchesGrid.appendChild(card);} matchesStatus.style.display='none'; matchesGrid.style.display='grid'; }catch(err){ console.error(err); matchesStatus.textContent='Error al cargar partidos: '+err.message; } }
+    function teamBlock(text, colorClass) {
+      const div = document.createElement('div');
+      div.className = `team ${colorClass}`;
+      div.textContent = text;
+      return div;
+    }
+
+    function balanceBlock(value) {
+      const div = document.createElement('div');
+      div.className = 'balance';
+      div.textContent = `+${value}`;
+      return div;
+    }
+
+    async function cargarPartidos() {
+      matchesStatus.style.display = 'block';
+      matchesGrid.style.display   = 'none';
+      matchesEmpty.style.display  = 'none';
+
+      try {
+        const res = await fetch(`data/partidos.json?v=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+
+        const obj = await res.json();
+        const entries = Object.entries(obj).sort(([f1], [f2]) => f2.localeCompare(f1)); // fechas descendentes
+
+        matchesGrid.innerHTML = '';
+
+        if (entries.length === 0) {
+          matchesStatus.style.display = 'none';
+          matchesEmpty.style.display  = 'block';
+          return;
+        }
+
+        for (const [fecha, partido] of entries.slice(0, 5)) {
+          const card = document.createElement('article');
+          card.className = 'match';
+
+          const head = document.createElement('div');
+          head.className = 'match-head';
+          head.textContent = fecha;
+
+          const body = document.createElement('div');
+          body.className = 'match-body';
+
+          const empate = partido.balance === 0;
+          const colorA = empate ? 'yellow' : 'green';
+          const colorB = empate ? 'yellow' : 'red';
+
+          const teamA = teamBlock(partido.team_a.join(', '), colorA);
+          const teamB = teamBlock(partido.team_b.join(', '), colorB);
+          const bal   = balanceBlock(partido.balance);
+
+          body.append(teamA, teamB, bal);
+          card.append(head, body);
+          matchesGrid.appendChild(card);
+        }
+
+        matchesStatus.style.display = 'none';
+        matchesGrid.style.display   = 'grid';
+
+      } catch (err) {
+        console.error(err);
+        matchesStatus.textContent = 'Error al cargar partidos: ' + err.message;
+      }
+    }
+
 
     initLockCycle(); cargar(); cargarRachas(); cargarPartidos();
   </script>
