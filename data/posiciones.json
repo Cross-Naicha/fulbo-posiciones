@@ -2,7 +2,7 @@
   {
     "n": 1,
     "id": 7,
-    "jugador": "Lomba",
+    "jugador": "Lomba*",
     "partidos": 5,
     "puntos": "10",
     "efectividad": "0.667",
@@ -65,7 +65,7 @@
   {
     "n": 8,
     "id": 13,
-    "jugador": "Mario*",
+    "jugador": "Mario",
     "partidos": 4,
     "puntos": "4",
     "efectividad": "0.333",
