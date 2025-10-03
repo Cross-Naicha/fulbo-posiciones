@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Tabla de Posiciones</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     :root {
       --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042;
@@ -44,68 +45,67 @@
     h2 { margin:0 0 8px; font-size:20px; text-align:center; }
     .sub2 { text-align:center; color:var(--muted); margin-bottom:16px; font-size:14px; }
 
-    /* === Matches === */
+    /* Partidos */
     .matches-grid {
       display: grid;
-      gap: 16px;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      padding: 12px;
     }
 
-    .match {
-      border-radius: 16px;
-      padding: 16px;
-      background: linear-gradient(180deg, #1a1f27, #11161c);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    .streak {
+      border: 1px solid var(--line);
+      border-left-width: 4px;
+      border-radius: 12px;
+      padding: 12px;
+      background: linear-gradient(180deg, #10151c, #0f141b);
+      display: grid;
+      gap: 6px;
+    }
+
+    .streak-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .badge {
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .streak-teams {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      transition: transform 0.2s ease;
+      gap: 4px;
     }
 
-    .match:hover {
-      transform: translateY(-3px);
+    .streak-name {
+      font-size: 14px;
     }
 
-    .match-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      color: var(--muted);
-      align-self: flex-start;
-    }
-
-    .team {
-      font-size: 15px;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .team.green { color: #4caf50; }
-    .team.red   { color: #e53935; }
-    .team.yellow { color: #fbc02d; }
-
-    .balance {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
+    .streak-len {
       font-weight: bold;
       font-size: 14px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+      margin-left: 8px;
     }
 
-    .balance.empate {
-      background: #fbc02d;
-      color: #000;
-    }
+    /* colores */
+    .streak.green   { border-left-color: color-mix(in srgb, #4caf50 70%, transparent); }
+    .streak.yellow  { border-left-color: color-mix(in srgb, #fbc02d 70%, transparent); }
 
-    .balance.victoriaA {
-      background: #4caf50;
-      color: #fff;
-}
+    .badge.green  { background:#4caf50; color:#fff; }
+    .badge.yellow { background:#fbc02d; color:#000; }
+
+    .streak-name.green  { color:#4caf50; }
+    
+    .streak-name.winner {
+      font-weight: bold;
+    }
 
     /* === Top tab === */
     .top-tab {
@@ -349,7 +349,6 @@
     <div class="sep"></div>
 
     <h2>Últimos 5 partidos</h2>
-    <h2>Últimos 5 partidos</h2>
     <div class="card matches-card">
       <div id="matchesStatus" class="matches-status">Cargando partidos…</div>
       <div id="matchesGrid" class="matches-grid" style="display:none"></div>
@@ -570,85 +569,88 @@ fetch('textos.json')
       }
     }
 
-    // === cargar partidos ===
-    const matchesStatus = document.getElementById('matchesStatus');
-    const matchesGrid   = document.getElementById('matchesGrid');
-    const matchesEmpty  = document.getElementById('matchesEmpty');
+// === cargar partidos estilo "rachas" final ===
+const matchesStatus = document.getElementById('matchesStatus');
+const matchesGrid   = document.getElementById('matchesGrid');
+const matchesEmpty  = document.getElementById('matchesEmpty');
 
-    function teamBlock(text, colorClass) {
-      const div = document.createElement('div');
-      div.className = `team ${colorClass}`;
-      div.textContent = text;
-      return div;
+function matchColor(balance){
+  return balance === 0 ? 'yellow' : 'green';
+}
+
+function matchCard(fecha, partido){
+  const el = document.createElement('article');
+  const color = matchColor(partido.balance);
+
+  el.className = `streak ${color}`;
+
+  // top (fecha izquierda + balance derecha)
+  const top = document.createElement('div');
+  top.className = 'streak-top';
+
+  const badge = document.createElement('span');
+  badge.className = `badge ${color}`;
+  badge.textContent = fecha;
+
+  const bal = document.createElement('span');
+  bal.className = 'streak-len';
+  bal.textContent = `+${partido.balance}`;
+
+  top.append(badge, bal);
+
+  // main (equipos uno arriba del otro)
+  const main = document.createElement('div');
+  main.className = 'streak-teams';
+
+  const eqA = document.createElement('div');
+  eqA.className = 'streak-name ' + (partido.balance===0 ? 'yellow' : 'green');
+  eqA.textContent = partido.team_a.join(', ');
+
+  const eqB = document.createElement('div');
+  eqB.className = 'streak-name ' + (partido.balance===0 ? 'yellow' : 'red');
+  eqB.textContent = partido.team_b.join(', ');
+
+  if (partido.balance > 0) {
+    eqA.classList.add('winner'); // gana team A
+  }
+
+  main.append(eqA, eqB);
+
+  el.append(top, main);
+  return el;
+}
+
+async function cargarPartidos(){
+  matchesStatus.style.display='block';
+  matchesGrid.style.display='none';
+  matchesEmpty.style.display='none';
+
+  try{
+    const res = await fetch(`data/partidos.json?v=${Date.now()}`,{cache:'no-store'});
+    if(!res.ok) throw new Error('Proxima temporada');
+    const obj = await res.json();
+
+    const entries = Object.entries(obj).sort(([f1],[f2])=> f2.localeCompare(f1));
+
+    if(entries.length===0){
+      matchesStatus.style.display='none';
+      matchesEmpty.style.display='block';
+      return;
     }
 
-    function balanceBlock(value) {
-      const div = document.createElement('div');
-      div.className = 'balance';
-      div.textContent = `+${value}`;
-      return div;
+    matchesGrid.innerHTML='';
+    for(const [fecha,partido] of entries.slice(0,5)){
+      matchesGrid.appendChild(matchCard(fecha,partido));
     }
 
-    async function cargarPartidos() {
-      matchesStatus.style.display = 'block';
-      matchesGrid.style.display   = 'none';
-      matchesEmpty.style.display  = 'none';
+    matchesStatus.style.display='none';
+    matchesGrid.style.display='grid';
 
-      try {
-        const res = await fetch(`data/partidos.json?v=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-
-        const obj = await res.json();
-        const entries = Object.entries(obj).sort(([f1], [f2]) => f2.localeCompare(f1)); // orden descendente por fecha
-
-        matchesGrid.innerHTML = '';
-
-        if (entries.length === 0) {
-          matchesStatus.style.display = 'none';
-          matchesEmpty.style.display  = 'block';
-          return;
-        }
-
-        for (const [fecha, partido] of entries.slice(0, 5)) {
-          const card = document.createElement('article');
-          card.className = 'match';
-
-          const head = document.createElement('div');
-          head.className = 'match-head';
-          head.textContent = fecha;
-
-          const body = document.createElement('div');
-          body.className = 'match-body';
-
-          const empate = partido.balance === 0;
-          const colorA = empate ? 'yellow' : 'green';
-          const colorB = empate ? 'yellow' : 'red';
-
-          const teamA = teamBlock(partido.team_a.join(', '), colorA);
-          const teamB = teamBlock(partido.team_b.join(', '), colorB);
-
-          const bal   = balanceBlock(partido.balance);
-          if (empate) {
-            bal.classList.add('empate');
-          } else {
-            bal.classList.add('victoriaA');
-          }
-
-          head.append(fecha, bal)
-          body.append(teamA, teamB);
-
-          card.append(head, body);
-          matchesGrid.appendChild(card);
-        }
-
-        matchesStatus.style.display = 'none';
-        matchesGrid.style.display   = 'grid';
-
-      } catch (err) {
-        console.error(err);
-        matchesStatus.textContent = 'Error al cargar partidos: ' + err.message;
-      }
-    }
+  }catch(err){
+    console.error(err);
+    matchesStatus.textContent='Error al cargar partidos: '+err.message;
+  }
+}
 
     initLockCycle(); cargar(); cargarRachas(); cargarPartidos();
   </script>
