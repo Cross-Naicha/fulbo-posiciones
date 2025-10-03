@@ -76,20 +76,97 @@
     .bottom-tab { width: 100%; height: 50px; background: #11161c; border-top-left-radius: 24px; border-top-right-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); margin-top: 32px; }
 
     /* === Streaks === */
-    .streaks-card { padding:12px; }
-    .streaks-status { text-align:center; color:var(--muted); padding:8px 10px; }
-    .streaks-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:12px; padding:8px; }
-    .streak { border:1px solid var(--line); border-left-width:4px; border-radius:12px; padding:12px; background: linear-gradient(180deg, #10151c, #0f141b); display:grid; gap:6px; }
-    .streak.pos { border-left-color: color-mix(in srgb, var(--pos) 70%, transparent); }
-    .streak.neg { border-left-color: color-mix(in srgb, var(--neg) 70%, transparent); }
-    .streak-top { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--muted); }
-    .badge { font-size:11px; text-transform:uppercase; letter-spacing:.5px; padding:3px 8px; border-radius:999px; border:1px solid var(--line); background:#0f141b90; }
-    .badge.pos { border-color: color-mix(in srgb, var(--pos) 60%, var(--line)); }
-    .badge.neg { border-color: color-mix(in srgb, var(--neg) 60%, var(--line)); }
-    .streak-main { display:flex; align-items:baseline; gap:10px; }
-    .streak-name { font-size:14px; font-weight:600; color:var(--ink); }
-    .streak-len  { margin-left:auto; font-weight:700; font-size:18px; padding:2px 8px; border-radius:8px; border:1px solid var(--line); }
-    .streak-dates { font-size:12px; color:var(--muted); }
+    .streaks-card {
+      padding:12px;
+    }
+
+    .streaks-status {
+      text-align:center;
+      color:var(--muted);
+      padding:8px 10px;
+    }
+
+    .streaks-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:12px;
+      padding:8px;
+    }
+
+    .streak {
+      border:1px solid var(--line);
+      border-left-width:6px;
+      border-radius:12px;
+      padding:12px;
+      background: linear-gradient(180deg, #10151c, #0f141b);
+      display:grid;
+      gap:6px;
+    }
+
+    .streak-top {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .badge {
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      font-weight:600;
+    }
+
+    /* colores */
+    .streak.blue   { border-left-color:#1e90ff; }
+    .streak.green  { border-left-color:#2ecc71; }
+    .streak.red    { border-left-color:#e74c3c; }
+    .streak.yellow { border-left-color:#f1c40f; }
+
+    .badge.blue   { background:#1e90ff; color:#fff; }
+    .badge.green  { background:#2ecc71; color:#fff; }
+    .badge.red    { background:#e74c3c; color:#fff; }
+    .badge.yellow { background:#f1c40f; color:#000; }
+
+    .streak-main {
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+    }
+
+    .streak-name {
+      font-size:14px;
+      font-weight:600;
+      color:var(--ink);
+    }
+
+    .streak-len {
+      margin-left:auto;
+      font-weight:700;
+      font-size:18px;
+      padding:2px 8px;
+      border-radius:8px;
+      border:1px solid var(--line);
+    }
+
+    /* paternidad especial */
+    .streak-name .pat-j1 {
+      font-weight: 600;
+      color: #fff;
+    }
+    .streak-name .pat-arrow {
+      margin: 0 4px;
+      font-weight: bold;
+      color: #f39c12;
+    }
+    .streak-name .pat-j2 {
+      font-weight: 400;
+      opacity: 0.8;
+    }
 
     /* === Ticker === */
     .ticker { display:flex; align-items:center; gap:12px; background: linear-gradient(180deg, #162233, #141a23); border:1px solid var(--line); border-radius:16px; padding:8px 12px; margin-bottom:16px; }
@@ -147,33 +224,31 @@
       box-sizing: border-box;
     }
     body.locked {
-      overflow: hidden;   /* ❌ quita scroll del body */
-      position: fixed;    /* fija el body para que no se mueva */
-      width: 100%;        /* evita “salto” lateral */
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
     }
     .lock-panel::-webkit-scrollbar {
       width: 0;
       background: transparent;
     }
     .lock-panel::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.2);  /* gris clarito transparente */
+      background: rgba(255,255,255,0.2);
       border-radius: 2px;
     }
 
     #annOverlay .lock-sub {text-align: left;}
     #annBody {
-    text-align: justify;         /* alineado formal */
-    line-height: 1.6;            /* más aire entre líneas */
-    font-size: 15px;             /* un pelín más grande */
-    color: var(--ink);           /* mismo color que el resto */
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 15px;
+    color: var(--ink);
     }
-
     #annBody p {
-      margin-bottom: 12px;         /* espacio entre párrafos */
+      margin-bottom: 12px;
     }
-
     #annBody p:last-child {
-      margin-bottom: 0;            /* sin espacio extra al final */
+      margin-bottom: 0;
     }
 
     .lock-title { font-size: 20px; font-weight: 700; text-align: center; }
@@ -338,11 +413,110 @@ fetch('textos.json')
     async function cargar(){ try{ setStatus("Cargando datos…"); const res=await fetch(`data/posiciones.json?v=${Date.now()}`,{cache:"no-store"}); if(!res.ok) throw new Error("HTTP "+res.status); const rows=await res.json(); tbody.innerHTML=""; for(const r of rows){ const tr=document.createElement("tr"); tr.innerHTML=`<td class="right">${r.n??""}</td><td><a href="jugador.html?id=${r.id}">${r.jugador??""}</a></td><td class="right">${r.partidos??""}</td><td class="right">${r.puntos??""}</td><td class="right">${fmt3(r.efectividad??"")}</td><td>${r.promedio??""}</td>`; tbody.appendChild(tr);} showTable(); }catch(err){ setStatus("Error al cargar datos: "+err.message); console.error(err); } }
 
     // === cargar rachas ===
-    const streaksStatus=document.getElementById('streaksStatus'); const streaksGrid=document.getElementById('streaksGrid'); const streaksEmpty=document.getElementById('streaksEmpty');
-    function esPositiva(racha){ const t=(racha||'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().trim(); return t.startsWith('pos')||t.startsWith('victor')||t.startsWith('invicto'); }
-    function fmtFechaCorta(iso){ try{ const [y,m,d]=iso.split('-').map(Number); const dt=new Date(Date.UTC(y,m-1,d,12)); return new Intl.DateTimeFormat('es-AR',{day:'2-digit',month:'short',year:'numeric'}).format(dt).replaceAll('.',''); }catch{return iso;} }
-    function streakCard(item){ const el=document.createElement('article'); const isPos=esPositiva(item.racha); el.className=`streak ${isPos?'pos':'neg'}`; const top=document.createElement('div'); top.className='streak-top'; const badge=document.createElement('span'); badge.className=`badge ${isPos?'pos':'neg'}`; badge.textContent=item.racha||''; top.appendChild(badge); const main=document.createElement('div'); main.className='streak-main'; const name=document.createElement('div'); name.className='streak-name'; name.textContent=item.jugador||''; const len=document.createElement('div'); len.className='streak-len'; len.textContent=`x${item.extension??0}`; main.append(name,len); const dates=document.createElement('div'); dates.className='streak-dates'; dates.textContent=`Desde ${fmtFechaCorta(item.inicio)}`; el.append(top,main,dates); return el; }
-    async function cargarRachas(){ streaksStatus.style.display='block'; streaksGrid.style.display='none'; streaksEmpty.style.display='none'; try{ const res=await fetch(`data/rachas.json?v=${Date.now()}`,{cache:'no-store'}); if(!res.ok) throw new Error('Proxima Temporada'); const arr=await res.json(); if(arr.length===0){ streaksStatus.style.display='none'; streaksEmpty.style.display='block'; return; } arr.sort((a,b)=>{ const ra=esPositiva(a.racha)?0:1; const rb=esPositiva(b.racha)?0:1; if(ra!==rb) return ra-rb; return (b.extension||0)-(a.extension||0); }); streaksGrid.innerHTML=''; for(const s of arr) streaksGrid.appendChild(streakCard(s)); streaksStatus.style.display='none'; streaksGrid.style.display='grid'; }catch(err){ console.error(err); streaksStatus.textContent='Error al cargar rachas: '+err.message; } }
+    const streaksStatus=document.getElementById('streaksStatus');
+    const streaksGrid=document.getElementById('streaksGrid');
+    const streaksEmpty=document.getElementById('streaksEmpty');
+
+    // asignar color según tipo de racha
+    function rachaColor(tipo){
+      const t=(tipo||'').toLowerCase();
+      if(t.includes('presente')) return 'blue';
+      if(t.includes('sin perder')) return 'green';
+      if(t.includes('sin ganar')) return 'red';
+      if(t.includes('paternidad')) return 'yellow';
+      return 'gray';
+    }
+
+    // crear card
+    function streakCard(item){
+      const el=document.createElement('article');
+      const color=rachaColor(item.racha);
+
+      el.className=`streak ${color}`;
+
+      // top (badge)
+      const top=document.createElement('div');
+      top.className='streak-top';
+      const badge=document.createElement('span');
+      badge.className=`badge ${color}`;
+      badge.textContent=item.racha||'';
+      top.appendChild(badge);
+
+      // main (jugador/es + extensión)
+      const main=document.createElement('div');
+      main.className='streak-main';
+
+      const name=document.createElement('div');
+      name.className='streak-name';
+
+      if(item.racha && item.racha.toLowerCase().includes('paternidad')){
+        // caso especial: dividir en dos jugadores
+        const [j1, j2] = (item.jugador||'').split('->').map(s=>s.trim());
+        const span1=document.createElement('span');
+        span1.className='pat-j1';
+        span1.textContent=j1||'';
+
+        const arrow=document.createElement('span');
+        arrow.className='pat-arrow';
+        arrow.textContent=' → ';
+
+        const span2=document.createElement('span');
+        span2.className='pat-j2';
+        span2.textContent=j2||'';
+
+        name.append(span1,arrow,span2);
+      }else{
+        name.textContent=item.jugador||'';
+      }
+
+      const len=document.createElement('div');
+      len.className='streak-len';
+      len.textContent=`x${item.extension??0}`;
+
+      main.append(name,len);
+
+      el.append(top,main);
+      return el;
+    }
+
+    // cargar desde JSON
+    async function cargarRachas(){
+      streaksStatus.style.display='block';
+      streaksGrid.style.display='none';
+      streaksEmpty.style.display='none';
+
+      try{
+        const res=await fetch(`data/rachas.json?v=${Date.now()}`,{cache:'no-store'});
+        if(!res.ok) throw new Error('Proxima Temporada');
+        const arr=await res.json();
+
+        if(arr.length===0){
+          streaksStatus.style.display='none';
+          streaksEmpty.style.display='block';
+          return;
+        }
+
+        // ordenar: primero presentes, luego sin perder, luego paternidad, luego sin ganar
+        arr.sort((a,b)=>{
+          const ca=rachaColor(a.racha);
+          const cb=rachaColor(b.racha);
+          const order={blue:0,green:1,yellow:2,red:3,gray:4};
+          if(order[ca]!==order[cb]) return order[ca]-order[cb];
+          return (b.extension||0)-(a.extension||0);
+        });
+
+        streaksGrid.innerHTML='';
+        for(const s of arr) streaksGrid.appendChild(streakCard(s));
+
+        streaksStatus.style.display='none';
+        streaksGrid.style.display='grid';
+
+      }catch(err){
+        console.error(err);
+        streaksStatus.textContent='Error al cargar rachas: '+err.message;
+      }
+    }
+
 
     // === cargar partidos ===
     const matchesStatus=document.getElementById('matchesStatus'); const matchesGrid=document.getElementById('matchesGrid'); const matchesEmpty=document.getElementById('matchesEmpty');
