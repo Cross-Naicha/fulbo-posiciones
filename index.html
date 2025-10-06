@@ -332,10 +332,11 @@
     <div class="card">
       <div id="status" class="status">Cargando datos…</div>
       <table id="tabla" style="display:none">
-        <thead><tr><th>N°</th><th>Nombre</th><th>PJ</th><th>Pts.</th><th>%</th><th>PMX</th></tr></thead>
+        <thead><tr><th>N°</th><th>Nombre</th><th>PJ</th><th>Pts.</th><th>%</th></tr></thead>
         <tbody id="tbody"></tbody>
       </table>
     </div>
+    
     <p id="novedades"></p>
 
     <div class="sep"></div>
@@ -421,7 +422,7 @@ fetch('textos.json')
       btn.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
     })();
 
-    const CONFIG = { manual_force_lock:false, auto_lock_enabled:true, last_unlock_at:"2025-10-02T00:00:00-03:00", whatsapp_link:"https://wa.me/5493815303224?text=Querido%20Chiqui...", whatsapp_qr_src:"data/qr-whatsapp.png" };
+    const CONFIG = { manual_force_lock:false, auto_lock_enabled:true, last_unlock_at:"2025-10-05T00:00:00-03:00", whatsapp_link:"https://wa.me/5493815303224?text=Querido%20Chiqui...", whatsapp_qr_src:"data/qr-whatsapp.png" };
     const TICKER_TEXT = "Felicidades Lomba: Campeón de la Liga de Transición - PRONTA RECUPERACION CHIQUI!";
     (function initTicker(){ const a=document.getElementById('tickerA'); const b=document.getElementById('tickerB'); if(a&&b){ a.textContent=TICKER_TEXT; b.textContent=TICKER_TEXT; }})();
     
@@ -458,11 +459,54 @@ fetch('textos.json')
     function initLockCycle(){ applyLockUI(computeLockedState()); setInterval(()=>applyLockUI(computeLockedState()), 60000); }
 
     // === cargar tabla ===
-    const status=document.getElementById("status"); const tabla=document.getElementById("tabla"); const tbody=document.getElementById("tbody");
-    function setStatus(msg){ status.textContent=msg; status.style.display='block'; tabla.style.display='none'; }
-    function showTable(){ status.style.display='none'; tabla.style.display='table'; }
-    function fmt3(v){ const n=Number(v); return Number.isFinite(n)? n.toFixed(3):v; }
-    async function cargar(){ try{ setStatus("Cargando datos…"); const res=await fetch(`data/posiciones.json?v=${Date.now()}`,{cache:"no-store"}); if(!res.ok) throw new Error("HTTP "+res.status); const rows=await res.json(); tbody.innerHTML=""; for(const r of rows){ const tr=document.createElement("tr"); tr.innerHTML=`<td class="right">${r.n??""}</td><td><a href="jugador.html?id=${r.id}">${r.jugador??""}</a></td><td class="right">${r.partidos??""}</td><td class="right">${r.puntos??""}</td><td class="right">${fmt3(r.efectividad??"")}</td><td>${r.promedio??""}</td>`; tbody.appendChild(tr);} showTable(); }catch(err){ setStatus("Error al cargar datos: "+err.message); console.error(err); } }
+    const status = document.getElementById("status");
+    const tabla = document.getElementById("tabla");
+    const tbody = document.getElementById("tbody");
+
+    function setStatus(msg) {
+      status.textContent = msg;
+      status.style.display = 'block';
+      tabla.style.display = 'none';
+    }
+
+    function showTable() {
+      status.style.display = 'none';
+      tabla.style.display = 'table';
+    }
+
+    function fmt3(v) {
+      const n = Number(v);
+      return Number.isFinite(n) ? n.toFixed(3) : v;
+    }
+
+    async function cargar() {
+      try {
+        setStatus("Cargando datos…");
+        const res = await fetch(`data/posiciones.json?v=${Date.now()}`, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+
+        const rows = await res.json();
+        tbody.innerHTML = "";
+
+        for (const r of rows) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td class="right">${r.n ?? ""}</td>
+            <td><a href="jugador.html?id=${r.id}">${r.jugador ?? ""}</a></td>
+            <td class="right">${r.partidos ?? ""}</td>
+            <td class="right">${r.puntos ?? ""}</td>
+            <td class="right">${fmt3(r.efectividad ?? "")}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+
+        showTable();
+
+      } catch (err) {
+        setStatus("Error al cargar datos: " + err.message);
+        console.error(err);
+      }
+    }
 
     // === cargar rachas ===
     const streaksStatus=document.getElementById('streaksStatus');
