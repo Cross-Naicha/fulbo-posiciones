@@ -1,12 +1,12 @@
 {
   "basic_statistics": {
-    "partidos": 2,
+    "partidos": 1,
     "apodo": "P11",
-    "puntos": 1,
-    "efectividad": 0.167,
-    "promedio": 0.214,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "promedio": 0.25,
     "ganados": 0,
-    "empatados": 1,
+    "empatados": 0,
     "perdidos": 1
   },
   "winning_streak_statistics": {
@@ -19,44 +19,34 @@
     "actual": false
   },
   "losses_streak_statistics": {
-    "empieza": "2025-08-27",
-    "termina": "2025-08-27",
+    "empieza": "2025-10-08",
+    "termina": "2025-10-08",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
-    "empieza": "2025-09-10",
-    "termina": "2025-09-10",
+    "empieza": "2025-10-08",
+    "termina": "2025-10-08",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "last_5": {
+    "2025-10-08": "P",
     "2025-10-01": "A",
     "2025-09-17": "A",
     "2025-09-10": "E",
-    "2025-09-03": "A",
-    "2025-08-27": "P"
-  },
-  "balance_vs": {
-    "Lombardo, Emiliano": -1,
-    "Lombardo, Juan Pablo": -1,
-    "Ramos Benitez, Matias": -1,
-    "Chagay, Alexis": -1,
-    "Ruiz, Mariano": -1
+    "2025-09-03": "A"
   },
   "best_partner": {},
   "worse_partner": {
-    "Cesano, Leandro": 1,
+    "Cesano, Leandro": 2,
     "Recalde, Facundo": 1,
     "Nuñez, Cesar": 1,
-    "Tosi, Marcelo": 1
+    "Tosi, Marcelo": 1,
+    "Guillou, Bernardo": 1,
+    "Ramos Benitez, Matias": 1,
+    "Cesano, Valentin": 1
   },
   "paternity": {},
-  "filiation": {
-    "Lombardo, Emiliano": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Ramos Benitez, Matias": 1,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1
-  }
+  "filiation": {}
 }

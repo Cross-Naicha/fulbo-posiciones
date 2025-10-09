@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 4,
+    "partidos": 1,
     "apodo": "Marcelito",
-    "puntos": 1,
-    "efectividad": 0.083,
-    "promedio": 0.167,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "promedio": 0.25,
     "ganados": 0,
-    "empatados": 1,
-    "perdidos": 3
+    "empatados": 0,
+    "perdidos": 1
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-10",
@@ -31,22 +31,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-10-08": "A",
     "2025-10-01": "P",
     "2025-09-17": "A",
     "2025-09-10": "E",
-    "2025-09-03": "P",
-    "2025-08-27": "P"
-  },
-  "balance_vs": {
-    "Chagay, Alexis": -1,
-    "Ruiz, Mariano": -1,
-    "Nuñez, Cesar": -1,
-    "Daruich, Nicolas": -1,
-    "Lombardo, Emiliano": -2,
-    "Ramos Benitez, Matias": -2,
-    "Guillou, Bernardo": -2,
-    "Caballero, Alejandro": -2,
-    "Lombardo, Juan Pablo": -3
+    "2025-09-03": "P"
   },
   "best_partner": {},
   "worse_partner": {
@@ -60,15 +49,5 @@
     "Gimenez, Yamil": 1
   },
   "paternity": {},
-  "filiation": {
-    "Lombardo, Emiliano": 2,
-    "Lombardo, Juan Pablo": 3,
-    "Ramos Benitez, Matias": 2,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1,
-    "Guillou, Bernardo": 2,
-    "Nuñez, Cesar": 1,
-    "Caballero, Alejandro": 2,
-    "Daruich, Nicolas": 1
-  }
+  "filiation": {}
 }

@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 3,
+    "partidos": 2,
     "apodo": "Bag",
-    "puntos": 7,
-    "efectividad": 0.778,
-    "promedio": 0.438,
-    "ganados": 2,
-    "empatados": 1,
-    "perdidos": 0
+    "puntos": 3,
+    "efectividad": 0.5,
+    "promedio": 0.357,
+    "ganados": 1,
+    "empatados": 0,
+    "perdidos": 1
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-03",
@@ -18,45 +18,37 @@
     "empates": 1,
     "actual": false
   },
+  "losses_streak_statistics": {
+    "empieza": "2025-10-08",
+    "termina": "2025-10-08",
+    "extension": 1,
+    "actual": true
+  },
   "present_streak_statistics": {
-    "empieza": "2025-09-03",
-    "termina": "2025-09-10",
+    "empieza": "2025-10-01",
+    "termina": "2025-10-08",
     "extension": 2,
-    "actual": false
+    "actual": true
   },
   "last_5": {
+    "2025-10-08": "P",
     "2025-10-01": "G",
     "2025-09-17": "A",
     "2025-09-10": "E",
-    "2025-09-03": "G",
-    "2025-08-27": "A"
-  },
-  "balance_vs": {
-    "Chagay, Alexis": 2,
-    "Ruiz, Mariano": 2,
-    "Tosi, Marcelo": 2,
-    "Cesano, Leandro": 1,
-    "Daher, Camilo": 1,
-    "Gimenez, Yamil": 1,
-    "Nuñez, Cesar": 1
+    "2025-09-03": "G"
   },
   "best_partner": {
     "Lombardo, Juan Pablo": 2,
     "Caballero, Alejandro": 2,
     "Lombardo, Emiliano": 1,
     "Nuñez, Cesar": 1,
-    "Daruich, Nicolas": 1,
-    "Ramos Benitez, Matias": 1
+    "Daruich, Nicolas": 1
   },
-  "worse_partner": {},
-  "paternity": {
+  "worse_partner": {
     "Cesano, Leandro": 1,
-    "Chagay, Alexis": 2,
-    "Ruiz, Mariano": 2,
-    "Tosi, Marcelo": 2,
-    "Daher, Camilo": 1,
-    "Gimenez, Yamil": 1,
-    "Nuñez, Cesar": 1
+    "Ponce, Martin": 1,
+    "Cesano, Valentin": 1
   },
+  "paternity": {},
   "filiation": {}
 }

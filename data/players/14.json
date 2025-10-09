@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 3,
+    "partidos": 2,
     "apodo": "Mato",
-    "puntos": 9,
-    "efectividad": 1.0,
-    "promedio": 0.562,
-    "ganados": 3,
+    "puntos": 3,
+    "efectividad": 0.5,
+    "promedio": 0.357,
+    "ganados": 1,
     "empatados": 0,
-    "perdidos": 0
+    "perdidos": 1
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-17",
@@ -16,61 +16,41 @@
     "puntos acumulados": 6,
     "victorias": 2,
     "empates": 0,
+    "actual": false
+  },
+  "losses_streak_statistics": {
+    "empieza": "2025-10-08",
+    "termina": "2025-10-08",
+    "extension": 1,
     "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-09-17",
-    "termina": "2025-10-01",
-    "extension": 2,
+    "termina": "2025-10-08",
+    "extension": 3,
     "actual": true
   },
   "last_5": {
+    "2025-10-08": "P",
     "2025-10-01": "G",
     "2025-09-17": "G",
     "2025-09-10": "A",
-    "2025-09-03": "A",
-    "2025-08-27": "G"
-  },
-  "balance_vs": {
-    "Nuñez, Cesar": 2,
-    "Tosi, Marcelo": 2,
-    "Gimenez, Yamil": 2,
-    "Cesano, Leandro": 1,
-    "Recalde, Facundo": 1,
-    "Ponce, Martin": 1,
-    "Daruich, Nicolas": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Ferreyra, Jose Maria": 1,
-    "Varas, Franco": 1,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1
+    "2025-09-03": "A"
   },
   "best_partner": {
     "Lombardo, Juan Pablo": 2,
     "Chagay, Alexis": 2,
     "Lombardo, Emiliano": 1,
     "Ruiz, Mariano": 1,
-    "Cesano, Leandro": 1,
     "Nuñez, Cesar": 1,
     "Daher, Camilo": 1,
     "Daruich, Nicolas": 1,
-    "Guillou, Bernardo": 1,
     "Caballero, Alejandro": 1
   },
-  "worse_partner": {},
-  "paternity": {
-    "Cesano, Leandro": 1,
-    "Recalde, Facundo": 1,
-    "Nuñez, Cesar": 2,
+  "worse_partner": {
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 2,
-    "Daruich, Nicolas": 1,
-    "Gimenez, Yamil": 2,
-    "Lombardo, Juan Pablo": 1,
-    "Ferreyra, Jose Maria": 1,
-    "Varas, Franco": 1,
-    "Chagay, Alexis": 1,
-    "Ruiz, Mariano": 1
+    "Cesano, Valentin": 1
   },
+  "paternity": {},
   "filiation": {}
 }

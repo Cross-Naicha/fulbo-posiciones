@@ -1,27 +1,72 @@
 [
   {
     "racha": "sin perder",
-    "jugador": "Mato",
+    "jugador": "Lomba ⭐",
     "extension": 2
   },
   {
     "racha": "sin ganar",
-    "jugador": "Yamil",
-    "extension": 2
+    "jugador": "Chicho",
+    "extension": 1
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Vale",
+    "extension": 1
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Jose",
+    "extension": 1
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Bag",
+    "extension": 1
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Cesar",
+    "extension": 1
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "P11",
+    "extension": 1
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Mato",
+    "extension": 1
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Marcelito",
+    "extension": 1
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Vara",
+    "extension": 1
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 5
+    "extension": 6
   },
   {
     "racha": "presente",
-    "jugador": "Lomba*",
-    "extension": 5
+    "jugador": "Lomba ⭐",
+    "extension": 6
   },
   {
     "racha": "paternidad",
-    "jugador": "Lomba* -> Marcelito",
+    "jugador": null,
+    "extension": 3
+  },
+  {
+    "racha": "paternidad",
+    "jugador": null,
     "extension": 3
   }
 ]

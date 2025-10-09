@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 2,
+    "partidos": 0,
     "apodo": "Camilo",
-    "puntos": 3,
-    "efectividad": 0.5,
-    "promedio": 0.357,
-    "ganados": 1,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "promedio": 0.0,
+    "ganados": 0,
     "empatados": 0,
-    "perdidos": 1
+    "perdidos": 0
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-17",
@@ -31,22 +31,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-10-08": "A",
     "2025-10-01": "A",
     "2025-09-17": "G",
     "2025-09-10": "A",
-    "2025-09-03": "P",
-    "2025-08-27": "A"
-  },
-  "balance_vs": {
-    "Daruich, Nicolas": 1,
-    "Gimenez, Yamil": 1,
-    "Ferreyra, Jose Maria": 1,
-    "Varas, Franco": 1,
-    "Lombardo, Juan Pablo": 0,
-    "Guillou, Bernardo": -1,
-    "Lombardo, Emiliano": -1,
-    "Nuñez, Cesar": -1,
-    "Caballero, Alejandro": -1
+    "2025-09-03": "P"
   },
   "best_partner": {
     "Nuñez, Cesar": 1,
@@ -56,18 +45,6 @@
     "Ruiz, Mariano": 1,
     "Tosi, Marcelo": 1
   },
-  "paternity": {
-    "Daruich, Nicolas": 1,
-    "Gimenez, Yamil": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Ferreyra, Jose Maria": 1,
-    "Varas, Franco": 1
-  },
-  "filiation": {
-    "Guillou, Bernardo": 1,
-    "Lombardo, Emiliano": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Nuñez, Cesar": 1,
-    "Caballero, Alejandro": 1
-  }
+  "paternity": {},
+  "filiation": {}
 }

@@ -1,48 +1,48 @@
 {
   "basic_statistics": {
-    "partidos": 0,
-    "apodo": "Facu",
+    "partidos": 1,
+    "apodo": "Vale",
     "puntos": 0,
     "efectividad": 0.0,
-    "promedio": 0.0,
+    "promedio": 0.25,
     "ganados": 0,
     "empatados": 0,
-    "perdidos": 0
+    "perdidos": 1
   },
   "winning_streak_statistics": {
-    "empieza": "2025-09-10",
-    "termina": "2025-09-10",
-    "extension": 1,
-    "puntos acumulados": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
     "victorias": 0,
-    "empates": 1,
+    "empates": 0,
     "actual": false
   },
   "losses_streak_statistics": {
-    "empieza": "2025-08-27",
-    "termina": "2025-08-27",
+    "empieza": "2025-10-08",
+    "termina": "2025-10-08",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
-    "empieza": "2025-09-10",
-    "termina": "2025-09-10",
+    "empieza": "2025-10-08",
+    "termina": "2025-10-08",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "last_5": {
-    "2025-10-08": "A",
+    "2025-10-08": "P",
     "2025-10-01": "A",
     "2025-09-17": "A",
-    "2025-09-10": "E",
+    "2025-09-10": "A",
     "2025-09-03": "A"
   },
   "best_partner": {},
   "worse_partner": {
     "Cesano, Leandro": 1,
-    "Nuñez, Cesar": 1,
+    "Guillou, Bernardo": 1,
     "Ponce, Martin": 1,
-    "Tosi, Marcelo": 1
+    "Ramos Benitez, Matias": 1
   },
   "paternity": {},
   "filiation": {}
