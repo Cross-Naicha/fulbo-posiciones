@@ -3,70 +3,84 @@
     "racha": "derrotas",
     "jugador": "Chicho",
     "extension": 1,
-    "dias": 2,
+    "dias": 3,
     "inicio": "2025-10-08"
   },
   {
     "racha": "derrotas",
     "jugador": "Bag",
     "extension": 1,
-    "dias": 2,
+    "dias": 3,
     "inicio": "2025-10-08"
   },
   {
     "racha": "derrotas",
     "jugador": "P11",
     "extension": 1,
-    "dias": 2,
+    "dias": 3,
     "inicio": "2025-10-08"
   },
   {
     "racha": "derrotas",
     "jugador": "Mato",
     "extension": 1,
-    "dias": 2,
+    "dias": 3,
     "inicio": "2025-10-08"
   },
   {
     "racha": "derrotas",
     "jugador": "Vale",
     "extension": 1,
-    "dias": 2,
+    "dias": 3,
     "inicio": "2025-10-08"
   },
   {
     "racha": "victorias",
     "jugador": "Lomba ⭐",
     "extension": 2,
-    "dias": 9,
+    "dias": 10,
     "inicio": "2025-10-01"
   },
   {
     "racha": "presente",
     "jugador": "Lomba ⭐",
     "extension": 6,
-    "dias": 44,
+    "dias": 45,
     "inicio": "2025-08-27"
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
     "extension": 6,
-    "dias": 44,
+    "dias": 45,
     "inicio": "2025-08-27"
   },
   {
     "racha": "ausente",
     "jugador": "Emi",
     "extension": 3,
-    "dias": 23,
+    "dias": 24,
     "inicio": "2025-09-17"
   },
   {
     "racha": "ausente",
     "jugador": "Facu",
     "extension": 3,
-    "dias": 23,
+    "dias": 24,
     "inicio": "2025-09-17"
+  },
+  {
+    "racha": "paternidad (DIF)",
+    "jugador": "Lomba ⭐-> Marcelito",
+    "extension": 3,
+    "dias": 45,
+    "inicio": "2025-08-27"
+  },
+  {
+    "racha": "paternidad (PAR)",
+    "jugador": "Lomba ⭐-> Chicho",
+    "extension": 4,
+    "dias": 45,
+    "inicio": "2025-08-27"
   }
 ]
