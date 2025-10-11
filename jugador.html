@@ -271,41 +271,50 @@
     root.appendChild(wrap);
   }
 
-  // ===================== Balance vs (secciones apiladas) =====================
-  function renderBalance(root, data){
-    const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
-    const B = data.balance_vs;
-    if(!B || typeof B !== 'object'){ no(); return; }
+// ===================== Balance vs (secciones apiladas) =====================
+function renderBalance(root, data) {
+  const no = emptyOr(root, 'Métrica no disponible / necesita más partidos');
+  const B = data.balance_vs;
+  if (!B || typeof B !== 'object') { no(); return; }
 
-    const pos=[], zero=[], neg=[];
-    Object.entries(B).forEach(([name,val])=>{ if(val>0) pos.push([name,val]); else if(val<0) neg.push([name,val]); else zero.push([name,val]); });
+  const pos = [], zero = [], neg = [];
+  Object.entries(B).forEach(([name, val]) => {
+    if (val > 0) pos.push([name, val]);
+    else if (val < 0) neg.push([name, val]);
+    else zero.push([name, val]);
+  });
 
-    const mkSection = (title, arr, cls) => {
-      const sec = div('');
-      sec.appendChild(div('section-title', title));
-      const list = div('list');
-      if(arr.length===0) list.appendChild(div('muted','—'));
-      arr.sort((a,b)=> b[1]-a[1]).forEach(([name,val]) => {
+  const mkSection = (title, arr, cls) => {
+    const sec = div('');
+    sec.appendChild(div('section-title', title));
+    const list = div('list');
+    if (arr.length === 0) list.appendChild(div('muted', '—'));
+
+    // 👇 Cambio aplicado acá
+    arr
+      .sort((a, b) => cls === 'bad' ? a[1] - b[1] : b[1] - a[1])
+      .forEach(([name, val]) => {
         const row = div('kv');
-        row.innerHTML = `<span class="name">${name}</span><span class="val">${(val>0?'+':'')+val}</span>`;
+        row.innerHTML = `<span class="name">${name}</span><span class="val">${(val > 0 ? '+' : '') + val}</span>`;
         const v = row.querySelector('.val');
-        if(cls==='ok') v.style.color = 'var(--ok)';
-        if(cls==='bad') v.style.color = 'var(--bad)';
+        if (cls === 'ok') v.style.color = 'var(--ok)';
+        if (cls === 'bad') v.style.color = 'var(--bad)';
         list.appendChild(row);
       });
-      sec.appendChild(list);
-      return sec;
-    };
 
-    root.innerHTML = '';
-    root.append(
-      mkSection('Paternidad', pos, 'ok'),
-      div('separator'),
-      mkSection('Sin Reconocer', zero, 'off'),
-      div('separator'),
-      mkSection('Filiación', neg, 'bad')
-    );
-  }
+    sec.appendChild(list);
+    return sec;
+  };
+
+  root.innerHTML = '';
+  root.append(
+    mkSection('Paternidad', pos, 'ok'),
+    div('separator'),
+    mkSection('Sin Reconocer', zero, 'off'),
+    div('separator'),
+    mkSection('Filiación', neg, 'bad')
+  );
+}
 
   // ===================== Compañeros (secciones apiladas) =====================
   function renderPartners(root, data){

@@ -37,6 +37,21 @@
     "2025-09-10": "E",
     "2025-09-03": "P"
   },
+  "balance_vs": {
+    "Naicha": 1,
+    "Jose": 1,
+    "Vara": 1,
+    "Yamil": 0,
+    "Mato": -1,
+    "Pelao Khe": -1,
+    "Cesar": -1,
+    "Bag": -1,
+    "Benja": -1,
+    "Lomba ⭐": -2,
+    "Mario ⭐": -2,
+    "Chagay": -2,
+    "Emi": -2
+  },
   "best_partner": {},
   "worse_partner": {
     "Ponce, Martin": 2,

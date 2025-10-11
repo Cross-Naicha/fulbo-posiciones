@@ -517,9 +517,10 @@ fetch('textos.json')
     function rachaColor(tipo){
       const t=(tipo||'').toLowerCase();
       if(t.includes('presente')) return 'blue';
-      if(t.includes('sin perder')) return 'green';
-      if(t.includes('sin ganar')) return 'red';
+      if(t.includes('victorias')) return 'green';
+      if(t.includes('derrotas')) return 'red';
       if(t.includes('paternidad')) return 'yellow';
+      if(t.includes('ausente')) return 'gray';
       return 'gray';
     }
 

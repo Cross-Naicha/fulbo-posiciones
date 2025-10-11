@@ -37,6 +37,13 @@
     "2025-09-10": "A",
     "2025-09-03": "A"
   },
+  "balance_vs": {
+    "Camilo": -1,
+    "Mato": -1,
+    "Chagay": -1,
+    "Cesar": -1,
+    "Chicho": -1
+  },
   "best_partner": {},
   "worse_partner": {
     "Daruich, Nicolas": 1,
