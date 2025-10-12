@@ -1,13 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 1,
+    "partidos": 1.0,
     "apodo": "Vale",
     "puntos": 0,
     "efectividad": 0.0,
-    "promedio": 0.25,
     "ganados": 0,
     "empatados": 0,
-    "perdidos": 1
+    "perdidos": 1,
+    "diferencia de gol": "- 4",
+    "delta": "↑3"
   },
   "winning_streak_statistics": {
     "empieza": null,

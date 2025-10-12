@@ -310,6 +310,45 @@
     .qr { display:grid; gap:8px; place-items:center; border:1px dashed var(--overlay-border); border-radius:12px; padding:12px; background:#0d131b; }
     .qr img { width:160px; height:160px; object-fit:contain; image-rendering: crisp-edges; }
     .muted { color: var(--muted); font-size: 12px; }
+
+    /* === Tabla compacta y centrada === */
+#tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+#tabla th,
+#tabla td {
+  text-align: center;
+  padding: 14px 26px;      /* compacto */
+  white-space: nowrap;   /* evita saltos de línea */
+}
+
+#tabla th {
+  color: var(--muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+}
+
+#tabla td {
+  border-bottom: 1px solid var(--line);
+}
+
+/* === Colores dinámicos === */
+.up { color: #4CAF50; }      /* verde */
+.down { color: #f44336; }    /* rojo */
+.draw { color: #FFC107; }    /* amarillo */
+.pos { color: #4CAF50; }     /* positivo */
+.neg { color: #f44336; }     /* negativo */
+
+@media (max-width: 600px) {
+  #tabla th, #tabla td {
+    padding: 2px 3px;
+    font-size: 0.8rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -329,13 +368,27 @@
     <div class="sep"></div>
     <h3 id="fecha"></h3>
     
-    <div class="card">
-      <div id="status" class="status">Cargando datos…</div>
-      <table id="tabla" style="display:none">
-        <thead><tr><th>N°</th><th>Nombre</th><th>PJ</th><th>Pts.</th><th>%</th></tr></thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </div>
+<div class="card">
+  <div id="status" class="status">Cargando datos…</div>
+  <table id="tabla" style="display:none">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Δ</th>
+        <th>Jugador</th>
+        <th>PJ</th>
+        <th>GAN</th>
+        <th>EMP</th>
+        <th>PER</th>
+        <th>DIF</th>
+        <th>Pts</th>
+        <th>%</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
     
     <p id="novedades"></p>
 
@@ -459,55 +512,87 @@ fetch('textos.json')
     }
     function initLockCycle(){ applyLockUI(computeLockedState()); setInterval(()=>applyLockUI(computeLockedState()), 60000); }
 
-    // === cargar tabla ===
-    const status = document.getElementById("status");
-    const tabla = document.getElementById("tabla");
-    const tbody = document.getElementById("tbody");
+// === cargar tabla ===
+const status = document.getElementById("status");
+const tabla = document.getElementById("tabla");
+const tbody = document.getElementById("tbody");
 
-    function setStatus(msg) {
-      status.textContent = msg;
-      status.style.display = 'block';
-      tabla.style.display = 'none';
+function setStatus(msg) {
+  status.textContent = msg;
+  status.style.display = "block";
+  tabla.style.display = "none";
+}
+
+function showTable() {
+  status.style.display = "none";
+  tabla.style.display = "table";
+}
+
+function fmt2(v) {
+  const n = Number(v);
+  return Number.isFinite(n) ? n.toFixed(2) : v;
+}
+
+async function cargar() {
+  try {
+    setStatus("Cargando datos…");
+
+    const res = await fetch(`data/posiciones.json?v=${Date.now()}`, { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+
+    const rows = await res.json();
+    tbody.innerHTML = "";
+
+    // Mostrar solo los 10 primeros
+    const top10 = rows.slice(0, 10);
+
+    for (const r of top10) {
+      const tr = document.createElement("tr");
+
+      // === Delta ===
+      let deltaClass = "";
+      if (r.Δ?.includes("↑")) deltaClass = "up";
+      else if (r.Δ?.includes("↓")) deltaClass = "down";
+
+      // === Goles ===
+      let golClass = "";
+      const golNum = parseInt(r.GOL?.replace(/[^\d-]/g, "") || "0", 10);
+      if (golNum > 0) golClass = "pos";
+      else if (golNum < 0) golClass = "neg";
+
+      // === G/E/P ===
+      const gClass = r.G > 0 ? "pos" : "";
+      const eClass = r.E > 0 ? "draw" : "";
+      const pClass = r.P > 0 ? "neg" : "";
+
+      tr.innerHTML = `
+        <td>${r.N ?? ""}</td>
+        <td class="${deltaClass}">${r.Δ ?? ""}</td>
+        <td><a href="jugador.html?id=${r.ID}">${r.JUG ?? ""}</a></td>
+        <td>${r.J ?? ""}</td>
+        <td class="${gClass}">${r.G ?? ""}</td>
+        <td class="${eClass}">${r.E ?? ""}</td>
+        <td class="${pClass}">${r.P ?? ""}</td>
+        <td class="${golClass}">${r.GOL ?? ""}</td>
+        <td>${r.PTS ?? ""}</td>
+        <td>${fmt2(r.EFE ?? "")}</td>
+      `;
+
+      tbody.appendChild(tr);
     }
 
-    function showTable() {
-      status.style.display = 'none';
-      tabla.style.display = 'table';
-    }
+    showTable();
 
-    function fmt3(v) {
-      const n = Number(v);
-      return Number.isFinite(n) ? n.toFixed(3) : v;
-    }
+  } catch (err) {
+    setStatus("Error al cargar datos: " + err.message);
+    console.error(err);
+  }
+}
 
-    async function cargar() {
-      try {
-        setStatus("Cargando datos…");
-        const res = await fetch(`data/posiciones.json?v=${Date.now()}`, { cache: "no-store" });
-        if (!res.ok) throw new Error("HTTP " + res.status);
 
-        const rows = await res.json();
-        tbody.innerHTML = "";
+// Ejecutar al cargar la página
+cargar();
 
-        for (const r of rows) {
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td class="right">${r.n ?? ""}</td>
-            <td><a href="jugador.html?id=${r.id}">${r.jugador ?? ""}</a></td>
-            <td class="right">${r.partidos ?? ""}</td>
-            <td class="right">${r.puntos ?? ""}</td>
-            <td class="right">${fmt3(r.efectividad ?? "")}</td>
-          `;
-          tbody.appendChild(tr);
-        }
-
-        showTable();
-
-      } catch (err) {
-        setStatus("Error al cargar datos: " + err.message);
-        console.error(err);
-      }
-    }
 
     // === cargar rachas ===
     const streaksStatus=document.getElementById('streaksStatus');

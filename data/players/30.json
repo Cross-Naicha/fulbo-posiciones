@@ -1,13 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 1,
+    "partidos": 1.0,
     "apodo": "Benja",
     "puntos": 3,
     "efectividad": 1.0,
-    "promedio": 0.417,
     "ganados": 1,
     "empatados": 0,
-    "perdidos": 0
+    "perdidos": 0,
+    "diferencia de gol": "+ 4",
+    "delta": "↑4"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-08",

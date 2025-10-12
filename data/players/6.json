@@ -1,13 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 0,
+    "partidos": 0.0,
     "apodo": "Emi",
     "puntos": 0,
     "efectividad": 0.0,
-    "promedio": 0.0,
     "ganados": 0,
     "empatados": 0,
-    "perdidos": 0
+    "perdidos": 0,
+    "diferencia de gol": "0",
+    "delta": "↑5"
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",

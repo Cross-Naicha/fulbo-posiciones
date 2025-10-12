@@ -1,13 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 2,
+    "partidos": 2.0,
     "apodo": "Bag",
     "puntos": 3,
     "efectividad": 0.5,
-    "promedio": 0.357,
     "ganados": 1,
     "empatados": 0,
-    "perdidos": 1
+    "perdidos": 1,
+    "diferencia de gol": "- 3",
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-03",
