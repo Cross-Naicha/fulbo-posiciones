@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 1.0,
-    "apodo": "Cesar",
+    "apodo": "AVE",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
@@ -39,20 +39,20 @@
     "2025-09-03": "G"
   },
   "balance_vs": {
-    "Chicho": 1,
-    "Marcelito": 1,
-    "Camilo": 1,
-    "Yamil": 1,
-    "Jose": 1,
-    "Vara": 1,
-    "Chagay": 0,
-    "Mario ⭐": 0,
-    "Naicha 👑": 0,
-    "Lomba ⭐": -1,
-    "Emi": -1,
-    "Pelao Khe": -1,
-    "Bag": -1,
-    "Mato": -2
+    "COY": 1,
+    "MAR": 1,
+    "CAM": 1,
+    "YAM": 1,
+    "JOS": 1,
+    "VAR": 1,
+    "CHA": 0,
+    "MRO": 0,
+    "NAI": 0,
+    "LOM": -1,
+    "EMI": -1,
+    "KHE": -1,
+    "BAG": -1,
+    "MAT": -2
   },
   "best_partner": {
     "Guillou, Bernardo": 1,

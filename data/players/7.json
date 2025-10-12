@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 2.0,
-    "apodo": "Lomba ⭐",
+    "apodo": "LOM",
     "puntos": 6,
     "efectividad": 1.0,
     "ganados": 2,
@@ -39,18 +39,18 @@
     "2025-09-03": "G"
   },
   "balance_vs": {
-    "Marcelito": 3,
-    "Chicho": 2,
+    "MAR": 3,
+    "COY": 2,
     "P11": 2,
-    "Mario ⭐": 2,
-    "Facu": 1,
-    "Cesar": 1,
-    "Chagay": 1,
-    "Yamil": 1,
-    "Bag": 1,
-    "Vale": 1,
-    "Camilo": 0,
-    "Mato": 0
+    "MRO": 2,
+    "FAC": 1,
+    "AVE": 1,
+    "CHA": 1,
+    "YAM": 1,
+    "BAG": 1,
+    "VAL": 1,
+    "CAM": 0,
+    "MAT": 0
   },
   "best_partner": {
     "Lombardo, Emiliano": 2,

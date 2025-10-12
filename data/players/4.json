@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 2.0,
-    "apodo": "Bag",
+    "apodo": "BAG",
     "puntos": 3,
     "efectividad": 0.5,
     "ganados": 1,
@@ -39,15 +39,15 @@
     "2025-09-03": "G"
   },
   "balance_vs": {
-    "Marcelito": 2,
-    "Chicho": 1,
-    "Chagay": 1,
-    "Mario ⭐": 1,
-    "Camilo": 1,
-    "Cesar": 1,
-    "Yamil": 0,
-    "Benja": -1,
-    "Lomba ⭐": -1
+    "MAR": 2,
+    "COY": 1,
+    "CHA": 1,
+    "MRO": 1,
+    "CAM": 1,
+    "AVE": 1,
+    "YAM": 0,
+    "BEN": -1,
+    "LOM": -1
   },
   "best_partner": {
     "Lombardo, Juan Pablo": 2,

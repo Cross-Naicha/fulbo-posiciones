@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 0.0,
-    "apodo": "Camilo",
+    "apodo": "CAM",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
@@ -39,15 +39,15 @@
     "2025-09-03": "P"
   },
   "balance_vs": {
-    "Naicha 👑": 1,
-    "Yamil": 1,
-    "Jose": 1,
-    "Vara": 1,
-    "Lomba ⭐": 0,
-    "Pelao Khe": -1,
-    "Cesar": -1,
-    "Emi": -1,
-    "Bag": -1
+    "NAI": 1,
+    "YAM": 1,
+    "JOS": 1,
+    "VAR": 1,
+    "LOM": 0,
+    "KHE": -1,
+    "AVE": -1,
+    "EMI": -1,
+    "BAG": -1
   },
   "best_partner": {
     "Nuñez, Cesar": 1,

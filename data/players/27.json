@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 0.0,
-    "apodo": "Jose",
+    "apodo": "JOS",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
@@ -39,11 +39,11 @@
     "2025-09-03": "A"
   },
   "balance_vs": {
-    "Camilo": -1,
-    "Mato": -1,
-    "Chagay": -1,
-    "Cesar": -1,
-    "Chicho": -1
+    "CAM": -1,
+    "MAT": -1,
+    "CHA": -1,
+    "AVE": -1,
+    "COY": -1
   },
   "best_partner": {},
   "worse_partner": {

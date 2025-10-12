@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 2.0,
-    "apodo": "Mario ⭐",
+    "apodo": "MRO",
     "puntos": 3,
     "efectividad": 0.5,
     "ganados": 1,
@@ -39,18 +39,18 @@
     "2025-09-03": "P"
   },
   "balance_vs": {
-    "Chicho": 2,
+    "COY": 2,
     "P11": 2,
-    "Facu": 1,
-    "Marcelito": 1,
-    "Vale": 1,
-    "Cesar": 0,
-    "Mato": 0,
-    "Bag": -1,
-    "Emi": -1,
-    "Naicha 👑": -1,
-    "Pelao Khe": -2,
-    "Lomba ⭐": -2
+    "FAC": 1,
+    "MAR": 1,
+    "VAL": 1,
+    "AVE": 0,
+    "MAT": 0,
+    "BAG": -1,
+    "EMI": -1,
+    "NAI": -1,
+    "KHE": -2,
+    "LOM": -2
   },
   "best_partner": {
     "Lombardo, Juan Pablo": 2,

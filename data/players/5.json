@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 2.0,
-    "apodo": "Yamil",
+    "apodo": "YAM",
     "puntos": 3,
     "efectividad": 0.5,
     "ganados": 1,
@@ -40,16 +40,16 @@
   },
   "balance_vs": {
     "P11": 1,
-    "Vale": 1,
-    "Chicho": 0,
-    "Bag": 0,
-    "Mato": -1,
-    "Camilo": -1,
-    "Chagay": -1,
-    "Cesar": -1,
-    "Pelao Khe": -1,
-    "Lomba ⭐": -1,
-    "Naicha 👑": -1
+    "VAL": 1,
+    "COY": 0,
+    "BAG": 0,
+    "MAT": -1,
+    "CAM": -1,
+    "CHA": -1,
+    "AVE": -1,
+    "KHE": -1,
+    "LOM": -1,
+    "NAI": -1
   },
   "best_partner": {
     "Salas, Benjamin": 1

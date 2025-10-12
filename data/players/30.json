@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 1.0,
-    "apodo": "Benja",
+    "apodo": "BEN",
     "puntos": 3,
     "efectividad": 1.0,
     "ganados": 1,
@@ -33,11 +33,11 @@
     "2025-09-03": "A"
   },
   "balance_vs": {
-    "Chicho": 1,
-    "Bag": 1,
+    "COY": 1,
+    "BAG": 1,
     "P11": 1,
-    "Mato": 1,
-    "Vale": 1
+    "MAT": 1,
+    "VAL": 1
   },
   "best_partner": {
     "Gimenez, Yamil": 1,

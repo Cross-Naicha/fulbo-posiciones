@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 1.0,
-    "apodo": "Naicha 👑",
+    "apodo": "NAI",
     "puntos": 3,
     "efectividad": 1.0,
     "ganados": 1,
@@ -39,14 +39,14 @@
     "2025-09-03": "A"
   },
   "balance_vs": {
-    "Yamil": 1,
-    "Mario ⭐": 1,
-    "Marcelito": 1,
-    "Cesar": 0,
-    "Chagay": 0,
-    "Camilo": -1,
-    "Mato": -1,
-    "Chicho": -1
+    "YAM": 1,
+    "MRO": 1,
+    "MAR": 1,
+    "AVE": 0,
+    "CHA": 0,
+    "CAM": -1,
+    "MAT": -1,
+    "COY": -1
   },
   "best_partner": {
     "Guillou, Bernardo": 1,

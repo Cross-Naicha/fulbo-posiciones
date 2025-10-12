@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 1.0,
-    "apodo": "Marcelito",
+    "apodo": "MAR",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
@@ -39,15 +39,15 @@
     "2025-09-03": "P"
   },
   "balance_vs": {
-    "Mario ⭐": -1,
-    "Chagay": -1,
-    "Cesar": -1,
-    "Naicha 👑": -1,
-    "Mato": -2,
-    "Emi": -2,
-    "Pelao Khe": -2,
-    "Bag": -2,
-    "Lomba ⭐": -3
+    "MRO": -1,
+    "CHA": -1,
+    "AVE": -1,
+    "NAI": -1,
+    "MAT": -2,
+    "EMI": -2,
+    "KHE": -2,
+    "BAG": -2,
+    "LOM": -3
   },
   "best_partner": {},
   "worse_partner": {
