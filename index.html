@@ -376,13 +376,13 @@
       <tr>
         <th>N°</th>
         <th>Δ</th>
-        <th>PJ</th>
-        <th>PJ</th>
+        <th>X</th>
+        <th>J</th>
+        <th>Pts</th>
         <th>G</th>
         <th>E</th>
         <th>P</th>
         <th>G+</th>
-        <th>Pts</th>
         <th>%</th>
       </tr>
     </thead>
@@ -572,11 +572,11 @@ async function cargar() {
         <td class="${deltaClass}">${r.Δ ?? ""}</td>
         <td><a href="jugador.html?id=${r.ID}">${r.JUG ?? ""}</a></td>
         <td>${r.J ?? ""}</td>
+        <td>${r.PTS ?? ""}</td>
         <td class="${gClass}">${r.G ?? ""}</td>
         <td class="${eClass}">${r.E ?? ""}</td>
         <td class="${pClass}">${r.P ?? ""}</td>
         <td class="${golClass}">${r.GOL ?? ""}</td>
-        <td>${r.PTS ?? ""}</td>
         <td>${fmt2(r.EFE ?? "")}</td>
       `;
 
