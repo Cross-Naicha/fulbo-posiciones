@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Combinaciones - Liga de Fantasía</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+  --bg: #0b0d10;
+  --card: #11161c;
+  --ink: #e8eef6;
+  --muted: #9fb0c3;
+  --line: #223042;
+  --pos: #38c976;
+  --neg: #ff5b5b;
+  --accent: #2b90d9;
+}
+
+/* === RESET GENERAL === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.sub {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* === CARD BASE === */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+}
+
+/* === FILTROS === */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+.filters select,
+.filters button {
+  background: #0f141b;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.filters select:hover,
+.filters button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filters button {
+  background: var(--card);
+}
+
+.filters button:active {
+  transform: scale(0.97);
+}
+
+/* === TABLA === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+th {
+  background: #141a22;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+td:first-child {
+  font-weight: 600;
+}
+
+td:first-child[style*="--pos"] {
+  color: var(--pos);
+}
+
+td:first-child[style*="--neg"] {
+  color: var(--neg);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filters select,
+  .filters button {
+    width: 100%;
+  }
+  th, td {
+    font-size: 13px;
+    padding: 6px;
+  }
+  .wrap {
+    padding: 0 10px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* === ANIMACIONES SUAVES === */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Combinaciones</h1>
+    <p class="sub">Grupos de jugadores que más veces ganaron o perdieron juntos</p>
+
+    <!-- Botón volver -->
+    <div class="back-btn-wrap">
+    <a href="index.html" class="back-btn">← Volver al inicio</a>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filters">
+      <select id="filterResultado">
+        <option value="">Todos los resultados</option>
+        <option value="GAN">Ganadores</option>
+        <option value="PER">Perdedores</option>
+      </select>
+
+      <select id="filterTamano">
+        <option value="">Todos los tamaños</option>
+        <option value="2">De a 2</option>
+        <option value="3">De a 3</option>
+        <option value="4">De a 4</option>
+      </select>
+
+      <select id="filterJugador">
+        <option value="">Todos los jugadores</option>
+        <!-- Se completa dinámicamente -->
+      </select>
+
+      <button id="btnReset">Limpiar filtros</button>
+    </div>
+
+    <!-- Tabla -->
+    <table id="tablaComb">
+      <thead>
+        <tr>
+          <th>Resultado</th>
+          <th>Tamaño</th>
+          <th>Jugadores</th>
+          <th>Veces</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    // === elementos base ===
+const tablaBody = document.querySelector('#tablaComb tbody');
+const filterResultado = document.getElementById('filterResultado');
+const filterTamano = document.getElementById('filterTamano');
+const filterJugador = document.getElementById('filterJugador');
+const btnReset = document.getElementById('btnReset');
+
+let combinaciones = [];
+
+// === cargar datos ===
+async function cargarCombinaciones() {
+  try {
+    const res = await fetch(`data/combinaciones.json?v=${Date.now()}`, { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    combinaciones = await res.json();
+
+    poblarFiltroJugadores();
+    renderTabla();
+
+  } catch (err) {
+    console.error("Error cargando combinaciones:", err);
+    tablaBody.innerHTML = `<tr><td colspan="4" style="color:var(--muted)">Error cargando datos</td></tr>`;
+  }
+}
+
+// === poblar filtro de jugadores ===
+function poblarFiltroJugadores() {
+  const jugadoresSet = new Set();
+
+  for (const fila of combinaciones) {
+    for (let i = 2; i <= 5; i++) {
+      if (fila[i]) jugadoresSet.add(fila[i]);
+    }
+  }
+
+  const jugadores = Array.from(jugadoresSet).sort((a, b) => a.localeCompare(b, 'es'));
+  for (const j of jugadores) {
+    const opt = document.createElement('option');
+    opt.value = j;
+    opt.textContent = j;
+    filterJugador.append(opt);
+  }
+}
+
+// === aplicar filtros y renderizar tabla ===
+function renderTabla() {
+  const resSel = filterResultado.value;
+  const tamSel = filterTamano.value;
+  const jugSel = filterJugador.value;
+
+  const filtradas = combinaciones.filter(fila => {
+    const [resultado, tamano] = fila;
+
+    const pasaResultado = !resSel || resultado === resSel;
+    const pasaTamano = !tamSel || String(tamano) === tamSel;
+    const pasaJugador = !jugSel || fila.slice(2, 6).includes(jugSel);
+
+    return pasaResultado && pasaTamano && pasaJugador;
+  });
+
+  if (filtradas.length === 0) {
+    tablaBody.innerHTML = `<tr><td colspan="4" style="color:var(--muted)">Sin resultados</td></tr>`;
+    return;
+  }
+
+  // ordenar por cantidad descendente
+  filtradas.sort((a, b) => b[6] - a[6]);
+
+  tablaBody.innerHTML = '';
+  for (const fila of filtradas) {
+    const [resultado, tamano, j1, j2, j3, j4, veces] = fila;
+    const jugadores = [j1, j2, j3, j4].filter(Boolean).join(', ');
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="color:${resultado === 'GAN' ? 'var(--pos)' : 'var(--neg)'}">${resultado}</td>
+      <td>${tamano}</td>
+      <td>${jugadores}</td>
+      <td>${veces}</td>
+    `;
+    tablaBody.appendChild(tr);
+  }
+}
+
+// === eventos ===
+filterResultado.addEventListener('change', renderTabla);
+filterTamano.addEventListener('change', renderTabla);
+filterJugador.addEventListener('change', renderTabla);
+btnReset.addEventListener('click', () => {
+  filterResultado.value = '';
+  filterTamano.value = '';
+  filterJugador.value = '';
+  renderTabla();
+});
+
+// === iniciar ===
+cargarCombinaciones();
+  </script>
+</body>
+</html>

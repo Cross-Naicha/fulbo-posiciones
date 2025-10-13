@@ -53,16 +53,16 @@
     "Lomba": -2
   },
   "best_partner": {
-    "Lombardo, Juan Pablo": 2,
-    "Lombardo, Emiliano": 1,
-    "Ramos Benitez, Matias": 1,
-    "Salas, Benjamin": 1
+    "Lomba": 2,
+    "Emi": 1,
+    "Mato": 1,
+    "Benja": 1
   },
   "worse_partner": {
-    "Tosi, Marcelo": 2,
-    "Cesano, Leandro": 1,
-    "Daher, Camilo": 1,
-    "Nuñez, Cesar": 1
+    "Marcelo": 2,
+    "Chicho": 1,
+    "Camilo": 1,
+    "Cesar": 1
   },
   "paternity": {},
   "filiation": {}

@@ -55,19 +55,19 @@
     "Mato": -2
   },
   "best_partner": {
-    "Guillou, Bernardo": 1,
-    "Lombardo, Emiliano": 1,
-    "Lombardo, Juan Pablo": 1,
-    "Caballero, Alejandro": 1,
-    "Ramos Benitez, Matias": 1,
-    "Daher, Camilo": 1
+    "Bag": 1,
+    "Emi": 1,
+    "Lomba": 1,
+    "Pelao Khe": 1,
+    "Mato": 1,
+    "Camilo": 1
   },
   "worse_partner": {
-    "Tosi, Marcelo": 2,
-    "Recalde, Facundo": 1,
-    "Ponce, Martin": 1,
-    "Gimenez, Yamil": 1,
-    "Ruiz, Mariano": 1
+    "Marcelo": 2,
+    "Facu": 1,
+    "P11": 1,
+    "Yamil": 1,
+    "Mario": 1
   },
   "paternity": {},
   "filiation": {}

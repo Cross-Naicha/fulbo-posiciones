@@ -349,6 +349,34 @@
   }
 }
 
+/* === Card de navegación (botón a combinaciones) === */
+.nav-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.nav-card .streak-top {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nav-link {
+  display: inline-block;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
   </style>
 </head>
 <body>
@@ -367,7 +395,7 @@
 
     <div class="sep"></div>
     <h3 id="fechas_1"></h3>
-    <h4 id="fechas_2"></h4>
+    <p id="fechas_2"></p>
     
 <div class="card">
   <div id="status" class="status">Cargando datos…</div>
@@ -400,11 +428,28 @@
       <div id="streaksGrid" class="streaks-grid" style="display:none"></div>
       <div id="streaksEmpty" class="streaks-status" style="display:none">No hay rachas para mostrar.</div>
     </div>
-    <p>Paternidad PAR: Número de Partidos</p>
-    <p>Paternidad DIF: Diferencia de Partidos</p>
+    <p>Paternidad PAR: Número de Partidos; Paternidad DIF: Diferencia de Partidos</p>
+    
     <div class="sep"></div>
 
-    <h2>Últimos 5 partidos</h2>
+    <h2>Explorar combinaciones</h2>
+    <div class="card streaks-card nav-card">
+      <div class="streak-top">
+        <span class="badge blue">Nueva sección</span>
+        <span class="streak-len">⚽</span>
+      </div>
+      <div class="streak-main">
+        <div class="streak-name">
+          <a href="combinaciones.html" class="nav-link">
+            Ver combinaciones de jugadores →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <h2>Últimos 6 partidos</h2>
     <div class="card matches-card">
       <div id="matchesStatus" class="matches-status">Cargando partidos…</div>
       <div id="matchesGrid" class="matches-grid" style="display:none"></div>
@@ -772,7 +817,7 @@ async function cargarPartidos(){
     }
 
     matchesGrid.innerHTML='';
-    for(const [fecha,partido] of entries.slice(0,5)){
+    for(const [fecha,partido] of entries.slice(0,6)){
       matchesGrid.appendChild(matchCard(fecha,partido));
     }
 
