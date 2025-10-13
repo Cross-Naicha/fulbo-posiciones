@@ -136,6 +136,10 @@ td:first-child[style*="--neg"] {
   color: var(--neg);
 }
 
+.sep { height:1px; background:var(--line); margin:28px 0; border-radius:1px; }
+    h2 { margin:0 0 8px; font-size:20px; text-align:center; }
+    .sub2 { text-align:center; color:var(--muted); margin-bottom:16px; font-size:14px; }
+
 /* === RESPONSIVE === */
 @media (max-width: 600px) {
   .filters {
@@ -174,10 +178,24 @@ td:first-child[style*="--neg"] {
     <h1>Combinaciones</h1>
     <p class="sub">Grupos de jugadores que más veces ganaron o perdieron juntos</p>
 
-    <!-- Botón volver -->
-    <div class="back-btn-wrap">
-    <a href="index.html" class="back-btn">← Volver al inicio</a>
+    <div class="sep"></div>
+
+    <h2>Explorar combinaciones</h2>
+    <div class="card streaks-card nav-card">
+      <div class="streak-top">
+        <span class="badge blue">Página de Inicio</span>
+        <span class="streak-len">⚽</span>
+      </div>
+      <div class="streak-main">
+        <div class="streak-name">
+          <a href="index.html" class="nav-link">
+            ← Volver 
+          </a>
+        </div>
+      </div>
     </div>
+
+    <div class="sep"></div>
 
     <!-- Filtros -->
     <div class="filters">
