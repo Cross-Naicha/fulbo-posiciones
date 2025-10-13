@@ -1,55 +1,55 @@
 {
   "08/10/2025": {
     "team_a": [
-      "YAM, LOM, CHA, MRO, BEN"
+      "Yamil, Lomba, Chagay, Mario, Benja"
     ],
     "team_b": [
-      "COY, BAG, P11, MAT, VAL"
+      "Chicho, Bag, P11, Mato, Valentin"
     ],
     "balance": 4
   },
   "01/10/2025": {
     "team_a": [
-      "NAI, BAG, LOM, MAT, KHE"
+      "Naicha, Bag, Lomba, Mato, Pelao Khe"
     ],
     "team_b": [
-      "YAM, AVE, CHA, MRO, MAR"
+      "Yamil, Cesar, Chagay, Mario, Marcelo"
     ],
     "balance": 1
   },
   "17/09/2025": {
     "team_a": [
-      "COY, AVE, CHA, MAT, CAM"
+      "Chicho, Cesar, Chagay, Mato, Camilo"
     ],
     "team_b": [
-      "NAI, YAM, LOM, JOS, VAR"
+      "Naicha, Yamil, Lomba, Jose, Vara"
     ],
     "balance": 2
   },
   "10/09/2025": {
     "team_a": [
-      "BAG, EMI, P11, CHA, MAR"
+      "Bag, Emi, P11, Chagay, Marcelo"
     ],
     "team_b": [
-      "COY, YAM, LOM, FAC, MRO"
+      "Chicho, Yamil, Lomba, Facu, Mario"
     ],
     "balance": 0
   },
   "03/09/2025": {
     "team_a": [
-      "BAG, EMI, LOM, AVE, KHE"
+      "Bag, Emi, Lomba, Cesar, Pelao Khe"
     ],
     "team_b": [
-      "COY, CHA, MRO, MAR, CAM"
+      "Chicho, Chagay, Mario, Marcelo, Camilo"
     ],
     "balance": 1
   },
   "27/08/2025": {
     "team_a": [
-      "MAT, EMI, LOM, CHA, MRO"
+      "Mato, Emi, Lomba, Chagay, Mario"
     ],
     "team_b": [
-      "FAC, AVE, P11, MAR, COY"
+      "Facu, Cesar, P11, Marcelo, Chicho"
     ],
     "balance": 1
   }

@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 2.0,
-    "apodo": "MAT",
+    "apodo": "Mato",
     "puntos": 3,
     "efectividad": 0.5,
     "ganados": 1,
@@ -39,19 +39,19 @@
     "2025-09-03": "A"
   },
   "balance_vs": {
-    "AVE": 2,
-    "MAR": 2,
-    "COY": 1,
-    "FAC": 1,
+    "Cesar": 2,
+    "Marcelo": 2,
+    "Chicho": 1,
+    "Facu": 1,
     "P11": 1,
-    "NAI": 1,
-    "YAM": 1,
-    "JOS": 1,
-    "VAR": 1,
-    "LOM": 0,
-    "CHA": 0,
-    "MRO": 0,
-    "BEN": -1
+    "Naicha": 1,
+    "Yamil": 1,
+    "Jose": 1,
+    "Vara": 1,
+    "Lomba": 0,
+    "Chagay": 0,
+    "Mario": 0,
+    "Benja": -1
   },
   "best_partner": {
     "Lombardo, Juan Pablo": 2,

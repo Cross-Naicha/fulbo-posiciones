@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 1.0,
-    "apodo": "KHE",
+    "apodo": "Pelao Khe",
     "puntos": 3,
     "efectividad": 1.0,
     "ganados": 1,
@@ -33,13 +33,13 @@
     "2025-09-03": "G"
   },
   "balance_vs": {
-    "CHA": 2,
-    "MRO": 2,
-    "MAR": 2,
-    "COY": 1,
-    "CAM": 1,
-    "YAM": 1,
-    "AVE": 1
+    "Chagay": 2,
+    "Mario": 2,
+    "Marcelo": 2,
+    "Chicho": 1,
+    "Camilo": 1,
+    "Yamil": 1,
+    "Cesar": 1
   },
   "best_partner": {
     "Guillou, Bernardo": 2,

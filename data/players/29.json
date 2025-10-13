@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 1.0,
-    "apodo": "VAL",
+    "apodo": "Valentin",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
@@ -39,11 +39,11 @@
     "2025-09-03": "A"
   },
   "balance_vs": {
-    "BEN": -1,
-    "MRO": -1,
-    "CHA": -1,
-    "LOM": -1,
-    "YAM": -1
+    "Benja": -1,
+    "Mario": -1,
+    "Chagay": -1,
+    "Lomba": -1,
+    "Yamil": -1
   },
   "best_partner": {},
   "worse_partner": {
