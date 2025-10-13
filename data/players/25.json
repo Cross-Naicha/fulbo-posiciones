@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 1.0,
+    "partidos": 0.0,
     "apodo": "Pelao Khe",
-    "puntos": 3,
-    "efectividad": 1.0,
-    "ganados": 1,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
     "empatados": 0,
     "perdidos": 0,
-    "diferencia de gol": "+ 1",
-    "delta": "↓5"
+    "diferencia de gol": "0",
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-01",

@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 2.0,
+    "partidos": 1.0,
     "apodo": "Lomba",
-    "puntos": 6,
+    "puntos": 3,
     "efectividad": 1.0,
-    "ganados": 2,
+    "ganados": 1,
     "empatados": 0,
     "perdidos": 0,
-    "diferencia de gol": "+ 5",
-    "delta": "↑1"
+    "diferencia de gol": "+ 4",
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2025-08-27",

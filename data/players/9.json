@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 1.0,
+    "partidos": 0.0,
     "apodo": "Cesar",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
     "empatados": 0,
-    "perdidos": 1,
-    "diferencia de gol": "- 1",
-    "delta": "↓4"
+    "perdidos": 0,
+    "diferencia de gol": "0",
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-17",
