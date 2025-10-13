@@ -1,47 +1,5 @@
 [
   {
-    "racha": "derrotas",
-    "jugador": "Chicho",
-    "extension": 1,
-    "dias": 5,
-    "inicio": "2025-10-08"
-  },
-  {
-    "racha": "derrotas",
-    "jugador": "Bag",
-    "extension": 1,
-    "dias": 5,
-    "inicio": "2025-10-08"
-  },
-  {
-    "racha": "derrotas",
-    "jugador": "P11",
-    "extension": 1,
-    "dias": 5,
-    "inicio": "2025-10-08"
-  },
-  {
-    "racha": "derrotas",
-    "jugador": "Mato",
-    "extension": 1,
-    "dias": 5,
-    "inicio": "2025-10-08"
-  },
-  {
-    "racha": "derrotas",
-    "jugador": "Valentin",
-    "extension": 1,
-    "dias": 5,
-    "inicio": "2025-10-08"
-  },
-  {
-    "racha": "victorias",
-    "jugador": "Lomba",
-    "extension": 2,
-    "dias": 12,
-    "inicio": "2025-10-01"
-  },
-  {
     "racha": "presente",
     "jugador": "Lomba",
     "extension": 6,
