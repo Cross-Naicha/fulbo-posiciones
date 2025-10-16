@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generador de Equipos</title>
+
+  <link rel="stylesheet" href="css/btn-volver.css" />
+  <link rel="stylesheet" href="css/equipos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+  <div class="top-tab" id="auspiciante"></div>
+  <div class="wrap">
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="header-title">
+        <h1 id="titulo">La Liga</h1>
+        <div class="sep"></div>
+      </div>
+      <div class="mode-selector">
+        <button class="mode-btn" data-mode="azar">Azar 🎲</button>
+        <button class="mode-btn" data-mode="parejos">⚖️ Parejos</button>
+      </div>
+    </header>
+
+    <div class="card streaks-card nav-card">
+      <div class="streak-top">
+        <span class="badge blue">Volver al Inicio</span>
+        <span class="streak-len">⚽</span>
+      </div>
+      <div class="streak-main">
+        <div class="streak-name">
+          <a href="index.html" class="nav-link">
+            Eso, volver al inicio, que mas decir →
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sep"></div>
+
+    <!-- ===== SELECCIÓN ===== -->
+    <section id="seleccion-container">
+
+      <div id="contador">0 / 10 seleccionados</div>
+
+      <div id="jugadores-lista" class="jugadores-lista"></div>
+
+      <div id="faltantes" class="faltantes" style="display:none;">
+        <p>¿Faltan jugadores?</p>
+        <button id="btnAgregarJugador">+ Agregar</button>
+      </div>
+
+      <div class="acciones">
+        <button id="btnGenerarEquipos" disabled>Generar</button>
+      </div>
+    </section>
+
+    <!-- ===== EQUIPOS ===== -->
+    <section id="equipos-container" style="display:none;">
+      <div class="equipos-nombres">
+        <div class="equipo-nombre equipo-a">
+          <span class="dot dot-a"></span>
+          <span id="nombreEquipoA">Equipo A</span>
+        </div>
+        <div class="equipo-nombre equipo-b">
+          <span class="dot dot-b"></span>
+          <span id="nombreEquipoB">Equipo B</span>
+        </div>
+      </div>
+
+      <div id="equipos-grid" class="equipos-grid">
+        <div id="colEquipoA" class="equipo-col"></div>
+        <div id="colEquipoB" class="equipo-col"></div>
+      </div>
+
+      <div id="balance" class="balance"></div>
+
+      <div class="acciones-finales">
+        <button id="btnWhatsapp">📲 Enviar por WhatsApp</button>
+        <button id="btnReiniciar" class="btn-secundario">🔁 Reiniciar</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== MODAL AGREGAR ===== -->
+  <div id="modal-overlay" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <h3>Agregar jugador</h3>
+      <label>Nombre o apodo:</label>
+      <input type="text" id="nuevoNombre" placeholder="Ej: Juani" />
+
+      <label>Nivel:</label>
+      <div class="niveles">
+        <button class="nivel-btn" data-eff="0.4">Limitado</button>
+        <button class="nivel-btn" data-eff="0.5">Regular</button>
+        <button class="nivel-btn" data-eff="0.6">Bueno</button>
+      </div>
+
+      <div class="modal-acciones">
+        <button id="btnGuardarNuevo">Agregar</button>
+        <button id="btnCancelarNuevo">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
+
+  <script src="js/equipos.js"></script>
+  <script src="js/btn-volver.js"></script>
+  <script src="js/textos.js"></script>
+
+</body>
+</html>

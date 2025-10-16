@@ -43,7 +43,7 @@
 /* === RESPONSIVE (mobile spacing adjustment) === */
 @media (max-width: 600px) {
   .btn-volver {
-    bottom: 14px;
+    bottom: 24px;
     right: 64px;       /* still keeps separation from edge */
     width: 42px;
     height: 42px;
