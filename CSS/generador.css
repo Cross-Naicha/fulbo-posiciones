@@ -111,6 +111,7 @@ header {
   margin: 10px 0;
   font-weight: 700;
 }
+
 .dot {
   width: 10px; height: 10px; border-radius: 50%;
 }
@@ -120,7 +121,17 @@ header {
 .equipos-grid {
   display: grid;
   gap: 12px;
+  grid-template-columns: 1fr; /* por defecto: móvil = 1 columna */
 }
+
+/* En pantallas grandes, dos columnas (A y B lado a lado) */
+@media (min-width: 768px) {
+  .equipos-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* En móviles, los nombres también van uno abajo del otro */
 @media (max-width: 767px) {
   .equipos-nombres {
     display: grid;
@@ -136,6 +147,7 @@ header {
   padding: 10px;
   border: 1px solid var(--line);
 }
+
 .player-card {
   border: 1px solid var(--line);
   border-left-width: 4px;
@@ -147,9 +159,12 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
 .player-card.a { border-left-color: color-mix(in srgb,var(--accent)70%,transparent); }
 .player-card.b { border-left-color: color-mix(in srgb,var(--neg)70%,transparent); }
+
 .player-eff { color: var(--muted); font-size: 0.85rem; }
+
 .swap-btn {
   background: transparent;
   border: 1px solid var(--line);
