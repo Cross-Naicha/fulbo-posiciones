@@ -91,7 +91,7 @@ tbody tr:nth-child(even) { background: #0f141c; }
 
 /* Compact and responsive adjustments */
 @media (max-width: 640px) {
-  table { font-size: 14px; }
+  table { font-size: 10px; }
   thead th, tbody td { padding: 10px 8px; }
 }
 
