@@ -105,6 +105,8 @@ header {
 #btnGenerarEquipos:disabled { opacity: .4; cursor: default; }
 
 /* === EQUIPOS === */
+
+/* Nombres (solo visibles en escritorio) */
 .equipos-nombres {
   display: flex;
   justify-content: space-around;
@@ -118,13 +120,14 @@ header {
 .dot-a { background: color-mix(in srgb,var(--accent)70%,black); }
 .dot-b { background: color-mix(in srgb,var(--neg)70%,black); }
 
+/* Grid principal */
 .equipos-grid {
   display: grid;
-  gap: 12px;
-  grid-template-columns: 1fr; /* por defecto: móvil = 1 columna */
+  gap: 24px;
+  grid-template-columns: 1fr; /* móvil: 1 columna */
 }
 
-/* En pantallas grandes, dos columnas (A y B lado a lado) */
+/* En escritorio: dos columnas lado a lado */
 @media (min-width: 768px) {
   .equipos-grid {
     grid-template-columns: 1fr 1fr;
@@ -132,13 +135,28 @@ header {
   }
 }
 
-/* En móviles, los nombres también van uno abajo del otro */
+/* En móvil, ocultar los nombres de arriba y mostrar dentro de cada bloque */
 @media (max-width: 767px) {
   .equipos-nombres {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: none;
+  }
+
+  /* agregar título dentro de cada columna */
+  .equipo-col::before {
+    display: block;
+    font-weight: 700;
     text-align: center;
-    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  #colEquipoA::before {
+    content: "⚫ " attr(data-nombreA);
+    color: var(--accent);
+  }
+
+  #colEquipoB::before {
+    content: "⚪ " attr(data-nombreB);
+    color: var(--neg);
   }
 }
 
@@ -160,7 +178,6 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-
 .player-card.a { border-left-color: color-mix(in srgb,var(--accent)70%,transparent); }
 .player-card.b { border-left-color: color-mix(in srgb,var(--neg)70%,transparent); }
 
