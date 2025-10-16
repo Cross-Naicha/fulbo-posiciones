@@ -203,9 +203,9 @@ async function loadTable() {
       if (golNum > 0) golClass = "pos";
       else if (golNum < 0) golClass = "neg";
 
-      const gClass = r.G > 0 ? "pos" : "";
-      const eClass = r.E > 0 ? "draw" : "";
-      const pClass = r.P > 0 ? "neg" : "";
+      const gClass = r.G >= 0 ? "pos" : "";
+      const eClass = r.E >= 0 ? "draw" : "";
+      const pClass = r.P >= 0 ? "neg" : "";
 
       tr.innerHTML = `
         <td>${r.N ?? ""}</td>
@@ -217,7 +217,6 @@ async function loadTable() {
         <td class="${eClass}">${r.E ?? ""}</td>
         <td class="${pClass}">${r.P ?? ""}</td>
         <td class="${golClass}">${r.GOL ?? ""}</td>
-        <td>${fmt2(r.EFE ?? "")}</td>
       `;
       tbody.appendChild(tr);
     }
