@@ -113,12 +113,13 @@ els.btnReiniciar.onclick=()=>{
 /* === WhatsApp === */
 els.btnWhats.onclick=()=>{
   const msg=whatsMsg();
-  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank');
+  const NUMERO_DEFAULT = '5493815303224';
+  window.open(`https://wa.me/${NUMERO_DEFAULT}?text=${encodeURIComponent(msg)}`,'_blank');
 };
 function whatsMsg(){
-  const eqA=DATA.equipos.A.map(p=>p.apodo).join('\\n');
-  const eqB=DATA.equipos.B.map(p=>p.apodo).join('\\n');
-  return `🏆 LIGA DE FULBO – Equipos de hoy\\n\\n⚫ ${els.nombreA.textContent}\\n${eqA}\\n\\n⚪ ${els.nombreB.textContent}\\n${eqB}\\n\\n⚽ Resultado: __ – __`;
+  const eqA = DATA.equipos.A.map(p => p.apodo).join('\n');
+  const eqB = DATA.equipos.B.map(p => p.apodo).join('\n');
+  return `🏆 LIGA DE FULBO – Equipos de hoy\n\n⚫ ${els.nombreA.textContent}\n${eqA}\n\n⚪ ${els.nombreB.textContent}\n${eqB}\n\n⚽`;
 }
 
 init();

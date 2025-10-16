@@ -150,7 +150,7 @@ header {
   }
 
   #colEquipoA::before {
-    content: "⚫ " attr(data-nombreA);
+    content: "⚫ asdf " attr(data-nombreA);
     color: var(--accent);
   }
 
@@ -260,3 +260,26 @@ header {
 }
 #btnGuardarNuevo{background:var(--pos);color:#fff;}
 #btnCancelarNuevo{background:var(--neg);color:#fff;}
+
+/* === CENTRADO UNIVERSAL DE BOTÓN GENERAR === */
+.acciones {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.acciones button {
+  display: block;
+  margin: 0 auto;
+  background: var(--pos);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.acciones button:disabled {
+  opacity: .4;
+  cursor: default;
+}
