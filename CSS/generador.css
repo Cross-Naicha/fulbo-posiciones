@@ -121,8 +121,13 @@ header {
   display: grid;
   gap: 12px;
 }
-@media (min-width: 768px) {
-  .equipos-grid { grid-template-columns: 1fr 1fr; }
+@media (max-width: 767px) {
+  .equipos-nombres {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 8px;
+  }
 }
 
 .equipo-col {
