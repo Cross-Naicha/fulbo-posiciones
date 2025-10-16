@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "+ 4",
-    "delta": "-"
+    "delta": "↓2"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-08",
@@ -17,20 +17,20 @@
     "puntos acumulados": 3,
     "victorias": 1,
     "empates": 0,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2025-10-08",
     "termina": "2025-10-08",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-10-15": "A",
     "2025-10-08": "G",
     "2025-10-01": "A",
     "2025-09-17": "A",
-    "2025-09-10": "A",
-    "2025-09-03": "A"
+    "2025-09-10": "A"
   },
   "balance_vs": {
     "Chicho": 1,

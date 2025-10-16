@@ -1,49 +1,49 @@
 {
   "basic_statistics": {
-    "partidos": 0.0,
+    "partidos": 1.0,
     "apodo": "Jose",
-    "puntos": 0,
-    "efectividad": 0.0,
+    "puntos": 1,
+    "efectividad": 0.33,
     "ganados": 0,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 0,
     "diferencia de gol": "0",
-    "delta": "-"
+    "delta": "↑1"
   },
   "winning_streak_statistics": {
-    "empieza": null,
-    "termina": null,
-    "extension": 0,
-    "puntos_acumulados": 0,
+    "empieza": "2025-10-15",
+    "termina": "2025-10-15",
+    "extension": 1,
+    "puntos acumulados": 1,
     "victorias": 0,
-    "empates": 0,
-    "actual": false
+    "empates": 1,
+    "actual": true
   },
   "losses_streak_statistics": {
     "empieza": "2025-09-17",
     "termina": "2025-09-17",
     "extension": 1,
-    "actual": true
-  },
-  "present_streak_statistics": {
-    "empieza": "2025-09-17",
-    "termina": "2025-09-17",
-    "extension": 1,
     "actual": false
   },
+  "present_streak_statistics": {
+    "empieza": "2025-10-15",
+    "termina": "2025-10-15",
+    "extension": 1,
+    "actual": true
+  },
   "last_5": {
+    "2025-10-15": "E",
     "2025-10-08": "A",
     "2025-10-01": "A",
     "2025-09-17": "P",
-    "2025-09-10": "A",
-    "2025-09-03": "A"
+    "2025-09-10": "A"
   },
   "balance_vs": {
-    "Camilo": -1,
-    "Mato": -1,
-    "Chagay": -1,
+    "Chicho": -1,
     "Cesar": -1,
-    "Chicho": -1
+    "Chagay": -1,
+    "Mato": -1,
+    "Camilo": -1
   },
   "best_partner": {},
   "worse_partner": {

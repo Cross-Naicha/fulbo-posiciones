@@ -1,0 +1,239 @@
+/* =========================================================
+   LIGA DE FULBO - COMBINACIONES STYLESHEET
+   Author: Nicolás + ChatGPT
+   Purpose: Defines visual layout and filters for player combinations.
+   ========================================================= */
+
+
+/* === COLOR PALETTE AND GLOBAL VARIABLES === */
+:root {
+  --bg: #0b0d10;
+  --card: #11161c;
+  --ink: #e8eef6;
+  --muted: #9fb0c3;
+  --line: #223042;
+  --accent: #2b90d9;
+  --pos: #38c976;
+  --neg: #ff5b5b;
+}
+
+/* =========================================================
+   1. BASE STRUCTURE
+   ========================================================= */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.sub {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.sep {
+  height: 1px;
+  background: var(--line);
+  margin: 28px 0;
+  border-radius: 1px;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.sub2 {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+/* =========================================================
+   2. CARD COMPONENTS
+   ========================================================= */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+}
+
+/* Navigation card (the “← Volver” button) */
+.nav-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left-color: var(--accent);
+}
+
+.nav-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.nav-card .streak-top {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nav-card .nav-link {
+  display: inline-block;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-card .nav-link:hover {
+  color: var(--accent);
+}
+
+/* =========================================================
+   3. FILTER BAR
+   ========================================================= */
+
+/* Container for all filter controls */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Dropdowns and buttons */
+.filters select,
+.filters button {
+  background: #0f141b;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+/* Hover feedback */
+.filters select:hover,
+.filters button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Buttons specifically */
+.filters button {
+  background: var(--card);
+}
+
+.filters button:active {
+  transform: scale(0.97);
+}
+
+/* =========================================================
+   4. TABLE OF COMBINATIONS
+   ========================================================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Header cells */
+th {
+  text-align: center;
+  padding: 10px 6px;
+  background: #141a22;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Data cells */
+td {
+  text-align: center;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Highlight result column */
+td:first-child {
+  font-weight: 600;
+}
+
+td:first-child[style*="--pos"] { color: var(--pos); }
+td:first-child[style*="--neg"] { color: var(--neg); }
+
+/* =========================================================
+   5. RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters select,
+  .filters button {
+    width: 100%;
+  }
+
+  th, td {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .wrap { padding: 0 10px; }
+  body { overflow-x: hidden; }
+}
+
+/* =========================================================
+   6. TRANSITIONS AND ANIMATIONS
+   ========================================================= */
+
+/* Fade-in animation for table updates */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}

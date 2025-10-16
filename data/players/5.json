@@ -1,22 +1,22 @@
 {
   "basic_statistics": {
-    "partidos": 1.0,
+    "partidos": 2.0,
     "apodo": "Yamil",
-    "puntos": 3,
-    "efectividad": 1.0,
+    "puntos": 4,
+    "efectividad": 0.67,
     "ganados": 1,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 0,
     "diferencia de gol": "+ 4",
-    "delta": "-"
+    "delta": "↑4"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-08",
-    "termina": "2025-10-08",
-    "extension": 1,
-    "puntos acumulados": 3,
+    "termina": "2025-10-15",
+    "extension": 2,
+    "puntos acumulados": 4,
     "victorias": 1,
-    "empates": 0,
+    "empates": 1,
     "actual": true
   },
   "losses_streak_statistics": {
@@ -27,16 +27,16 @@
   },
   "present_streak_statistics": {
     "empieza": "2025-09-10",
-    "termina": "2025-10-08",
-    "extension": 4,
+    "termina": "2025-10-15",
+    "extension": 5,
     "actual": true
   },
   "last_5": {
+    "2025-10-15": "E",
     "2025-10-08": "G",
     "2025-10-01": "P",
     "2025-09-17": "P",
-    "2025-09-10": "E",
-    "2025-09-03": "A"
+    "2025-09-10": "E"
   },
   "balance_vs": {
     "P11": 1,
@@ -44,12 +44,12 @@
     "Chicho": 0,
     "Bag": 0,
     "Mato": -1,
-    "Camilo": -1,
-    "Chagay": -1,
     "Cesar": -1,
-    "Pelao Khe": -1,
+    "Chagay": -1,
+    "Camilo": -1,
+    "Naicha": -1,
     "Lomba": -1,
-    "Naicha": -1
+    "Pelao Khe": -1
   },
   "best_partner": {
     "Benja": 1

@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "0",
-    "delta": "-"
+    "delta": "↓4"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-01",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-10-15": "A",
     "2025-10-08": "A",
     "2025-10-01": "G",
     "2025-09-17": "P",
-    "2025-09-10": "A",
-    "2025-09-03": "A"
+    "2025-09-10": "A"
   },
   "balance_vs": {
     "Yamil": 1,
@@ -44,9 +44,9 @@
     "Marcelo": 1,
     "Cesar": 0,
     "Chagay": 0,
-    "Camilo": -1,
+    "Chicho": -1,
     "Mato": -1,
-    "Chicho": -1
+    "Camilo": -1
   },
   "best_partner": {
     "Bag": 1,

@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "0",
-    "delta": "-"
+    "delta": "↓8"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-01",
@@ -26,11 +26,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-10-15": "A",
     "2025-10-08": "A",
     "2025-10-01": "G",
     "2025-09-17": "A",
-    "2025-09-10": "A",
-    "2025-09-03": "G"
+    "2025-09-10": "A"
   },
   "balance_vs": {
     "Chagay": 2,

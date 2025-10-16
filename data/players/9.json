@@ -1,29 +1,29 @@
 {
   "basic_statistics": {
-    "partidos": 0.0,
+    "partidos": 1.0,
     "apodo": "Cesar",
-    "puntos": 0,
-    "efectividad": 0.0,
+    "puntos": 1,
+    "efectividad": 0.33,
     "ganados": 0,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 0,
     "diferencia de gol": "0",
-    "delta": "-"
+    "delta": "↑0"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-09-17",
-    "termina": "2025-09-17",
+    "empieza": "2025-10-15",
+    "termina": "2025-10-15",
     "extension": 1,
-    "puntos acumulados": 3,
-    "victorias": 1,
-    "empates": 0,
-    "actual": false
+    "puntos acumulados": 1,
+    "victorias": 0,
+    "empates": 1,
+    "actual": true
   },
   "losses_streak_statistics": {
     "empieza": "2025-10-01",
     "termina": "2025-10-01",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2025-09-17",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-10-15": "E",
     "2025-10-08": "A",
     "2025-10-01": "P",
     "2025-09-17": "G",
-    "2025-09-10": "A",
-    "2025-09-03": "G"
+    "2025-09-10": "A"
   },
   "balance_vs": {
     "Chicho": 1,
@@ -50,8 +50,8 @@
     "Naicha": 0,
     "Lomba": -1,
     "Emi": -1,
-    "Pelao Khe": -1,
     "Bag": -1,
+    "Pelao Khe": -1,
     "Mato": -2
   },
   "best_partner": {

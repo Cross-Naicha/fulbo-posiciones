@@ -5,443 +5,83 @@
   <title>Tabla de Posiciones</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    :root {
-      --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042;
-      /* ==== imágenes del medallón (cambiá estas rutas) ==== */
-      --medal-a: url("data/img/Chiqui.jpg");
-      --medal-b: url("data/img/Naicha.jpg");
-      /* velocidades (podés ajustar) */
-      --ticker-speed: 54s;
-      --coin-speed:   5s;
-      /* overlay */
-      --overlay-bg: rgba(10,14,20,0.78);
-      --overlay-border: #263649;
-      --accent:#2f8bfd;
-      --pos:#2fbf71; --neg:#ff6b6b;
-    }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:var(--bg); color:var(--ink); }
-    .wrap { max-width: 1080px; margin: 32px auto; padding: 0 16px; }
-    h1 { text-align:center; margin: 0 0 8px; }
-    .sub { text-align:center; color:var(--muted); margin-bottom:16px; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.25); }
-    table { width:100%; border-collapse: collapse; }
-    thead th {
-      text-transform:uppercase; font-size:12px; letter-spacing:.6px;
-      background:linear-gradient(180deg, #162233, #141a23);
-      color:var(--muted); border-bottom:1px solid var(--line); padding:12px 10px; text-align:center;
-      position: sticky; top: 0; z-index: 1;
-    }
-    tbody td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:center; }
-    tbody tr:nth-child(even) { background:#0f141c; }
-    .right { text-align:right; }
-    .status { text-align:center; color:var(--muted); padding:10px; }
-    @media (max-width: 640px) { table { font-size: 14px; } thead th, tbody td { padding:10px 8px; } }
+  <!-- === GLOBAL STYLES ===
+       The style block below contains all color variables, layout settings,
+       and visual definitions for the page.
+       (In a future step, this will be moved to a separate CSS file)
+  -->
+  <link rel="stylesheet" href="CSS/style.css">
 
-    a, a:visited, a:hover, a:active, a:focus { color: inherit; text-decoration: none; }
-
-    .sep { height:1px; background:var(--line); margin:28px 0; border-radius:1px; }
-    h2 { margin:0 0 8px; font-size:20px; text-align:center; }
-    .sub2 { text-align:center; color:var(--muted); margin-bottom:16px; font-size:14px; }
-
-    /* Partidos */
-    .matches-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      padding: 12px;
-    }
-
-    .streak {
-      border: 1px solid var(--line);
-      border-left-width: 4px;
-      border-radius: 12px;
-      padding: 12px;
-      background: linear-gradient(180deg, #10151c, #0f141b);
-      display: grid;
-      gap: 6px;
-    }
-
-    .streak-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .badge {
-      padding: 2px 8px;
-      border-radius: 8px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .streak-teams {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .streak-name {
-      font-size: 14px;
-    }
-
-    .streak-len {
-      font-weight: bold;
-      font-size: 14px;
-      margin-left: 8px;
-    }
-
-    /* colores */
-    .streak.green   { border-left-color: color-mix(in srgb, #4caf50 70%, transparent); }
-    .streak.yellow  { border-left-color: color-mix(in srgb, #fbc02d 70%, transparent); }
-
-    .badge.green  { background:#4caf50; color:#fff; }
-    .badge.yellow { background:#fbc02d; color:#000; }
-
-    .streak-name.green  { color:#4caf50; }
-    
-    .streak-name.winner {
-      font-weight: bold;
-    }
-
-    /* === Top tab === */
-    .top-tab {
-      width: 100%;
-      min-height: 56px;
-      padding: 12px 16px;
-      background: linear-gradient(90deg, #124380, #191434);
-      border-bottom-left-radius: 24px;
-      border-bottom-right-radius: 24px;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; white-space: normal; word-break: break-word; hyphens: auto;
-      font-weight: 700; letter-spacing: .5px;
-      font-size: clamp(14px, 4.2vw, 20px); line-height: 1.2;
-    }
-    @media (max-width: 480px){
-      .top-tab{ padding: 12px; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; font-size: clamp(13px, 5vw, 18px); }
-    }
-
-    .bottom-tab { width: 100%; height: 50px; background: #11161c; border-top-left-radius: 24px; border-top-right-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); margin-top: 32px; }
-
-    /* === Streaks === */
-    .streaks-card {
-      padding:12px;
-    }
-
-    .streaks-status {
-      text-align:center;
-      color:var(--muted);
-      padding:8px 10px;
-    }
-
-    .streaks-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:12px;
-      padding:8px;
-    }
-
-    .streak {
-      border:1px solid var(--line);
-      border-left-width:6px;
-      border-radius:12px;
-      padding:12px;
-      background: linear-gradient(180deg, #10151c, #0f141b);
-      display:grid;
-      gap:6px;
-    }
-
-    .streak-top {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      font-size:12px;
-      color:var(--muted);
-    }
-
-    .badge {
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-      padding:3px 8px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      font-weight:600;
-    }
-
-    /* colores */
-    .streak.blue   { border-left-color:#1e90ff; }
-    .streak.green  { border-left-color:#2ecc71; }
-    .streak.red    { border-left-color:#e74c3c; }
-    .streak.yellow { border-left-color:#f1c40f; }
-
-    .badge.blue   { background:#1e90ff; color:#fff; }
-    .badge.green  { background:#2ecc71; color:#fff; }
-    .badge.red    { background:#e74c3c; color:#fff; }
-    .badge.yellow { background:#f1c40f; color:#000; }
-
-    .streak-main {
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-    }
-
-    .streak-name {
-      font-size:14px;
-      font-weight:600;
-      color:var(--ink);
-    }
-
-    .streak-len {
-      margin-left:auto;
-      font-weight:700;
-      font-size:18px;
-      padding:2px 8px;
-      border-radius:8px;
-      border:1px solid var(--line);
-    }
-
-    /* paternidad especial */
-    .streak-name .pat-j1 {
-      font-weight: 600;
-      color: #fff;
-    }
-    .streak-name .pat-arrow {
-      margin: 0 4px;
-      font-weight: bold;
-      color: #f39c12;
-    }
-    .streak-name .pat-j2 {
-      font-weight: 400;
-      opacity: 0.8;
-    }
-
-    /* === Ticker === */
-    .ticker { display:flex; align-items:center; gap:12px; background: linear-gradient(180deg, #162233, #141a23); border:1px solid var(--line); border-radius:16px; padding:8px 12px; margin-bottom:16px; }
-    .ticker-viewport { position:relative; overflow:hidden; flex:1; min-height:28px; }
-    .ticker-track { display:inline-flex; align-items:center; gap:48px; white-space:nowrap; will-change: transform; animation: ticker-move var(--ticker-speed) linear infinite; }
-    .ticker-msg { text-transform:uppercase; letter-spacing:.6px; color:var(--ink); opacity:.95; font-size:14px; }
-    .ticker-sep::before { content:"•"; opacity:.6; margin:0 8px; }
-    .medallion { width:44px; height:44px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; overflow:hidden; perspective: 800px; flex:0 0 auto; background: #0f141b; }
-    .coin { position:relative; width:82%; height:82%; border-radius:50%; transform-style: preserve-3d; will-change: transform; animation: coin-flip var(--coin-speed) linear infinite; }
-    .face { position:absolute; inset:0; border-radius:50%; background-position:center; background-size:cover; background-repeat:no-repeat; backface-visibility: hidden; }
-    .face.front { background-image: var(--medal-a); transform: rotateY(0deg) translateZ(1px); }
-    .face.back  { background-image: var(--medal-b); transform: rotateY(180deg) translateZ(1px); }
-    @keyframes ticker-move { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @keyframes coin-flip { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
-
-    /* === Botón ir arriba === */
-    .to-top { position: fixed; right: 16px; bottom: 18px; z-index: 9000; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line); background: var(--accent, #2f8bfd); color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.35); cursor: pointer; opacity: 0; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease, background .18s ease; }
-    .to-top.show { opacity: 1; transform: translateY(0); }
-    body.locked .to-top { display: none; }
-
-    /* === Overlays === */
-    body.locked .wrap { filter: blur(4px) brightness(.8); pointer-events:none; user-select:none; }
-
-    .lock-overlay { 
-      position: fixed; 
-      inset: 0; 
-      display: none; 
-      place-items: center; 
-      padding: 16px; 
-      background: radial-gradient(1200px 1200px at 50% 50%, rgba(12,16,22,.82), rgba(8,10,14,.9)); 
-      z-index: 9999; 
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-
-    .lock-overlay.active { display: grid; }
-
-    .lock-panel {
-      max-width: 600px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding-right: 14px;
-      box-sizing: content-box;
-      margin: 0 auto;
-      border: 1px solid var(--overlay-border);
-      border-radius: 16px;
-      background: linear-gradient(180deg, #0f141b, #0c1219);
-      box-shadow: 0 10px 40px rgba(0,0,0,.45);
-      padding: 20px;
-      display: grid;
-      gap: 14px;
-      scrollbar-width: none;
-      box-sizing: border-box;
-    }
-    body.locked {
-      overflow: hidden;
-      position: fixed;
-      width: 100%;
-    }
-    .lock-panel::-webkit-scrollbar {
-      width: 0;
-      background: transparent;
-    }
-    .lock-panel::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.2);
-      border-radius: 2px;
-    }
-
-    #annOverlay .lock-sub {text-align: left;}
-    #annBody {
-    text-align: justify;
-    line-height: 1.6;
-    font-size: 15px;
-    color: var(--ink);
-    }
-    #annBody p {
-      margin-bottom: 12px;
-    }
-    #annBody p:last-child {
-      margin-bottom: 0;
-    }
-
-    .lock-title { font-size: 20px; font-weight: 700; text-align: center; }
-    .lock-sub { color: var(--muted); font-size: 14px; text-align: center; }
-    .lock-actions { display: grid; gap: 12px; align-items: center; justify-items: center; }
-    .wa-btn { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius: 999px; padding:10px 14px; background:#0f141b; color: #fff; cursor:pointer; user-select:none; }
-    .wa-btn:hover { background:#121924; }
-    .qr { display:grid; gap:8px; place-items:center; border:1px dashed var(--overlay-border); border-radius:12px; padding:12px; background:#0d131b; }
-    .qr img { width:160px; height:160px; object-fit:contain; image-rendering: crisp-edges; }
-    .muted { color: var(--muted); font-size: 12px; }
-
-    /* === Tabla compacta y centrada === */
-#tabla {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-#tabla th,
-#tabla td {
-  text-align: center;
-  padding: 14px 26px;      /* compacto */
-  white-space: nowrap;   /* evita saltos de línea */
-}
-
-#tabla th {
-  color: var(--muted);
-  font-weight: 600;
-  border-bottom: 1px solid var(--line);
-}
-
-#tabla td {
-  border-bottom: 1px solid var(--line);
-}
-
-/* === Colores dinámicos === */
-.up { color: #4CAF50; }      /* verde */
-.down { color: #f44336; }    /* rojo */
-.draw { color: #FFC107; }    /* amarillo */
-.pos { color: #4CAF50; }     /* positivo */
-.neg { color: #f44336; }     /* negativo */
-
-@media (max-width: 600px) {
-  #tabla th, #tabla td {
-    padding: 12px 10px;
-    font-size: 0.7rem;
-  }
-}
-
-/* === Card de navegación (botón a combinaciones) === */
-.nav-card {
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.nav-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.nav-card .streak-top {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.nav-link {
-  display: inline-block;
-  color: var(--ink);
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-  color: var(--accent);
-}
-
-  </style>
 </head>
+
 <body>
+  <!-- === HEADER / SPONSOR AREA ===
+       Displays the sponsor bar at the top of the page.
+       Text content is dynamically loaded from textos.json
+  -->
   <div class="top-tab" id="auspiciante"></div>
+
+  <!-- === MAIN WRAPPER ===
+       Contains all page content with a fixed maximum width for readability.
+  -->
   <div class="wrap">
+
+    <!-- === TITLE SECTION ===
+         Main title, subtitle, and quote loaded dynamically from textos.json
+    -->
     <h1 id="titulo"></h1>
     <h2 id="subtitulo"></h2>
     <div class="sub" id="frase_chiqui"></div>
-    <div class="sep"></div>
-
-    <div class="ticker" role="region" aria-label="Anuncio principal">
-      <div class="medallion"><div class="coin"><div class="face front"></div><div class="face back"></div></div></div>
-      <div class="ticker-viewport"><div class="ticker-track" id="tickerTrack"><span class="ticker-msg" id="tickerA"></span><span class="ticker-msg ticker-sep"> </span><span class="ticker-msg" id="tickerB"></span><span class="ticker-msg ticker-sep"> </span></div></div>
-      <div class="medallion"><div class="coin"><div class="face front"></div><div class="face back"></div></div></div>
-    </div>
 
     <div class="sep"></div>
+
+    <!-- === DATE SECTION ===
+         Displays the date or current round labels (loaded from textos.json)
+    -->
     <h3 id="fechas_1"></h3>
     <p id="fechas_2"></p>
-    
-<div class="card">
-  <div id="status" class="status">Cargando datos…</div>
-  <table id="tabla" style="display:none">
-    <thead>
-      <tr>
-        <th>N°</th>
-        <th>Δ</th>
-        <th>X</th>
-        <th>J</th>
-        <th>Pts</th>
-        <th>G</th>
-        <th>E</th>
-        <th>P</th>
-        <th>G+</th>
-        <th>%</th>
-      </tr>
-    </thead>
-    <tbody id="tbody"></tbody>
-  </table>
-</div>
 
-    
+    <!-- === MAIN TABLE SECTION ===
+         Shows player rankings and statistics.
+         Data is fetched from data/posiciones.json
+    -->
+    <div class="card">
+      <div id="status" class="status">Cargando datos…</div>
+      <table id="tabla" style="display:none">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Δ</th>
+            <th>X</th>
+            <th>J</th>
+            <th>Pts</th>
+            <th>G</th>
+            <th>E</th>
+            <th>P</th>
+            <th>G+</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
     <p id="novedades"></p>
 
-    <div class="sep"></div>
-    <h2>Rachas Destacadas</h2>
-    <div class="card streaks-card">
-      <div id="streaksStatus" class="streaks-status">Cargando rachas…</div>
-      <div id="streaksGrid" class="streaks-grid" style="display:none"></div>
-      <div id="streaksEmpty" class="streaks-status" style="display:none">No hay rachas para mostrar.</div>
-    </div>
-    <p>Paternidad PAR: Número de Partidos; Paternidad DIF: Diferencia de Partidos</p>
-    
-    <div class="sep"></div>
+    <!-- === NAVIGATION CARD ===
+        A simple card linking to another page (combinaciones.html)
+         for exploring player combinations.
+    -->
 
-    <h2>Explorar combinaciones</h2>
     <div class="card streaks-card nav-card">
       <div class="streak-top">
-        <span class="badge blue">Nueva sección</span>
+        <span class="badge red">Tabla HISTORICA</span>
         <span class="streak-len">⚽</span>
       </div>
       <div class="streak-main">
         <div class="streak-name">
           <a href="combinaciones.html" class="nav-link">
-            Ver combinaciones de jugadores →
+            Puntaje Historico por Jugador →
           </a>
         </div>
       </div>
@@ -449,6 +89,45 @@
 
     <div class="sep"></div>
 
+    <!-- === STREAKS SECTION ===
+         Shows highlighted streaks such as victories, defeats, or rivalries.
+         Data is loaded from data/rachas.json
+    -->
+    <h2>Rachas Destacadas</h2>
+    <div class="card streaks-card">
+      <div id="streaksStatus" class="streaks-status">Cargando rachas…</div>
+      <div id="streaksGrid" class="streaks-grid" style="display:none"></div>
+      <div id="streaksEmpty" class="streaks-status" style="display:none">No hay rachas para mostrar.</div>
+    </div>
+    <p>Paternidad PAR: Número de Partidos; Paternidad DIF: Diferencia de Partidos</p>
+
+    <div class="sep"></div>
+
+    <!-- === NAVIGATION CARD ===
+         A simple card linking to another page (combinaciones.html)
+         for exploring player combinations.
+    -->
+    <h2>Explorar combinaciones</h2>
+    <div class="card streaks-card nav-card">
+      <div class="streak-top">
+        <span class="badge blue">Combinaciones</span>
+        <span class="streak-len">⚽</span>
+      </div>
+      <div class="streak-main">
+        <div class="streak-name">
+          <a href="combinaciones.html" class="nav-link">
+            Explorar las diferentes combinaciones mas frecuentes →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- === LAST MATCHES SECTION ===
+         Displays the last 6 matches in a streak-like card layout.
+         Data is loaded from data/partidos.json
+    -->
     <h2>Últimos 6 partidos</h2>
     <div class="card matches-card">
       <div id="matchesStatus" class="matches-status">Cargando partidos…</div>
@@ -456,381 +135,83 @@
       <div id="matchesEmpty" class="matches-status" style="display:none">No hay partidos cargados todavía.</div>
     </div>
 
-    <div class="sep"></div>
+        <!-- === NAVIGATION CARD ===
+         A simple card linking to another page (combinaciones.html)
+         for exploring player combinations.
+    -->
 
+    <p></p> <!-- Just for space  -->
+
+    <div class="card streaks-card nav-card">
+      <div class="streak-top">
+        <span class="badge green">Todos los Partidos</span>
+        <span class="streak-len">⚽</span>
+      </div>
+      <div class="streak-main">
+        <div class="streak-name">
+          <a href="combinaciones.html" class="nav-link">
+            Historial de TODOS los partidos jugados →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
   </div>
 
+  <!-- === FOOTER ===
+       Simple footer bar with copyright text.
+  -->
   <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
 
-  <!-- === Overlays === -->
+  <!-- === ANNOUNCEMENT OVERLAY ===
+       A modal-like overlay used to display special announcements.
+       Controlled via JS using startAnnouncements()
+  -->
   <div class="lock-overlay" id="annOverlay">
-    <div class="lock-panel"><div class="lock-title" id="annTitle"></div><div class="lock-sub" id="annBody"></div><div class="lock-actions"><button id="annNextBtn" class="wa-btn">Siguiente</button></div></div>
+    <div class="lock-panel">
+      <div class="lock-title" id="annTitle"></div>
+      <div class="lock-sub" id="annBody"></div>
+      <div class="lock-actions">
+        <button id="annNextBtn" class="wa-btn">Siguiente</button>
+      </div>
+    </div>
   </div>
 
+  <!-- === WHATSAPP SUBMISSION OVERLAY ===
+       This overlay locks the page and invites users to send results
+       via WhatsApp or QR code. Managed by computeLockedState() and applyLockUI()
+  -->
   <div class="lock-overlay" id="lockOverlay" aria-live="polite">
     <div class="lock-panel" role="dialog" aria-labelledby="lockTitle" aria-describedby="lockDesc">
       <div class="lock-title" id="lockTitle">⚽ La LIGA necesita tu ayuda! ⚽</div>
-      <div class="lock-sub" id="lockDesc">Por favor, <strong>envia los resultados del último partido</strong> a través de las siguientes opciones.</div>
+      <div class="lock-sub" id="lockDesc">
+        Por favor, <strong>envia los resultados del último partido</strong> a través de las siguientes opciones.
+      </div>
       <div class="lock-actions">
         <a id="waBtn" class="wa-btn" href="#" target="_blank" rel="noopener"><span>Abrir WhatsApp</span></a>
-        <div class="qr"><img id="waQR" alt="Escaneá con tu teléfono para enviar el resultado por WhatsApp" src=""><div class="muted">O bien, desde la PC escaneá el QR</div></div>
+        <div class="qr">
+          <img id="waQR" alt="Escaneá con tu teléfono para enviar el resultado por WhatsApp" src="">
+          <div class="muted">O bien, desde la PC escaneá el QR</div>
+        </div>
         <div class="muted">Por cada día que pase, una regla cambia. Un equipo asciende, y un descenso se pierde.</div>
       </div>
     </div>
   </div>
 
+  <!-- === SCROLL TO TOP BUTTON ===
+       Floating button that appears when user scrolls down.
+       Controlled by the initScrollToTop() function in JS.
+  -->
   <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
 
-  <script>
-  let ANNOUNCEMENTS = [];
+  <!-- === MAIN SCRIPT ===
+       Contains all interactive logic for loading texts, JSON data, overlays,
+       table rendering, and matches. Will be split into modules later.
+  -->
   
-fetch('textos.json')
-  .then(r => r.json())
-  .then(data => {
-    // ===== textos sueltos =====
-    document.getElementById('auspiciante').textContent = data.auspiciante;
-    document.getElementById('titulo').textContent = data.titulo;
-    document.getElementById('subtitulo').textContent = data.subtitulo;
-    document.getElementById('fechas_1').textContent = data.fechas_1;
-    document.getElementById('fechas_2').textContent = data.fechas_2;
-    document.getElementById('frase_chiqui').textContent = data.frase_chiqui;
-    document.getElementById('novedades').textContent = data.novedades;
+  <script src="js/main.js"></script>
+  <script src="js/textos.js"></script>
 
-    // ===== ticker =====
-    const a = document.getElementById('tickerA');
-    const b = document.getElementById('tickerB');
-    if (a && b) {
-      a.textContent = data.ticker;
-      b.textContent = data.ticker;
-    }
-
-    // ===== anuncios =====
-    ANNOUNCEMENTS = data.anuncios || [];
-    if (ANNOUNCEMENTS.length > 0) {
-      if (!sessionStorage.getItem("announcements_shown")) {
-        startAnnouncements();
-        sessionStorage.setItem("announcements_shown", "true");
-      }
-    }
-  })
-  .catch(err => console.error("Error cargando textos:", err));
-
-
-    (function initScrollToTop(){
-      const btn = document.getElementById('toTopBtn'); if (!btn) return;
-      const toggle = () => { if (window.scrollY > 100 && !document.body.classList.contains('locked')) btn.classList.add('show'); else btn.classList.remove('show'); };
-      window.addEventListener('scroll', toggle, { passive: true }); window.addEventListener('resize', toggle); document.addEventListener('DOMContentLoaded', toggle);
-      btn.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    })();
-
-    const CONFIG = { manual_force_lock:false, auto_lock_enabled:true, last_unlock_at:"2025-10-09T00:00:00-03:00", whatsapp_link:"https://wa.me/5493815303224?text=Querido%20Chiqui...", whatsapp_qr_src:"data/qr-whatsapp.png" };
-    const TICKER_TEXT = "Felicidades Lomba: Campeón de la Liga de Transición - PRONTA RECUPERACION CHIQUI!";
-    (function initTicker(){ const a=document.getElementById('tickerA'); const b=document.getElementById('tickerB'); if(a&&b){ a.textContent=TICKER_TEXT; b.textContent=TICKER_TEXT; }})();
-    
-    let currentAnn=0;
-    function showAnnouncement(i){
-  const overlay=document.getElementById("annOverlay");
-  if(i<ANNOUNCEMENTS.length){
-    document.body.classList.add("locked");
-    overlay.classList.add("active");
-    document.getElementById("annTitle").textContent=ANNOUNCEMENTS[i].title;
-
-    // convertir saltos de línea en párrafos
-    document.getElementById("annBody").innerHTML =
-      ANNOUNCEMENTS[i].body.split("\n\n").map(p=>`<p>${p}</p>`).join("");
-  } else {
-    overlay.classList.remove("active");
-    document.body.classList.remove("locked");
-  }
-}
-    function startAnnouncements(){ currentAnn=0; showAnnouncement(currentAnn); }
-    document.getElementById("annNextBtn").addEventListener("click", ()=>{ currentAnn++; showAnnouncement(currentAnn); });
-
-    startAnnouncements();
-
-    function parseISO(s){ const t=Date.parse(s); return Number.isFinite(t)? new Date(t):null; }
-    function currentRoundStart(now=new Date()){ const d=new Date(now); const day=d.getDay(); const candidate=new Date(d); candidate.setHours(21,0,0,0); const daysSinceWed=(day+7-3)%7; candidate.setDate(candidate.getDate()-daysSinceWed); if(now<candidate) candidate.setDate(candidate.getDate()-7); return candidate; }
-    function computeLockedState(){ const now=new Date(); if(CONFIG.manual_force_lock) return true; if(!CONFIG.auto_lock_enabled) return false; const roundStart=currentRoundStart(now); const lastUnlock=parseISO(CONFIG.last_unlock_at); const afterRoundStart=now>=roundStart; const unlockedThisRound=lastUnlock && (lastUnlock>=roundStart); return afterRoundStart && !unlockedThisRound; }
-
-    function applyLockUI(locked){
-      const overlay=document.getElementById('lockOverlay'); const waBtn=document.getElementById('waBtn'); const waQR=document.getElementById('waQR');
-      if(waBtn) waBtn.href=CONFIG.whatsapp_link||'#'; if(waQR) waQR.src=CONFIG.whatsapp_qr_src||'';
-      if(locked){ document.body.classList.add('locked'); overlay.classList.add('active'); } else { document.body.classList.remove('locked'); overlay.classList.remove('active'); }
-    }
-    function initLockCycle(){ applyLockUI(computeLockedState()); setInterval(()=>applyLockUI(computeLockedState()), 60000); }
-
-// === cargar tabla ===
-const status = document.getElementById("status");
-const tabla = document.getElementById("tabla");
-const tbody = document.getElementById("tbody");
-
-function setStatus(msg) {
-  status.textContent = msg;
-  status.style.display = "block";
-  tabla.style.display = "none";
-}
-
-function showTable() {
-  status.style.display = "none";
-  tabla.style.display = "table";
-}
-
-function fmt2(v) {
-  const n = Number(v);
-  return Number.isFinite(n) ? n.toFixed(2) : v;
-}
-
-async function cargar() {
-  try {
-    setStatus("Cargando datos…");
-
-    const res = await fetch(`data/posiciones.json?v=${Date.now()}`, { cache: "no-store" });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-
-    const rows = await res.json();
-    tbody.innerHTML = "";
-
-    // Mostrar solo los 10 primeros
-    const top10 = rows.slice(0, 10);
-
-    for (const r of top10) {
-      const tr = document.createElement("tr");
-
-      // === Delta ===
-      let deltaClass = "";
-      if (r.Δ?.includes("↑")) deltaClass = "up";
-      else if (r.Δ?.includes("↓")) deltaClass = "down";
-
-      // === Goles ===
-      let golClass = "";
-      const golNum = parseInt(r.GOL?.replace(/[^\d-]/g, "") || "0", 10);
-      if (golNum > 0) golClass = "pos";
-      else if (golNum < 0) golClass = "neg";
-
-      // === G/E/P ===
-      const gClass = r.G > 0 ? "pos" : "";
-      const eClass = r.E > 0 ? "draw" : "";
-      const pClass = r.P > 0 ? "neg" : "";
-
-      tr.innerHTML = `
-        <td>${r.N ?? ""}</td>
-        <td class="${deltaClass}">${r.Δ ?? ""}</td>
-        <td><a href="jugador.html?id=${r.ID}">${r.JUG ?? ""}</a></td>
-        <td>${r.J ?? ""}</td>
-        <td>${r.PTS ?? ""}</td>
-        <td class="${gClass}">${r.G ?? ""}</td>
-        <td class="${eClass}">${r.E ?? ""}</td>
-        <td class="${pClass}">${r.P ?? ""}</td>
-        <td class="${golClass}">${r.GOL ?? ""}</td>
-        <td>${fmt2(r.EFE ?? "")}</td>
-      `;
-
-      tbody.appendChild(tr);
-    }
-
-    showTable();
-
-  } catch (err) {
-    setStatus("Error al cargar datos: " + err.message);
-    console.error(err);
-  }
-}
-
-
-// Ejecutar al cargar la página
-cargar();
-
-
-    // === cargar rachas ===
-    const streaksStatus=document.getElementById('streaksStatus');
-    const streaksGrid=document.getElementById('streaksGrid');
-    const streaksEmpty=document.getElementById('streaksEmpty');
-
-    // asignar color según tipo de racha
-    function rachaColor(tipo){
-      const t=(tipo||'').toLowerCase();
-      if(t.includes('presente')) return 'blue';
-      if(t.includes('victorias')) return 'green';
-      if(t.includes('derrotas')) return 'red';
-      if(t.includes('paternidad')) return 'yellow';
-      if(t.includes('ausente')) return 'gray';
-      return 'gray';
-    }
-
-    // crear card
-    function streakCard(item){
-      const el=document.createElement('article');
-      const color=rachaColor(item.racha);
-
-      el.className=`streak ${color}`;
-
-      // top (badge)
-      const top=document.createElement('div');
-      top.className='streak-top';
-      const badge=document.createElement('span');
-      badge.className=`badge ${color}`;
-      badge.textContent=item.racha||'';
-      top.appendChild(badge);
-
-      // main (jugador/es + extensión)
-      const main=document.createElement('div');
-      main.className='streak-main';
-
-      const name=document.createElement('div');
-      name.className='streak-name';
-
-      if(item.racha && item.racha.toLowerCase().includes('paternidad')){
-        // caso especial: dividir en dos jugadores
-        const [j1, j2] = (item.jugador||'').split('->').map(s=>s.trim());
-        const span1=document.createElement('span');
-        span1.className='pat-j1';
-        span1.textContent=j1||'';
-
-        const arrow=document.createElement('span');
-        arrow.className='pat-arrow';
-        arrow.textContent=' → ';
-
-        const span2=document.createElement('span');
-        span2.className='pat-j2';
-        span2.textContent=j2||'';
-
-        name.append(span1,arrow,span2);
-      }else{
-        name.textContent=item.jugador||'';
-      }
-
-      const len=document.createElement('div');
-      len.className='streak-len';
-      len.textContent=`x${item.extension??0}`;
-
-      main.append(name,len);
-
-      el.append(top,main);
-      return el;
-    }
-
-    // cargar desde JSON
-    async function cargarRachas(){
-      streaksStatus.style.display='block';
-      streaksGrid.style.display='none';
-      streaksEmpty.style.display='none';
-
-      try{
-        const res=await fetch(`data/rachas.json?v=${Date.now()}`,{cache:'no-store'});
-        if(!res.ok) throw new Error('Proxima Temporada');
-        const arr=await res.json();
-
-        if(arr.length===0){
-          streaksStatus.style.display='none';
-          streaksEmpty.style.display='block';
-          return;
-        }
-
-        // ordenar: primero presentes, luego sin perder, luego paternidad, luego sin ganar
-        arr.sort((a,b)=>{
-          const ca=rachaColor(a.racha);
-          const cb=rachaColor(b.racha);
-          const order={blue:0,green:1,yellow:2,red:3,gray:4};
-          if(order[ca]!==order[cb]) return order[ca]-order[cb];
-          return (b.extension||0)-(a.extension||0);
-        });
-
-        streaksGrid.innerHTML='';
-        for(const s of arr) streaksGrid.appendChild(streakCard(s));
-
-        streaksStatus.style.display='none';
-        streaksGrid.style.display='grid';
-
-      }catch(err){
-        console.error(err);
-        streaksStatus.textContent='Error al cargar rachas: '+err.message;
-      }
-    }
-
-// === cargar partidos estilo "rachas" final ===
-const matchesStatus = document.getElementById('matchesStatus');
-const matchesGrid   = document.getElementById('matchesGrid');
-const matchesEmpty  = document.getElementById('matchesEmpty');
-
-function matchColor(balance){
-  return balance === 0 ? 'yellow' : 'green';
-}
-
-function matchCard(fecha, partido){
-  const el = document.createElement('article');
-  const color = matchColor(partido.balance);
-
-  el.className = `streak ${color}`;
-
-  // top (fecha izquierda + balance derecha)
-  const top = document.createElement('div');
-  top.className = 'streak-top';
-
-  const badge = document.createElement('span');
-  badge.className = `badge ${color}`;
-  badge.textContent = fecha;
-
-  const bal = document.createElement('span');
-  bal.className = 'streak-len';
-  bal.textContent = `+${partido.balance}`;
-
-  top.append(badge, bal);
-
-  // main (equipos uno arriba del otro)
-  const main = document.createElement('div');
-  main.className = 'streak-teams';
-
-  const eqA = document.createElement('div');
-  eqA.className = 'streak-name ' + (partido.balance===0 ? 'yellow' : 'green');
-  eqA.textContent = partido.team_a.join(', ');
-
-  const eqB = document.createElement('div');
-  eqB.className = 'streak-name ' + (partido.balance===0 ? 'yellow' : 'red');
-  eqB.textContent = partido.team_b.join(', ');
-
-  if (partido.balance > 0) {
-    eqA.classList.add('winner'); // gana team A
-  }
-
-  main.append(eqA, eqB);
-
-  el.append(top, main);
-  return el;
-}
-
-async function cargarPartidos(){
-  matchesStatus.style.display='block';
-  matchesGrid.style.display='none';
-  matchesEmpty.style.display='none';
-
-  try{
-    const res = await fetch(`data/partidos.json?v=${Date.now()}`,{cache:'no-store'});
-    if(!res.ok) throw new Error('Proxima temporada');
-    const obj = await res.json();
-
-    const entries = Object.entries(obj).sort(([f1],[f2])=> f2.localeCompare(f1));
-
-    if(entries.length===0){
-      matchesStatus.style.display='none';
-      matchesEmpty.style.display='block';
-      return;
-    }
-
-    matchesGrid.innerHTML='';
-    for(const [fecha,partido] of entries.slice(0,6)){
-      matchesGrid.appendChild(matchCard(fecha,partido));
-    }
-
-    matchesStatus.style.display='none';
-    matchesGrid.style.display='grid';
-
-  }catch(err){
-    console.error(err);
-    matchesStatus.textContent='Error al cargar partidos: '+err.message;
-  }
-}
-
-    initLockCycle(); cargar(); cargarRachas(); cargarPartidos();
-  </script>
 </body>
 </html>

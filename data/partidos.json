@@ -1,4 +1,13 @@
 {
+  "2025-10-15": {
+    "team_a": [
+      "Yamil, Lomba, Chagay, Mario, Camilo"
+    ],
+    "team_b": [
+      "Chicho, Cesar, Mato, Jose, Valentin"
+    ],
+    "balance": 0
+  },
   "2025-10-08": {
     "team_a": [
       "Yamil, Lomba, Chagay, Mario, Benja"
@@ -46,7 +55,7 @@
   },
   "2025-08-27": {
     "team_a": [
-      "Mato, Emi, Lomba, Chagay, Mario"
+      "Chagay, Emi, Lomba, Mato, Mario"
     ],
     "team_b": [
       "Facu, Cesar, P11, Marcelo, Chicho"

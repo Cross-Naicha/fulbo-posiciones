@@ -1,0 +1,52 @@
+/* =========================================================
+   LIGA DE FULBO - FLOATING BACK BUTTON
+   Author: Nicolás + ChatGPT
+   Purpose: Reusable floating button to navigate back or to a specific page.
+   ========================================================= */
+
+/* === BUTTON BASE === */
+.btn-volver {
+  position: fixed;
+  bottom: 18px;         /* vertical distance from bottom */
+  right: 72px;          /* not fully in the corner */
+  z-index: 9500;
+
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+
+  border-radius: 999px;
+  border: 1px solid var(--line, #223042);
+  background: var(--accent, #2f8bfd);
+  color: #fff;
+
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  opacity: 0.9;
+  transition: all 0.18s ease-in-out;
+}
+
+/* === HOVER AND ACTIVE STATES === */
+.btn-volver:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.btn-volver:active {
+  transform: scale(0.94);
+}
+
+/* === RESPONSIVE (mobile spacing adjustment) === */
+@media (max-width: 600px) {
+  .btn-volver {
+    bottom: 14px;
+    right: 64px;       /* still keeps separation from edge */
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+}

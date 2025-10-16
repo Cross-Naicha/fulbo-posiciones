@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 1.0,
+    "partidos": 2.0,
     "apodo": "Chicho",
-    "puntos": 0,
-    "efectividad": 0.0,
+    "puntos": 1,
+    "efectividad": 0.17,
     "ganados": 0,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 1,
     "diferencia de gol": "- 4",
-    "delta": "-"
+    "delta": "↑2"
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-10",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-10-15": "E",
     "2025-10-08": "P",
     "2025-10-01": "A",
     "2025-09-17": "G",
-    "2025-09-10": "E",
-    "2025-09-03": "P"
+    "2025-09-10": "E"
   },
   "balance_vs": {
     "Naicha": 1,
@@ -44,14 +44,14 @@
     "Vara": 1,
     "Yamil": 0,
     "Mato": -1,
-    "Pelao Khe": -1,
-    "Cesar": -1,
     "Bag": -1,
+    "Cesar": -1,
+    "Pelao Khe": -1,
     "Benja": -1,
     "Lomba": -2,
-    "Mario": -2,
+    "Emi": -2,
     "Chagay": -2,
-    "Emi": -2
+    "Mario": -2
   },
   "best_partner": {},
   "worse_partner": {
