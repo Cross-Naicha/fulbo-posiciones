@@ -92,7 +92,7 @@ const els = {
   );
 
   // === CARGAR DESDE fechas.json ===
-  fetch('data/fechas.json?v='+Date.now())
+  fetch('../data/fechas.json?v='+Date.now())
     .then(res => res.json())
     .then(data => {
       PARTIDOS = data;

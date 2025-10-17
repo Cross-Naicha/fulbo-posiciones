@@ -59,7 +59,7 @@ const emptyOr = (container, fallbackText) => {
 
 /** Load player JSON by numeric ID */
 async function loadById(id) {
-  const res = await fetch(`data/players/${id}.json?v=${bust()}`, { cache: "no-store" });
+  const res = await fetch(`.../data/players/${id}.json?v=${bust()}`, { cache: "no-store" });
   if (!res.ok) throw new Error("No se encontró el JSON del jugador.");
   return await res.json();
 }
