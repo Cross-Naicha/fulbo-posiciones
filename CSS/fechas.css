@@ -1,0 +1,74 @@
+:root {
+      --bg:#0b0d10; --card:#11161c; --ink:#e8eef6; --muted:#9fb0c3; --line:#223042;
+      --accent:#2f8bfd; --ok:#22c55e; --warn:#eab308; --bad:#ef4444;
+    }
+    *{box-sizing:border-box}
+    body {
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:var(--bg);
+      color:var(--ink);
+    }
+    .wrap { max-width:1000px; margin:32px auto; padding:0 16px; }
+    h1 { text-align:center; margin-bottom:28px; font-weight:600; letter-spacing:0.5px; }
+
+    /* ==== FILTROS ==== */
+    .filters {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap:12px;
+      margin-bottom:24px;
+    }
+    select {
+      width:100%; padding:10px 12px;
+      background:var(--card); border:1px solid var(--line);
+      color:var(--ink); border-radius:10px;
+      font-size:15px; transition:all .2s ease;
+    }
+    select:hover, select:focus {
+      border-color:var(--accent);
+      outline:none;
+      box-shadow:0 0 6px color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+
+    /* ==== LISTA ==== */
+    .match {
+      background:linear-gradient(180deg, #11161c, #0d1218);
+      border:1px solid var(--line);
+      border-left:4px solid var(--accent);
+      border-radius:14px;
+      padding:14px 18px;
+      margin-bottom:14px;
+      display:grid;
+      gap:8px;
+      transition:transform .2s ease, border-color .2s ease;
+    }
+    .match:hover {
+      transform:translateY(-3px);
+      border-color:color-mix(in srgb, var(--accent) 70%, transparent);
+    }
+    .match-top {
+      display:flex;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .match-teams {
+      display:grid;
+      gap:4px;
+      text-align:center;
+      font-size:15px;
+    }
+    .match-teams strong { color:var(--ink); font-weight:600; }
+    .match-result {
+      text-align:center; color:var(--accent);
+      font-weight:500; margin-top:2px;
+    }
+    .empty { text-align:center; color:var(--muted); margin-top:32px; font-size:15px; }
+
+    /* === resaltado de jugador === */
+    .highlight {
+      color:var(--accent);
+      font-weight:700;
+      text-shadow:0 0 6px color-mix(in srgb, var(--accent) 70%, transparent);
+    }

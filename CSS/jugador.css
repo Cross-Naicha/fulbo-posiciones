@@ -1,0 +1,311 @@
+/* =========================================================
+   LIGA DE FULBO - PLAYER PROFILE STYLESHEET
+   Author: Nicolás + ChatGPT
+   Purpose: Defines layout and visual style for the player profile page.
+   ========================================================= */
+
+
+/* === COLOR PALETTE AND GLOBAL VARIABLES === */
+:root {
+  --bg: #0b0d10;
+  --card: #11161c;
+  --ink: #e8eef6;
+  --muted: #9fb0c3;
+  --line: #223042;
+  --accent: #2f8bfd;
+
+  --ok: #22c55e;
+  --warn: #eab308;
+  --bad: #ef4444;
+  --off: #64748b;
+  --present: #2f8bfd;
+}
+
+
+/* =========================================================
+   1. BASE LAYOUT
+   ========================================================= */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+
+/* =========================================================
+   2. HEADER
+   ========================================================= */
+
+header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: var(--ink);
+  transition: all 0.18s ease-in-out;
+}
+
+.back:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+}
+
+.sub {
+  color: var(--muted);
+  margin: 0;
+}
+
+
+/* =========================================================
+   3. GRID AND CARDS
+   ========================================================= */
+
+/* Grid layout for all cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+/* Card container (generic visual style) */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+}
+
+/* Card header */
+.card h3 {
+  margin: 0;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+}
+
+/* Card body */
+.card .body {
+  padding: 14px 16px;
+}
+
+/* Placeholder status message */
+.status {
+  text-align: center;
+  color: var(--muted);
+  padding: 18px;
+}
+
+
+/* =========================================================
+   4. KPI (KEY PERFORMANCE INDICATORS)
+   ========================================================= */
+
+/* Grid of KPIs */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.kpi {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+}
+
+.kpi .label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.kpi .val {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Win / draw / loss summary badges */
+.wld {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.badge {
+  border: 1px solid var(--line);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.badge.ok   { color: var(--ok);   border-color: var(--ok); }
+.badge.warn { color: var(--warn); border-color: var(--warn); }
+.badge.bad  { color: var(--bad);  border-color: var(--bad); }
+
+
+/* =========================================================
+   5. REUSABLE UI ELEMENTS
+   ========================================================= */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* “Pill” indicator for streaks */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+/* Colored dot states */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: 0 0 10px;
+  background: var(--off);
+}
+
+.dot.ok       { background: var(--ok); }
+.dot.warn     { background: var(--warn); }
+.dot.bad      { background: var(--bad); }
+.dot.off      { background: var(--off); }
+.dot.present  { background: var(--present); }
+
+.separator {
+  border-top: 1px solid var(--line);
+  margin: 8px 0;
+  opacity: 0.4;
+}
+
+
+/* =========================================================
+   6. LAST 5 MATCHES
+   ========================================================= */
+
+.last5 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.last5 .item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+
+/* =========================================================
+   7. BALANCE AND PARTNERS LISTS
+   ========================================================= */
+
+/* Section headers inside cards */
+.section-title {
+  margin: 10px 0 6px 0;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Key-value lists */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Key-value pair item */
+.kv {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.kv .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kv .val {
+  color: var(--muted);
+}
+
+/* Hint text */
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+
+/* =========================================================
+   8. RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
