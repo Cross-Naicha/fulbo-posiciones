@@ -165,41 +165,29 @@ btnCancelarNuevo.onclick = () => {
    7. GUARDAR RESULTADO EN JSONBIN
    ========================================================= */
 document.getElementById("btnGuardarResultado").onclick = async () => {
-  const golesA = Number(document.getElementById("golesA").value);
-  const golesB = Number(document.getElementById("golesB").value);
+  const goalsA = Number(document.getElementById("golesA").value);
+  const goalsB = Number(document.getElementById("golesB").value);
 
-  if (isNaN(golesA) || isNaN(golesB)) {
+  if (isNaN(goalsA) || isNaN(goalsB)) {
     msg.textContent = "⚠️ Ingresá números válidos.";
     return;
   }
 
   // obtener equipos actuales
-  const eqA = jugadores.filter(j => asignaciones[j] === "A");
-  const eqB = jugadores.filter(j => asignaciones[j] === "B");
-  if (eqA.length !== 5 || eqB.length !== 5) {
-    msg.textContent = "⚠️ Se necesitan 5 jugadores por equipo.";
+  const teamA = jugadores.filter(j => asignaciones[j] === "A");
+  const teamB = jugadores.filter(j => asignaciones[j] === "B");
+  if (teamA.length !== 5 || teamB.length !== 5) {
+    msg.textContent = "⚠️ Se necesitan 5 jugadores por equipo. ⚠️";
     return;
   }
 
-  // determinar ganador
   let dataFinal = {
     fecha: new Date().toISOString().split("T")[0],
-    equipos: { A: eqA, B: eqB },
-    resultado: {},
-    registrado_por: localStorage.getItem("usuarioLiga") || "anónimo",
-    timestamp: Date.now()
+    equipos: { A: teamA, B: teamB },
+    resultado: {A: goalsA, B: goalsB},
   };
 
-  if (golesA > golesB) {
-    dataFinal.resultado = { golesA, golesB, balance: golesA - golesB };
-  } else if (golesB > golesA) {
-    dataFinal.equipos = { A: eqB, B: eqA };
-    dataFinal.resultado = { golesA: golesB, golesB: golesA, balance: golesB - golesA };
-  } else {
-    dataFinal.resultado = { golesA, golesB, balance: 0 };
-  }
-
-  msg.textContent = "⏳ Guardando en JSONBin...";
+  msg.textContent = "⏳ Guardando en JSONBin... ⏳";
 
   try {
     const ok = await guardarEnJsonBin(dataFinal);
