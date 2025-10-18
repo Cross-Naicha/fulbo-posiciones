@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Armador de Equipos</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/resultados.css">
+  <link rel="stylesheet" href="CSS/btn-volver.css">
+</head>
+
+<body>
+  <div class="top-tab" id="auspiciante"></div>
+
+  <div class="wrap">
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="header-title">
+        <h1 id="titulo">Enviar Resultado</h1>
+        <div class="sep"></div>
+      </div>
+    </header>
+
+    <!-- ===== BOTÓN VOLVER ===== -->
+    <div class="card streaks-card nav-card">
+      <div class="streak-top">
+        <span class="badge red">Volver al Inicio</span>
+        <span class="streak-len">⚽</span>
+      </div>
+      <div class="streak-main">
+        <div class="streak-name">
+          <a href="index.html" class="nav-link">Eso, volver al inicio, que más decir →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- ===== SELECCIÓN MANUAL ===== -->
+    <section id="seleccion-container">
+      <div class="streaks-status" id="statusJugadores">Cargando jugadores…</div>
+
+      <div id="jugadoresGrid" class="jugadores-grid"></div>
+
+      <div class="sep"></div>
+      <p>⚠️ IMPORTANTE ⚠️ Cada nuevo registro tiene un COSTO. Si bien estamos usando un microservidor gratuito, podemos realizar limitadas operaciones. Entonces, CONSULTA si alguien ya subio el resultado, para evitar gastar tokens. Y si nadie lo hizo, avisa que ya esta hecho.</p>
+      <div class="sep"></div>
+
+      <div class="acciones">
+        <button id="btnAgregarJugador">+ Agregar jugador</button>
+        <button id="btnConfirmarEquipos" disabled>Confirmar equipos</button>
+      </div>
+    </section>
+
+    <!-- ===== EQUIPOS CONFIRMADOS ===== -->
+    <section id="equipos-container" style="display:none;">
+      <div class="equipos-nombres">
+        <div class="equipo-nombre equipo-a">
+          <span class="dot dot-a"></span>
+          <span id="nombreEquipoA">Equipo A</span>
+        </div>
+        <div class="equipo-nombre equipo-b">
+          <span class="dot dot-b"></span>
+          <span id="nombreEquipoB">Equipo B</span>
+        </div>
+      </div>
+
+      <div id="equipos-grid" class="equipos-grid">
+        <div id="colEquipoA" class="equipo-col"></div>
+        <div id="colEquipoB" class="equipo-col"></div>
+      </div>
+
+      <div class="acciones">
+        <button id="btnCorregir">↩️ Corregir</button>
+      </div>
+
+      <!-- ===== RESULTADO ===== -->
+      <div class="resultado-container">
+        <h3>Resultado del Partido</h3>
+        <div class="resultado-inputs">
+          <div class="resultado-equipo">
+            <span id="lblNombreA">Equipo A</span>
+            <input type="number" id="golesA" min="0" inputmode="numeric" />
+          </div>
+          <span class="resultado-vs">—</span>
+          <div class="resultado-equipo">
+            <span id="lblNombreB">Equipo B</span>
+            <input type="number" id="golesB" min="0" inputmode="numeric" />
+          </div>
+        </div>
+      </div>
+
+    <div class="sep"></div>
+
+      <!-- ===== BOTÓN GUARDAR ===== -->
+      <div class="card streaks-card nav-card" id="cardGuardar">
+        <div class="streak-top">
+          <span class="badge green">Guardar</span>
+          <span class="streak-len">💾</span>
+        </div>
+        <div class="streak-main">
+          <div class="streak-name">
+            <a href="#" id="btnGuardarResultado" class="nav-link">
+              Guardar resultado en JSONBin →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="msgResultado" class="msg-resultado" style="text-align:center;margin-top:8px;"></div>
+    </section>
+  </div>
+
+  <!-- ===== MODAL AGREGAR JUGADOR ===== -->
+  <div id="modal-overlay" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <h3>Agregar jugador</h3>
+      <label>Apodo:</label>
+      <input type="text" id="nuevoApodo" placeholder="Ej: Juani" />
+
+      <div class="modal-acciones">
+        <button id="btnGuardarNuevo">Agregar</button>
+        <button id="btnCancelarNuevo">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
+
+  <script src="js/resultados.js"></script>
+  <script src="js/btn-volver.js"></script>
+</body>
+</html>

@@ -3,42 +3,35 @@
     "racha": "presente",
     "jugador": "Lomba",
     "extension": 7,
-    "dias": 50,
+    "dias": 52,
     "inicio": "2025-08-27"
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
     "extension": 7,
-    "dias": 50,
+    "dias": 52,
     "inicio": "2025-08-27"
   },
   {
     "racha": "ausente",
-    "jugador": "Emi",
-    "extension": 4,
-    "dias": 29,
-    "inicio": "2025-09-17"
-  },
-  {
-    "racha": "ausente",
-    "jugador": "Facu",
-    "extension": 4,
-    "dias": 29,
-    "inicio": "2025-09-17"
+    "jugador": "Vara",
+    "extension": 3,
+    "dias": 17,
+    "inicio": "2025-10-01"
   },
   {
     "racha": "paternidad (DIF)",
     "jugador": "Lomba-> Marcelo",
     "extension": 3,
-    "dias": 50,
+    "dias": 52,
     "inicio": "2025-08-27"
   },
   {
     "racha": "paternidad (PAR)",
     "jugador": "Lomba-> Chicho",
     "extension": 4,
-    "dias": 50,
+    "dias": 52,
     "inicio": "2025-08-27"
   }
 ]

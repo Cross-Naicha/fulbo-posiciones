@@ -73,11 +73,11 @@
             <th>Δ</th>
             <th>X</th>
             <th>J</th>
-            <th>Pts</th>
-            <th>G</th>
-            <th>E</th>
             <th>P</th>
-            <th>G+</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>DG</th>
             <!-- <th>%</th> -->
           </tr>
         </thead>
@@ -86,12 +86,15 @@
     </div>
 
     <p id="novedades"></p>
+    <p>Δ: Cambio de pósicion respecto a la última fecha; J: Jugados; P: Puntos; W: Ganados; D: Empatados; L: Perdidos; DG: Diferencia de Gol</p>
 
     <!-- === NAVIGATION CARD ===
         A simple card linking to another page (combinaciones.html)
          for exploring player combinations.
     -->
-
+    
+    <div class="sep"></div>
+    
     <div class="card streaks-card nav-card">
       <div class="streak-top">
         <span class="badge red">Tabla HISTORICA</span>
@@ -101,6 +104,22 @@
         <div class="streak-name">
           <a href="historica.html" class="nav-link">
             Puntaje Historico por Jugador →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p></p>
+
+    <div class="card streaks-card nav-card">
+      <div class="streak-top">
+        <span class="badge purple">Informar (Experimental)</span>
+        <span class="streak-len">⚽</span>
+      </div>
+      <div class="streak-main">
+        <div class="streak-name">
+          <a href="resultados.html" class="nav-link">
+            Informar Resultados del Último Partido →
           </a>
         </div>
       </div>
@@ -208,12 +227,25 @@
         Por favor, <strong>envia los resultados del último partido</strong> a través de las siguientes opciones.
       </div>
       <div class="lock-actions">
-        <a id="waBtn" class="wa-btn" href="#" target="_blank" rel="noopener"><span>Abrir WhatsApp</span></a>
-        <div class="qr">
-          <img id="waQR" alt="Escaneá con tu teléfono para enviar el resultado por WhatsApp" src="">
-          <div class="muted">O bien, desde la PC escaneá el QR</div>
+      
+      <p></p>
+
+      <div class="card streaks-card nav-card">
+        <div class="streak-top">
+          <span class="badge purple">Informar (Experimental)</span>
+          <span class="streak-len">⚽</span>
         </div>
-        <div class="muted">Por cada día que pase, una regla cambia. Un equipo asciende, y un descenso se pierde.</div>
+        <div class="streak-main">
+          <div class="streak-name">
+            <a href="resultados.html" class="nav-link">
+              Informar Resultados del Último Partido →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p></p>
+
       </div>
     </div>
   </div>
