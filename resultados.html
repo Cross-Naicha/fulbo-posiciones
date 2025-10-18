@@ -36,18 +36,23 @@
 
     <div class="sep"></div>
 
+    <p>Cada toque cambia la situacion del jugador.</p>
+
     <!-- ===== SELECCIÓN MANUAL ===== -->
     <section id="seleccion-container">
       <div class="streaks-status" id="statusJugadores">Cargando jugadores…</div>
 
       <div id="jugadoresGrid" class="jugadores-grid"></div>
 
+      <div class="acciones">
+        <button id="btnAgregarJugador">+ Agregar jugador</button>
+      </div>
+
       <div class="sep"></div>
       <p>⚠️ IMPORTANTE ⚠️ Cada nuevo registro tiene un COSTO. Si bien estamos usando un microservidor gratuito, podemos realizar limitadas operaciones. Entonces, CONSULTA si alguien ya subio el resultado, para evitar gastar tokens. Y si nadie lo hizo, avisa que ya esta hecho.</p>
       <div class="sep"></div>
 
       <div class="acciones">
-        <button id="btnAgregarJugador">+ Agregar jugador</button>
         <button id="btnConfirmarEquipos" disabled>Confirmar equipos</button>
       </div>
     </section>
@@ -57,16 +62,19 @@
       <div class="equipos-nombres">
         <div class="equipo-nombre equipo-a">
           <span class="dot dot-a"></span>
-          <span id="nombreEquipoA">Equipo A</span>
         </div>
         <div class="equipo-nombre equipo-b">
           <span class="dot dot-b"></span>
-          <span id="nombreEquipoB">Equipo B</span>
         </div>
       </div>
 
+      <p>Equipo A</p>
       <div id="equipos-grid" class="equipos-grid">
         <div id="colEquipoA" class="equipo-col"></div>
+      </div>
+
+      <p>Equipo B</p>
+      <div id="equipos-grid" class="equipos-grid">
         <div id="colEquipoB" class="equipo-col"></div>
       </div>
 
@@ -101,7 +109,7 @@
         <div class="streak-main">
           <div class="streak-name">
             <a href="#" id="btnGuardarResultado" class="nav-link">
-              Guardar resultado en JSONBin →
+              ⚠️ ESPERA al mensaje de guardado CORRECTO ⚠️
             </a>
           </div>
         </div>
