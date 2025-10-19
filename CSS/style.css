@@ -58,17 +58,22 @@ h1 { text-align: center; margin: 0 0 8px; }
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 16px;
-  overflow: hidden;
+  overflow: visible; /* ✅ */
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
+
 
 /* === TABLA DE POSICIONES 2.0 === */
 
 .tabla-header {
   display: grid;
   justify-content: center;
-  padding: 12px 0;         
+  align-items: center;
+  padding: 16px;
+  overflow: visible;
+  gap: 10px;
 }
+
 
 .modo-btns {
   display: flex;
@@ -214,64 +219,6 @@ tr.highlight td {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-
-/* === RESPONSIVE FIXES (mobile/tablet) === */
-@media (max-width: 768px) {
-
-  /* Permite desplazamiento horizontal si la tabla se pasa del ancho */
-  .tabla-posiciones {
-    overflow-x: auto;
-  }
-
-  #tabla {
-    min-width: 520px; /* evita que se aplaste demasiado */
-  }
-
-  /* Centra y da aire a los botones */
-  .modo-btns {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-
-  .modo-btns button {
-    flex: 1 1 auto;
-    min-width: 100px;
-  }
-
-  /* Selector con más aire y centrado */
-  .selector-jugador {
-    margin: 0 auto 10px auto;
-    width: 90%;
-  }
-
-  #jugadorSelect {
-    width: 100%;
-    text-align: center;
-    font-size: 0.95rem;
-  }
-
-  /* Mini-card centrada y con padding lateral */
-  .mini-card {
-    width: 92%;
-    margin: 16px auto;
-    padding: 14px;
-  }
-
-  /* Ajustes en fuente y celdas */
-  #tabla th, #tabla td,
-  .mini-card th, .mini-card td {
-    font-size: 0.85rem;
-    padding: 5px 4px;
-  }
-
-  /* Resultado de circulitos más chicos */
-  .result-circles span {
-    width: 8px;
-    height: 8px;
-  }
 }
 
 /* === DYNAMIC COLORS === */
@@ -591,3 +538,80 @@ body.locked { overflow: hidden; position: fixed; width: 100%; }
   text-decoration: none;
 }
 
+/* === RESPONSIVE FIXES (mobile/tablet) === */
+@media (max-width: 768px) {
+
+  .tabla-posiciones {
+    overflow-x: auto;
+  }
+
+  #tabla {
+    min-width: 520px;
+  }
+
+  .modo-btns {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .modo-btns button {
+    flex: 1 1 auto;
+    min-width: 100px;
+  }
+
+  .selector-jugador {
+    margin: 0 auto 10px auto;
+    width: 90%;
+  }
+
+  #jugadorSelect {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .mini-card {
+    width: 92%;
+    margin: 16px auto;
+    padding: 14px;
+  }
+
+  #tabla th, #tabla td,
+  .mini-card th, .mini-card td {
+    font-size: 0.85rem;
+    padding: 5px 4px;
+  }
+
+  .result-circles span {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* === FIXES PARA TABLA EN MOVILES === */
+.tabla-posiciones {
+  -webkit-overflow-scrolling: touch; /* suave scroll horizontal */
+}
+
+.mini-card {
+  box-sizing: border-box;
+  border-radius: 16px;
+  margin: 20px auto;
+  padding: 16px;
+}
+
+.selector-jugador select {
+  max-width: 320px;
+}
+
+@media (max-width: 480px) {
+  .modo-btns button {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+  #tabla {
+    min-width: 480px;
+  }
+}
