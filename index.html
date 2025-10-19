@@ -64,24 +64,20 @@
          Shows player rankings and statistics.
          Data is fetched from data/posiciones.json
     -->
-    <div class="card">
+    <h2>Tabla de Posiciones</h2>
+    <div class="card tabla-posiciones">
+      <div class="tabla-header">
+        <div class="modo-btns">
+          <button data-modo="compacto" class="active">Compacto</button>
+          <button data-modo="intermedio">Intermedio</button>
+          <button data-modo="completo">Completo</button>
+        </div>
+      </div>
+
       <div id="status" class="status">Cargando datos…</div>
       <table id="tabla" style="display:none">
-        <thead>
-          <tr>
-            <th>N°</th>
-            <th>Δ</th>
-            <th>X</th>
-            <th>J</th>
-            <th>P</th>
-            <th>W</th>
-            <th>D</th>
-            <th>L</th>
-            <th>DG</th>
-            <!-- <th>%</th> -->
-          </tr>
-        </thead>
-        <tbody id="tbody"></tbody>
+        <thead id="tabla-head"></thead>
+        <tbody id="tabla-body"></tbody>
       </table>
     </div>
 

@@ -153,80 +153,138 @@ document.getElementById("annNextBtn").addEventListener("click", () => {
   showAnnouncement(currentAnn);
 });
 
-
 /* =========================================================
-   5. TABLE OF POSITIONS
+   TABLA DE POSICIONES 2.0
    ========================================================= */
 
-/**
- * Fetches and displays player ranking data from posiciones.json.
- */
-const status = document.getElementById("status");
-const tabla = document.getElementById("tabla");
-const tbody = document.getElementById("tbody");
+const els = {
+  status: document.getElementById("status"),
+  tabla: document.getElementById("tabla"),
+  head: document.getElementById("tabla-head"),
+  body: document.getElementById("tabla-body"),
+  modoBtns: document.querySelectorAll(".modo-btns button"),
+};
 
-function setStatus(msg) {
-  status.textContent = msg;
-  status.style.display = "block";
-  tabla.style.display = "none";
-}
-function showTable() {
-  status.style.display = "none";
-  tabla.style.display = "table";
-}
-function fmt2(v) {
-  const n = Number(v);
-  return Number.isFinite(n) ? n.toFixed(2) : v;
-}
+let posiciones = [];
+let ultimos = {};
+let modoActual = "compacto";
 
-async function loadTable() {
+init();
+
+async function init() {
   try {
-    setStatus("Cargando datos…");
-    const res = await fetch(`data/posiciones.json?v=${Date.now()}`, { cache: "no-store" });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-
-    const rows = await res.json();
-    tbody.innerHTML = "";
-
-    // Show only top 10 players
-    const top10 = rows.slice(0, 10);
-
-    for (const r of top10) {
-      const tr = document.createElement("tr");
-
-      let deltaClass = "";
-      if (r.Δ?.includes("↑")) deltaClass = "up";
-      else if (r.Δ?.includes("↓")) deltaClass = "down";
-
-      let golClass = "";
-      const golNum = parseInt(r.GOL?.replace(/[^\d-]/g, "") || "0", 10);
-      if (golNum > 0) golClass = "pos";
-      else if (golNum < 0) golClass = "neg";
-
-      const gClass = r.G >= 0 ? "pos" : "";
-      const eClass = r.E >= 0 ? "draw" : "";
-      const pClass = r.P >= 0 ? "neg" : "";
-
-      tr.innerHTML = `
-        <td>${r.N ?? ""}</td>
-        <td class="${deltaClass}">${r.Δ ?? ""}</td>
-        <td><a href="jugador.html?id=${r.ID}">${r.JUG ?? ""}</a></td>
-        <td>${r.J ?? ""}</td>
-        <td>${r.PTS ?? ""}</td>
-        <td class="${gClass}">${r.G ?? ""}</td>
-        <td class="${eClass}">${r.E ?? ""}</td>
-        <td class="${pClass}">${r.P ?? ""}</td>
-        <td class="${golClass}">${r.GOL ?? ""}</td>
-      `;
-      tbody.appendChild(tr);
-    }
+    setStatus("Cargando datos...");
+    const [resPos, resUlt] = await Promise.all([
+      fetch("data/posiciones.json?v=" + Date.now()),
+      fetch("data/ultimos.json?v=" + Date.now())
+    ]);
+    if (!resPos.ok || !resUlt.ok) throw new Error("Error al cargar archivos JSON");
+    posiciones = await resPos.json();
+    ultimos = await resUlt.json();
     showTable();
-
+    renderTabla();
   } catch (err) {
-    setStatus("Error al cargar datos: " + err.message);
+    setStatus("Error: " + err.message);
     console.error(err);
   }
 }
+
+function setStatus(msg) {
+  els.status.textContent = msg;
+  els.status.style.display = "block";
+  els.tabla.style.display = "none";
+}
+function showTable() {
+  els.status.style.display = "none";
+  els.tabla.style.display = "table";
+}
+
+/* ===== CAMBIO DE MODO ===== */
+els.modoBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    els.modoBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    modoActual = btn.dataset.modo;
+    renderTabla();
+  });
+});
+
+/* ===== RENDER PRINCIPAL ===== */
+function renderTabla() {
+  els.head.innerHTML = "";
+  els.body.innerHTML = "";
+
+  let headers = [];
+  switch (modoActual) {
+    case "compacto":
+      headers = ["N°", "Jugador", "Pts", "Últimos 5"];
+      break;
+    case "intermedio":
+      headers = ["N°", "Jugador", "Pts", "J", "DG"];
+      break;
+    case "completo":
+      headers = ["N°", "Jugador", "Pts", "W", "D", "L"];
+      break;
+  }
+
+  const trHead = document.createElement("tr");
+  headers.forEach(h => {
+    const th = document.createElement("th");
+    th.textContent = h;
+    trHead.appendChild(th);
+  });
+  els.head.appendChild(trHead);
+
+  posiciones.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    tr.style.animationDelay = `${i * 40}ms`; // escalonado suave
+
+    if (modoActual === "compacto") {
+      const ult = ultimos[r.ID];
+      const resultDiv = document.createElement("div");
+      resultDiv.className = "result-circles";
+
+      for (let j = 1; j <= 5; j++) {
+        const res = ult?.[j]?.situation || "N";
+        const span = document.createElement("span");
+        span.className = "res-" + res;
+        resultDiv.appendChild(span);
+      }
+
+      tr.innerHTML = `
+        <td>${r.N ?? ""}</td>
+        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.PTS}</td>
+        <td></td>
+      `;
+      tr.lastElementChild.appendChild(resultDiv);
+    }
+
+    if (modoActual === "intermedio") {
+      tr.innerHTML = `
+        <td>${r.N ?? ""}</td>
+        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.PTS}</td>
+        <td>${r.J}</td>
+        <td>${r.GOL}</td>
+      `;
+    }
+
+    if (modoActual === "completo") {
+      tr.innerHTML = `
+        <td>${r.N ?? ""}</td>
+        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.PTS}</td>
+        <td>${r.G}</td>
+        <td>${r.E}</td>
+        <td>${r.P}</td>
+      `;
+    }
+
+    els.body.appendChild(tr);
+  });
+}
+
 
 
 /* =========================================================
