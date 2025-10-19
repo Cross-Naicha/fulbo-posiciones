@@ -217,7 +217,7 @@ function renderTabla() {
   let headers = [];
   switch (modoActual) {
     case "compacto":
-      headers = ["N°", "Jugador", "Pts", "Últimos 5"];
+      headers = ["N°", "Delta", "Jugador", "Pts", "Últimos 5"];
       break;
     case "intermedio":
       headers = ["N°", "Jugador", "Pts", "J", "DG"];
@@ -235,55 +235,230 @@ function renderTabla() {
   });
   els.head.appendChild(trHead);
 
-  posiciones.forEach((r, i) => {
+  posiciones.slice(0,10).forEach((r, i) => {
     const tr = document.createElement("tr");
     tr.style.animationDelay = `${i * 40}ms`; // escalonado suave
 
-    if (modoActual === "compacto") {
-      const ult = ultimos[r.ID];
-      const resultDiv = document.createElement("div");
-      resultDiv.className = "result-circles";
+    // === Compacto ===
+  if (modoActual === "compacto") {
+    const ult = ultimos[r.ID];
+    const resultDiv = document.createElement("div");
+    resultDiv.className = "result-circles";
 
-      for (let j = 1; j <= 5; j++) {
-        const res = ult?.[j]?.situation || "N";
-        const span = document.createElement("span");
-        span.className = "res-" + res;
-        resultDiv.appendChild(span);
-      }
-
-      tr.innerHTML = `
-        <td>${r.N ?? ""}</td>
-        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
-        <td>${r.PTS}</td>
-        <td></td>
-      `;
-      tr.lastElementChild.appendChild(resultDiv);
+    for (let j = 1; j <= 5; j++) {
+      const res = ult?.[j]?.situation || "N";
+      const span = document.createElement("span");
+      span.className = "res-" + res;
+      resultDiv.appendChild(span);
     }
 
-    if (modoActual === "intermedio") {
-      tr.innerHTML = `
-        <td>${r.N ?? ""}</td>
-        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
-        <td>${r.PTS}</td>
-        <td>${r.J}</td>
-        <td>${r.GOL}</td>
-      `;
-    }
+    // color de delta
+    const delta = r.Δ ?? "";
+    let deltaClass = "";
+    if (delta.includes("↑")) deltaClass = "pos";
+    else if (delta.includes("↓")) deltaClass = "neg";
 
-    if (modoActual === "completo") {
-      tr.innerHTML = `
-        <td>${r.N ?? ""}</td>
-        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
-        <td>${r.PTS}</td>
-        <td>${r.G}</td>
-        <td>${r.E}</td>
-        <td>${r.P}</td>
-      `;
-    }
+    tr.innerHTML = `
+      <td>${r.N ?? ""}</td>
+      <td class="${deltaClass}">${delta}</td>
+      <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+      <td>${r.PTS}</td>
+      <td></td>
+    `;
+    tr.lastElementChild.appendChild(resultDiv);
+  }
+
+  // === Intermedio ===
+  if (modoActual === "intermedio") {
+    const dg = r.GOL ?? "";
+    const dgClass = dg.includes("+") ? "pos" : dg.includes("-") ? "neg" : "";
+    
+    tr.innerHTML = `
+      <td>${r.N ?? ""}</td>
+      <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+      <td>${r.PTS}</td>
+      <td>${r.J}</td>
+      <td class="${dgClass}">${dg}</td>
+    `;
+  }
+
+
+  // === Completo ===
+  if (modoActual === "completo") {
+    // aplica color según W, D, L
+    const wClass = Number(r.G) > 0 ? "pos" : "";
+    const dClass = Number(r.E) > 0 ? "draw" : "";
+    const lClass = Number(r.P) > 0 ? "neg" : "";
+
+    tr.innerHTML = `
+      <td>${r.N ?? ""}</td>
+      <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+      <td>${r.PTS}</td>
+      <td class="${wClass}">${r.G}</td>
+      <td class="${dClass}">${r.E}</td>
+      <td class="${lClass}">${r.P}</td>
+    `;
+  }
 
     els.body.appendChild(tr);
   });
+  
+  // mantener sincronizado el foco
+  const idSel = select?.value;
+  if (idSel) {
+    resaltarJugador(idSel);
+    renderMiniTabla(idSel);
+  }
+
 }
+
+/* ===== SELECTOR DE JUGADOR ===== */
+const select = document.getElementById("jugadorSelect");
+
+// poblar select cuando se cargan posiciones
+function llenarSelect() {
+  posiciones.slice(0,10).forEach(r => {
+    const opt = document.createElement("option");
+    opt.value = r.ID;
+    opt.textContent = r.JUG;
+    select.appendChild(opt);
+  });
+}
+
+select.addEventListener("change", () => {
+  const idSel = select.value;
+  resaltarJugador(idSel);
+});
+
+// resalta la fila del jugador en la tabla actual
+function resaltarJugador(id) {
+  document.querySelectorAll("#tabla tbody tr").forEach(tr => {
+    tr.classList.remove("highlight");
+  });
+  if (!id) return;
+  const fila = [...document.querySelectorAll("#tabla tbody tr")].find(tr =>
+    tr.querySelector("a")?.href.includes(`id=${id}`)
+  );
+  if (fila) fila.classList.add("highlight");
+}
+
+// llamar al llenarSelect después de cargar los datos
+// reemplazá dentro de init(), justo después de renderTabla();
+function showTable() {
+  els.status.style.display = "none";
+  els.tabla.style.display = "table";
+  llenarSelect(); // <-- agregar esta línea dentro de tu flujo actual
+}
+
+/* ===== MINI TABLA DEL JUGADOR SELECCIONADO ===== */
+const focusCard = document.getElementById("jugadorFocus");
+const focusNombre = document.getElementById("focusNombre");
+const focusHead = document.getElementById("focusHead");
+const focusBody = document.getElementById("focusBody");
+
+function renderMiniTabla(id) {
+  if (!id) {
+    focusCard.style.display = "none";
+    return;
+  }
+
+  const jugador = posiciones.find(r => r.ID == id);
+  if (!jugador) return;
+
+  focusHead.innerHTML = "";
+  focusBody.innerHTML = "";
+
+  let headers = [];
+  switch (modoActual) {
+    case "compacto":
+      headers = ["N°", "Δ", "Pts", "Últimos 5"];
+      break;
+    case "intermedio":
+      headers = ["N°", "Pts", "J", "DG"];
+      break;
+    case "completo":
+      headers = ["N°", "Pts", "W", "D", "L"];
+      break;
+  }
+
+  const trHead = document.createElement("tr");
+  headers.forEach(h => {
+    const th = document.createElement("th");
+    th.textContent = h;
+    trHead.appendChild(th);
+  });
+  focusHead.appendChild(trHead);
+
+  const trBody = document.createElement("tr");
+
+  // === COMPACTO ===
+  if (modoActual === "compacto") {
+    const ult = ultimos[jugador.ID];
+    const div = document.createElement("div");
+    div.className = "result-circles";
+    for (let j = 1; j <= 5; j++) {
+      const res = ult?.[j]?.situation || "N";
+      const span = document.createElement("span");
+      span.className = "res-" + res;
+      div.appendChild(span);
+    }
+
+    const delta = jugador.Δ ?? "";
+    const deltaClass = delta.includes("↑")
+      ? "pos"
+      : delta.includes("↓")
+      ? "neg"
+      : "";
+
+    trBody.innerHTML = `
+      <td>${jugador.N}</td>
+      <td class="${deltaClass}">${delta}</td>
+      <td>${jugador.PTS}</td>
+      <td></td>
+    `;
+    trBody.lastElementChild.appendChild(div);
+  }
+
+  // === INTERMEDIO ===
+  if (modoActual === "intermedio") {
+    const dg = jugador.GOL ?? "";
+    const dgClass = dg.includes("+") ? "pos" : dg.includes("-") ? "neg" : "";
+
+    trBody.innerHTML = `
+      <td>${jugador.N}</td>
+      <td>${jugador.PTS}</td>
+      <td>${jugador.J}</td>
+      <td class="${dgClass}">${dg}</td>
+    `;
+  }
+
+  // === COMPLETO ===
+  if (modoActual === "completo") {
+    const wClass = Number(jugador.G) > 0 ? "pos" : "";
+    const dClass = Number(jugador.E) > 0 ? "draw" : "";
+    const lClass = Number(jugador.P) > 0 ? "neg" : "";
+
+    trBody.innerHTML = `
+      <td>${jugador.N}</td>
+      <td>${jugador.PTS}</td>
+      <td class="${wClass}">${jugador.G}</td>
+      <td class="${dClass}">${jugador.E}</td>
+      <td class="${lClass}">${jugador.P}</td>
+    `;
+  }
+
+  focusBody.appendChild(trBody);
+  focusCard.style.display = "block";
+}
+
+
+/* integrar con la selección existente */
+select.addEventListener("change", () => {
+  const idSel = select.value;
+  resaltarJugador(idSel);
+  renderMiniTabla(idSel);
+});
+
 
 
 
