@@ -484,7 +484,9 @@ function rachaColor(tipo) {
   const t = (tipo || '').toLowerCase();
   if (t.includes('presente')) return 'blue';
   if (t.includes('victorias')) return 'green';
+  if (t.includes('invicto')) return 'darkgreen';
   if (t.includes('derrotas')) return 'red';
+  if (t.includes('sin ganar')) return 'darkred';
   if (t.includes('paternidad')) return 'yellow';
   if (t.includes('ausente')) return 'gray';
   return 'gray';

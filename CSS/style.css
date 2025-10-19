@@ -296,6 +296,9 @@ tr.highlight td {
 .badge.red    { background: #e74c3c; color: #fff; }
 .badge.yellow { background: #f1c40f; color: #000; }
 .badge.purple { background: #e90ff1; color: #fff; }
+.badge.darkgreen  { background: #1b7e44; color: #fff; }
+.badge.darkred    { background: #8a2217; color: #fff; }
+
 
 .streaks-grid,
 .matches-grid {
