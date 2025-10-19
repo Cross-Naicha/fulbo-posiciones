@@ -216,6 +216,63 @@ tr.highlight td {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* === RESPONSIVE FIXES (mobile/tablet) === */
+@media (max-width: 768px) {
+
+  /* Permite desplazamiento horizontal si la tabla se pasa del ancho */
+  .tabla-posiciones {
+    overflow-x: auto;
+  }
+
+  #tabla {
+    min-width: 520px; /* evita que se aplaste demasiado */
+  }
+
+  /* Centra y da aire a los botones */
+  .modo-btns {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .modo-btns button {
+    flex: 1 1 auto;
+    min-width: 100px;
+  }
+
+  /* Selector con más aire y centrado */
+  .selector-jugador {
+    margin: 0 auto 10px auto;
+    width: 90%;
+  }
+
+  #jugadorSelect {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  /* Mini-card centrada y con padding lateral */
+  .mini-card {
+    width: 92%;
+    margin: 16px auto;
+    padding: 14px;
+  }
+
+  /* Ajustes en fuente y celdas */
+  #tabla th, #tabla td,
+  .mini-card th, .mini-card td {
+    font-size: 0.85rem;
+    padding: 5px 4px;
+  }
+
+  /* Resultado de circulitos más chicos */
+  .result-circles span {
+    width: 8px;
+    height: 8px;
+  }
+}
 
 /* === DYNAMIC COLORS === */
 .up { color: #4CAF50; }
