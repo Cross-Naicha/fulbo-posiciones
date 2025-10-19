@@ -670,6 +670,6 @@ async function loadMatches() {
  * This ensures everything loads correctly in order.
  */
 initLockCycle();
-init()
+init();
 loadStreaks();
 loadMatches();

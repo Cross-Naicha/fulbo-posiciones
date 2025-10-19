@@ -545,10 +545,6 @@ body.locked { overflow: hidden; position: fixed; width: 100%; }
     overflow-x: auto;
   }
 
-  #tabla {
-    min-width: 520px;
-  }
-
   .modo-btns {
     flex-wrap: wrap;
     justify-content: center;
@@ -612,6 +608,6 @@ body.locked { overflow: hidden; position: fixed; width: 100%; }
     padding: 6px 10px;
   }
   #tabla {
-    min-width: 480px;
+    min-width: auto;
   }
 }
