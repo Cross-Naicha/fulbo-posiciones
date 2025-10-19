@@ -182,6 +182,7 @@ async function init() {
     posiciones = await resPos.json();
     ultimos = await resUlt.json();
     showTable();
+    llenarSelect();
     renderTabla();
   } catch (err) {
     setStatus("Error: " + err.message);
@@ -317,7 +318,11 @@ const select = document.getElementById("jugadorSelect");
 
 // poblar select cuando se cargan posiciones
 function llenarSelect() {
-  posiciones.slice(0,10).forEach(r => {
+  const select = document.getElementById("jugadorSelect");
+  if (!select) return;
+
+  select.innerHTML = '<option value="">— Filtrar jugador —</option>';
+  posiciones.slice(0, 10).forEach(r => {
     const opt = document.createElement("option");
     opt.value = r.ID;
     opt.textContent = r.JUG;
