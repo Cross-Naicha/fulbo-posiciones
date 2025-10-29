@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 1.0,
+    "partidos": 2.0,
     "apodo": "Cesar",
     "puntos": 1,
-    "efectividad": 0.33,
+    "efectividad": 0.17,
     "ganados": 0,
     "empatados": 1,
-    "perdidos": 0,
-    "diferencia de gol": "0",
-    "delta": "↑0"
+    "perdidos": 1,
+    "diferencia de gol": "- 1",
+    "delta": "↑1"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-15",
@@ -17,42 +17,42 @@
     "puntos acumulados": 1,
     "victorias": 0,
     "empates": 1,
-    "actual": true
+    "actual": false
   },
   "losses_streak_statistics": {
-    "empieza": "2025-10-01",
-    "termina": "2025-10-01",
+    "empieza": "2025-10-22",
+    "termina": "2025-10-22",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
-    "empieza": "2025-09-17",
-    "termina": "2025-10-01",
+    "empieza": "2025-10-15",
+    "termina": "2025-10-22",
     "extension": 2,
-    "actual": false
+    "actual": true
   },
   "last_5": {
+    "2025-10-22": "P",
     "2025-10-15": "E",
     "2025-10-08": "A",
     "2025-10-01": "P",
-    "2025-09-17": "G",
-    "2025-09-10": "A"
+    "2025-09-17": "G"
   },
   "balance_vs": {
     "Chicho": 1,
     "Marcelo": 1,
-    "Camilo": 1,
     "Yamil": 1,
     "Jose": 1,
     "Vara": 1,
-    "Chagay": 0,
-    "Mario": 0,
-    "Naicha": 0,
+    "Camilo": 0,
+    "Chagay": -1,
+    "Mario": -1,
+    "Naicha": -1,
     "Lomba": -1,
     "Emi": -1,
-    "Bag": -1,
     "Pelao Khe": -1,
-    "Mato": -2
+    "Mato": -2,
+    "Bag": -2
   },
   "best_partner": {
     "Bag": 1,
@@ -67,7 +67,11 @@
     "Facu": 1,
     "P11": 1,
     "Yamil": 1,
-    "Mario": 1
+    "Mario": 1,
+    "PatoB4": 1,
+    "LucasB4": 1,
+    "RandomB4": 1,
+    "NicoM4": 1
   },
   "paternity": {},
   "filiation": {}

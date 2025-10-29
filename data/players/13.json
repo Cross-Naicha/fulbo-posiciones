@@ -1,21 +1,21 @@
 {
   "basic_statistics": {
-    "partidos": 2.0,
+    "partidos": 3.0,
     "apodo": "Mario",
-    "puntos": 4,
-    "efectividad": 0.67,
-    "ganados": 1,
+    "puntos": 7,
+    "efectividad": 0.78,
+    "ganados": 2,
     "empatados": 1,
     "perdidos": 0,
-    "diferencia de gol": "+ 4",
+    "diferencia de gol": "+ 5",
     "delta": "↑1"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-08",
-    "termina": "2025-10-15",
-    "extension": 2,
-    "puntos acumulados": 4,
-    "victorias": 1,
+    "termina": "2025-10-22",
+    "extension": 3,
+    "puntos acumulados": 7,
+    "victorias": 2,
     "empates": 1,
     "actual": true
   },
@@ -27,41 +27,47 @@
   },
   "present_streak_statistics": {
     "empieza": "2025-10-01",
-    "termina": "2025-10-15",
-    "extension": 3,
+    "termina": "2025-10-22",
+    "extension": 4,
     "actual": true
   },
   "last_5": {
+    "2025-10-22": "G",
     "2025-10-15": "E",
     "2025-10-08": "G",
     "2025-10-01": "P",
-    "2025-09-17": "A",
-    "2025-09-10": "E"
+    "2025-09-17": "A"
   },
   "balance_vs": {
     "Chicho": 2,
     "P11": 2,
     "Facu": 1,
+    "Cesar": 1,
     "Marcelo": 1,
     "Valentin": 1,
-    "Cesar": 0,
+    "PatoB4": 1,
+    "LucasB4": 1,
+    "RandomB4": 1,
+    "NicoM4": 1,
     "Mato": 0,
     "Bag": -1,
     "Emi": -1,
     "Naicha": -1,
-    "Lomba": -2,
-    "Pelao Khe": -2
+    "Pelao Khe": -2,
+    "Lomba": -2
   },
   "best_partner": {
     "Lomba": 2,
     "Emi": 1,
     "Mato": 1,
-    "Benja": 1
+    "Chagay": 1,
+    "Benja": 1,
+    "Naicha": 1,
+    "Bag": 1
   },
   "worse_partner": {
     "Marcelo": 2,
     "Chicho": 1,
-    "Camilo": 1,
     "Cesar": 1
   },
   "paternity": {},
