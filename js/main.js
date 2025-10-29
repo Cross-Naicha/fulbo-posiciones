@@ -47,7 +47,7 @@
 const CONFIG = {
   manual_force_lock: false,
   auto_lock_enabled: true,
-  last_unlock_at: "2025-10-23T00:00:00-03:00",
+  last_unlock_at: "2025-10-29T00:00:00-03:00",
   whatsapp_link: "https://wa.me/5493815303224?text=Querido%20Chiqui...",
   whatsapp_qr_src: "data/qr-whatsapp.png"
 };
@@ -176,7 +176,7 @@ async function init() {
     setStatus("Cargando datos...");
     const [resPos, resUlt] = await Promise.all([
       fetch("data/posiciones.json?v=" + Date.now()),
-      fetch("data/ultimos.json?v=" + Date.now())
+      fetch("data/ultimos_5_todos.json?v=" + Date.now())
     ]);
     if (!resPos.ok || !resUlt.ok) throw new Error("Error al cargar archivos JSON");
     posiciones = await resPos.json();
