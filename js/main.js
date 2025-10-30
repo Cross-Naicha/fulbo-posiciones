@@ -47,7 +47,7 @@
 const CONFIG = {
   manual_force_lock: false,
   auto_lock_enabled: true,
-  last_unlock_at: "2025-10-29T00:00:00-03:00",
+  last_unlock_at: "2025-10-30T00:00:00-03:00",
   whatsapp_link: "https://wa.me/5493815303224?text=Querido%20Chiqui...",
   whatsapp_qr_src: "data/qr-whatsapp.png"
 };
