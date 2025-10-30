@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 1,
     "diferencia de gol": "- 1",
-    "delta": "↑6"
+    "delta": "↓8"
   },
   "winning_streak_statistics": {
     "empieza": null,
@@ -29,14 +29,14 @@
     "empieza": "2025-10-22",
     "termina": "2025-10-22",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-10-29": "A",
     "2025-10-22": "P",
     "2025-10-15": "A",
     "2025-10-08": "A",
-    "2025-10-01": "A",
-    "2025-09-17": "A"
+    "2025-10-01": "A"
   },
   "balance_vs": {
     "Camilo": -1,

@@ -8,7 +8,7 @@
     "empatados": 1,
     "perdidos": 0,
     "diferencia de gol": "+ 1",
-    "delta": "↑6"
+    "delta": "↓3"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-15",
@@ -17,7 +17,7 @@
     "puntos acumulados": 4,
     "victorias": 1,
     "empates": 1,
-    "actual": true
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2025-09-03",
@@ -29,14 +29,14 @@
     "empieza": "2025-10-15",
     "termina": "2025-10-22",
     "extension": 2,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2025-10-29": "A",
     "2025-10-22": "G",
     "2025-10-15": "E",
     "2025-10-08": "A",
-    "2025-10-01": "A",
-    "2025-09-17": "G"
+    "2025-10-01": "A"
   },
   "balance_vs": {
     "Naicha": 1,

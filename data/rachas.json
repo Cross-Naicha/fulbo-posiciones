@@ -1,7 +1,14 @@
 [
   {
     "racha": "sin ganar",
-    "jugador": "Cesar",
+    "jugador": "Marcelo",
+    "extension": 5,
+    "dias": 63,
+    "inicio": "2025-08-27"
+  },
+  {
+    "racha": "victorias",
+    "jugador": "Naicha",
     "extension": 3,
     "dias": 28,
     "inicio": "2025-10-01"
@@ -9,41 +16,55 @@
   {
     "racha": "invicto",
     "jugador": "Chagay",
-    "extension": 3,
+    "extension": 4,
     "dias": 21,
     "inicio": "2025-10-08"
   },
   {
     "racha": "invicto",
     "jugador": "Mario",
-    "extension": 3,
+    "extension": 4,
     "dias": 21,
     "inicio": "2025-10-08"
   },
   {
-    "racha": "invicto",
-    "jugador": "Camilo",
-    "extension": 3,
-    "dias": 42,
-    "inicio": "2025-09-17"
-  },
-  {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 8,
+    "extension": 9,
     "dias": 63,
     "inicio": "2025-08-27"
   },
   {
     "racha": "ausente",
     "jugador": "Vara",
-    "extension": 4,
+    "extension": 5,
     "dias": 28,
     "inicio": "2025-10-01"
   },
   {
     "racha": "paternidad (intensidad)",
+    "jugador": "Bag -> Marcelo",
+    "extension": 3,
+    "dias": 56,
+    "inicio": "2025-09-03"
+  },
+  {
+    "racha": "paternidad (intensidad)",
     "jugador": "Lomba -> Marcelo",
+    "extension": 3,
+    "dias": 63,
+    "inicio": "2025-08-27"
+  },
+  {
+    "racha": "paternidad (intensidad)",
+    "jugador": "Chagay -> P11",
+    "extension": 3,
+    "dias": 63,
+    "inicio": "2025-08-27"
+  },
+  {
+    "racha": "paternidad (intensidad)",
+    "jugador": "Mario -> P11",
     "extension": 3,
     "dias": 63,
     "inicio": "2025-08-27"

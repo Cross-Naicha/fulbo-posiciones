@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 2.0,
+    "partidos": 3.0,
     "apodo": "Mato",
     "puntos": 1,
-    "efectividad": 0.17,
+    "efectividad": 0.11,
     "ganados": 0,
     "empatados": 1,
-    "perdidos": 1,
-    "diferencia de gol": "- 4",
-    "delta": "↓6"
+    "perdidos": 2,
+    "diferencia de gol": "- 5",
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2025-09-17",
@@ -20,10 +20,10 @@
     "actual": false
   },
   "losses_streak_statistics": {
-    "empieza": "2025-10-08",
-    "termina": "2025-10-08",
+    "empieza": "2025-10-29",
+    "termina": "2025-10-29",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-09-17",
@@ -32,26 +32,27 @@
     "actual": false
   },
   "last_5": {
+    "2025-10-29": "P",
     "2025-10-22": "A",
     "2025-10-15": "E",
     "2025-10-08": "P",
-    "2025-10-01": "G",
-    "2025-09-17": "G"
+    "2025-10-01": "G"
   },
   "balance_vs": {
-    "Cesar": 2,
     "Marcelo": 2,
     "Chicho": 1,
     "Facu": 1,
+    "Cesar": 1,
     "P11": 1,
-    "Naicha": 1,
     "Yamil": 1,
     "Jose": 1,
     "Vara": 1,
+    "Naicha": 0,
     "Lomba": 0,
-    "Chagay": 0,
-    "Mario": 0,
-    "Benja": -1
+    "Chagay": -1,
+    "Mario": -1,
+    "Benja": -1,
+    "Bag": -1
   },
   "best_partner": {
     "Lomba": 2,
@@ -64,8 +65,11 @@
     "Pelao Khe": 1
   },
   "worse_partner": {
-    "P11": 1,
-    "Valentin": 1
+    "P11": 2,
+    "Valentin": 1,
+    "Marcelo": 1,
+    "NicoM4": 1,
+    "Random2B4": 1
   },
   "paternity": {},
   "filiation": {}
