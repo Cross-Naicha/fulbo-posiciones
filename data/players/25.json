@@ -25,14 +25,7 @@
     "extension": 0,
     "actual": false
   },
-  "best_partner": {
-    "Bag": 2,
-    "Lomba": 2,
-    "Emi": 1,
-    "Cesar": 1,
-    "Naicha": 1,
-    "Mato": 1
-  },
+  "best_partner": {},
   "worse_partner": {},
   "paternity": {},
   "filiation": {}

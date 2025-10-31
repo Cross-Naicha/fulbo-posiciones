@@ -25,16 +25,7 @@
     "extension": 0,
     "actual": false
   },
-  "best_partner": {
-    "Lomba": 2,
-    "Chagay": 2,
-    "Emi": 1,
-    "Mario": 1,
-    "Cesar": 1,
-    "Camilo": 1,
-    "Naicha": 1,
-    "Pelao Khe": 1
-  },
+  "best_partner": {},
   "worse_partner": {
     "P11": 2,
     "Valentin": 1,

@@ -25,13 +25,7 @@
     "extension": 0,
     "actual": false
   },
-  "best_partner": {
-    "Cesar": 1,
-    "Chagay": 1,
-    "Mato": 1,
-    "Naicha": 1,
-    "Bag": 1
-  },
+  "best_partner": {},
   "worse_partner": {
     "Marcelo": 1
   },
