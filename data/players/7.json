@@ -55,10 +55,7 @@
     "Cesar": 1,
     "Benja": 1
   },
-  "worse_partner": {
-    "Jose": 1,
-    "Vara": 1
-  },
+  "worse_partner": {},
   "paternity": {},
   "filiation": {}
 }
