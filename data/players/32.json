@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 1.0,
+    "partidos": 0.0,
     "apodo": "LucasB4",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
     "empatados": 0,
-    "perdidos": 1,
-    "diferencia de gol": "- 1",
-    "delta": "↓6"
+    "perdidos": 0,
+    "diferencia de gol": "0",
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": null,
@@ -19,24 +19,11 @@
     "empates": 0,
     "actual": false
   },
-  "losses_streak_statistics": {
-    "empieza": "2025-10-22",
-    "termina": "2025-10-22",
-    "extension": 1,
-    "actual": true
-  },
   "present_streak_statistics": {
-    "empieza": "2025-10-22",
-    "termina": "2025-10-22",
-    "extension": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
     "actual": false
-  },
-  "last_5": {
-    "2025-10-29": "A",
-    "2025-10-22": "P",
-    "2025-10-15": "A",
-    "2025-10-08": "A",
-    "2025-10-01": "A"
   },
   "balance_vs": {
     "Camilo": -1,

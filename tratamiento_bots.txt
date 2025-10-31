@@ -1,0 +1,3 @@
+Consultas donde restringi bots
+v_actividad_historica
+v_actual

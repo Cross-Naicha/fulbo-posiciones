@@ -8,29 +8,22 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "0",
-    "delta": "↑12"
+    "delta": "↑11"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-10-01",
-    "termina": "2025-10-01",
-    "extension": 1,
-    "puntos acumulados": 3,
-    "victorias": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
+    "victorias": 0,
     "empates": 0,
     "actual": false
   },
   "present_streak_statistics": {
-    "empieza": "2025-10-01",
-    "termina": "2025-10-01",
-    "extension": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
     "actual": false
-  },
-  "last_5": {
-    "2025-10-29": "A",
-    "2025-10-22": "A",
-    "2025-10-15": "A",
-    "2025-10-08": "A",
-    "2025-10-01": "G"
   },
   "balance_vs": {
     "Chagay": 2,
