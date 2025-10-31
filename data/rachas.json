@@ -1,8 +1,8 @@
 [
   {
     "racha": "sin ganar",
-    "jugador": "Marcelo",
-    "extension": 5,
+    "jugador": "P11",
+    "extension": 4,
     "dias": 65,
     "inicio": "2025-08-27"
   },
@@ -40,20 +40,6 @@
     "extension": 3,
     "dias": 16,
     "inicio": "2025-10-15"
-  },
-  {
-    "racha": "paternidad (intensidad)",
-    "jugador": "Bag -> Marcelo",
-    "extension": 3,
-    "dias": 58,
-    "inicio": "2025-09-03"
-  },
-  {
-    "racha": "paternidad (intensidad)",
-    "jugador": "Lomba -> Marcelo",
-    "extension": 3,
-    "dias": 65,
-    "inicio": "2025-08-27"
   },
   {
     "racha": "paternidad (intensidad)",

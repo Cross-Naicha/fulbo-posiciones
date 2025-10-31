@@ -8,7 +8,7 @@
     "empatados": 1,
     "perdidos": 0,
     "diferencia de gol": "+ 8",
-    "delta": "-"
+    "delta": "↑1"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-08",
@@ -41,9 +41,7 @@
   "balance_vs": {
     "P11": 3,
     "Chicho": 2,
-    "Marcelo": 2,
     "Cesar": 1,
-    "Mato": 1,
     "Bag": -1,
     "Emi": -1,
     "Naicha": -1,
