@@ -39,16 +39,16 @@
     "2025-10-01": "A"
   },
   "balance_vs": {
-    "Mato": -1,
     "Emi": -1,
-    "Benja": -1,
+    "Mato": -1,
     "Yamil (R)": -1,
-    "Cesar": -1,
-    "Bag": -1,
+    "Benja": -1,
     "Naicha": -1,
+    "Bag": -1,
+    "Cesar": -1,
     "Lomba": -2,
-    "Mario": -3,
-    "Chagay": -3
+    "Chagay": -3,
+    "Mario": -3
   },
   "best_partner": {},
   "worse_partner": {

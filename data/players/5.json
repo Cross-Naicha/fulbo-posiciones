@@ -40,16 +40,13 @@
   },
   "balance_vs": {
     "P11": 1,
-    "Valentin": 1,
     "Chicho": 0,
     "Bag": 0,
     "Mato": -1,
-    "Camilo": -1,
-    "Chagay": -1,
     "Cesar": -1,
-    "Pelao Khe": -1,
-    "Lomba": -1,
-    "Naicha": -1
+    "Chagay": -1,
+    "Naicha": -1,
+    "Lomba": -1
   },
   "best_partner": {
     "Benja": 1

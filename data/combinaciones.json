@@ -83,24 +83,6 @@
   [
     "GAN",
     2,
-    "Lomba",
-    "Pelao Khe",
-    null,
-    null,
-    2
-  ],
-  [
-    "GAN",
-    2,
-    "Bag",
-    "Pelao Khe",
-    null,
-    null,
-    2
-  ],
-  [
-    "GAN",
-    2,
     "Cesar",
     "Chagay",
     null,
@@ -110,15 +92,6 @@
   [
     "GAN",
     2,
-    "Chagay",
-    "Camilo",
-    null,
-    null,
-    2
-  ],
-  [
-    "GAN",
-    2,
     "Bag",
     "Chagay",
     null,
@@ -158,15 +131,6 @@
     "Lomba",
     "Chagay",
     "Mario",
-    null,
-    2
-  ],
-  [
-    "GAN",
-    3,
-    "Bag",
-    "Lomba",
-    "Pelao Khe",
     null,
     2
   ],
