@@ -4,66 +4,38 @@
   <meta charset="UTF-8" />
   <title>Tabla de Posiciones</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- === GLOBAL STYLES ===
-       The style block below contains all color variables, layout settings,
-       and visual definitions for the page.
-       (In a future step, this will be moved to a separate CSS file)
-  -->
   <link rel="stylesheet" href="CSS/style.css">
-
 </head>
 
 <body>
-  <!-- === HEADER / SPONSOR AREA ===
-       Displays the sponsor bar at the top of the page.
-       Text content is dynamically loaded from textos.json
-  -->
+  <!-- BARRA SUPERIOR DEL AUSpICIANTE -->
   <div class="top-tab" id="auspiciante"></div>
 
-  <!-- === MAIN WRAPPER ===
-       Contains all page content with a fixed maximum width for readability.
-  -->
+  <!-- 📌 NUEVA NAVEGACIÓN SUPERIOR FIJA -->
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="index.html" class="nav-item active">🏆 Posiciones</a>
+      <a href="generador.html" class="nav-item">🛠 Generar Equipos</a>
+      <a href="historica.html" class="nav-item">📊 Histórica</a>
+      <a href="combinaciones.html" class="nav-item">🔢 Combinaciones</a>
+      <a href="fechas.html" class="nav-item">📅 Fechas</a>
+      <a href="resultados.html" class="nav-item">📝 Resultados</a>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
   <div class="wrap">
 
-    <!-- === TITLE SECTION ===
-         Main title, subtitle, and quote loaded dynamically from textos.json
-    -->
+    <!-- TITULOS -->
     <h1 id="titulo"></h1>
     <h2 id="subtitulo"></h2>
     <div class="sub" id="frase_chiqui"></div>
 
-        <!-- === NAVIGATION CARD ===
-         A simple card linking to another page (combinaciones.html)
-         for exploring player combinations.
-    -->
-         
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge yellow">Generar Equipos</span>
-        <span class="streak-len">⚽</span>
-      </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="generador.html" class="nav-link">
-            Generados de Equipos (Azar/Ajustado) →
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="sep"></div>
-
-    <!-- === DATE SECTION ===
-         Displays the date or current round labels (loaded from textos.json)
-    -->
+    <!-- FECHAS -->
     <h3 id="fechas_1"></h3>
     <p id="fechas_2"></p>
 
-    <!-- === MAIN TABLE SECTION ===
-         Shows player rankings and statistics.
-         Data is fetched from data/posiciones.json
-    -->
+    <!-- TABLA DE POSICIONES -->
     <h2>Tabla de Posiciones</h2>
     <div class="card tabla-posiciones">
       <div class="tabla-header">
@@ -79,12 +51,12 @@
         </div>
       </div>
 
-    <div id="jugadorFocus" class="mini-card" style="display:none">
-      <table>
-        <thead id="focusHead"></thead>
-        <tbody id="focusBody"></tbody>
-      </table>
-    </div>
+      <div id="jugadorFocus" class="mini-card" style="display:none">
+        <table>
+          <thead id="focusHead"></thead>
+          <tbody id="focusBody"></tbody>
+        </table>
+      </div>
 
       <div id="status" class="status">Cargando datos…</div>
       <table id="tabla" style="display:none">
@@ -94,86 +66,55 @@
     </div>
 
     <p id="novedades"></p>
-    <p>Δ: Cambio de pósicion respecto a la última fecha; J: Jugados; P: Puntos; W: Ganados; D: Empatados; L: Perdidos; DG: Diferencia de Gol</p>
+    <p>Δ: Cambio de posición; J: Jugados; P: Puntos; W: Ganados; D: Empatados; L: Perdidos; DG: Diferencia de Gol</p>
 
-    <!-- === NAVIGATION CARD ===
-        A simple card linking to another page (combinaciones.html)
-         for exploring player combinations.
-    -->
-    
     <div class="sep"></div>
-    
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge red">Tabla HISTORICA</span>
-        <span class="streak-len">⚽</span>
+
+    <!-- 🟦 RACHAS DESTACADAS CON BOTONERA -->
+    <h2>Rachas destacadas</h2>
+    <div class="streaks-panel">
+      <div class="streaks-tabs" id="streakTabs">
+        <button data-filter="todas" class="active">Todas</button>
+        <button data-filter="victorias">Victorias</button>
+        <button data-filter="invicto">Invictos</button>
+        <button data-filter="derrotas">Derrotas</button>
+        <button data-filter="paternidad">Paternidades</button>
+        <button data-filter="ausente">Ausentes</button>
       </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="historica.html" class="nav-link">
-            Puntaje Historico por Jugador →
-          </a>
+      <div class="card streaks-card">
+        <div id="streaksStatus" class="streaks-status">Cargando rachas…</div>
+        <div id="streaksGrid" class="streaks-grid" style="display:none"></div>
+        <div id="streaksEmpty" class="streaks-status" style="display:none">No hay rachas para mostrar.</div>
+      </div>
+      <p>Paternidad PAR: Número de Partidos; Paternidad DIF: Diferencia de Partidos</p>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- 🟩 COMBINACIONES DESTACADAS -->
+    <h2>Combinaciones destacadas</h2>
+    <div class="comb-panel">
+      <div class="comb-filters">
+        <div class="comb-group" id="combTipo">
+          <span class="comb-label">Tipo:</span>
+          <button data-tipo="GAN" class="active success">Ganadoras</button>
+          <button data-tipo="PER" class="danger">Perdedoras</button>
+        </div>
+        <div class="comb-group" id="combSize">
+          <span class="comb-label">Tamaño:</span>
+          <!-- acá JS va a inyectar 2 / 3 / 4 según el JSON -->
         </div>
       </div>
-    </div>
-
-    <p></p>
-
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge purple">Informar (Experimental)</span>
-        <span class="streak-len">⚽</span>
-      </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="resultados.html" class="nav-link">
-            Informar Resultados del Último Partido →
-          </a>
-        </div>
+      <div class="card comb-card">
+        <div id="combStatus" class="streaks-status">Cargando combinaciones…</div>
+        <div id="combGrid" class="streaks-grid" style="display:none"></div>
+        <div id="combEmpty" class="streaks-status" style="display:none">No hay combinaciones para este filtro.</div>
       </div>
     </div>
 
     <div class="sep"></div>
 
-    <!-- === STREAKS SECTION ===
-         Shows highlighted streaks such as victories, defeats, or rivalries.
-         Data is loaded from data/rachas.json
-    -->
-    <h2>Rachas Destacadas</h2>
-    <div class="card streaks-card">
-      <div id="streaksStatus" class="streaks-status">Cargando rachas…</div>
-      <div id="streaksGrid" class="streaks-grid" style="display:none"></div>
-      <div id="streaksEmpty" class="streaks-status" style="display:none">No hay rachas para mostrar.</div>
-    </div>
-    <p>Paternidad PAR: Número de Partidos; Paternidad DIF: Diferencia de Partidos</p>
-
-    <div class="sep"></div>
-
-    <!-- === NAVIGATION CARD ===
-         A simple card linking to another page (combinaciones.html)
-         for exploring player combinations.
-    -->
-    <h2>Explorar combinaciones</h2>
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge blue">Combinaciones</span>
-        <span class="streak-len">⚽</span>
-      </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="combinaciones.html" class="nav-link">
-            Explorar combinaciones →
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="sep"></div>
-
-    <!-- === LAST MATCHES SECTION ===
-         Displays the last 6 matches in a streak-like card layout.
-         Data is loaded from data/partidos.json
-    -->
+    <!-- ULTIMOS PARTIDOS -->
     <h2>Últimos 6 partidos</h2>
     <div class="card matches-card">
       <div id="matchesStatus" class="matches-status">Cargando partidos…</div>
@@ -181,96 +122,30 @@
       <div id="matchesEmpty" class="matches-status" style="display:none">No hay partidos cargados todavía.</div>
     </div>
 
-        <!-- === NAVIGATION CARD ===
-         A simple card linking to another page (combinaciones.html)
-         for exploring player combinations.
-    -->
-
-    <p></p> <!-- Just for space  -->
-
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge green">Todos los Partidos</span>
-        <span class="streak-len">⚽</span>
-      </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="fechas.html" class="nav-link">
-            Historial de TODOS los partidos jugados →
-          </a>
-        </div>
-      </div>
-    </div>
-
     <div class="sep"></div>
-  </div>
 
-  <!-- === FOOTER ===
-       Simple footer bar with copyright text.
-  -->
+  </div> <!-- /wrap -->
+
   <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
 
-  <!-- === ANNOUNCEMENT OVERLAY ===
-       A modal-like overlay used to display special announcements.
-       Controlled via JS using startAnnouncements()
-  -->
-  <div class="lock-overlay" id="annOverlay">
-    <div class="lock-panel">
-      <div class="lock-title" id="annTitle"></div>
-      <div class="lock-sub" id="annBody"></div>
-      <div class="lock-actions">
-        <button id="annNextBtn" class="wa-btn">Siguiente</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- === WHATSAPP SUBMISSION OVERLAY ===
-       This overlay locks the page and invites users to send results
-       via WhatsApp or QR code. Managed by computeLockedState() and applyLockUI()
-  -->
+  <!-- OVERLAY DE WHATSAPP / LOCK -->
   <div class="lock-overlay" id="lockOverlay" aria-live="polite">
-    <div class="lock-panel" role="dialog" aria-labelledby="lockTitle" aria-describedby="lockDesc">
-      <div class="lock-title" id="lockTitle">⚽ La LIGA necesita tu ayuda! ⚽</div>
-      <div class="lock-sub" id="lockDesc">
-        Por favor, <strong>envia los resultados del último partido</strong> a través de las siguientes opciones.
-      </div>
-      <div class="lock-actions">
-      
-      <p></p>
-
-      <div class="card streaks-card nav-card">
-        <div class="streak-top">
-          <span class="badge purple">Informar</span>
-          <span class="streak-len">⚽</span>
-        </div>
-        <div class="streak-main">
-          <div class="streak-name">
-            <a href="resultados.html" class="nav-link">
-              Informar Resultados del Último Partido →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <p></p>
-
-      </div>
-    </div>
   </div>
 
-  <!-- === SCROLL TO TOP BUTTON ===
-       Floating button that appears when user scrolls down.
-       Controlled by the initScrollToTop() function in JS.
-  -->
+  <!-- BOTÓN FLOTANTE -->
   <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
 
-  <!-- === MAIN SCRIPT ===
-       Contains all interactive logic for loading texts, JSON data, overlays,
-       table rendering, and matches. Will be split into modules later.
-  -->
-  
+  <!-- MENÚ DE BURBUJAS SOBRE EL BOTÓN -->
+  <div id="fabMenu" class="fab-menu" aria-hidden="true">
+    <a href="generador.html" class="fab-bubble">🛠</a>
+    <a href="historica.html" class="fab-bubble">📊</a>
+    <a href="combinaciones.html" class="fab-bubble">🔢</a>
+    <a href="fechas.html" class="fab-bubble">📅</a>
+    <a href="resultados.html" class="fab-bubble">📝</a>
+  </div>
+
+  <!-- SCRIPTS -->
   <script src="js/main.js"></script>
   <script src="js/textos.js"></script>
-
 </body>
 </html>

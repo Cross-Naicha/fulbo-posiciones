@@ -1,20 +1,14 @@
 /* =========================================================
    LIGA DE FULBO - MAIN SCRIPT
-   Author: Nicolás + ChatGPT
-   Purpose: Controls all dynamic behavior of the page,
-   including text loading, overlays, table, streaks, and matches.
    ========================================================= */
 
-/* =========================================================
-   2. SCROLL TO TOP BUTTON
-   ========================================================= */
-
-/**
- * Adds a floating button that scrolls the page smoothly to the top.
- * The button appears only after scrolling down a bit.
- */
+/* ========== 1. SCROLL TO TOP + FAB MENU ========== */
 (function initScrollToTop() {
   const btn = document.getElementById('toTopBtn');
+  const fabMenu = document.getElementById('fabMenu');
+  let pressTimer = null;
+  let menuOpen = false;
+
   if (!btn) return;
 
   const toggle = () => {
@@ -22,28 +16,57 @@
       btn.classList.add('show');
     } else {
       btn.classList.remove('show');
+      // si scrollea, cerramos el menú
+      hideFabMenu();
     }
   };
+
+  function showFabMenu() {
+    fabMenu?.classList.add('show');
+    menuOpen = true;
+  }
+  function hideFabMenu() {
+    fabMenu?.classList.remove('show');
+    menuOpen = false;
+  }
 
   window.addEventListener('scroll', toggle, { passive: true });
   window.addEventListener('resize', toggle);
   document.addEventListener('DOMContentLoaded', toggle);
 
+  // click normal: sube
   btn.addEventListener('click', e => {
+    // si el menú está abierto y hace click, lo cerramos
+    if (menuOpen) {
+      hideFabMenu();
+      return;
+    }
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // long press en mobile
+  btn.addEventListener('touchstart', e => {
+    pressTimer = setTimeout(() => {
+      showFabMenu();
+    }, 420);
+  }, { passive: true });
+
+  btn.addEventListener('touchend', e => {
+    clearTimeout(pressTimer);
+  });
+
+  // cerrar si toca fuera
+  document.addEventListener('touchstart', e => {
+    if (!menuOpen) return;
+    if (!fabMenu.contains(e.target) && e.target !== btn) {
+      hideFabMenu();
+    }
+  }, { passive: true });
+
 })();
 
-
-/* =========================================================
-   3. LOCK / UNLOCK OVERLAY (WHATSAPP PANEL)
-   ========================================================= */
-
-/**
- * Manages the “locked” state of the page when results
- * need to be sent through WhatsApp or QR code.
- */
+/* ========== 2. LOCK / UNLOCK OVERLAY (WHATSAPP PANEL) ========== */
 const CONFIG = {
   manual_force_lock: false,
   auto_lock_enabled: true,
@@ -52,9 +75,6 @@ const CONFIG = {
   whatsapp_qr_src: "data/qr-whatsapp.png"
 };
 
-/**
- * Helper functions for calculating lock state.
- */
 function parseISO(s) {
   const t = Date.parse(s);
   return Number.isFinite(t) ? new Date(t) : null;
@@ -71,9 +91,6 @@ function currentRoundStart(now = new Date()) {
   return candidate;
 }
 
-/**
- * Determines whether the overlay should be active.
- */
 function computeLockedState() {
   const now = new Date();
   if (CONFIG.manual_force_lock) return true;
@@ -87,9 +104,6 @@ function computeLockedState() {
   return afterRoundStart && !unlockedThisRound;
 }
 
-/**
- * Applies the visual lock/unlock state to the UI.
- */
 function applyLockUI(locked) {
   const overlay = document.getElementById('lockOverlay');
   const waBtn = document.getElementById('waBtn');
@@ -107,56 +121,12 @@ function applyLockUI(locked) {
   }
 }
 
-/**
- * Checks every 60 seconds if the overlay should be visible.
- */
 function initLockCycle() {
   applyLockUI(computeLockedState());
   setInterval(() => applyLockUI(computeLockedState()), 60000);
 }
 
-
-/* =========================================================
-   4. ANNOUNCEMENT OVERLAY
-   ========================================================= */
-
-/**
- * Displays announcements from textos.json as a sequence
- * of modal-like windows that the user can click through.
- */
-let currentAnn = 0;
-
-function showAnnouncement(i) {
-  const overlay = document.getElementById("annOverlay");
-
-  if (i < ANNOUNCEMENTS.length) {
-    document.body.classList.add("locked");
-    overlay.classList.add("active");
-    document.getElementById("annTitle").textContent = ANNOUNCEMENTS[i].title;
-
-    // Convert line breaks into paragraphs
-    document.getElementById("annBody").innerHTML =
-      ANNOUNCEMENTS[i].body.split("\n\n").map(p => `<p>${p}</p>`).join("");
-  } else {
-    overlay.classList.remove("active");
-    document.body.classList.remove("locked");
-  }
-}
-
-function startAnnouncements() {
-  currentAnn = 0;
-  showAnnouncement(currentAnn);
-}
-
-document.getElementById("annNextBtn").addEventListener("click", () => {
-  currentAnn++;
-  showAnnouncement(currentAnn);
-});
-
-/* =========================================================
-   TABLA DE POSICIONES 2.0
-   ========================================================= */
-
+/* ========== 4. TABLA DE POSICIONES 2.0 ========== */
 const els = {
   status: document.getElementById("status"),
   tabla: document.getElementById("tabla"),
@@ -169,9 +139,7 @@ let posiciones = [];
 let ultimos = {};
 let modoActual = "compacto";
 
-init();
-
-async function init() {
+async function initTabla() {
   try {
     setStatus("Cargando datos...");
     const [resPos, resUlt] = await Promise.all([
@@ -198,9 +166,9 @@ function setStatus(msg) {
 function showTable() {
   els.status.style.display = "none";
   els.tabla.style.display = "table";
+  llenarSelect();
 }
 
-/* ===== CAMBIO DE MODO ===== */
 els.modoBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     els.modoBtns.forEach(b => b.classList.remove("active"));
@@ -210,22 +178,15 @@ els.modoBtns.forEach(btn => {
   });
 });
 
-/* ===== RENDER PRINCIPAL ===== */
 function renderTabla() {
   els.head.innerHTML = "";
   els.body.innerHTML = "";
 
   let headers = [];
   switch (modoActual) {
-    case "compacto":
-      headers = ["N°", "Delta", "Jugador", "Pts", "Últimos 5"];
-      break;
-    case "intermedio":
-      headers = ["N°", "Jugador", "Pts", "J", "DG"];
-      break;
-    case "completo":
-      headers = ["N°", "Jugador", "Pts", "W", "D", "L"];
-      break;
+    case "compacto": headers = ["N°", "Delta", "Jugador", "Pts", "Últimos 5"]; break;
+    case "intermedio": headers = ["N°", "Jugador", "Pts", "J", "DG"]; break;
+    case "completo": headers = ["N°", "Jugador", "Pts", "W", "D", "L"]; break;
   }
 
   const trHead = document.createElement("tr");
@@ -236,91 +197,78 @@ function renderTabla() {
   });
   els.head.appendChild(trHead);
 
-  posiciones.slice(0,10).forEach((r, i) => {
+  posiciones.slice(0, 10).forEach((r, i) => {
     const tr = document.createElement("tr");
-    tr.style.animationDelay = `${i * 40}ms`; // escalonado suave
+    tr.style.animationDelay = `${i * 40}ms`;
 
-    // === Compacto ===
-  if (modoActual === "compacto") {
-    const ult = ultimos[r.ID];
-    const resultDiv = document.createElement("div");
-    resultDiv.className = "result-circles";
+    if (modoActual === "compacto") {
+      const ult = ultimos[r.ID];
+      const resultDiv = document.createElement("div");
+      resultDiv.className = "result-circles";
 
-    for (let j = 1; j <= 5; j++) {
-      const res = ult?.[j]?.situation || "N";
-      const span = document.createElement("span");
-      span.className = "res-" + res;
-      resultDiv.appendChild(span);
+      for (let j = 1; j <= 5; j++) {
+        const res = ult?.[j]?.situation || "N";
+        const span = document.createElement("span");
+        span.className = "res-" + res;
+        resultDiv.appendChild(span);
+      }
+
+      const delta = r.Δ ?? "";
+      let deltaClass = "";
+      if (delta.includes("↑")) deltaClass = "pos";
+      else if (delta.includes("↓")) deltaClass = "neg";
+
+      tr.innerHTML = `
+        <td>${r.N ?? ""}</td>
+        <td class="${deltaClass}">${delta}</td>
+        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.PTS}</td>
+        <td></td>
+      `;
+      tr.lastElementChild.appendChild(resultDiv);
     }
 
-    // color de delta
-    const delta = r.Δ ?? "";
-    let deltaClass = "";
-    if (delta.includes("↑")) deltaClass = "pos";
-    else if (delta.includes("↓")) deltaClass = "neg";
+    if (modoActual === "intermedio") {
+      const dg = r.GOL ?? "";
+      const dgClass = dg.includes("+") ? "pos" : dg.includes("-") ? "neg" : "";
+      tr.innerHTML = `
+        <td>${r.N ?? ""}</td>
+        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.PTS}</td>
+        <td>${r.J}</td>
+        <td class="${dgClass}">${dg}</td>
+      `;
+    }
 
-    tr.innerHTML = `
-      <td>${r.N ?? ""}</td>
-      <td class="${deltaClass}">${delta}</td>
-      <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
-      <td>${r.PTS}</td>
-      <td></td>
-    `;
-    tr.lastElementChild.appendChild(resultDiv);
-  }
-
-  // === Intermedio ===
-  if (modoActual === "intermedio") {
-    const dg = r.GOL ?? "";
-    const dgClass = dg.includes("+") ? "pos" : dg.includes("-") ? "neg" : "";
-    
-    tr.innerHTML = `
-      <td>${r.N ?? ""}</td>
-      <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
-      <td>${r.PTS}</td>
-      <td>${r.J}</td>
-      <td class="${dgClass}">${dg}</td>
-    `;
-  }
-
-
-  // === Completo ===
-  if (modoActual === "completo") {
-    // aplica color según W, D, L
-    const wClass = Number(r.G) > 0 ? "pos" : "";
-    const dClass = Number(r.E) > 0 ? "draw" : "";
-    const lClass = Number(r.P) > 0 ? "neg" : "";
-
-    tr.innerHTML = `
-      <td>${r.N ?? ""}</td>
-      <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
-      <td>${r.PTS}</td>
-      <td class="${wClass}">${r.G}</td>
-      <td class="${dClass}">${r.E}</td>
-      <td class="${lClass}">${r.P}</td>
-    `;
-  }
+    if (modoActual === "completo") {
+      const wClass = Number(r.G) > 0 ? "pos" : "";
+      const dClass = Number(r.E) > 0 ? "draw" : "";
+      const lClass = Number(r.P) > 0 ? "neg" : "";
+      tr.innerHTML = `
+        <td>${r.N ?? ""}</td>
+        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.PTS}</td>
+        <td class="${wClass}">${r.G}</td>
+        <td class="${dClass}">${r.E}</td>
+        <td class="${lClass}">${r.P}</td>
+      `;
+    }
 
     els.body.appendChild(tr);
   });
-  
-  // mantener sincronizado el foco
+
   const idSel = select?.value;
   if (idSel) {
     resaltarJugador(idSel);
     renderMiniTabla(idSel);
   }
-
 }
 
 /* ===== SELECTOR DE JUGADOR ===== */
 const select = document.getElementById("jugadorSelect");
 
-// poblar select cuando se cargan posiciones
 function llenarSelect() {
-  const select = document.getElementById("jugadorSelect");
   if (!select) return;
-
   select.innerHTML = '<option value="">— Filtrar jugador —</option>';
   posiciones.slice(0, 10).forEach(r => {
     const opt = document.createElement("option");
@@ -330,12 +278,12 @@ function llenarSelect() {
   });
 }
 
-select.addEventListener("change", () => {
+select?.addEventListener("change", () => {
   const idSel = select.value;
   resaltarJugador(idSel);
+  renderMiniTabla(idSel);
 });
 
-// resalta la fila del jugador en la tabla actual
 function resaltarJugador(id) {
   document.querySelectorAll("#tabla tbody tr").forEach(tr => {
     tr.classList.remove("highlight");
@@ -347,17 +295,8 @@ function resaltarJugador(id) {
   if (fila) fila.classList.add("highlight");
 }
 
-// llamar al llenarSelect después de cargar los datos
-// reemplazá dentro de init(), justo después de renderTabla();
-function showTable() {
-  els.status.style.display = "none";
-  els.tabla.style.display = "table";
-  llenarSelect(); // <-- agregar esta línea dentro de tu flujo actual
-}
-
-/* ===== MINI TABLA DEL JUGADOR SELECCIONADO ===== */
+/* ===== MINI TABLA ===== */
 const focusCard = document.getElementById("jugadorFocus");
-const focusNombre = document.getElementById("focusNombre");
 const focusHead = document.getElementById("focusHead");
 const focusBody = document.getElementById("focusBody");
 
@@ -366,7 +305,6 @@ function renderMiniTabla(id) {
     focusCard.style.display = "none";
     return;
   }
-
   const jugador = posiciones.find(r => r.ID == id);
   if (!jugador) return;
 
@@ -396,7 +334,6 @@ function renderMiniTabla(id) {
 
   const trBody = document.createElement("tr");
 
-  // === COMPACTO ===
   if (modoActual === "compacto") {
     const ult = ultimos[jugador.ID];
     const div = document.createElement("div");
@@ -407,14 +344,8 @@ function renderMiniTabla(id) {
       span.className = "res-" + res;
       div.appendChild(span);
     }
-
     const delta = jugador.Δ ?? "";
-    const deltaClass = delta.includes("↑")
-      ? "pos"
-      : delta.includes("↓")
-      ? "neg"
-      : "";
-
+    const deltaClass = delta.includes("↑") ? "pos" : delta.includes("↓") ? "neg" : "";
     trBody.innerHTML = `
       <td>${jugador.N}</td>
       <td class="${deltaClass}">${delta}</td>
@@ -423,12 +354,9 @@ function renderMiniTabla(id) {
     `;
     trBody.lastElementChild.appendChild(div);
   }
-
-  // === INTERMEDIO ===
   if (modoActual === "intermedio") {
     const dg = jugador.GOL ?? "";
     const dgClass = dg.includes("+") ? "pos" : dg.includes("-") ? "neg" : "";
-
     trBody.innerHTML = `
       <td>${jugador.N}</td>
       <td>${jugador.PTS}</td>
@@ -436,13 +364,10 @@ function renderMiniTabla(id) {
       <td class="${dgClass}">${dg}</td>
     `;
   }
-
-  // === COMPLETO ===
   if (modoActual === "completo") {
     const wClass = Number(jugador.G) > 0 ? "pos" : "";
     const dClass = Number(jugador.E) > 0 ? "draw" : "";
     const lClass = Number(jugador.P) > 0 ? "neg" : "";
-
     trBody.innerHTML = `
       <td>${jugador.N}</td>
       <td>${jugador.PTS}</td>
@@ -456,35 +381,21 @@ function renderMiniTabla(id) {
   focusCard.style.display = "block";
 }
 
-
-/* integrar con la selección existente */
-select.addEventListener("change", () => {
-  const idSel = select.value;
-  resaltarJugador(idSel);
-  renderMiniTabla(idSel);
-});
-
-
-
-
-/* =========================================================
-   6. STREAKS SECTION
-   ========================================================= */
-
-/**
- * Loads streak data (victories, losses, rivalries, etc.)
- * from rachas.json and creates visual cards for each.
- */
+/* ========== 5. RACHAS SECTION (mejorada) ========== */
 const streaksStatus = document.getElementById('streaksStatus');
 const streaksGrid = document.getElementById('streaksGrid');
 const streaksEmpty = document.getElementById('streaksEmpty');
+const streakTabs = document.getElementById('streakTabs');
 
-// Assign color based on streak type
+let ALL_STREAKS = [];
+let streakAutoIndex = 0;
+let streakAutoTimer = null;
+
 function rachaColor(tipo) {
   const t = (tipo || '').toLowerCase();
   if (t.includes('presente')) return 'blue';
   if (t.includes('victorias')) return 'green';
-  if (t.includes('invicto')) return 'darkgreen';
+  if (t.includes('invicto')) return 'green';
   if (t.includes('derrotas')) return 'red';
   if (t.includes('sin ganar')) return 'darkred';
   if (t.includes('paternidad')) return 'yellow';
@@ -492,13 +403,11 @@ function rachaColor(tipo) {
   return 'gray';
 }
 
-// Build the HTML card for each streak
 function streakCard(item) {
   const el = document.createElement('article');
   const color = rachaColor(item.racha);
   el.className = `streak ${color}`;
 
-  // Top badge
   const top = document.createElement('div');
   top.className = 'streak-top';
   const badge = document.createElement('span');
@@ -506,10 +415,8 @@ function streakCard(item) {
   badge.textContent = item.racha || '';
   top.appendChild(badge);
 
-  // Main area (player name or rivalry)
   const main = document.createElement('div');
   main.className = 'streak-main';
-
   const name = document.createElement('div');
   name.className = 'streak-name';
 
@@ -538,7 +445,6 @@ function streakCard(item) {
   return el;
 }
 
-// Load streak data
 async function loadStreaks() {
   streaksStatus.style.display = 'block';
   streaksGrid.style.display = 'none';
@@ -548,6 +454,7 @@ async function loadStreaks() {
     const res = await fetch(`data/rachas.json?v=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('Proxima Temporada');
     const arr = await res.json();
+    ALL_STREAKS = arr;
 
     if (arr.length === 0) {
       streaksStatus.style.display = 'none';
@@ -555,20 +462,8 @@ async function loadStreaks() {
       return;
     }
 
-    // Sort streaks by priority
-    arr.sort((a, b) => {
-      const order = { blue: 0, green: 1, yellow: 2, red: 3, gray: 4 };
-      const ca = rachaColor(a.racha);
-      const cb = rachaColor(b.racha);
-      if (order[ca] !== order[cb]) return order[ca] - order[cb];
-      return (b.extension || 0) - (a.extension || 0);
-    });
-
-    streaksGrid.innerHTML = '';
-    for (const s of arr) streaksGrid.appendChild(streakCard(s));
-
-    streaksStatus.style.display = 'none';
-    streaksGrid.style.display = 'grid';
+    renderStreaksByFilter('todas');
+    startStreakAuto();
 
   } catch (err) {
     console.error(err);
@@ -576,14 +471,278 @@ async function loadStreaks() {
   }
 }
 
+function renderStreaksByFilter(filter) {
+  if (!ALL_STREAKS.length) return;
+  streaksGrid.innerHTML = '';
 
-/* =========================================================
-   7. LAST MATCHES SECTION
-   ========================================================= */
+  // filtro
+  let filtered = ALL_STREAKS.slice();
 
-/**
- * Loads and displays the latest matches in streak card format.
- */
+  if (filter !== 'todas') {
+    filtered = filtered.filter(s => {
+      const r = (s.racha || '').toLowerCase();
+      switch (filter) {
+        case 'victorias': return r.includes('victoria') || r.includes('ganar') || r.includes('invicto');
+        case 'derrotas': return r.includes('derrota') || r.includes('sin ganar') || r.includes('perder');
+        case 'paternidad': return r.includes('paternidad');
+        case 'invicto': return r.includes('invicto');
+        case 'ausente': return r.includes('ausente');
+        default: return true;
+      }
+    });
+  }
+
+  // orden
+  filtered.sort((a, b) => (b.extension || 0) - (a.extension || 0));
+
+  if (!filtered.length) {
+    streaksGrid.style.display = 'none';
+    streaksEmpty.style.display = 'block';
+    return;
+  }
+
+  // animación
+  streaksGrid.classList.remove('slide-in-right');
+  void streaksGrid.offsetWidth;
+  streaksGrid.classList.add('slide-in-right');
+
+  for (const s of filtered) {
+    streaksGrid.appendChild(streakCard(s));
+  }
+
+  streaksStatus.style.display = 'none';
+  streaksEmpty.style.display = 'none';
+  streaksGrid.style.display = 'grid';
+}
+
+if (streakTabs) {
+  streakTabs.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    streakTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    renderStreaksByFilter(filter);
+    // pausar/reiniciar autoplay
+    restartStreakAuto(filter);
+  });
+}
+
+const STREAK_FILTERS_ORDER = ['todas', 'victorias', 'invicto', 'derrotas', 'paternidad', 'ausente'];
+
+function startStreakAuto() {
+  if (streakAutoTimer) clearInterval(streakAutoTimer);
+  streakAutoTimer = setInterval(() => {
+    streakAutoIndex = (streakAutoIndex + 1) % STREAK_FILTERS_ORDER.length;
+    const nextFilter = STREAK_FILTERS_ORDER[streakAutoIndex];
+
+    // marcar botón
+    const btn = [...streakTabs.querySelectorAll('button')].find(b => b.dataset.filter === nextFilter);
+    if (btn) {
+      streakTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    renderStreaksByFilter(nextFilter);
+  }, 8000); // 8s
+}
+
+function restartStreakAuto(currentFilter) {
+  if (streakAutoTimer) clearInterval(streakAutoTimer);
+  streakAutoIndex = STREAK_FILTERS_ORDER.indexOf(currentFilter);
+  if (streakAutoIndex < 0) streakAutoIndex = 0;
+  startStreakAuto();
+}
+
+/* ========== 6. COMBINACIONES DESTACADAS (v2 con paginación) ========== */
+const combStatus = document.getElementById('combStatus');
+const combGrid = document.getElementById('combGrid');
+const combEmpty = document.getElementById('combEmpty');
+const combTipo = document.getElementById('combTipo');
+const combSize = document.getElementById('combSize');
+
+let ALL_COMBOS = [];
+let activeTipos = new Set(['GAN']);
+let activeSizes = new Set();
+let combPage = 0;
+let combPages = 0;
+let combAutoTimer = null;
+
+async function loadCombinaciones() {
+  combStatus.style.display = 'block';
+  combGrid.style.display = 'none';
+  combEmpty.style.display = 'none';
+
+  try {
+    const res = await fetch(`data/combinaciones.json?v=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error('No disponible');
+    const arr = await res.json();
+    ALL_COMBOS = arr;
+
+    // Detectar tamaños
+    const sizes = new Set(arr.map(x => x[1]).filter(Boolean));
+    combSize.innerHTML = '<span class="comb-label">Tamaño:</span>';
+    [...sizes].sort((a,b)=>a-b).forEach(sz => {
+      const btn = document.createElement('button');
+      btn.textContent = sz;
+      btn.dataset.size = sz;
+      btn.classList.add('active');
+      combSize.appendChild(btn);
+      activeSizes.add(String(sz));
+    });
+
+    renderCombos();
+    startCombAuto();
+
+  } catch (err) {
+    console.error(err);
+    combStatus.textContent = 'Error: ' + err.message;
+  }
+}
+
+function renderCombos(page = 0) {
+  if (!ALL_COMBOS.length) return;
+  combGrid.innerHTML = '';
+
+  const filtered = ALL_COMBOS.filter(row => {
+    const tipo = row[0];
+    const size = String(row[1]);
+    return activeTipos.has(tipo) && activeSizes.has(size);
+  });
+
+  if (!filtered.length) {
+    combGrid.style.display = 'none';
+    combEmpty.style.display = 'block';
+    return;
+  }
+
+  combPages = Math.ceil(filtered.length / 6);
+  combPage = (page + combPages) % combPages; // loop seguro
+
+  const start = combPage * 6;
+  const slice = filtered.slice(start, start + 6);
+
+  combGrid.classList.remove('slide-in-right');
+  void combGrid.offsetWidth;
+  combGrid.classList.add('slide-in-right');
+
+  slice.forEach(row => {
+    const tipo = row[0];
+    const size = row[1];
+    const names = row.slice(2, 2 + size).filter(Boolean);
+    const ganados = row[6] ?? 0;
+
+    const article = document.createElement('article');
+    const color = (tipo === 'GAN') ? 'green' : 'red';
+    article.className = `streak ${color}`;
+
+    const top = document.createElement('div');
+    top.className = 'streak-top';
+    const badge = document.createElement('span');
+    badge.className = `badge ${color}`;
+    badge.textContent = (tipo === 'GAN') ? `Ganadora (${size})` : `Perdedora (${size})`;
+    const len = document.createElement('span');
+    len.className = 'streak-len';
+    len.textContent = `${ganados} pj`;
+    top.append(badge, len);
+
+    const main = document.createElement('div');
+    main.className = 'streak-main';
+    const name = document.createElement('div');
+    name.className = 'streak-name';
+    name.textContent = names.join(' + ');
+    main.appendChild(name);
+
+    article.append(top, main);
+    combGrid.appendChild(article);
+  });
+
+  combStatus.style.display = 'none';
+  combEmpty.style.display = 'none';
+  combGrid.style.display = 'grid';
+
+  renderCombDots();
+}
+
+/* === PUNTITOS DE PÁGINA === */
+function renderCombDots() {
+  let dots = document.getElementById('combDots');
+  if (!dots) {
+    dots = document.createElement('div');
+    dots.id = 'combDots';
+    dots.className = 'comb-dots';
+    combGrid.parentElement.appendChild(dots);
+  }
+  dots.innerHTML = '';
+
+  for (let i = 0; i < combPages; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'comb-dot' + (i === combPage ? ' active' : '');
+    dot.dataset.page = i;
+    dots.appendChild(dot);
+  }
+}
+
+/* === MANEJAR CLICS EN PUNTITOS === */
+document.addEventListener('click', e => {
+  const dot = e.target.closest('.comb-dot');
+  if (!dot) return;
+  const p = Number(dot.dataset.page);
+  renderCombos(p);
+  restartCombAuto(p);
+});
+
+/* === ROTACIÓN AUTOMÁTICA === */
+function startCombAuto() {
+  if (combAutoTimer) clearInterval(combAutoTimer);
+  combAutoTimer = setInterval(() => {
+    combPage = (combPage + 1) % combPages;
+    renderCombos(combPage);
+  }, 8000);
+}
+
+function restartCombAuto(p) {
+  if (combAutoTimer) clearInterval(combAutoTimer);
+  combPage = p;
+  startCombAuto();
+}
+
+/* === FILTROS DE TIPO Y TAMAÑO === */
+combTipo?.addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const tipo = btn.dataset.tipo;
+  if (!tipo) return;
+
+  if (activeTipos.has(tipo) && activeTipos.size > 1) {
+    activeTipos.delete(tipo);
+    btn.classList.remove('active');
+  } else {
+    activeTipos.add(tipo);
+    btn.classList.add('active');
+  }
+  renderCombos(0);
+  restartCombAuto(0);
+});
+
+combSize?.addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const size = btn.dataset.size;
+  if (!size) return;
+
+  if (activeSizes.has(size) && activeSizes.size > 1) {
+    activeSizes.delete(size);
+    btn.classList.remove('active');
+  } else {
+    activeSizes.add(size);
+    btn.classList.add('active');
+  }
+  renderCombos(0);
+  restartCombAuto(0);
+});
+
+/* ========== 7. LAST MATCHES ========== */
 const matchesStatus = document.getElementById('matchesStatus');
 const matchesGrid = document.getElementById('matchesGrid');
 const matchesEmpty = document.getElementById('matchesEmpty');
@@ -597,7 +756,6 @@ function matchCard(fecha, partido) {
   const color = matchColor(partido.balance);
   el.className = `streak ${color}`;
 
-  // Top section (date + score)
   const top = document.createElement('div');
   top.className = 'streak-top';
 
@@ -611,7 +769,6 @@ function matchCard(fecha, partido) {
 
   top.append(badge, bal);
 
-  // Team names, one above another
   const main = document.createElement('div');
   main.className = 'streak-teams';
 
@@ -623,7 +780,7 @@ function matchCard(fecha, partido) {
   eqB.className = 'streak-name ' + (partido.balance === 0 ? 'yellow' : 'red');
   eqB.textContent = partido.team_b.join(', ');
 
-  if (partido.balance > 0) eqA.classList.add('winner'); // Team A wins
+  if (partido.balance > 0) eqA.classList.add('winner');
 
   main.append(eqA, eqB);
   el.append(top, main);
@@ -639,39 +796,27 @@ async function loadMatches() {
     const res = await fetch(`data/partidos.json?v=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('Proxima temporada');
     const obj = await res.json();
-
     const entries = Object.entries(obj).sort(([f1], [f2]) => f2.localeCompare(f1));
-
-    if (entries.length === 0) {
+    if (!entries.length) {
       matchesStatus.style.display = 'none';
       matchesEmpty.style.display = 'block';
       return;
     }
-
     matchesGrid.innerHTML = '';
     for (const [fecha, partido] of entries.slice(0, 6)) {
       matchesGrid.appendChild(matchCard(fecha, partido));
     }
-
     matchesStatus.style.display = 'none';
     matchesGrid.style.display = 'grid';
-
   } catch (err) {
     console.error(err);
     matchesStatus.textContent = 'Error al cargar partidos: ' + err.message;
   }
 }
 
-
-/* =========================================================
-   8. INITIALIZATION
-   ========================================================= */
-
-/**
- * Runs all startup functions once the page is ready.
- * This ensures everything loads correctly in order.
- */
+/* ========== 8. INIT ========== */
 initLockCycle();
-init();
+initTabla();
 loadStreaks();
+loadCombinaciones();
 loadMatches();
