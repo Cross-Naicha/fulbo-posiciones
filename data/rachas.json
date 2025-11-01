@@ -3,63 +3,63 @@
     "racha": "sin ganar",
     "jugador": "P11",
     "extension": 4,
-    "dias": 65,
+    "dias": 66,
     "inicio": "2025-08-27"
   },
   {
     "racha": "victorias",
     "jugador": "Naicha",
     "extension": 3,
-    "dias": 30,
+    "dias": 31,
     "inicio": "2025-10-01"
   },
   {
     "racha": "invicto",
     "jugador": "Chagay",
     "extension": 4,
-    "dias": 23,
+    "dias": 24,
     "inicio": "2025-10-08"
   },
   {
     "racha": "invicto",
     "jugador": "Mario",
     "extension": 4,
-    "dias": 23,
+    "dias": 24,
     "inicio": "2025-10-08"
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
     "extension": 9,
-    "dias": 65,
+    "dias": 66,
     "inicio": "2025-08-27"
   },
   {
     "racha": "ausente",
     "jugador": "Benja",
     "extension": 3,
-    "dias": 16,
+    "dias": 17,
     "inicio": "2025-10-15"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> P11",
     "extension": 3,
-    "dias": 65,
+    "dias": 66,
     "inicio": "2025-08-27"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Mario -> P11",
     "extension": 3,
-    "dias": 65,
+    "dias": 66,
     "inicio": "2025-08-27"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Lomba -> Chicho",
     "extension": 4,
-    "dias": 65,
+    "dias": 66,
     "inicio": "2025-08-27"
   }
 ]

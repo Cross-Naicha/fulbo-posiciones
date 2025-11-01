@@ -47,8 +47,6 @@ h1 { text-align: center; margin-bottom: 8px; }
   min-height: 56px;
   padding: 12px 16px;
   background: linear-gradient(90deg, #124380, #191434);
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -472,4 +470,31 @@ h1 { text-align: center; margin-bottom: 8px; }
 .comb-dot.active {
   background: var(--accent);
   opacity: 1;
+}
+
+/* === COMBINACIONES: ESTADO DE BOTONES === */
+#combTipo button,
+#combSize button {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#combTipo button.active,
+#combSize button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(47,139,253,0.4);
+}
+
+#combTipo button:not(.active):hover,
+#combSize button:not(.active):hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }

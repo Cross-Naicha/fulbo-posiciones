@@ -123,7 +123,7 @@ function applyLockUI(locked) {
 
 function initLockCycle() {
   applyLockUI(computeLockedState());
-  setInterval(() => applyLockUI(computeLockedState()), 60000);
+  setInterval(() => applyLockUI(computeLockedState()), 30000);
 }
 
 /* ========== 4. TABLA DE POSICIONES 2.0 ========== */
@@ -591,7 +591,7 @@ async function loadCombinaciones() {
     });
 
     renderCombos();
-    startCombAuto();
+    // startCombAuto();
 
   } catch (err) {
     console.error(err);
@@ -639,7 +639,7 @@ function renderCombos(page = 0) {
     top.className = 'streak-top';
     const badge = document.createElement('span');
     badge.className = `badge ${color}`;
-    badge.textContent = (tipo === 'GAN') ? `Ganadora (${size})` : `Perdedora (${size})`;
+    badge.textContent = (tipo === 'GAN') ? `GAN` : `PER`;
     const len = document.createElement('span');
     len.className = 'streak-len';
     len.textContent = `${ganados} PJ`;
@@ -692,19 +692,19 @@ document.addEventListener('click', e => {
 });
 
 /* === ROTACIÓN AUTOMÁTICA === */
-function startCombAuto() {
-  if (combAutoTimer) clearInterval(combAutoTimer);
-  combAutoTimer = setInterval(() => {
-    combPage = (combPage + 1) % combPages;
-    renderCombos(combPage);
-  }, 8000);
-}
+// function startCombAuto() {
+//   if (combAutoTimer) clearInterval(combAutoTimer);
+//   combAutoTimer = setInterval(() => {
+//     combPage = (combPage + 1) % combPages;
+//     renderCombos(combPage);
+//   }, 3000);
+// }
 
-function restartCombAuto(p) {
-  if (combAutoTimer) clearInterval(combAutoTimer);
-  combPage = p;
-  startCombAuto();
-}
+// function restartCombAuto(p) {
+//   if (combAutoTimer) clearInterval(combAutoTimer);
+//   combPage = p;
+//   startCombAuto();
+// }
 
 /* === FILTROS DE TIPO Y TAMAÑO === */
 combTipo?.addEventListener('click', e => {
