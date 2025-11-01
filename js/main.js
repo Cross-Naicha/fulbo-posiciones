@@ -482,10 +482,9 @@ function renderStreaksByFilter(filter) {
     filtered = filtered.filter(s => {
       const r = (s.racha || '').toLowerCase();
       switch (filter) {
-        case 'victorias': return r.includes('victoria') || r.includes('ganar') || r.includes('invicto');
+        case 'victorias': return r.includes('victoria') || r.includes('invicto');
         case 'derrotas': return r.includes('derrota') || r.includes('sin ganar') || r.includes('perder');
         case 'paternidad': return r.includes('paternidad');
-        case 'invicto': return r.includes('invicto');
         case 'ausente': return r.includes('ausente');
         default: return true;
       }
@@ -528,7 +527,7 @@ if (streakTabs) {
   });
 }
 
-const STREAK_FILTERS_ORDER = ['todas', 'victorias', 'invicto', 'derrotas', 'paternidad', 'ausente'];
+const STREAK_FILTERS_ORDER = ['todas', 'victorias', 'derrotas', 'paternidad', 'ausente'];
 
 function startStreakAuto() {
   if (streakAutoTimer) clearInterval(streakAutoTimer);
@@ -643,7 +642,7 @@ function renderCombos(page = 0) {
     badge.textContent = (tipo === 'GAN') ? `Ganadora (${size})` : `Perdedora (${size})`;
     const len = document.createElement('span');
     len.className = 'streak-len';
-    len.textContent = `${ganados} pj`;
+    len.textContent = `${ganados} PJ`;
     top.append(badge, len);
 
     const main = document.createElement('div');
