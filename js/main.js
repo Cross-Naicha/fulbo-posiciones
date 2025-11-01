@@ -463,7 +463,7 @@ async function loadStreaks() {
     }
 
     renderStreaksByFilter('todas');
-    startStreakAuto();
+    // startStreakAuto();
 
   } catch (err) {
     console.error(err);
@@ -529,29 +529,29 @@ if (streakTabs) {
 
 const STREAK_FILTERS_ORDER = ['todas', 'victorias', 'derrotas', 'paternidad', 'ausente'];
 
-function startStreakAuto() {
-  if (streakAutoTimer) clearInterval(streakAutoTimer);
-  streakAutoTimer = setInterval(() => {
-    streakAutoIndex = (streakAutoIndex + 1) % STREAK_FILTERS_ORDER.length;
-    const nextFilter = STREAK_FILTERS_ORDER[streakAutoIndex];
+// function startStreakAuto() {
+//   if (streakAutoTimer) clearInterval(streakAutoTimer);
+//   streakAutoTimer = setInterval(() => {
+//     streakAutoIndex = (streakAutoIndex + 1) % STREAK_FILTERS_ORDER.length;
+//     const nextFilter = STREAK_FILTERS_ORDER[streakAutoIndex];
 
-    // marcar botón
-    const btn = [...streakTabs.querySelectorAll('button')].find(b => b.dataset.filter === nextFilter);
-    if (btn) {
-      streakTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
+//     // marcar botón
+//     const btn = [...streakTabs.querySelectorAll('button')].find(b => b.dataset.filter === nextFilter);
+//     if (btn) {
+//       streakTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+//       btn.classList.add('active');
+//     }
 
-    renderStreaksByFilter(nextFilter);
-  }, 8000); // 8s
-}
+//     renderStreaksByFilter(nextFilter);
+//   }, 8000); // 8s
+// }
 
-function restartStreakAuto(currentFilter) {
-  if (streakAutoTimer) clearInterval(streakAutoTimer);
-  streakAutoIndex = STREAK_FILTERS_ORDER.indexOf(currentFilter);
-  if (streakAutoIndex < 0) streakAutoIndex = 0;
-  startStreakAuto();
-}
+// function restartStreakAuto(currentFilter) {
+//   if (streakAutoTimer) clearInterval(streakAutoTimer);
+//   streakAutoIndex = STREAK_FILTERS_ORDER.indexOf(currentFilter);
+//   if (streakAutoIndex < 0) streakAutoIndex = 0;
+//   startStreakAuto();
+// }
 
 /* ========== 6. COMBINACIONES DESTACADAS (v2 con paginación) ========== */
 const combStatus = document.getElementById('combStatus');
