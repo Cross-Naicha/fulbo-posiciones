@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "+ 4",
-    "delta": "↓2"
+    "delta": "↓1"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-08",
@@ -26,11 +26,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-11-05": "A",
     "2025-10-29": "A",
     "2025-10-22": "A",
     "2025-10-15": "A",
-    "2025-10-08": "G",
-    "2025-10-01": "A"
+    "2025-10-08": "G"
   },
   "balance_vs": {
     "Chicho": 1,

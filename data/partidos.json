@@ -1,4 +1,13 @@
 {
+  "2025-11-05": {
+    "team_a": [
+      "Lomba, Bot, P11, Mato, Bot"
+    ],
+    "team_b": [
+      "Naicha, Bag, Cesar, Chagay, Mario"
+    ],
+    "balance": 4
+  },
   "2025-10-29": {
     "team_a": [
       "Naicha, Bag, Cesar, Chagay, Mario"
@@ -73,7 +82,7 @@
   },
   "2025-08-27": {
     "team_a": [
-      "Emi, Lomba, Mato, Chagay, Mario"
+      "Lomba, Emi, Mato, Chagay, Mario"
     ],
     "team_b": [
       "Bot, Cesar, P11, Marcelo, Chicho"
