@@ -11,6 +11,24 @@
   [
     "GAN",
     2,
+    "Bag",
+    "Lomba",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
+    "Bag",
+    "Cesar",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
     "Naicha",
     "Bag",
     null,
@@ -47,16 +65,7 @@
   [
     "GAN",
     2,
-    "Bag",
     "Lomba",
-    null,
-    null,
-    2
-  ],
-  [
-    "GAN",
-    2,
-    "Bag",
     "Cesar",
     null,
     null,
@@ -113,6 +122,15 @@
     "Lomba",
     "Chagay",
     "Mario",
+    null,
+    2
+  ],
+  [
+    "GAN",
+    3,
+    "Bag",
+    "Lomba",
+    "Cesar",
     null,
     2
   ],
@@ -168,7 +186,7 @@
     "Mario",
     null,
     null,
-    3
+    4
   ],
   [
     "PER",

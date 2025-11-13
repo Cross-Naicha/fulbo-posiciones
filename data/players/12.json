@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 5.0,
+    "partidos": 6.0,
     "apodo": "Chagay",
     "puntos": 10,
-    "efectividad": 0.67,
+    "efectividad": 0.56,
     "ganados": 3,
     "empatados": 1,
-    "perdidos": 1,
-    "diferencia de gol": "+ 4",
+    "perdidos": 2,
+    "diferencia de gol": "- 7",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -21,38 +21,36 @@
   },
   "losses_streak_statistics": {
     "empieza": "2025-11-05",
-    "termina": "2025-11-05",
-    "extension": 1,
+    "termina": "2025-11-12",
+    "extension": 2,
     "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-11-05",
-    "extension": 10,
+    "termina": "2025-11-12",
+    "extension": 11,
     "actual": true
   },
   "last_5": {
+    "2025-11-12": "P",
     "2025-11-05": "P",
     "2025-10-29": "G",
     "2025-10-22": "G",
-    "2025-10-15": "E",
-    "2025-10-08": "G"
+    "2025-10-15": "E"
   },
   "balance_vs": {
     "Chicho": 2,
     "P11": 2,
-    "Cesar": 1,
     "Yamil (R)": 1,
+    "Cesar": 0,
     "Naicha": 0,
-    "Bag": -1,
     "Emi": -1,
-    "Lomba": -2
+    "Bag": -2,
+    "Lomba": -3
   },
   "best_partner": {
     "Lomba": 2,
     "Emi": 1,
-    "Mario": 1,
-    "Benja": 1,
     "Naicha": 1,
     "Bag": 1
   },
