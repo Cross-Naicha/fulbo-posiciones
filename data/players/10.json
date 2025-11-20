@@ -1,23 +1,23 @@
 {
   "basic_statistics": {
-    "partidos": 3.0,
+    "partidos": 4.0,
     "apodo": "P11",
-    "puntos": 3,
+    "puntos": 4,
     "efectividad": 0.33,
     "ganados": 1,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 2,
     "diferencia de gol": "- 3",
-    "delta": "-"
+    "delta": "↑1"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-11-05",
-    "termina": "2025-11-05",
+    "empieza": "2025-11-19",
+    "termina": "2025-11-19",
     "extension": 1,
-    "puntos acumulados": 3,
-    "victorias": 1,
-    "empates": 0,
-    "actual": false
+    "puntos acumulados": 1,
+    "victorias": 0,
+    "empates": 1,
+    "actual": true
   },
   "losses_streak_statistics": {
     "empieza": "2025-10-08",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-11-19": "E",
     "2025-11-12": "A",
     "2025-11-05": "G",
     "2025-10-29": "P",
-    "2025-10-22": "A",
-    "2025-10-15": "A"
+    "2025-10-22": "A"
   },
   "balance_vs": {
     "Naicha": 0,

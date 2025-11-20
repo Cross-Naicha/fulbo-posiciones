@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "0",
-    "delta": "-"
+    "delta": "↓2"
   },
   "winning_streak_statistics": {
     "empieza": null,
@@ -26,11 +26,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-11-19": "A",
     "2025-11-12": "A",
     "2025-11-05": "A",
     "2025-10-29": "A",
-    "2025-10-22": "A",
-    "2025-10-15": "A"
+    "2025-10-22": "A"
   },
   "best_partner": {},
   "worse_partner": {},

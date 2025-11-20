@@ -1,0 +1,39 @@
+{
+  "basic_statistics": {
+    "partidos": 1.0,
+    "apodo": "Marcos",
+    "puntos": 1,
+    "efectividad": 0.33,
+    "ganados": 0,
+    "empatados": 1,
+    "perdidos": 0,
+    "diferencia de gol": "0",
+    "delta": "↑0"
+  },
+  "winning_streak_statistics": {
+    "empieza": "2025-11-19",
+    "termina": "2025-11-19",
+    "extension": 1,
+    "puntos acumulados": 1,
+    "victorias": 0,
+    "empates": 1,
+    "actual": true
+  },
+  "present_streak_statistics": {
+    "empieza": "2025-11-19",
+    "termina": "2025-11-19",
+    "extension": 1,
+    "actual": true
+  },
+  "last_5": {
+    "2025-11-19": "E",
+    "2025-11-12": "A",
+    "2025-11-05": "A",
+    "2025-10-29": "A",
+    "2025-10-22": "A"
+  },
+  "best_partner": {},
+  "worse_partner": {},
+  "paternity": {},
+  "filiation": {}
+}

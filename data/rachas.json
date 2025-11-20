@@ -1,44 +1,58 @@
 [
   {
+    "racha": "sin ganar",
+    "jugador": "Chagay",
+    "extension": 3,
+    "dias": 14,
+    "inicio": "2025-11-05"
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Mario",
+    "extension": 3,
+    "dias": 14,
+    "inicio": "2025-11-05"
+  },
+  {
     "racha": "invicto",
     "jugador": "Lomba",
-    "extension": 5,
-    "dias": 43,
+    "extension": 6,
+    "dias": 49,
     "inicio": "2025-10-01"
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 11,
-    "dias": 78,
+    "extension": 12,
+    "dias": 84,
     "inicio": "2025-08-27"
   },
   {
     "racha": "ausente",
     "jugador": "Chicho",
-    "extension": 4,
-    "dias": 22,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2025-10-22"
   },
   {
     "racha": "ausente",
     "jugador": "Yamil (R)",
-    "extension": 4,
-    "dias": 22,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2025-10-22"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Lomba -> Mario",
     "extension": 4,
-    "dias": 71,
+    "dias": 77,
     "inicio": "2025-09-03"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Lomba -> Chagay",
     "extension": 5,
-    "dias": 43,
+    "dias": 49,
     "inicio": "2025-10-01"
   }
 ]

@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 3.0,
+    "partidos": 4.0,
     "apodo": "Naicha",
-    "puntos": 6,
-    "efectividad": 0.67,
+    "puntos": 7,
+    "efectividad": 0.58,
     "ganados": 2,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 1,
     "diferencia de gol": "0",
-    "delta": "↓1"
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-22",
@@ -23,7 +23,7 @@
     "empieza": "2025-11-05",
     "termina": "2025-11-05",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2025-10-22",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-11-19": "E",
     "2025-11-12": "A",
     "2025-11-05": "P",
     "2025-10-29": "G",
-    "2025-10-22": "G",
-    "2025-10-15": "A"
+    "2025-10-22": "G"
   },
   "balance_vs": {
     "Yamil (R)": 1,
