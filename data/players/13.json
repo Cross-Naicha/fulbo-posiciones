@@ -41,7 +41,9 @@
   "balance_vs": {
     "Chicho": 2,
     "P11": 2,
+    "Marcelo": 1,
     "Cesar": 0,
+    "Mato": -1,
     "Emi": -1,
     "Naicha": -1,
     "Bag": -2,
@@ -50,10 +52,13 @@
   "best_partner": {
     "Lomba": 2,
     "Emi": 1,
+    "Mato": 1,
     "Naicha": 1,
     "Bag": 1
   },
   "worse_partner": {
+    "Marcelo": 2,
+    "Camilo": 1,
     "Cesar": 1,
     "Chicho": 1
   },

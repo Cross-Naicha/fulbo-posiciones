@@ -39,21 +39,26 @@
     "2025-10-22": "G"
   },
   "balance_vs": {
-    "Yamil (R)": 1,
+    "Marcelo": 2,
+    "Yamil": 1,
     "Cesar": 1,
     "Mario": 1,
     "Chagay": 0,
     "P11": 0,
+    "Mato": -1,
     "Chicho": -1,
+    "Camilo": -1,
     "Lomba": -1
   },
   "best_partner": {
     "Bag": 2,
+    "Mato": 1,
     "Chagay": 1,
-    "Mario": 1
+    "Mario": 1,
+    "Camilo": 1
   },
   "worse_partner": {
-    "Yamil (R)": 1
+    "Yamil": 1
   },
   "paternity": {},
   "filiation": {}

@@ -20,6 +20,7 @@ fetch('textos.json')
     document.getElementById('fechas_2').textContent = data.fechas_2;
     document.getElementById('frase_chiqui').textContent = data.frase_chiqui;
     document.getElementById('novedades').textContent = data.novedades;
+    document.getElementById('riesgo').textContent = data.riesgo;
 
     // Set ticker text (rotating banner)
     const a = document.getElementById('tickerA');

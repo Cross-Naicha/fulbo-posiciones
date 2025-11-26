@@ -814,7 +814,7 @@ async function loadMatches() {
 }
 
 /* ========== 8. INIT ========== */
-initLockCycle();
+// initLockCycle();
 initTabla();
 loadStreaks();
 loadCombinaciones();

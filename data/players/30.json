@@ -42,14 +42,18 @@
     "Chicho": 1,
     "P11": 1,
     "Bag": 0,
+    "Mato": 0,
     "Lomba": -1,
-    "Cesar": -1
+    "Cesar": -1,
+    "Marcelo": -1
   },
   "best_partner": {
-    "Yamil (R)": 1,
+    "Yamil": 1,
     "Lomba": 1
   },
-  "worse_partner": {},
+  "worse_partner": {
+    "Camilo": 1
+  },
   "paternity": {},
   "filiation": {}
 }

@@ -46,7 +46,7 @@
   },
   "2025-10-15": {
     "team_a": [
-      "Yamil (R), Lomba, Chagay, Mario, Camilo"
+      "Yamil, Lomba, Chagay, Mario, Camilo"
     ],
     "team_b": [
       "Chicho, Cesar, Mato, Bot, Bot"
@@ -55,7 +55,7 @@
   },
   "2025-10-08": {
     "team_a": [
-      "Yamil (R), Lomba, Chagay, Mario, Benja"
+      "Yamil, Lomba, Chagay, Mario, Benja"
     ],
     "team_b": [
       "Chicho, Bag, P11, Mato, Bot"
@@ -67,7 +67,7 @@
       "Naicha, Bag, Lomba, Mato, Bot"
     ],
     "team_b": [
-      "Yamil (R), Cesar, Chagay, Mario, Marcelo"
+      "Yamil, Cesar, Chagay, Mario, Marcelo"
     ],
     "balance": 1
   },
@@ -76,7 +76,7 @@
       "Chicho, Cesar, Chagay, Mato, Camilo"
     ],
     "team_b": [
-      "Naicha, Yamil (R), Lomba, Bot, Bot"
+      "Naicha, Yamil, Lomba, Bot, Bot"
     ],
     "balance": 2
   },
@@ -85,7 +85,7 @@
       "Bag, Emi, P11, Chagay, Marcelo"
     ],
     "team_b": [
-      "Chicho, Yamil (R), Lomba, Bot, Mario"
+      "Chicho, Yamil, Lomba, Bot, Mario"
     ],
     "balance": 0
   },

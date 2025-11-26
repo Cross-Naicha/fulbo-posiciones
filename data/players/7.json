@@ -40,23 +40,28 @@
   },
   "balance_vs": {
     "Mario": 4,
+    "Marcelo": 3,
     "Chagay": 3,
     "Chicho": 2,
     "Cesar": 2,
     "P11": 2,
     "Bag": 2,
-    "Yamil (R)": 1,
+    "Camilo": 1,
+    "Yamil": 1,
     "Naicha": 1,
-    "Benja": 1
+    "Benja": 1,
+    "Mato": 0
   },
   "best_partner": {
+    "Mato": 4,
     "Bag": 3,
     "Emi": 2,
     "Chagay": 2,
     "Mario": 2,
     "Cesar": 2,
     "Benja": 1,
-    "P11": 1
+    "P11": 1,
+    "Marcelo": 1
   },
   "worse_partner": {},
   "paternity": {},

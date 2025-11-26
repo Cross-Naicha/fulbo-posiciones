@@ -41,20 +41,25 @@
   "balance_vs": {
     "Chicho": 2,
     "P11": 2,
-    "Yamil (R)": 1,
+    "Marcelo": 1,
+    "Yamil": 1,
     "Cesar": 0,
     "Naicha": 0,
+    "Mato": -1,
     "Emi": -1,
     "Bag": -2,
     "Lomba": -3
   },
   "best_partner": {
     "Lomba": 2,
+    "Mato": 2,
     "Emi": 1,
     "Naicha": 1,
     "Bag": 1
   },
-  "worse_partner": {},
+  "worse_partner": {
+    "Marcelo": 2
+  },
   "paternity": {},
   "filiation": {}
 }

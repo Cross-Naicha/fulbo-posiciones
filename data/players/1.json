@@ -40,7 +40,8 @@
   },
   "balance_vs": {
     "Naicha": 1,
-    "Yamil (R)": 0,
+    "Yamil": 0,
+    "Mato": -1,
     "Bag": -1,
     "Cesar": -1,
     "Benja": -1,
@@ -52,6 +53,7 @@
   "best_partner": {},
   "worse_partner": {
     "P11": 2,
+    "Marcelo": 2,
     "Mario": 1,
     "Bag": 1
   },

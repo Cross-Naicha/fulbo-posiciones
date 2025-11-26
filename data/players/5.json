@@ -1,7 +1,7 @@
 {
   "basic_statistics": {
     "partidos": 2.0,
-    "apodo": "Yamil (R)",
+    "apodo": "Yamil",
     "puntos": 4,
     "efectividad": 0.67,
     "ganados": 1,
@@ -42,8 +42,10 @@
     "P11": 1,
     "Chicho": 0,
     "Bag": 0,
+    "Mato": -1,
     "Cesar": -1,
     "Chagay": -1,
+    "Camilo": -1,
     "Naicha": -1,
     "Lomba": -1
   },
@@ -52,7 +54,8 @@
   },
   "worse_partner": {
     "Naicha": 1,
-    "Cesar": 1
+    "Cesar": 1,
+    "Marcelo": 1
   },
   "paternity": {},
   "filiation": {}
