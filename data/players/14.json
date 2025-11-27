@@ -8,7 +8,7 @@
     "empatados": 1,
     "perdidos": 2,
     "diferencia de gol": "+ 8",
-    "delta": "-"
+    "delta": "↓1"
   },
   "winning_streak_statistics": {
     "empieza": "2025-11-05",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-11-26": "A",
     "2025-11-19": "A",
     "2025-11-12": "G",
     "2025-11-05": "G",
-    "2025-10-29": "P",
-    "2025-10-22": "A"
+    "2025-10-29": "P"
   },
   "balance_vs": {
     "Cesar": 2,

@@ -20,6 +20,15 @@
   [
     "GAN",
     2,
+    "Lomba",
+    "Chagay",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
     "Bag",
     "Lomba",
     null,
@@ -47,6 +56,15 @@
   [
     "GAN",
     2,
+    "Naicha",
+    "Chagay",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
     "Emi",
     "Lomba",
     null,
@@ -58,15 +76,6 @@
     2,
     "Chagay",
     "Mato",
-    null,
-    null,
-    2
-  ],
-  [
-    "GAN",
-    2,
-    "Lomba",
-    "Chagay",
     null,
     null,
     2
@@ -119,6 +128,15 @@
   [
     "GAN",
     2,
+    "Naicha",
+    "Lomba",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
     "Bag",
     "Mato",
     null,
@@ -129,15 +147,6 @@
     "GAN",
     2,
     "Bag",
-    "Chagay",
-    null,
-    null,
-    2
-  ],
-  [
-    "GAN",
-    2,
-    "Naicha",
     "Chagay",
     null,
     null,
@@ -245,43 +254,52 @@
   [
     "PER",
     2,
-    "Chicho",
-    "P11",
-    null,
-    null,
-    2
-  ],
-  [
-    "PER",
-    2,
-    "P11",
-    "Marcelo",
-    null,
-    null,
-    2
-  ],
-  [
-    "PER",
-    2,
     "Cesar",
     "Marcelo",
     null,
     null,
-    2
-  ],
-  [
-    "PER",
-    2,
-    "Chicho",
-    "Marcelo",
-    null,
-    null,
-    2
+    3
   ],
   [
     "PER",
     2,
     "Mario",
+    "Marcelo",
+    null,
+    null,
+    3
+  ],
+  [
+    "PER",
+    2,
+    "Cesar",
+    "Mario",
+    null,
+    null,
+    3
+  ],
+  [
+    "PER",
+    2,
+    "Chicho",
+    "P11",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "P11",
+    "Marcelo",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Chicho",
     "Marcelo",
     null,
     null,
@@ -319,15 +337,6 @@
     2,
     "Cesar",
     "Chagay",
-    null,
-    null,
-    2
-  ],
-  [
-    "PER",
-    2,
-    "Cesar",
-    "Mario",
     null,
     null,
     2
@@ -343,6 +352,24 @@
   ],
   [
     "PER",
+    2,
+    "Bag",
+    "Cesar",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Bag",
+    "Mario",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
     3,
     "Chagay",
     "Mario",
@@ -364,6 +391,24 @@
     3,
     "Cesar",
     "Chagay",
+    "Mario",
+    null,
+    2
+  ],
+  [
+    "PER",
+    3,
+    "Cesar",
+    "Mario",
+    "Marcelo",
+    null,
+    2
+  ],
+  [
+    "PER",
+    3,
+    "Bag",
+    "Cesar",
     "Mario",
     null,
     2

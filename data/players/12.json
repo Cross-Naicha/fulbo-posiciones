@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 7.0,
+    "partidos": 8.0,
     "apodo": "Chagay",
-    "puntos": 11,
-    "efectividad": 0.52,
-    "ganados": 3,
+    "puntos": 14,
+    "efectividad": 0.58,
+    "ganados": 4,
     "empatados": 2,
     "perdidos": 2,
-    "diferencia de gol": "- 7",
+    "diferencia de gol": "- 6",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -27,35 +27,38 @@
   },
   "present_streak_statistics": {
     "empieza": "2025-08-27",
-    "termina": "2025-11-19",
-    "extension": 12,
+    "termina": "2025-11-26",
+    "extension": 13,
     "actual": true
   },
   "last_5": {
+    "2025-11-26": "G",
     "2025-11-19": "E",
     "2025-11-12": "P",
     "2025-11-05": "P",
-    "2025-10-29": "G",
-    "2025-10-22": "G"
+    "2025-10-29": "G"
   },
   "balance_vs": {
     "Chicho": 2,
     "P11": 2,
-    "Marcelo": 1,
+    "Marcelo": 2,
+    "Cesar": 1,
     "Yamil": 1,
-    "Cesar": 0,
+    "Mario": 1,
     "Naicha": 0,
+    "Bag": -1,
     "Mato": -1,
     "Emi": -1,
-    "Bag": -2,
     "Lomba": -3
   },
   "best_partner": {
-    "Lomba": 2,
+    "Lomba": 3,
     "Mato": 2,
+    "Naicha": 2,
     "Emi": 1,
-    "Naicha": 1,
-    "Bag": 1
+    "Bag": 1,
+    "Pollo": 1,
+    "Marcos": 1
   },
   "worse_partner": {
     "Marcelo": 2
