@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 8.0,
+    "partidos": 9.0,
     "apodo": "Mario",
-    "puntos": 11,
-    "efectividad": 0.46,
+    "puntos": 12,
+    "efectividad": 0.44,
     "ganados": 3,
-    "empatados": 2,
+    "empatados": 3,
     "perdidos": 3,
     "diferencia de gol": "- 8",
-    "delta": "↓1"
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2025-10-08",
@@ -27,16 +27,16 @@
   },
   "present_streak_statistics": {
     "empieza": "2025-10-01",
-    "termina": "2025-11-26",
-    "extension": 9,
+    "termina": "2025-12-03",
+    "extension": 10,
     "actual": true
   },
   "last_5": {
+    "2025-12-03": "E",
     "2025-11-26": "P",
     "2025-11-19": "E",
     "2025-11-12": "P",
-    "2025-11-05": "P",
-    "2025-10-29": "G"
+    "2025-11-05": "P"
   },
   "balance_vs": {
     "Chicho": 2,
