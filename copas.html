@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Copas · Liga de Fulbo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+  <!-- 📌 NAV SUPERIOR -->
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="index.html" class="nav-item">🏆 Posiciones</a>
+      <a href="historica.html" class="nav-item">📊 Histórica</a>
+      <a href="copas.html" class="nav-item active">🥇 Copas</a>
+    </div>
+  </nav>
+
+  <!-- BARRA SUPERIOR DEL AUSPICIANTE -->
+  <div class="top-tab" id="auspiciante"></div>
+
+  <!-- CONTENIDO -->
+  <div class="wrap">
+
+    <!-- TÍTULOS -->
+    <h1>Copa Estival 2026</h1>
+
+    <!-- CUARTOS DE FINAL -->
+    <h2>Cuartos de final</h2>
+    <div class="card matches-card">
+      <div id="cuartosStatus" class="matches-status">
+        Cargando cuartos de final…
+      </div>
+      <div id="cuartosGrid" class="matches-grid" style="display:none"></div>
+      <div id="cuartosEmpty" class="matches-status" style="display:none">
+        No hay cuartos de final cargados.
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- SEMIFINALES -->
+    <h2>Semifinales</h2>
+    <div class="card matches-card">
+      <div id="semisStatus" class="matches-status">
+        Cargando semifinales…
+      </div>
+      <div id="semisGrid" class="matches-grid" style="display:none"></div>
+      <div id="semisEmpty" class="matches-status" style="display:none">
+        No hay semifinales cargadas.
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- FINAL -->
+    <h2>Final</h2>
+    <div class="card matches-card">
+      <div id="finalStatus" class="matches-status">
+        Cargando final…
+      </div>
+      <div id="finalGrid" class="matches-grid" style="display:none"></div>
+      <div id="finalEmpty" class="matches-status" style="display:none">
+        No hay final cargada todavía.
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+  </div> <!-- /wrap -->
+
+  <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
+
+  <!-- OVERLAY DE WHATSAPP / LOCK (si lo reutilizás) -->
+  <div class="lock-overlay" id="lockOverlay" aria-live="polite"></div>
+
+  <!-- BOTÓN FLOTANTE -->
+  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
+
+  <!-- MENÚ DE BURBUJAS SOBRE EL BOTÓN -->
+  <div id="fabMenu" class="fab-menu" aria-hidden="true">
+    <a href="index.html" class="fab-bubble">🏆</a>
+    <a href="historica.html" class="fab-bubble">📊</a>
+  </div>
+
+  <!-- SCRIPTS -->
+  <!-- Podés reutilizar la parte de scroll/FAB del main.js acá dentro de copas.js -->
+  <script src="js/copas.js"></script>
+</body>
+</html>

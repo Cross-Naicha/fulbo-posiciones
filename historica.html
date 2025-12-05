@@ -15,6 +15,15 @@
 </head>
 
 <body>
+
+  <!-- 📌 NUEVA NAVEGACIÓN SUPERIOR FIJA -->
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="index.html" class="nav-item">🏆 Posiciones</a>
+      <a href="historica.html" class="nav-item active">📊 Histórica</a>
+      <a href="copas.html" class="nav-item">🥇 Copas</a>
+    </div>
+  </nav>
   <!-- === HEADER / SPONSOR AREA ===
        Displays the sponsor bar at the top of the page.
        Text content is dynamically loaded from textos.json
@@ -31,7 +40,6 @@
     -->
     <h1 id="titulo"></h1>
     <h2>Tabla Historica</h2>
-    <div class="sub" id="frase_chiqui"></div>
 
     <!-- === MAIN TABLE SECTION ===
          Shows player rankings and statistics.
@@ -43,14 +51,13 @@
         <thead>
           <tr>
             <th>N°</th>
-            <th>Δ</th>
-            <th>X</th>
+            <th>JUG</th>
             <th>J</th>
             <th>Pts</th>
             <th>G</th>
             <th>E</th>
             <th>P</th>
-            <th>G+</th>
+            <th>DG</th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
@@ -65,57 +72,6 @@
         A simple card linking to another page (combinaciones.html)
          for exploring player combinations.
     -->
-
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge red">Temporada Actual</span>
-        <span class="streak-len">⚽</span>
-      </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="index.html" class="nav-link">
-            Liga de Primavera LombardOIL 2025 →
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- === NAVIGATION CARD ===
-         A simple card linking to another page (combinaciones.html)
-         for exploring player combinations.
-    -->
-    
-    <p></p>
-
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge blue">Combinaciones</span>
-        <span class="streak-len">⚽</span>
-      </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="combinaciones.html" class="nav-link">
-            Explorar las diferentes combinaciones mas frecuentes →
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <p></p> <!-- Just for space  -->
-
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge green">Todos los Partidos</span>
-        <span class="streak-len">⚽</span>
-      </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="combinaciones.html" class="nav-link">
-            Historial de TODOS los partidos jugados →
-          </a>
-        </div>
-      </div>
-    </div>
 
   </div>
 

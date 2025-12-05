@@ -90,7 +90,6 @@ async function loadTable() {
 
       tr.innerHTML = `
         <td>${r.N ?? ""}</td>
-        <td class="${deltaClass}">${r.Δ ?? ""}</td>
         <td><a href="jugador.html?id=${r.ID}">${r.JUG ?? ""}</a></td>
         <td>${r.J ?? ""}</td>
         <td>${r.PTS ?? ""}</td>

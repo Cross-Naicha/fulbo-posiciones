@@ -186,7 +186,7 @@ function renderTabla() {
   switch (modoActual) {
     case "compacto": headers = ["N°", "Delta", "Jugador", "Pts", "Últimos 5"]; break;
     case "intermedio": headers = ["N°", "Jugador", "Pts", "J", "DG"]; break;
-    case "completo": headers = ["N°", "Jugador", "Pts", "W", "D", "L"]; break;
+    case "completo": headers = ["N°", "Jugador", "Pts", "G", "E", "P"]; break;
   }
 
   const trHead = document.createElement("tr");

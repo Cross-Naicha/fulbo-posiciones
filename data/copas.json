@@ -1,0 +1,182 @@
+[
+  {
+    "bracket": {
+      "cuartos": [
+        {
+          "id_partido": "QF1",
+          "etapa": "cuartos",
+          "numero": 1,
+          "tipo_cruce": "ida_vuelta",
+          "ventaja": "Q1",
+
+          "jugador1": "Q1",
+          "jugador2": "Q8",
+
+          "fechas": {
+            "ida": "07-01",
+            "vuelta": "14-01"
+          },
+
+          "ida": {
+            "goles_j1": null,
+            "goles_j2": null
+          },
+          "vuelta": {
+            "goles_j1": null,
+            "goles_j2": null
+          }
+        },
+        {
+          "id_partido": "QF2",
+          "etapa": "cuartos",
+          "numero": 2,
+          "tipo_cruce": "ida_vuelta",
+          "ventaja": "Q2",
+
+          "jugador1": "Q2",
+          "jugador2": "Q7",
+
+          "fechas": {
+            "ida": null,
+            "vuelta": null
+          },
+
+          "ida": {
+            "goles_j1": null,
+            "goles_j2": null
+          },
+          "vuelta": {
+            "goles_j1": null,
+            "goles_j2": null
+          }
+        },
+        {
+          "id_partido": "QF3",
+          "etapa": "cuartos",
+          "numero": 3,
+          "tipo_cruce": "ida_vuelta",
+          "ventaja": "Q3",
+
+          "jugador1": "Q3",
+          "jugador2": "Q6",
+
+          "fechas": {
+            "ida": null,
+            "vuelta": null
+          },
+
+          "ida": {
+            "goles_j1": null,
+            "goles_j2": null
+          },
+          "vuelta": {
+            "goles_j1": null,
+            "goles_j2": null
+          }
+        },
+        {
+          "id_partido": "QF4",
+          "etapa": "cuartos",
+          "numero": 4,
+          "tipo_cruce": "ida_vuelta",
+          "ventaja": "Q4",
+
+          "jugador1": "Q4",
+          "jugador2": "Q5",
+
+          "fechas": {
+            "ida": null,
+            "vuelta": null
+          },
+
+          "ida": {
+            "goles_j1": null,
+            "goles_j2": null
+          },
+          "vuelta": {
+            "goles_j1": null,
+            "goles_j2": null
+          }
+        }
+      ],
+
+      "semifinales": [
+        {
+          "id_partido": "SF1",
+          "etapa": "semifinal",
+          "numero": 1,
+          "tipo_cruce": "ida_vuelta",
+          "ventaja": "A definir",
+
+          "jugador1": "Ganador QF1",
+          "jugador2": "Ganador QF4",
+
+          "fechas": {
+            "ida": null,
+            "vuelta": null
+          },
+
+          "ida": {
+            "goles_j1": null,
+            "goles_j2": null
+          },
+          "vuelta": {
+            "goles_j1": null,
+            "goles_j2": null
+          }
+        },
+        {
+          "id_partido": "SF2",
+          "etapa": "semifinal",
+          "numero": 2,
+          "tipo_cruce": "ida_vuelta",
+          "ventaja": "A definir",
+
+          "jugador1": "Ganador QF2",
+          "jugador2": "Ganador QF3",
+
+          "fechas": {
+            "ida": null,
+            "vuelta": null
+          },
+
+          "ida": {
+            "goles_j1": null,
+            "goles_j2": null
+          },
+          "vuelta": {
+            "goles_j1": null,
+            "goles_j2": null
+          }
+        }
+      ],
+
+      "final": [
+        {
+          "id_partido": "F1",
+          "etapa": "final",
+          "numero": 1,
+          "tipo_cruce": "ida_vuelta",
+          "ventaja": "A definir",
+
+          "jugador1": "Ganador SF1",
+          "jugador2": "Ganador SF2",
+
+          "fechas": {
+            "ida": null,
+            "vuelta": null
+          },
+
+          "ida": {
+            "goles_j1": null,
+            "goles_j2": null
+          },
+          "vuelta": {
+            "goles_j1": null,
+            "goles_j2": null
+          }
+        }
+      ]
+    }
+  }
+]

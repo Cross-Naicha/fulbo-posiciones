@@ -14,6 +14,16 @@
 </head>
 
 <body>
+
+  <!-- 📌 NUEVA NAVEGACIÓN SUPERIOR FIJA -->
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="index.html" class="nav-item">🏆 Posiciones</a>
+      <a href="historica.html" class="nav-item">📊 Histórica</a>
+      <a href="" class="nav-item active">🏃 Jugador</a>
+      <a href="copas.html" class="nav-item">🥇 Copas</a>
+    </div>
+  </nav>
   <!-- === MAIN WRAPPER ===
        Centers all content and defines the layout width.
   -->
@@ -21,11 +31,12 @@
   <div class="top-tab" id="auspiciante"></div>
   <div class="wrap">
 
+    <h1 id="titulo"></h1>
+
     <!-- === HEADER SECTION ===
          Displays back link, player name and subtitle.
     -->
     <header>
-      <a class="back" href="./">← Volver</a>
       <div>
         <h1 class="title" id="player-name">Jugador</h1>
         <p class="sub" id="subtitle">Cargando…</p>
@@ -80,14 +91,15 @@
       
     </div> <!-- /grid -->
     
-    <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
-  
+    
   </div> <!-- /wrap -->
-
+  
+  <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
   <!-- === PAGE SCRIPT ===
        All data fetching and rendering logic will be moved to js/jugador.js.
   -->
   <script src="js/jugador.js"></script>
+  <script src="js/textos.js"></script>
 
 </body>
 </html>

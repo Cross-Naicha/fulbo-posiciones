@@ -23,6 +23,13 @@
   --overlay-border: #263649;
 }
 
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 0.02em;
+}
+
+
 * { box-sizing: border-box; }
 body {
   margin: 0;
