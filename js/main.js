@@ -184,7 +184,7 @@ function renderTabla() {
 
   let headers = [];
   switch (modoActual) {
-    case "compacto": headers = ["N°", "Delta", "Jugador", "Pts", "Últimos 5"]; break;
+    case "compacto": headers = ["N°", "Jugador", "Pts", "Últimos 5"]; break;
     case "intermedio": headers = ["N°", "Jugador", "Pts", "J", "DG"]; break;
     case "completo": headers = ["N°", "Jugador", "Pts", "G", "E", "P"]; break;
   }
@@ -220,7 +220,6 @@ function renderTabla() {
 
       tr.innerHTML = `
         <td>${r.N ?? ""}</td>
-        <td class="${deltaClass}">${delta}</td>
         <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
         <td>${r.PTS}</td>
         <td></td>

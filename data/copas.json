@@ -13,8 +13,8 @@
           "jugador2": "Q8",
 
           "fechas": {
-            "ida": "07-01",
-            "vuelta": "14-01"
+            "ida": null,
+            "vuelta": null
           },
 
           "ida": {
@@ -108,8 +108,8 @@
           "tipo_cruce": "ida_vuelta",
           "ventaja": "A definir",
 
-          "jugador1": "Ganador QF1",
-          "jugador2": "Ganador QF4",
+          "jugador1": "QF1",
+          "jugador2": "QF4",
 
           "fechas": {
             "ida": null,
@@ -132,8 +132,8 @@
           "tipo_cruce": "ida_vuelta",
           "ventaja": "A definir",
 
-          "jugador1": "Ganador QF2",
-          "jugador2": "Ganador QF3",
+          "jugador1": "QF2",
+          "jugador2": "QF3",
 
           "fechas": {
             "ida": null,
@@ -159,8 +159,8 @@
           "tipo_cruce": "ida_vuelta",
           "ventaja": "A definir",
 
-          "jugador1": "Ganador SF1",
-          "jugador2": "Ganador SF2",
+          "jugador1": "SF1",
+          "jugador2": "SF2",
 
           "fechas": {
             "ida": null,
