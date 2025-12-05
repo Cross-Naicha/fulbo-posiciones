@@ -339,3 +339,71 @@ body {
 .hof-card--hidden {
   display: none;
 }
+
+/* MOBILE: una tarjeta por fila */
+@media (max-width: 600px) {
+  .hof-year-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   AJUSTES PARA CELULAR (pantallas pequeñas)
+   ========================================= */
+@media (max-width: 600px) {
+  .hof-main {
+    padding: 2rem 1rem 3rem;
+  }
+
+  /* Títulos y textos principales */
+  .hof-title {
+    font-size: 1.7rem; /* antes usaba clamp con mínimo más chico */
+  }
+
+  .hof-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Controles: que sean más fáciles de tocar y leer */
+  .hof-timeline-btn,
+  .hof-filter-btn {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  /* Header del año más cómodo */
+  .hof-year-header {
+    padding: 0.9rem 0.9rem;
+  }
+
+  .hof-year-label {
+    font-size: 1.15rem;
+  }
+
+  .hof-year-tagline {
+    font-size: 0.8rem;
+  }
+
+  .hof-year-toggle {
+    font-size: 0.78rem;
+  }
+
+  /* Tarjetas más grandes y legibles */
+  .hof-card {
+    padding: 0.9rem 1rem 1rem;
+  }
+
+  .hof-card-title {
+    font-size: 1rem;      /* antes ~0.93rem */
+    line-height: 1.4;
+  }
+
+  .hof-card-meta {
+    font-size: 0.8rem;    /* antes 0.7rem */
+  }
+
+  .hof-card-pill {
+    font-size: 0.75rem;   /* antes 0.63rem */
+    padding: 0.16rem 0.6rem;
+  }
+}
