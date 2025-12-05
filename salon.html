@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Salón de la Fama - La Liga</title>
+
+  <!-- Fuente opcional, podés borrarla si ya usás otra -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS específico del Salón de la Fama -->
+  <link rel="stylesheet" href="CSS/salon.css" />
+</head>
+<body>
+  <!-- Acá podría ir tu header/nav general de La Liga -->
+
+  <main class="hof-main">
+    <header class="hof-hero">
+      <h1 class="hof-title">Salón de la Fama</h1>
+      <p class="hof-subtitle">
+        Un recorrido año a año por los hitos, campeones y momentos legendarios de La Liga.
+      </p>
+    </header>
+
+    <!-- Línea de tiempo (años) -->
+    <section class="hof-controls">
+      <div class="hof-timeline" aria-label="Línea de tiempo de años del Salón de la Fama">
+        <!-- Botones de años generados por JS -->
+      </div>
+
+      <!-- Filtros por competencia -->
+      <div class="hof-filters" aria-label="Filtros por competencia">
+        <!-- Botones de filtros generados por JS -->
+      </div>
+    </section>
+
+    <!-- Contenedor de años -->
+    <section id="hof-years" class="hof-years">
+      <!-- Cada año + sus tarjetas se inyectan acá vía JS -->
+    </section>
+  </main>
+
+  <!-- JS del Salón de la Fama -->
+  <script src="JS/salon.js"></script>
+</body>
+</html>
