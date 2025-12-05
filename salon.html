@@ -12,9 +12,24 @@
 
 
   <!-- CSS específico del Salón de la Fama -->
+  <link rel="stylesheet" href="CSS/style.css" />
   <link rel="stylesheet" href="CSS/salon.css" />
 </head>
 <body>
+
+      <!-- 📌 NUEVA NAVEGACIÓN SUPERIOR FIJA -->
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="index.html" class="nav-item">🏆 POS</a>
+      <a href="historica.html" class="nav-item">📊 HIS</a>
+      <a href="copas.html" class="nav-item">🥇 COP</a>
+      <a href="salon.html" class="nav-item active">👑 SDF</a>
+    </div>
+  </nav>
+  
+  <!-- BARRA SUPERIOR DEL AUSpICIANTE -->
+  <div class="top-tab" id="auspiciante"></div>
+
   <!-- Acá podría ir tu header/nav general de La Liga -->
 
   <main class="hof-main">
@@ -36,14 +51,17 @@
         <!-- Botones de filtros generados por JS -->
       </div>
     </section>
+    
+    
 
     <!-- Contenedor de años -->
     <section id="hof-years" class="hof-years">
       <!-- Cada año + sus tarjetas se inyectan acá vía JS -->
     </section>
-  </main>
 
   <!-- JS del Salón de la Fama -->
+  <script src="js/main.js"></script>
   <script src="js/salon.js"></script>
+  <script src="js/textos.js"></script>
 </body>
 </html>
