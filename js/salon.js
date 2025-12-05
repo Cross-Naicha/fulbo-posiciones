@@ -18,78 +18,57 @@ const SALON_DE_LA_FAMA_DATA = {
         {
           titulo: "LOMBA | Liga de Transición 2025",
           competencia: "Especial",
-          prioridad: 2
-        },
-        {
-          titulo: "??? | Campeón de la Liga de Primavera 2025",
-          competencia: "Regular",
-          prioridad: 1
-        },
-        {
-          titulo: "Racha Legendaria de 7 Victorias Consecutivas",
-          competencia: "racha",
-          prioridad: 2
-        },
-        {
-          titulo: "Momento Especial: El Gol de Chilena en la Oscuridad",
-          competencia: "momento",
           prioridad: 3
         },
         {
-          titulo: "Combinación Histórica: Bag–Naicha",
-          competencia: "especial",
-          prioridad: 3
+          titulo: "??? | Liga de Primavera 2025",
+          competencia: "Liga",
+          prioridad: 2
         }
       ]
     },
     {
-      year: 2024,
+      year: 2026,
       expanded: false,
       tarjetas: [
         {
-          titulo: "Campeón de la Liga de Transición 2024",
-          competencia: "liga",
-          prioridad: 1
-        },
-        {
-          titulo: "MVP del Año: Lomba",
-          competencia: "especial",
-          prioridad: 1
-        },
-        {
-          titulo: "Partido del Año: El Diluvio de Septiembre",
-          competencia: "partido",
+          titulo: "??? | Liga de Verano 2026",
+          competencia: "Liga",
           prioridad: 2
         },
         {
-          titulo: "Racha Más Larga Sin Derrotas: 9 Partidos",
-          competencia: "racha",
+          titulo: "??? | Liga de Otoño 2026",
+          competencia: "Liga",
           prioridad: 2
         },
         {
-          titulo: "Distinción Especial: Jugador Revelación – Camilo",
-          competencia: "especial",
+          titulo: "??? | Liga de Invierno 2026",
+          competencia: "Liga",
+          prioridad: 2
+        },
+        {
+          titulo: "??? | Liga de Primavera 2026",
+          competencia: "Liga",
+          prioridad: 2
+        },
+        {
+          titulo: "??? | Copa Apertura 2026",
+          competencia: "Copa",
+          prioridad: 1
+        },
+        {
+          titulo: "??? | Copa Clausura 2026",
+          competencia: "Copa",
+          prioridad: 1
+        },
+        {
+          titulo: "??? | SuperCopa Estival 2026",
+          competencia: "SuperCopa",
           prioridad: 3
-        }
-      ]
-    },
-    {
-      year: 2023,
-      expanded: false,
-      tarjetas: [
-        {
-          titulo: "Campeón de la Copa de Verano 2023",
-          competencia: "copa",
-          prioridad: 1
         },
         {
-          titulo: "Jugador Más Regular del Año",
-          competencia: "especial",
-          prioridad: 2
-        },
-        {
-          titulo: "Momento Meme Oficial: El Penalty a la Luna",
-          competencia: "meme",
+          titulo: "??? | SuperCopa Invernal 2026",
+          competencia: "SuperCopa",
           prioridad: 3
         }
       ]
@@ -100,13 +79,10 @@ const SALON_DE_LA_FAMA_DATA = {
 // ---- 2. Mapa de colores por competencia (JS aplica el color) ----
 
 const COMPETENCIA_COLORS = {
-  copa: "#f5b400",
-  liga: "#4caf50",
-  racha: "#ff7043",
-  partido: "#29b6f6",
-  momento: "#ab47bc",
-  meme: "#ffca28",
-  especial: "#c5e1ff"
+  Copa: "#f5b400",
+  Liga: "#4caf50",
+  SuperCopa: "#ff7043",
+  Especial: "#b1c2c1ff"
 };
 
 // ---- 3. Estado de UI ----
