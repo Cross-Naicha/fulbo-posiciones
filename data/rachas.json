@@ -3,84 +3,84 @@
     "racha": "sin ganar",
     "jugador": "Mario",
     "extension": 5,
-    "dias": 29,
+    "dias": 33,
     "inicio": "2025-11-05"
   },
   {
     "racha": "invicto",
     "jugador": "Lomba",
     "extension": 8,
-    "dias": 64,
+    "dias": 68,
     "inicio": "2025-10-01"
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
     "extension": 14,
-    "dias": 99,
+    "dias": 103,
     "inicio": "2025-08-27"
   },
   {
     "racha": "ausente",
     "jugador": "Camilo",
     "extension": 3,
-    "dias": 15,
+    "dias": 19,
     "inicio": "2025-11-19"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Lomba -> Mario",
     "extension": 5,
-    "dias": 92,
+    "dias": 96,
     "inicio": "2025-09-03"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Bag -> Chagay",
     "extension": 5,
-    "dias": 92,
+    "dias": 96,
     "inicio": "2025-09-03"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Lomba -> Cesar",
     "extension": 5,
-    "dias": 64,
+    "dias": 68,
     "inicio": "2025-10-01"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Lomba -> Chagay",
     "extension": 5,
-    "dias": 64,
+    "dias": 68,
     "inicio": "2025-10-01"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Lomba -> Mario",
     "extension": 5,
-    "dias": 92,
+    "dias": 96,
     "inicio": "2025-09-03"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Cesar",
     "extension": 5,
-    "dias": 8,
+    "dias": 12,
     "inicio": "2025-11-26"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Mato -> Chagay",
     "extension": 5,
-    "dias": 22,
+    "dias": 26,
     "inicio": "2025-11-12"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Mato -> Mario",
     "extension": 5,
-    "dias": 22,
+    "dias": 26,
     "inicio": "2025-11-12"
   }
 ]

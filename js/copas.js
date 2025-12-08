@@ -79,6 +79,32 @@ const finalEmpty    = document.getElementById('finalEmpty');
 const copaSubtitulo   = document.getElementById('copaSubtitulo');
 const copaDescripcion = document.getElementById('copaDescripcion');
 
+const clasifStatus    = document.getElementById('clasifStatus');
+const clasifEmpty     = document.getElementById('clasifEmpty');
+const clasifTableWrap = document.getElementById('clasifTableWrap');
+const clasifTable     = document.getElementById('clasifTable');
+
+// Modo de cómo mostrar los potenciales de cuartos:
+// 'inline'  -> Q1 (Chagay) vs Q8 (P11)
+// 'footer'  -> Q1 vs Q8  + bloque abajo "Q1: Chagay"
+const POTENCIALES_MODE = 'footer';
+
+// Mapa global posición -> nombre del jugador (según clasificacion_copas.json)
+let rankingByPos = {};
+
+// Mapeo entre id_partido del bracket y la posición de ranking que queremos mostrar
+// Ajustá este objeto según cómo armes tu llave:
+const slotPosMap = {
+  Q1: 1,
+  Q2: 2,
+  Q3: 3,
+  Q4: 4,
+  S1: 1,  // ej: semifinal 1 con el 1°
+  S2: 2,
+  F1: 1   // ej: final etiquetada con el 1°
+};
+
+
 /* ========== 3. HELPERS: GLOBAL, GANADOR, FECHAS ========== */
 
 function sumaLeg(leg) {
@@ -156,22 +182,65 @@ function lineaIda(p) {
   const ida = p.ida;
   if (!ida) return '';
 
-  if (Number.isFinite(ida.goles_j1) && Number.isFinite(ida.goles_j2)) {
-    // J1 local, J2 visitante
-    return `${p.jugador1} ${ida.goles_j1} - ${ida.goles_j2} ${p.jugador2} (Ida)`;
+  // slots "puros" por defecto
+  let j1 = p.jugador1;
+  let j2 = p.jugador2;
+
+  // Si estamos en modo inline y es partido de cuartos: resolvemos nombres
+  if (POTENCIALES_MODE === 'inline' && isQuarterMatch(p)) {
+    j1 = resolveSlotName(p.jugador1);
+    j2 = resolveSlotName(p.jugador2);
   }
-  return `${p.jugador1} vs ${p.jugador2} (Ida)`;
+
+  if (Number.isFinite(ida.goles_j1) && Number.isFinite(ida.goles_j2)) {
+    return `${j1} ${ida.goles_j1} - ${ida.goles_j2} ${j2} (Ida)`;
+  }
+  return `${j1} vs ${j2} (Ida)`;
 }
 
 function lineaVuelta(p) {
   const vuelta = p.vuelta;
   if (!vuelta) return '';
 
-  if (Number.isFinite(vuelta.goles_j1) && Number.isFinite(vuelta.goles_j2)) {
-    // En la vuelta queremos: J2 goles_j2 - goles_j1 J1 (Vuelta)
-    return `${p.jugador2} ${vuelta.goles_j2} - ${vuelta.goles_j1} ${p.jugador1} (Vuelta)`;
+  let j1 = p.jugador1;
+  let j2 = p.jugador2;
+
+  if (POTENCIALES_MODE === 'inline' && isQuarterMatch(p)) {
+    j1 = resolveSlotName(p.jugador1);
+    j2 = resolveSlotName(p.jugador2);
   }
-  return `${p.jugador2} vs ${p.jugador1} (Vuelta)`;
+
+  if (Number.isFinite(vuelta.goles_j1) && Number.isFinite(vuelta.goles_j2)) {
+    // Vuelta: J2 local
+    return `${j2} ${vuelta.goles_j2} - ${vuelta.goles_j1} ${j1} (Vuelta)`;
+  }
+  return `${j2} vs ${j1} (Vuelta)`;
+}
+
+function isQuarterSlot(slot) {
+  if (!slot) return false;
+  const up = String(slot).trim().toUpperCase();
+  return /^Q(\d+)$/.test(up);  // Q1, Q2, ..., Q8
+}
+
+function isQuarterMatch(p) {
+  return isQuarterSlot(p.jugador1) && isQuarterSlot(p.jugador2);
+}
+
+// Solo usado en modo 'inline': Q1 -> "Q1 (Chagay)"
+function resolveSlotName(slot) {
+  if (!slot) return '';
+  const raw = String(slot).trim();
+  const up = raw.toUpperCase();
+
+  const match = /^Q(\d+)$/.exec(up);
+  if (!match) return raw; // S1, F1, nombres reales, etc.
+
+  const pos = Number(match[1]);
+  const nombre = rankingByPos[pos];
+  if (!nombre) return raw;
+
+  return `${raw} (${nombre})`;
 }
 
 function copaMatchCard(p) {
@@ -187,10 +256,14 @@ function copaMatchCard(p) {
   fechasBadge.className = `badge ${color}`;
   fechasBadge.textContent = fechasTexto(p);
 
-  const ganadorBadge = document.createElement('span');
+    const ganadorBadge = document.createElement('span');
   ganadorBadge.className = 'badge';
   const ganador = ganadorPartido(p);
-  ganadorBadge.textContent = `${p.id_partido}: ${ganador ? ganador : 'Pendiente'}`;
+
+  const baseId = p.id_partido ? String(p.id_partido).toUpperCase() : '';
+
+  ganadorBadge.textContent = `${baseId || ''}: ${ganador ? ganador : 'Pendiente'}`;
+
 
   top.append(fechasBadge, ganadorBadge);
 
@@ -198,10 +271,16 @@ function copaMatchCard(p) {
   const main = document.createElement('div');
   main.className = 'streak-main';
 
-  // Primera línea de texto: quién es local (jugador1)
   const infoLocal = document.createElement('div');
   infoLocal.className = 'streak-name mono';
-  infoLocal.textContent = `Ventaja: ${p.ventaja}`;
+
+  let ventajaTxt = p.ventaja;
+  if (POTENCIALES_MODE === 'inline' && isQuarterSlot(p.ventaja)) {
+    ventajaTxt = resolveSlotName(p.ventaja);
+  }
+
+  infoLocal.textContent = `Ventaja: ${ventajaTxt || p.ventaja || '-'}`;
+
 
   const globalSpan = document.createElement('div');
   globalSpan.className = 'streak-len';
@@ -225,6 +304,44 @@ function copaMatchCard(p) {
   if (l2.textContent) details.appendChild(l2);
 
   el.append(top, main, details);
+
+    // === BLOQUE DE POTENCIALES (solo cuartos y modo 'footer') ===
+  if (POTENCIALES_MODE === 'footer' && isQuarterMatch(p)) {
+    const potWrap = document.createElement('div');
+    potWrap.className = 'streak-teams mono';
+
+    const title = document.createElement('div');
+    title.className = 'streak-name';
+    title.style.fontSize = '12px';
+    title.style.opacity = '0.8';
+    title.textContent = 'Potenciales:';
+    potWrap.appendChild(title);
+
+    // slots involucrados: jugador1, jugador2, ventaja (puede repetirse)
+    const slots = [p.jugador1, p.jugador2];
+    if (p.ventaja && !slots.includes(p.ventaja)) {
+      slots.push(p.ventaja);
+    }
+
+    slots.forEach(slot => {
+      if (!isQuarterSlot(slot)) return;
+      const raw = String(slot).trim().toUpperCase();
+      const match = /^Q(\d+)$/.exec(raw);
+      if (!match) return;
+
+      const pos = Number(match[1]);
+      const nombre = rankingByPos[pos] || '—';
+
+      const line = document.createElement('div');
+      line.className = 'streak-name';
+      line.style.fontSize = '12px';
+      line.textContent = `${raw}: ${nombre}`;
+      potWrap.appendChild(line);
+    });
+
+    el.appendChild(potWrap);
+  }
+
   return el;
 }
 
@@ -259,6 +376,7 @@ function renderRound(partidos, grid, statusEl, emptyEl) {
 /* ========== 6. CARGA DE COPA DESDE JSON ========== */
 
 async function loadCopa() {
+  // Estados iniciales
   cuartosStatus.style.display = 'block';
   semisStatus.style.display   = 'block';
   finalStatus.style.display   = 'block';
@@ -271,16 +389,57 @@ async function loadCopa() {
   semisEmpty.style.display   = 'none';
   finalEmpty.style.display   = 'none';
 
-  try {
-    const res = await fetch(`data/copas.json?v=${Date.now()}`, { cache: 'no-store' });
-    if (!res.ok) throw new Error('No se pudo cargar copas.json');
-    const data = await res.json();
+  clasifStatus.style.display    = 'block';
+  clasifEmpty.style.display     = 'none';
+  clasifTableWrap.style.display = 'none';
 
-    let copa = null;
-    if (Array.isArray(data)) {
-      copa = data[0];
+  try {
+    // 1) Copa + clasificación (como antes)
+    const [copaRes, clasifRes] = await Promise.all([
+      fetch(`data/copas.json?v=${Date.now()}`, { cache: 'no-store' }),
+      fetch(`data/clasificacion_copas.json?v=${Date.now()}`, { cache: 'no-store' })
+    ]);
+
+    if (!copaRes.ok)  throw new Error('No se pudo cargar copas.json');
+    if (!clasifRes.ok) throw new Error('No se pudo cargar clasificacion_copas.json');
+
+    const copaData   = await copaRes.json();
+    const clasifData = await clasifRes.json();
+
+    // 2) Intentamos cargar overrides de semis/final (opcional)
+    let override = {};
+    try {
+      const overrideRes = await fetch(`data/copas_semis_final.json?v=${Date.now()}`, { cache: 'no-store' });
+      if (overrideRes.ok) {
+        override = await overrideRes.json();
+      }
+    } catch (e) {
+      // si falla, simplemente no usamos overrides
+      console.warn('No se pudo cargar copas_semis_final.json (opcional):', e);
+    }
+
+    // 3) Render de clasificación
+    if (Array.isArray(clasifData)) {
+      renderClasificacion(clasifData);
+
+      // llenar rankingByPos para las tarjetas (pos -> nombre)
+      rankingByPos = {};
+      clasifData.forEach(r => {
+        const pos = Number(r.N);
+        if (Number.isFinite(pos)) {
+          rankingByPos[pos] = r.JUG;
+        }
+      });
     } else {
-      copa = data;
+      renderClasificacion([]);
+    }
+
+    // 4) Copa
+    let copa = null;
+    if (Array.isArray(copaData)) {
+      copa = copaData[0];
+    } else {
+      copa = copaData;
     }
     if (!copa) throw new Error('No se encontró ninguna copa para mostrar');
 
@@ -292,9 +451,22 @@ async function loadCopa() {
     }
 
     const bracket = copa.bracket || {};
-    renderRound(bracket.cuartos     || [], cuartosGrid, cuartosStatus, cuartosEmpty);
-    renderRound(bracket.semifinales || [], semisGrid,   semisStatus,   semisEmpty);
-    renderRound(bracket.final       || [], finalGrid,   finalStatus,   finalEmpty);
+
+    // Semis y final: si hay override, usamos eso; si no, lo del bracket
+    const semisData = (override.semifinales && override.semifinales.length)
+      ? override.semifinales
+      : (bracket.semifinales || []);
+
+    const finalData = (override.final && override.final.length)
+      ? override.final
+      : (bracket.final || []);
+
+    // Cuartos siempre desde copas.json (con Q1..Q8)
+    renderRound(bracket.cuartos || [], cuartosGrid, cuartosStatus, cuartosEmpty);
+
+    // Semis y final desde override o bracket
+    renderRound(semisData, semisGrid, semisStatus, semisEmpty);
+    renderRound(finalData, finalGrid, finalStatus, finalEmpty);
 
   } catch (err) {
     console.error(err);
@@ -303,6 +475,7 @@ async function loadCopa() {
     cuartosStatus.textContent = msg;
     semisStatus.textContent   = msg;
     finalStatus.textContent   = msg;
+    clasifStatus.textContent  = msg;
 
     cuartosStatus.style.display = 'block';
     semisStatus.style.display   = 'block';
@@ -315,8 +488,74 @@ async function loadCopa() {
     cuartosEmpty.style.display = 'none';
     semisEmpty.style.display   = 'none';
     finalEmpty.style.display   = 'none';
+
+    clasifTableWrap.style.display = 'none';
+    clasifEmpty.style.display     = 'none';
   }
 }
+
+
+function renderClasificacion(rows) {
+  // Limpio la tabla
+  clasifTable.innerHTML = '';
+
+  if (!rows || !rows.length) {
+    clasifStatus.style.display = 'none';
+    clasifTableWrap.style.display = 'none';
+    clasifEmpty.style.display = 'block';
+    return;
+  }
+
+  clasifStatus.style.display = 'none';
+  clasifEmpty.style.display = 'none';
+  clasifTableWrap.style.display = 'block';
+
+  // Encabezado
+  const thead = document.createElement('thead');
+  const headRow = document.createElement('tr');
+
+  ['Pos', 'Jugador', 'PTS', 'J', 'G', 'GOL'].forEach(txt => {
+    const th = document.createElement('th');
+    th.textContent = txt;
+    headRow.appendChild(th);
+  });
+
+  thead.appendChild(headRow);
+
+  // Cuerpo
+  const tbody = document.createElement('tbody');
+
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+
+    // Fondo según S
+    if (Number(r.S) === 1) {
+      tr.classList.add('clasif-ok');      // verde
+    } else if (Number(r.S) === 2) {
+      tr.classList.add('clasif-risk');    // amarillo
+    }
+
+    const cPos   = document.createElement('td');
+    const cJug   = document.createElement('td');
+    const cPts   = document.createElement('td');
+    const cJ     = document.createElement('td');
+    const cG     = document.createElement('td');
+    const cGol   = document.createElement('td');
+
+    cPos.textContent = r.N;
+    cJug.textContent = r.JUG;
+    cPts.textContent = r.PTS;
+    cJ.textContent   = r.J;
+    cG.textContent   = r.G;
+    cGol.textContent = r.GOL;
+
+    tr.append(cPos, cJug, cPts, cJ, cG, cGol);
+    tbody.appendChild(tr);
+  });
+
+  clasifTable.append(thead, tbody);
+}
+
 
 /* ========== 7. INIT ========== */
 

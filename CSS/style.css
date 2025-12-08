@@ -449,16 +449,18 @@ h1 { text-align: center; margin-bottom: 8px; }
   .wrap {
     margin-top: 118px;
   }
-  .tabla-posiciones {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+
   #jugadorSelect {
     width: 100%;
     text-align: center;
     font-size: 0.95rem;
   }
 }
+
+  .tabla-posiciones {
+    padding: 8px 10px;
+  }
+
 
 /* === COMB PUNTITOS === */
 .comb-dots {
@@ -533,4 +535,69 @@ h1 { text-align: center; margin-bottom: 8px; }
 
 .comb-dot:hover {
   opacity: 0.8;
+}
+
+.pos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.pos-table th,
+.pos-table td {
+  padding: 4px 6px;
+  text-align: center;
+}
+
+.pos-table thead {
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+}
+
+.pos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.pos-table th,
+.pos-table td {
+  padding: 6px 4px;
+  text-align: center;
+}
+
+.pos-table thead {
+  background: rgba(255,255,255,0.02);
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+.pos-table tbody tr:nth-child(odd) {
+  background: rgba(255,255,255,0.015);
+}
+
+/* Fila normal */
+.pos-table tbody tr {
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Clasificado */
+.clasif-ok {
+  background: rgba(47,191,113,0.12);
+}
+.clasif-ok td:first-child {
+  border-left: 3px solid var(--pos);
+}
+
+/* En riesgo / con chances */
+.clasif-risk {
+  background: rgba(241,196,15,0.12);
+}
+.clasif-risk td:first-child {
+  border-left: 3px solid #f1c40f;
+}
+
+/* Card específica de clasificación: recorta todo adentro para respetar las esquinas */
+.clasif-card {
+  overflow: hidden;
 }
