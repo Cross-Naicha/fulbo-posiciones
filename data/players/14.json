@@ -1,23 +1,23 @@
 {
   "basic_statistics": {
-    "partidos": 6.0,
+    "partidos": 7.0,
     "apodo": "Mato",
-    "puntos": 8,
-    "efectividad": 0.44,
-    "ganados": 2,
+    "puntos": 11,
+    "efectividad": 0.52,
+    "ganados": 3,
     "empatados": 2,
     "perdidos": 2,
-    "diferencia de gol": "+ 8",
-    "delta": "-"
+    "diferencia de gol": "+ 18",
+    "delta": "↑2"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-11-05",
-    "termina": "2025-11-12",
+    "empieza": "2025-12-03",
+    "termina": "2025-12-10",
     "extension": 2,
-    "puntos acumulados": 6,
-    "victorias": 2,
-    "empates": 0,
-    "actual": false
+    "puntos acumulados": 4,
+    "victorias": 1,
+    "empates": 1,
+    "actual": true
   },
   "losses_streak_statistics": {
     "empieza": "2025-10-29",
@@ -32,35 +32,37 @@
     "actual": false
   },
   "last_5": {
+    "2025-12-10": "G",
     "2025-12-03": "E",
     "2025-11-26": "A",
     "2025-11-19": "A",
-    "2025-11-12": "G",
-    "2025-11-05": "G"
+    "2025-11-12": "G"
   },
   "balance_vs": {
-    "Cesar": 2,
+    "Cesar": 3,
     "Marcelo": 2,
+    "Naicha": 2,
+    "Mario": 2,
     "Chicho": 1,
     "P11": 1,
-    "Naicha": 1,
     "Yamil": 1,
     "Chagay": 1,
-    "Mario": 1,
+    "Bag": 1,
     "Camilo": 1,
-    "Lomba": 0,
-    "Bag": 0,
-    "Benja": 0
+    "Benja": 1,
+    "Lomba": 0
   },
   "best_partner": {
-    "Lomba": 4,
-    "Chagay": 2,
+    "Lomba": 5,
+    "Chagay": 3,
     "Cesar": 2,
     "Emi": 1,
     "Mario": 1,
     "Camilo": 1,
     "Naicha": 1,
-    "Bag": 1
+    "Bag": 1,
+    "Marcelo": 1,
+    "Marcos": 1
   },
   "worse_partner": {
     "P11": 1

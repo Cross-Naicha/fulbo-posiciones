@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 2.0,
+    "partidos": 3.0,
     "apodo": "Marcos",
-    "puntos": 4,
-    "efectividad": 0.67,
-    "ganados": 1,
+    "puntos": 7,
+    "efectividad": 0.78,
+    "ganados": 2,
     "empatados": 1,
     "perdidos": 0,
-    "diferencia de gol": "+ 1",
-    "delta": "↓1"
+    "diferencia de gol": "+ 11",
+    "delta": "↑3"
   },
   "winning_streak_statistics": {
     "empieza": "2025-11-19",
@@ -26,23 +26,27 @@
     "actual": false
   },
   "last_5": {
+    "2025-12-10": "G",
     "2025-12-03": "A",
     "2025-11-26": "G",
     "2025-11-19": "E",
-    "2025-11-12": "A",
-    "2025-11-05": "A"
+    "2025-11-12": "A"
   },
   "balance_vs": {
-    "Bag": 1,
-    "Cesar": 1,
-    "Mario": 1,
-    "Marcelo": 1
+    "Bag": 2,
+    "Cesar": 2,
+    "Mario": 2,
+    "Marcelo": 1,
+    "Naicha": 1,
+    "Benja": 1
   },
   "best_partner": {
+    "Lomba": 2,
+    "Chagay": 2,
     "Pollo": 1,
     "Naicha": 1,
-    "Lomba": 1,
-    "Chagay": 1
+    "Mato": 1,
+    "Marcelo": 1
   },
   "worse_partner": {},
   "paternity": {},
