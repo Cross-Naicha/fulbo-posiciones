@@ -1,22 +1,25 @@
-[
-    {"apodo": "Bag"},
-    {"apodo": "Benja"},
-    {"apodo": "Camilo"},
-    {"apodo": "Cesar"},
-    {"apodo": "Chagay"},
-    {"apodo": "Chicho"},
-    {"apodo": "Emi"},
-    {"apodo": "Facu"},
-    {"apodo": "Jose"},
-    {"apodo": "Lomba"},
-    {"apodo": "Marcelo"},
-    {"apodo": "Mario"},
-    {"apodo": "Mato"},
-    {"apodo": "Naicha"},
-    {"apodo": "P11"},
-    {"apodo": "Pelao Khe"},
-    {"apodo": "Pollo"},
-    {"apodo": "Valentin"},
-    {"apodo": "Vara"},
-    {"apodo": "Yamil"}
-]
+{
+  "meta": {
+    "version": 1.1,
+    "updated": "2025-12-15",
+    "imageBasePath": "data/img/jugadores/"
+  },
+  "players": [
+    {
+      "id": "jugador_demo",
+      "photo": "final.png",
+      "stars": 3,
+      "text": "Lomba",
+      "active": true,
+      "order": 1
+    },
+    {
+      "id": "jugador_demo",
+      "photo": "final.png",
+      "stars": 3,
+      "text": "JUGADOR DEMO",
+      "active": true,
+      "order": 1
+    }
+  ]
+}

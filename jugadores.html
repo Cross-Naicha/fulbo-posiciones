@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jugadores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Reusá tu CSS principal si ya existe -->
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="stylesheet" href="CSS/jugadores.css" />
+
+</head>
+
+<body>
+
+  <!-- 📌 NAVEGACIÓN SUPERIOR FIJA (misma lógica que el resto del sitio) -->
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="index.html" class="nav-item">🏆 POS</a>
+      <a href="historica.html" class="nav-item">📊 HIS</a>
+      <a href="copas.html" class="nav-item">🥇 COP</a>
+      <a href="salon.html" class="nav-item">👑 SDF</a>
+      <a href="jugadores.html" class="nav-item active">🧑‍🤝‍🧑 JUG</a>
+    </div>
+  </nav>
+
+  <main class="wrap page-jugadores">
+
+    <!-- Encabezado simple -->
+    <header class="page-head">
+      <h1 class="page-title">Jugadores</h1>
+      <p class="page-subtitle">Tarjetas con foto + títulos (⭐)</p>
+    </header>
+
+    <!-- GRID DE TARJETAS -->
+    <section class="players-grid" id="playersGrid" aria-label="Listado de jugadores">
+      <!-- Las tarjetas se inyectan desde JSON -->
+    </section>
+
+    <!-- TEMPLATE DE TARJETA (Look A) -->
+    <template id="playerCardTpl">
+      <article class="player-card" role="article">
+        <!-- Fondo -->
+        <div class="player-bg" aria-hidden="true"></div>
+
+        <!-- Estrellas (arriba derecha) -->
+        <div class="player-stars" aria-label="Títulos"></div>
+
+        <!-- Texto (abajo) -->
+        <div class="player-text">
+          <div class="player-name"></div>
+        </div>
+      </article>
+    </template>
+
+  </main>
+
+  <!-- JS que va a leer jugadores.json y renderizar -->
+  <script defer src="js/jugadores.js"></script>
+
+</body>
+</html>
