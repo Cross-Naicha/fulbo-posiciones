@@ -34,6 +34,28 @@
     <h3 id="fechas_1"></h3>
     <p id="fechas_2"></p>
 
+        <!-- 🏟️ GRAN FINAL: AFICHE + COUNTDOWN -->
+    <section class="final-banner" aria-label="Gran final">
+      <div class="final-card">
+        <div class="final-media">
+          <img src="data/img/final.png" alt="A. Lomba vs Chagay" loading="lazy" />
+        </div>
+
+        <div class="final-info">
+          <div class="final-title">GRAN FINAL</div>
+
+          <div class="countdown" id="countdown" data-kickoff="2025-12-17T20:00:00-03:00">
+            <div class="cd-item"><div class="cd-num" id="cdDays">--</div><div class="cd-lbl">Días</div></div>
+            <div class="cd-item"><div class="cd-num" id="cdHours">--</div><div class="cd-lbl">Horas</div></div>
+            <div class="cd-item"><div class="cd-num" id="cdMins">--</div><div class="cd-lbl">Min</div></div>
+            <div class="cd-item"><div class="cd-num" id="cdSecs">--</div><div class="cd-lbl">Seg</div></div>
+          </div>
+
+          <div class="final-meta" id="finalMeta"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- TABLA DE POSICIONES -->
     <h2>Tabla de Posiciones</h2>
     <div class="card tabla-posiciones">
@@ -135,5 +157,7 @@
   <!-- SCRIPTS -->
   <script src="js/main.js"></script>
   <script src="js/textos.js"></script>
+  <script src="js/final.js"></script>
+
 </body>
 </html>
