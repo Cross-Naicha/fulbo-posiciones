@@ -44,7 +44,7 @@
 
     if(meta){
       // Texto “humano” con fecha local del navegador
-      meta.textContent = `Kickoff: ${kickoff.toLocaleString("es-AR")}`;
+      meta.textContent = `Lomba vs. Chagay: ${kickoff.toLocaleString("es-AR")}`;
     }
   }
 
