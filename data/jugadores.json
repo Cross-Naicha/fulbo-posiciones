@@ -6,20 +6,124 @@
   },
   "players": [
     {
-      "id": "jugador_demo",
-      "photo": "final.png",
-      "stars": 3,
+      "id": "Lomba",
+      "photo": "lomba.png",
+      "stars": 1,
       "text": "Lomba",
       "active": true,
       "order": 1
     },
     {
-      "id": "jugador_demo",
-      "photo": "final.png",
-      "stars": 3,
-      "text": "JUGADOR DEMO",
+      "id": "Chagay",
+      "photo": "chagay.png",
+      "stars": 0,
+      "text": "Chagay",
       "active": true,
-      "order": 1
+      "order": 2
+    },
+    {
+      "id": "Benja",
+      "photo": "benja.png",
+      "stars": 0,
+      "text": "Benja",
+      "active": true,
+      "order": 3
+    },
+    {
+      "id": "Bag",
+      "photo": "bag_pagina.png",
+      "stars": 0,
+      "text": "Ranking: 1356",
+      "active": true,
+      "order": 4
+    },
+    {
+      "id": "Naicha",
+      "photo": "naicha.png",
+      "stars": 0,
+      "text": "Naicha",
+      "active": true,
+      "order": 5
+    },
+    {
+      "id": "Mario",
+      "photo": "mario.png",
+      "stars": 1,
+      "text": "Mario",
+      "active": true,
+      "order": 6
+    },
+    {
+      "id": "Cesar",
+      "photo": "cesar.png",
+      "stars": 0,
+      "text": "Cesar",
+      "active": true,
+      "order": 7
+    },
+    {
+      "id": "Yamil",
+      "photo": "yamil.png",
+      "stars": 0,
+      "text": "Yamil",
+      "active": true,
+      "order": 8
+    },
+    {
+      "id": "Chicho",
+      "photo": "chicho.png",
+      "stars": 0,
+      "text": "Chicho",
+      "active": true,
+      "order": 9
+    },
+    {
+      "id": "Marcos",
+      "photo": "marcos.png",
+      "stars": 0,
+      "text": "Marcos",
+      "active": true,
+      "order": 10
+    },
+    {
+      "id": "Ponce",
+      "photo": "ponce.png",
+      "stars": 0,
+      "text": "Ponce",
+      "active": true,
+      "order": 11
+    },
+    {
+      "id": "Pollo",
+      "photo": "pollo.png",
+      "stars": 0,
+      "text": "Pollo",
+      "active": true,
+      "order": 12
+    },
+    {
+      "id": "Marcelo",
+      "photo": "marcelo.png",
+      "stars": 0,
+      "text": "Marcelo",
+      "active": true,
+      "order": 13
+    },
+    {
+      "id": "Mato",
+      "photo": "Mato.png",
+      "stars": 0,
+      "text": "Mato",
+      "active": true,
+      "order": 14
+    },
+    {
+      "id": "Emi",
+      "photo": "emi.png",
+      "stars": 0,
+      "text": "Emi",
+      "active": true,
+      "order": 15
     }
   ]
 }

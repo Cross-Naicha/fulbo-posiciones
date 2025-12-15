@@ -13,6 +13,9 @@
 
 <body>
 
+  <!-- BARRA SUPERIOR DEL AUSpICIANTE -->
+  <div class="top-tab" id="auspiciante"></div>
+
   <!-- 📌 NAVEGACIÓN SUPERIOR FIJA (misma lógica que el resto del sitio) -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
@@ -52,11 +55,23 @@
         </div>
       </article>
     </template>
+  
+    <!-- BOTÓN FLOTANTE -->
+  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
 
-  </main>
+  <!-- MENÚ DE BURBUJAS SOBRE EL BOTÓN -->
+  <div id="fabMenu" class="fab-menu" aria-hidden="true">
+    <a href="generador.html" class="fab-bubble">🛠</a>
+    <a href="historica.html" class="fab-bubble">📊</a>
+  </div>
 
+  
+</main>
+
+  <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
   <!-- JS que va a leer jugadores.json y renderizar -->
   <script defer src="js/jugadores.js"></script>
-
+  <script src="js/textos.js"></script>
+  
 </body>
 </html>
