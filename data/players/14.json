@@ -8,7 +8,7 @@
     "empatados": 2,
     "perdidos": 2,
     "diferencia de gol": "+ 18",
-    "delta": "↑2"
+    "delta": "↓2"
   },
   "winning_streak_statistics": {
     "empieza": "2025-12-03",
@@ -17,7 +17,7 @@
     "puntos acumulados": 4,
     "victorias": 1,
     "empates": 1,
-    "actual": true
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2025-10-29",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2025-12-17": "A",
     "2025-12-10": "G",
     "2025-12-03": "E",
     "2025-11-26": "A",
-    "2025-11-19": "A",
-    "2025-11-12": "G"
+    "2025-11-19": "A"
   },
   "balance_vs": {
     "Cesar": 3,
@@ -48,7 +48,6 @@
     "Yamil": 1,
     "Chagay": 1,
     "Bag": 1,
-    "Camilo": 1,
     "Benja": 1,
     "Lomba": 0
   },
@@ -56,9 +55,7 @@
     "Lomba": 5,
     "Chagay": 3,
     "Cesar": 2,
-    "Emi": 1,
     "Mario": 1,
-    "Camilo": 1,
     "Naicha": 1,
     "Bag": 1,
     "Marcelo": 1,

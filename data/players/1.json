@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 2.0,
+    "partidos": 3.0,
     "apodo": "Chicho",
     "puntos": 1,
-    "efectividad": 0.17,
+    "efectividad": 0.11,
     "ganados": 0,
     "empatados": 1,
-    "perdidos": 1,
-    "diferencia de gol": "- 4",
+    "perdidos": 2,
+    "diferencia de gol": "- 7",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -32,30 +32,34 @@
     "actual": false
   },
   "last_5": {
+    "2025-12-17": "P",
     "2025-12-10": "A",
     "2025-12-03": "A",
     "2025-11-26": "A",
-    "2025-11-19": "A",
-    "2025-11-12": "A"
+    "2025-11-19": "A"
   },
   "balance_vs": {
     "Naicha": 1,
     "Yamil": 0,
     "Mato": -1,
-    "Bag": -1,
-    "Cesar": -1,
     "Benja": -1,
-    "Lomba": -2,
-    "Emi": -2,
+    "P11": -1,
+    "Marcos": -1,
     "Chagay": -2,
-    "Mario": -2
+    "Mario": -2,
+    "Bag": -2,
+    "Cesar": -2,
+    "Lomba": -3
   },
   "best_partner": {},
   "worse_partner": {
     "P11": 2,
     "Marcelo": 2,
-    "Mario": 1,
-    "Bag": 1
+    "Mario": 2,
+    "Chagay": 1,
+    "Bag": 1,
+    "Naicha": 1,
+    "Benja": 1
   },
   "paternity": {},
   "filiation": {}

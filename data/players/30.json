@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 4.0,
+    "partidos": 5.0,
     "apodo": "Benja",
     "puntos": 4,
-    "efectividad": 0.33,
+    "efectividad": 0.27,
     "ganados": 1,
     "empatados": 1,
-    "perdidos": 2,
-    "diferencia de gol": "- 17",
-    "delta": "↓2"
+    "perdidos": 3,
+    "diferencia de gol": "- 20",
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2025-12-03",
@@ -21,44 +21,45 @@
   },
   "losses_streak_statistics": {
     "empieza": "2025-12-10",
-    "termina": "2025-12-10",
-    "extension": 1,
+    "termina": "2025-12-17",
+    "extension": 2,
     "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2025-12-03",
-    "termina": "2025-12-10",
-    "extension": 2,
+    "termina": "2025-12-17",
+    "extension": 3,
     "actual": true
   },
   "last_5": {
+    "2025-12-17": "P",
     "2025-12-10": "P",
     "2025-12-03": "E",
     "2025-11-26": "A",
-    "2025-11-19": "A",
-    "2025-11-12": "P"
+    "2025-11-19": "A"
   },
   "balance_vs": {
     "Chicho": 1,
-    "P11": 1,
-    "Bag": 0,
+    "P11": 0,
+    "Bag": -1,
     "Mato": -1,
-    "Cesar": -1,
     "Chagay": -1,
-    "Marcos": -1,
-    "Lomba": -2,
-    "Marcelo": -2
+    "Cesar": -2,
+    "Marcelo": -2,
+    "Marcos": -2,
+    "Lomba": -3
   },
   "best_partner": {
     "Yamil": 1,
     "Lomba": 1
   },
   "worse_partner": {
-    "Mario": 1,
-    "Camilo": 1,
-    "Naicha": 1,
+    "Mario": 2,
+    "Naicha": 2,
+    "Chagay": 1,
     "Bag": 1,
-    "Cesar": 1
+    "Cesar": 1,
+    "Chicho": 1
   },
   "paternity": {},
   "filiation": {}
