@@ -1,42 +1,29 @@
 {
   "basic_statistics": {
-    "partidos": 11.0,
+    "partidos": 0.0,
     "apodo": "Chagay",
-    "puntos": 18,
-    "efectividad": 0.55,
-    "ganados": 5,
-    "empatados": 3,
-    "perdidos": 3,
-    "diferencia de gol": "+ 1",
-    "delta": "↓1"
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
+    "empatados": 0,
+    "perdidos": 0,
+    "diferencia de gol": "0",
+    "delta": "-"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-11-19",
-    "termina": "2025-12-10",
-    "extension": 4,
-    "puntos acumulados": 8,
-    "victorias": 2,
-    "empates": 2,
-    "actual": false
-  },
-  "losses_streak_statistics": {
-    "empieza": "2025-11-05",
-    "termina": "2025-11-12",
-    "extension": 2,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
+    "victorias": 0,
+    "empates": 0,
     "actual": false
   },
   "present_streak_statistics": {
-    "empieza": "2025-08-27",
-    "termina": "2025-12-17",
-    "extension": 16,
-    "actual": true
-  },
-  "last_5": {
-    "2025-12-17": "P",
-    "2025-12-10": "G",
-    "2025-12-03": "E",
-    "2025-11-26": "G",
-    "2025-11-19": "E"
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "actual": false
   },
   "balance_vs": {
     "Chicho": 2,

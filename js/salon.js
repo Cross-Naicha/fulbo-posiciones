@@ -21,7 +21,7 @@ const SALON_DE_LA_FAMA_DATA = {
           prioridad: 3
         },
         {
-          titulo: "??? | Liga de Primavera 2025",
+          titulo: "LOMBA | Liga de Primavera 2025",
           competencia: "Liga",
           prioridad: 2
         }

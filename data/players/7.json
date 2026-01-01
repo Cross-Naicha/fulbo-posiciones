@@ -1,42 +1,29 @@
 {
   "basic_statistics": {
-    "partidos": 9.0,
+    "partidos": 0.0,
     "apodo": "Lomba",
-    "puntos": 21,
-    "efectividad": 0.78,
-    "ganados": 6,
-    "empatados": 3,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
+    "empatados": 0,
     "perdidos": 0,
-    "diferencia de gol": "+ 33",
-    "delta": "↑1"
+    "diferencia de gol": "0",
+    "delta": "-"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-11-05",
-    "termina": "2025-12-17",
-    "extension": 7,
-    "puntos acumulados": 17,
-    "victorias": 5,
-    "empates": 2,
-    "actual": true
-  },
-  "losses_streak_statistics": {
-    "empieza": "2025-09-17",
-    "termina": "2025-09-17",
-    "extension": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
+    "victorias": 0,
+    "empates": 0,
     "actual": false
   },
   "present_streak_statistics": {
-    "empieza": "2025-11-05",
-    "termina": "2025-12-17",
-    "extension": 7,
-    "actual": true
-  },
-  "last_5": {
-    "2025-12-17": "G",
-    "2025-12-10": "G",
-    "2025-12-03": "E",
-    "2025-11-26": "G",
-    "2025-11-19": "E"
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "actual": false
   },
   "balance_vs": {
     "Mario": 7,

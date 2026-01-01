@@ -18,6 +18,7 @@ fetch('textos.json')
     document.getElementById('subtitulo').textContent = data.subtitulo;
     document.getElementById('fechas_1').textContent = data.fechas_1;
     document.getElementById('fechas_2').textContent = data.fechas_2;
+    document.getElementById('fechas_3').textContent = data.fechas_3;
     document.getElementById('frase_chiqui').textContent = data.frase_chiqui;
     document.getElementById('novedades').textContent = data.novedades;
     document.getElementById('riesgo').textContent = data.riesgo;

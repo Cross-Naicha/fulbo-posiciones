@@ -197,7 +197,7 @@ function renderTabla() {
   });
   els.head.appendChild(trHead);
 
-  posiciones.slice(0, 10).forEach((r, i) => {
+  posiciones.slice(0, 14).forEach((r, i) => {
     const tr = document.createElement("tr");
     tr.style.animationDelay = `${i * 40}ms`;
 
@@ -218,26 +218,62 @@ function renderTabla() {
       if (delta.includes("↑")) deltaClass = "pos";
       else if (delta.includes("↓")) deltaClass = "neg";
 
+    //   Enlaces a jugadores deshabilitados temporalmente
+    //   tr.innerHTML = `
+    //     <td>${r.N ?? ""}</td>
+    //     <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+    //     <td>${r.PTS}</td>
+    //     <td></td>
+    //   `;
+    //   tr.lastElementChild.appendChild(resultDiv);
+    // }
+
       tr.innerHTML = `
         <td>${r.N ?? ""}</td>
-        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.JUG}</td>
         <td>${r.PTS}</td>
         <td></td>
       `;
       tr.lastElementChild.appendChild(resultDiv);
     }
 
+    // if (modoActual === "intermedio") {
+    //   const dg = r.GOL ?? "";
+    //   const dgClass = dg.includes("+") ? "pos" : dg.includes("-") ? "neg" : "";
+    //   tr.innerHTML = `
+    //     <td>${r.N ?? ""}</td>
+    //     <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+    //     <td>${r.PTS}</td>
+    //     <td>${r.J}</td>
+    //     <td class="${dgClass}">${dg}</td>
+    //   `;
+    // }
+  
     if (modoActual === "intermedio") {
       const dg = r.GOL ?? "";
       const dgClass = dg.includes("+") ? "pos" : dg.includes("-") ? "neg" : "";
       tr.innerHTML = `
         <td>${r.N ?? ""}</td>
-        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.JUG}</td>
         <td>${r.PTS}</td>
         <td>${r.J}</td>
         <td class="${dgClass}">${dg}</td>
       `;
     }
+
+    // if (modoActual === "completo") {
+    //   const wClass = Number(r.G) > 0 ? "pos" : "";
+    //   const dClass = Number(r.E) > 0 ? "draw" : "";
+    //   const lClass = Number(r.P) > 0 ? "neg" : "";
+    //   tr.innerHTML = `
+    //     <td>${r.N ?? ""}</td>
+    //     <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+    //     <td>${r.PTS}</td>
+    //     <td class="${wClass}">${r.G}</td>
+    //     <td class="${dClass}">${r.E}</td>
+    //     <td class="${lClass}">${r.P}</td>
+    //   `;
+    // }
 
     if (modoActual === "completo") {
       const wClass = Number(r.G) > 0 ? "pos" : "";
@@ -245,7 +281,7 @@ function renderTabla() {
       const lClass = Number(r.P) > 0 ? "neg" : "";
       tr.innerHTML = `
         <td>${r.N ?? ""}</td>
-        <td><a href="jugador.html?id=${r.ID}">${r.JUG}</a></td>
+        <td>${r.JUG}</td>
         <td>${r.PTS}</td>
         <td class="${wClass}">${r.G}</td>
         <td class="${dClass}">${r.E}</td>
@@ -791,8 +827,9 @@ async function loadMatches() {
   matchesEmpty.style.display = 'none';
 
   try {
-    const res = await fetch(`data/partidos.json?v=${Date.now()}`, { cache: 'no-store' });
-    if (!res.ok) throw new Error('Proxima temporada');
+    // Corregir el nombre! partidaos a partidos!
+    const res = await fetch(`data/partidaos.json?v=${Date.now()}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error('Todavía no hay partidos que mostrar...');
     const obj = await res.json();
     const entries = Object.entries(obj).sort(([f1], [f2]) => f2.localeCompare(f1));
     if (!entries.length) {
@@ -801,14 +838,15 @@ async function loadMatches() {
       return;
     }
     matchesGrid.innerHTML = '';
-    for (const [fecha, partido] of entries.slice(0, 6)) {
+    // Pseudomanejo de los ultimos 6 partidos
+    for (const [fecha, partido] of entries.slice(0, 0)) {
       matchesGrid.appendChild(matchCard(fecha, partido));
     }
     matchesStatus.style.display = 'none';
     matchesGrid.style.display = 'grid';
   } catch (err) {
     console.error(err);
-    matchesStatus.textContent = 'Error al cargar partidos: ' + err.message;
+    matchesStatus.textContent = err.message;
   }
 }
 

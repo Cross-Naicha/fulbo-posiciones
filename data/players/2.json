@@ -1,36 +1,29 @@
 {
   "basic_statistics": {
-    "partidos": 1.0,
+    "partidos": 0.0,
     "apodo": "Pollo",
-    "puntos": 3,
-    "efectividad": 1.0,
-    "ganados": 1,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
     "empatados": 0,
     "perdidos": 0,
-    "diferencia de gol": "+ 1",
+    "diferencia de gol": "0",
     "delta": "-"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-11-26",
-    "termina": "2025-11-26",
-    "extension": 1,
-    "puntos acumulados": 3,
-    "victorias": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
+    "victorias": 0,
     "empates": 0,
     "actual": false
   },
   "present_streak_statistics": {
-    "empieza": "2025-11-26",
-    "termina": "2025-11-26",
-    "extension": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
     "actual": false
-  },
-  "last_5": {
-    "2025-12-17": "A",
-    "2025-12-10": "A",
-    "2025-12-03": "A",
-    "2025-11-26": "G",
-    "2025-11-19": "A"
   },
   "balance_vs": {
     "Bag": 1,

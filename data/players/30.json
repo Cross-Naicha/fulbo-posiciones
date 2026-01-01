@@ -1,42 +1,29 @@
 {
   "basic_statistics": {
-    "partidos": 5.0,
+    "partidos": 0.0,
     "apodo": "Benja",
-    "puntos": 4,
-    "efectividad": 0.27,
-    "ganados": 1,
-    "empatados": 1,
-    "perdidos": 3,
-    "diferencia de gol": "- 20",
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
+    "empatados": 0,
+    "perdidos": 0,
+    "diferencia de gol": "0",
     "delta": "-"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-12-03",
-    "termina": "2025-12-03",
-    "extension": 1,
-    "puntos acumulados": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
     "victorias": 0,
-    "empates": 1,
+    "empates": 0,
     "actual": false
   },
-  "losses_streak_statistics": {
-    "empieza": "2025-12-10",
-    "termina": "2025-12-17",
-    "extension": 2,
-    "actual": true
-  },
   "present_streak_statistics": {
-    "empieza": "2025-12-03",
-    "termina": "2025-12-17",
-    "extension": 3,
-    "actual": true
-  },
-  "last_5": {
-    "2025-12-17": "P",
-    "2025-12-10": "P",
-    "2025-12-03": "E",
-    "2025-11-26": "A",
-    "2025-11-19": "A"
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "actual": false
   },
   "balance_vs": {
     "Chicho": 1,

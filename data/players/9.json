@@ -1,42 +1,29 @@
 {
   "basic_statistics": {
-    "partidos": 10.0,
+    "partidos": 0.0,
     "apodo": "Cesar",
-    "puntos": 12,
-    "efectividad": 0.4,
-    "ganados": 3,
-    "empatados": 3,
-    "perdidos": 4,
-    "diferencia de gol": "+ 1",
-    "delta": "↑2"
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
+    "empatados": 0,
+    "perdidos": 0,
+    "diferencia de gol": "0",
+    "delta": "-"
   },
   "winning_streak_statistics": {
-    "empieza": "2025-11-12",
-    "termina": "2025-11-19",
-    "extension": 2,
-    "puntos acumulados": 4,
-    "victorias": 1,
-    "empates": 1,
-    "actual": false
-  },
-  "losses_streak_statistics": {
-    "empieza": "2025-12-10",
-    "termina": "2025-12-10",
-    "extension": 1,
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "puntos_acumulados": 0,
+    "victorias": 0,
+    "empates": 0,
     "actual": false
   },
   "present_streak_statistics": {
-    "empieza": "2025-10-15",
-    "termina": "2025-12-17",
-    "extension": 10,
-    "actual": true
-  },
-  "last_5": {
-    "2025-12-17": "G",
-    "2025-12-10": "P",
-    "2025-12-03": "E",
-    "2025-11-26": "P",
-    "2025-11-19": "E"
+    "empieza": null,
+    "termina": null,
+    "extension": 0,
+    "actual": false
   },
   "balance_vs": {
     "Chicho": 2,

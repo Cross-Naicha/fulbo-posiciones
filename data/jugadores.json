@@ -8,7 +8,7 @@
     {
       "id": "Lomba",
       "photo": "lomba.png",
-      "stars": 1,
+      "stars": 2,
       "text": "Lomba",
       "active": true,
       "order": 1
@@ -31,9 +31,9 @@
     },
     {
       "id": "Bag",
-      "photo": "bag_pagina.png",
+      "photo": "bag.png",
       "stars": 0,
-      "text": "Ranking: 1356",
+      "text": "Bag",
       "active": true,
       "order": 4
     },

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <title>Tabla de Posiciones</title>
@@ -9,18 +10,18 @@
 
 <body>
   
-  <!-- 📌 NUEVA NAVEGACIÓN SUPERIOR FIJA -->
+  <!-- 📌 NAVEGACIÓN SUPERIOR FIJA -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
       <a href="index.html" class="nav-item active">🏆 POS</a>
       <a href="historica.html" class="nav-item">📊 HIS</a>
       <a href="copas.html" class="nav-item">🥇 COP</a>
       <a href="salon.html" class="nav-item">👑 SDF</a>
-      <a href="jugadores.html" class="nav-item">🧑‍🤝‍🧑 JUG</a>
+      <a href="jugadores.html" class="nav-item">⚽ JUG</a>
     </div>
   </nav>
   
-  <!-- BARRA SUPERIOR DEL AUSpICIANTE -->
+  <!-- BARRA SUPERIOR DEL AUSPICIANTE -->
   <div class="top-tab" id="auspiciante"></div>
   
   <!-- CONTENIDO -->
@@ -28,34 +29,43 @@
 
     <!-- TITULOS -->
     <h1 id="titulo"></h1>
+
+    <div class="sep"></div>
+
     <h2 id="subtitulo"></h2>
     <div class="sub" id="frase_chiqui"></div>
 
     <!-- FECHAS -->
     <h3 id="fechas_1"></h3>
-    <p id="fechas_2"></p>
+    <p id="fechas_2"></p><p id="fechas_3"></p>
+  
+    <div class="sep"></div>
 
-        <!-- 🏟️ GRAN FINAL: AFICHE + COUNTDOWN -->
+    <!-- 🏟️ GRAN FINAL: AFICHE + COUNTDOWN -->
     <section class="final-banner" aria-label="Gran final">
       <div class="final-card">
+        
         <div class="final-media">
           <img src="data/img/poster.png" alt="A. Lomba vs Chagay" loading="lazy" />
         </div>
 
-        <div class="final-info">
-          <div class="final-title">GRAN FINAL</div>
-
-          <div class="countdown" id="countdown" data-kickoff="2025-12-17T20:00:00-03:00">
+        <!-- CONTADOR DE TIEMPO: DESHABILITADO -->
+        <!-- <div class="final-info"> -->
+          <!-- Contador de Tiempo -->
+          <!-- <div class="final-title">GRAN FINAL</div> -->
+          <!-- <div class="countdown" id="countdown" data-kickoff="2025-12-17T20:00:00-03:00">
             <div class="cd-item"><div class="cd-num" id="cdDays">--</div><div class="cd-lbl">Días</div></div>
             <div class="cd-item"><div class="cd-num" id="cdHours">--</div><div class="cd-lbl">Horas</div></div>
             <div class="cd-item"><div class="cd-num" id="cdMins">--</div><div class="cd-lbl">Min</div></div>
             <div class="cd-item"><div class="cd-num" id="cdSecs">--</div><div class="cd-lbl">Seg</div></div>
-          </div>
-
-          <div class="final-meta" id="finalMeta"></div>
-        </div>
+          </div> -->
+          <!-- <div class="final-meta" id="finalMeta"></div> -->
+        <!-- </div> -->
+      
       </div>
     </section>
+
+    <div class="sep"></div>
 
     <!-- TABLA DE POSICIONES -->
     <h2>Tabla de Posiciones</h2>
@@ -99,7 +109,7 @@
       <div class="card streaks-card">
         <div id="streaksStatus" class="streaks-status">Cargando rachas…</div>
         <div id="streaksGrid" class="streaks-grid" style="display:none"></div>
-        <div id="streaksEmpty" class="streaks-status" style="display:none">No hay rachas para mostrar.</div>
+        <div id="streaksEmpty" class="streaks-status" style="display:none">Todavía no hay rachas para mostrar...</div>
       </div>
     </div>
 
@@ -120,7 +130,7 @@
         </div>
       </div>
       <div class="card comb-card">
-        <div id="combStatus" class="streaks-status">Cargando combinaciones…</div>
+        <div id="combStatus" class="streaks-status">Todavía no hay combinaciones para mostrar…</div>
         <div id="combGrid" class="streaks-grid" style="display:none"></div>
         <div id="combEmpty" class="streaks-status" style="display:none">No hay combinaciones para este filtro.</div>
       </div>
@@ -140,7 +150,7 @@
 
   </div> <!-- /wrap -->
 
-  <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
+  <div class="bottom-tab">© 2026 Liga de Fulbo · PROMIEDOS</div>
 
   <!-- BOTÓN FLOTANTE -->
   <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>

@@ -23,6 +23,7 @@
       <a href="historica.html" class="nav-item active">📊 HIS</a>
       <a href="copas.html" class="nav-item">🥇 COP</a>
       <a href="salon.html" class="nav-item">👑 SDF</a>
+      <a href="jugadores.html" class="nav-item">⚽ JUG</a>
     </div>
   </nav>
   <!-- === HEADER / SPONSOR AREA ===
@@ -40,11 +41,13 @@
          Main title, subtitle, and quote loaded dynamically from textos.json
     -->
     <h1 id="titulo"></h1>
+    
+    <div class="sep"></div>
     <h2>Tabla Historica</h2>
 
     <!-- === MAIN TABLE SECTION ===
          Shows player rankings and statistics.
-         Data is fetched from data/posiciones.json
+         Data is fetched from data/posiciones_historicas.json
     -->
     <div class="card">
       <div id="status" class="status">Cargando datos…</div>
@@ -65,8 +68,6 @@
       </table>
     </div>
 
-    <p id="novedades"></p>
-
     <div class="sep"></div>
     
     <!-- === NAVIGATION CARD ===
@@ -79,7 +80,7 @@
   <!-- === FOOTER ===
        Simple footer bar with copyright text.
   -->
-  <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
+  <div class="bottom-tab">© 2026 Liga de Fulbo · PROMIEDOS</div>
 
   <!-- === SCROLL TO TOP BUTTON ===
        Floating button that appears when user scrolls down.
