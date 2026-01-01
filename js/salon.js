@@ -8,7 +8,7 @@ const SALON_DE_LA_FAMA_DATA = {
   salon_de_la_fama: [
     {
       year: 2025,
-      expanded: true,
+      expanded: false,
       tarjetas: [
         {
           titulo: "MARIO | Liga de los Fundadores 2025",
@@ -29,7 +29,7 @@ const SALON_DE_LA_FAMA_DATA = {
     },
     {
       year: 2026,
-      expanded: false,
+      expanded: true,
       tarjetas: [
         {
           titulo: "??? | Liga de Verano 2026",
