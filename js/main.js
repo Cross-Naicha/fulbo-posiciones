@@ -828,7 +828,7 @@ async function loadMatches() {
 
   try {
     // Corregir el nombre! partidaos a partidos!
-    const res = await fetch(`data/partidaos.json?v=${Date.now()}`, { cache: 'no-store' });
+    const res = await fetch(`data/partidos.json?v=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('Todavía no hay partidos que mostrar...');
     const obj = await res.json();
     const entries = Object.entries(obj).sort(([f1], [f2]) => f2.localeCompare(f1));
@@ -839,7 +839,7 @@ async function loadMatches() {
     }
     matchesGrid.innerHTML = '';
     // Pseudomanejo de los ultimos 6 partidos
-    for (const [fecha, partido] of entries.slice(0, 0)) {
+    for (const [fecha, partido] of entries.slice(0, 6)) {
       matchesGrid.appendChild(matchCard(fecha, partido));
     }
     matchesStatus.style.display = 'none';

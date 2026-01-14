@@ -25,11 +25,8 @@
     "extension": 0,
     "actual": false
   },
-  "balance_vs": {
-    "Bag": 1,
-    "Cesar": 1,
-    "Mario": 1,
-    "Marcelo": 1
+  "last_5": {
+    "2026-01-07": "A"
   },
   "best_partner": {
     "Naicha": 1,

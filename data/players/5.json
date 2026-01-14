@@ -25,15 +25,8 @@
     "extension": 0,
     "actual": false
   },
-  "balance_vs": {
-    "P11": 1,
-    "Chicho": 0,
-    "Bag": 0,
-    "Mato": -1,
-    "Cesar": -1,
-    "Chagay": -1,
-    "Naicha": -1,
-    "Lomba": -1
+  "last_5": {
+    "2026-01-07": "A"
   },
   "best_partner": {
     "Benja": 1

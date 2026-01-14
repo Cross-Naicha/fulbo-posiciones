@@ -25,17 +25,8 @@
     "extension": 0,
     "actual": false
   },
-  "balance_vs": {
-    "Benja": 2,
-    "Mario": 0,
-    "Cesar": -1,
-    "Pollo": -1,
-    "Marcos": -1,
-    "Chagay": -2,
-    "Naicha": -2,
-    "Bag": -2,
-    "Mato": -2,
-    "Lomba": -4
+  "last_5": {
+    "2026-01-07": "A"
   },
   "best_partner": {
     "Lomba": 2,
