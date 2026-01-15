@@ -1,41 +1,48 @@
 {
   "basic_statistics": {
-    "partidos": 0.0,
+    "partidos": 1.0,
     "apodo": "P11",
-    "puntos": 0,
-    "efectividad": 0.0,
-    "ganados": 0,
+    "puntos": 3,
+    "efectividad": 1.0,
+    "ganados": 1,
     "empatados": 0,
     "perdidos": 0,
-    "diferencia de gol": "0",
-    "delta": "-"
+    "diferencia de gol": "+ 1",
+    "delta": "↑2"
   },
   "winning_streak_statistics": {
-    "empieza": null,
-    "termina": null,
-    "extension": 0,
-    "puntos_acumulados": 0,
-    "victorias": 0,
+    "empieza": "2026-01-14",
+    "termina": "2026-01-14",
+    "extension": 1,
+    "puntos acumulados": 3,
+    "victorias": 1,
     "empates": 0,
-    "actual": false
+    "actual": true
   },
   "present_streak_statistics": {
-    "empieza": null,
-    "termina": null,
-    "extension": 0,
-    "actual": false
+    "empieza": "2026-01-14",
+    "termina": "2026-01-14",
+    "extension": 1,
+    "actual": true
   },
   "last_5": {
+    "2026-01-14": "G",
     "2026-01-07": "A"
+  },
+  "balance_vs": {
+    "Lomba": 1,
+    "Cesar": 1,
+    "Chagay": 1
   },
   "best_partner": {
     "Lomba": 2,
-    "Marcos": 1
+    "Marcos": 2,
+    "Naicha": 1,
+    "Mario": 1
   },
   "worse_partner": {
     "Chicho": 2,
-    "Marcelo": 2,
-    "Mato": 1
+    "Marcelo": 2
   },
   "paternity": {},
   "filiation": {}

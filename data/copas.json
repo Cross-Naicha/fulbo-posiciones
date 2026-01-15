@@ -13,13 +13,13 @@
           "jugador2": "Marcos",
 
           "fechas": {
-            "ida": null,
+            "ida": "2026-01-14",
             "vuelta": null
           },
 
           "ida": {
-            "goles_j1": null,
-            "goles_j2": null
+            "goles_j1": 0,
+            "goles_j2": 1
           },
           "vuelta": {
             "goles_j1": null,

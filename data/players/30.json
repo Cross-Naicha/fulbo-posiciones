@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "0",
-    "delta": "-"
+    "delta": "↓1"
   },
   "winning_streak_statistics": {
     "empieza": null,
@@ -26,10 +26,10 @@
     "actual": false
   },
   "last_5": {
+    "2026-01-14": "A",
     "2026-01-07": "A"
   },
   "best_partner": {
-    "Yamil": 1,
     "Lomba": 1
   },
   "worse_partner": {

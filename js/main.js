@@ -197,7 +197,7 @@ function renderTabla() {
   });
   els.head.appendChild(trHead);
 
-  posiciones.slice(0, 14).forEach((r, i) => {
+  posiciones.slice(0, 10).forEach((r, i) => {
     const tr = document.createElement("tr");
     tr.style.animationDelay = `${i * 40}ms`;
 
