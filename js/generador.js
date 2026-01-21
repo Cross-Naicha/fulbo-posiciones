@@ -32,26 +32,42 @@ function renderLista() {
     DATA.jugadores.forEach(j => {
         const c = document.createElement('div');
         c.className = 'jugador-card';
+        
+        // Si el jugador ya estaba seleccionado o era capitán (al redibujar), mantenemos la clase
+        const selIdx = DATA.seleccionados.findIndex(p => p.id === j.id);
+        if (selIdx >= 0) {
+            c.classList.add('selected');
+            if (DATA.seleccionados[selIdx].esCapitan) c.classList.add('capitan');
+        }
+
         c.innerHTML = `<div class='jugador-nombre'>${j.apodo}</div><div class='jugador-eff'>$ ${j.efectividad.toFixed(0)}</div>`;
         
-        // Click normal: Seleccionar
+        // 1. Click normal: Seleccionar
         c.onclick = () => toggleSel(j, c);
         
-        // Click derecho: Marcar como Capitán
+        // 2. Click derecho / Mantener presionado: Marcar como Capitán
         c.oncontextmenu = (e) => {
-            e.preventDefault(); // Evita que se abra el menú del navegador
+            e.preventDefault(); // Evita el menú contextual y la selección de texto
+            e.stopPropagation(); // Evita que el evento afecte a otros elementos
+            
             const i = DATA.seleccionados.findIndex(p => p.id === j.id);
+            
+            // Solo permitimos marcar capitán si el jugador ya está seleccionado
             if (i >= 0) {
                 const caps = DATA.seleccionados.filter(p => p.esCapitan).length;
+                
                 if (!j.esCapitan && caps < 2) {
                     j.esCapitan = true;
                     c.classList.add('capitan');
+                    if (navigator.vibrate) navigator.vibrate(50); // Feedback táctil opcional
                 } else {
                     j.esCapitan = false;
                     c.classList.remove('capitan');
                 }
             }
+            return false; // Refuerzo para navegadores antiguos
         };
+
         els.listaJugadores.appendChild(c);
     });
     updateContador();

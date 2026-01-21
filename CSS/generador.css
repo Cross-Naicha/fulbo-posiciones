@@ -481,3 +481,23 @@ header {
     font-weight: bold;
 }
 
+.jugador-card {
+  /* Evita la selección de texto */
+  -webkit-user-select: none;  /* Chrome, Safari, iOS */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* IE/Edge */
+  user-select: none;          
+  
+  /* Evita el menú contextual nativo en algunos móviles */
+  -webkit-touch-callout: none; 
+  
+  /* Mejora la respuesta al toque */
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.jugador-card {
+  -webkit-user-select: none; /* iOS Safari */
+  user-select: none;         /* Estándar */
+  -webkit-touch-callout: none; /* iOS Safari menu */
+}
