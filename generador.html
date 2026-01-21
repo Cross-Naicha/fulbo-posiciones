@@ -21,10 +21,17 @@
         <div class="sep"></div>
       </div>
 
-      <div class="mode-selector">
-        <button class="mode-btn" data-mode="azar">Azar 🎲</button>
-        <button class="mode-btn" data-mode="parejos">⚖️ Parejos</button>
-      </div>
+    <div class="mode-selector">
+      <button class="mode-btn" data-mode="azar">Azar 🎲</button>
+      <button class="mode-btn" data-mode="parejos">⚖️ Parejos</button>
+      <button class="mode-btn" data-mode="capitanes">🧑‍✈️ Cruces</button>
+    </div>
+
+    <div class="instrucciones-modos">
+      <div class="ins-item"><strong>🎲 Azar:</strong> Sorteo puro sin niveles.</div>
+      <div class="ins-item"><strong>⚖️ Parejos:</strong> Equilibrio por rating.</div>
+      <div class="ins-item"><strong>🧑‍✈️ Cruces:</strong> Separa líderes y nivela por rating.</div>
+    </div>
     </header>
 
     <nav class="top-nav" id="mainNav">
@@ -44,6 +51,7 @@
       <div id="contador">0 / 10 seleccionados</div>
 
       <div id="jugadores-lista" class="jugadores-lista"></div>
+      <p class="ayuda-capitan">💡 <i>Click derecho o mantener presionado para marcar Capitanes</i></p>
 
       <div id="faltantes" class="faltantes" style="display:none;">
         <p>¿Faltan jugadores?</p>
@@ -89,9 +97,9 @@
 
       <label>Nivel:</label>
       <div class="niveles">
-        <button class="nivel-btn" data-eff="0.4">Limitado</button>
-        <button class="nivel-btn" data-eff="0.5">Regular</button>
-        <button class="nivel-btn" data-eff="0.6">Bueno</button>
+        <button class="nivel-btn" data-eff="1450">Limitado</button>
+        <button class="nivel-btn" data-eff="1475">Regular</button>
+        <button class="nivel-btn" data-eff="1500">Bueno</button>
       </div>
 
       <div class="modal-acciones">
@@ -101,7 +109,7 @@
     </div>
   </div>
   
-  <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
+  <div class="bottom-tab">© 2026 Liga de Fulbo · PROMIEDOS</div>
   <script src="js/generador.js"></script>
   
   

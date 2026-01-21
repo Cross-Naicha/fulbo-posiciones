@@ -462,3 +462,22 @@ header {
   -webkit-text-fill-color: transparent;
   margin-bottom: 0;
 }
+
+/* El jugador seleccionado normal */
+.jugador-card.selected {
+    background-color: #41b07e;
+    border-color: #0f5132;
+}
+
+/* El jugador marcado como capitán */
+.jugador-card.capitan {
+    border: 2px solid #0793ff82 !important; /* Dorado */
+    background-color: #034d8682 !important;
+}
+
+.jugador-card.capitan::after {
+    content: " (c)";
+    color: #ffffff;
+    font-weight: bold;
+}
+
