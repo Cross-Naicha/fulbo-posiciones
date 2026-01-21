@@ -33,7 +33,7 @@ function renderLista() {
         const c = document.createElement('div');
         c.className = 'jugador-card';
         
-        // Si el jugador ya estaba seleccionado o era capitán (al redibujar), mantenemos la clase
+        // Mantener estado visual si ya estaba seleccionado (al redibujar)
         const selIdx = DATA.seleccionados.findIndex(p => p.id === j.id);
         if (selIdx >= 0) {
             c.classList.add('selected');
@@ -42,30 +42,39 @@ function renderLista() {
 
         c.innerHTML = `<div class='jugador-nombre'>${j.apodo}</div><div class='jugador-eff'>$ ${j.efectividad.toFixed(0)}</div>`;
         
-        // 1. Click normal: Seleccionar
-        c.onclick = () => toggleSel(j, c);
-        
-        // 2. Click derecho / Mantener presionado: Marcar como Capitán
-        c.oncontextmenu = (e) => {
-            e.preventDefault(); // Evita el menú contextual y la selección de texto
-            e.stopPropagation(); // Evita que el evento afecte a otros elementos
-            
+        c.onclick = () => {
             const i = DATA.seleccionados.findIndex(p => p.id === j.id);
-            
-            // Solo permitimos marcar capitán si el jugador ya está seleccionado
-            if (i >= 0) {
+
+            // CASO 1: No está seleccionado -> Lo seleccionamos (1er toque)
+            if (i === -1) {
+                if (DATA.seleccionados.length < 10) {
+                    j.esCapitan = false;
+                    DATA.seleccionados.push(j);
+                    c.classList.add('selected');
+                }
+            } 
+            // CASO 2: Ya está seleccionado pero NO es capitán -> Lo hacemos capitán (2do toque)
+            else if (!j.esCapitan) {
                 const caps = DATA.seleccionados.filter(p => p.esCapitan).length;
-                
-                if (!j.esCapitan && caps < 2) {
+                if (caps < 2) {
                     j.esCapitan = true;
                     c.classList.add('capitan');
-                    if (navigator.vibrate) navigator.vibrate(50); // Feedback táctil opcional
+                    if (navigator.vibrate) navigator.vibrate(40);
                 } else {
+                    // Si ya hay 2 capitanes, el 2do toque lo deselecciona directamente
+                    DATA.seleccionados.splice(i, 1);
                     j.esCapitan = false;
-                    c.classList.remove('capitan');
+                    c.classList.remove('selected', 'capitan');
                 }
+            } 
+            // CASO 3: Ya es capitán -> Lo limpiamos (3er toque)
+            else {
+                DATA.seleccionados.splice(i, 1);
+                j.esCapitan = false;
+                c.classList.remove('selected', 'capitan');
             }
-            return false; // Refuerzo para navegadores antiguos
+            
+            updateContador();
         };
 
         els.listaJugadores.appendChild(c);
