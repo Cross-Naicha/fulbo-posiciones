@@ -4,44 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Generador de Equipos</title>
+  
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/generador.css">
-  <link rel="stylesheet" href="CSS/btn-volver.css">
-
 </head>
+
 <body>
+
   <div class="top-tab" id="auspiciante"></div>
+
   <div class="wrap">
-    <!-- ===== HEADER ===== -->
+
     <header>
       <div class="header-title">
         <h1 id="titulo">La Liga</h1>
         <div class="sep"></div>
       </div>
+
       <div class="mode-selector">
         <button class="mode-btn" data-mode="azar">Azar 🎲</button>
         <button class="mode-btn" data-mode="parejos">⚖️ Parejos</button>
       </div>
     </header>
 
-    <div class="card streaks-card nav-card">
-      <div class="streak-top">
-        <span class="badge blue">Volver al Inicio</span>
-        <span class="streak-len">⚽</span>
+    <nav class="top-nav" id="mainNav">
+      <div class="nav-scroll">
+        <a href="generador.html" class="nav-item active">🔢 ARM</a>
+        <a href="index.html" class="nav-item">🏆 POS</a>
+        <a href="historica.html" class="nav-item">📊 HIS</a>
+        <a href="copas.html" class="nav-item">🥇 COP</a>
+        <a href="salon.html" class="nav-item">👑 SDF</a>
+        <a href="jugadores.html" class="nav-item">⚽ JUG</a>
       </div>
-      <div class="streak-main">
-        <div class="streak-name">
-          <a href="index.html" class="nav-link">
-            Eso, volver al inicio, que mas decir →
-          </a>
-        </div>
-      </div>
-    </div>
+    </nav>
+
     <div class="sep"></div>
 
-    <!-- ===== SELECCIÓN ===== -->
     <section id="seleccion-container">
-
       <div id="contador">0 / 10 seleccionados</div>
 
       <div id="jugadores-lista" class="jugadores-lista"></div>
@@ -56,16 +55,15 @@
       </div>
     </section>
 
-    <!-- ===== EQUIPOS ===== -->
     <section id="equipos-container" style="display:none;">
       <div class="equipos-nombres">
         <div class="equipo-nombre equipo-a">
           <span class="dot dot-a"></span>
-          <span id="nombreEquipoA">Equipo A</span>
+          <span id="nombreEquipoA"></span>
         </div>
         <div class="equipo-nombre equipo-b">
           <span class="dot dot-b"></span>
-          <span id="nombreEquipoB">Equipo B</span>
+          <span id="nombreEquipoB"></span>
         </div>
       </div>
 
@@ -81,13 +79,12 @@
         <button id="btnReiniciar" class="btn-secundario">🔁 Reiniciar</button>
       </div>
     </section>
-  </div>
 
-  <!-- ===== MODAL AGREGAR ===== -->
-  <div id="modal-overlay" class="modal-overlay" style="display:none;">
+  </div> <div id="modal-overlay" class="modal-overlay" style="display:none;">
     <div class="modal">
       <h3>Agregar jugador</h3>
-      <label>Nombre o apodo:</label>
+      
+      <label for="nuevoNombre">Nombre o apodo:</label>
       <input type="text" id="nuevoNombre" placeholder="Ej: Juani" />
 
       <label>Nivel:</label>
@@ -103,11 +100,10 @@
       </div>
     </div>
   </div>
-
+  
   <div class="bottom-tab">© 2025 Liga de Fulbo · PROMIEDOS</div>
-
   <script src="js/generador.js"></script>
-  <script src="js/btn-volver.js"></script>
-
+  
+  
 </body>
 </html>

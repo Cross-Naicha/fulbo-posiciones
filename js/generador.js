@@ -110,16 +110,21 @@ els.btnReiniciar.onclick=()=>{
   renderLista(); updateContador();
 }
 
-/* === WhatsApp === */
-els.btnWhats.onclick=()=>{
-  const msg=whatsMsg();
-  const NUMERO_DEFAULT = '5493815303224';
-  window.open(`https://wa.me/${NUMERO_DEFAULT}?text=${encodeURIComponent(msg)}`,'_blank');
+/* === WhatsApp Corregido === */
+els.btnWhats.onclick = () => {
+  const msg = whatsMsg();
+  // Al no poner un número después de wa.me/, WhatsApp abre el selector de chats
+  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
 };
-function whatsMsg(){
-  const eqA = DATA.equipos.A.map(p => p.apodo).join('\n');
-  const eqB = DATA.equipos.B.map(p => p.apodo).join('\n');
-  return `🏆 LIGA DE FULBO – Equipos de hoy\n\n⚫ ${els.nombreA.textContent}\n${eqA}\n\n⚪ ${els.nombreB.textContent}\n${eqB}\n\n⚽`;
+
+function whatsMsg() {
+  const eqA = DATA.equipos.A.map(p => `• ${p.apodo}`).join('\n');
+  const eqB = DATA.equipos.B.map(p => `• ${p.apodo}`).join('\n');
+  
+  // Usamos asteriscos (*) para negritas en WhatsApp
+  return `*LIGA DE FULBO – Equipos de hoy*\n\n` +
+         `*${els.nombreA.textContent.toUpperCase()}*\n${eqA}\n\n` +
+         `*${els.nombreB.textContent.toUpperCase()}*\n${eqB}\n\n`
 }
 
 init();
