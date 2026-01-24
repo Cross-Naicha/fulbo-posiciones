@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "racha": "victorias",
+    "jugador": "Mario",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "invicto",
+    "jugador": "Mario",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "presente",
+    "jugador": "Naicha",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "presente",
+    "jugador": "Lomba",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "presente",
+    "jugador": "Cesar",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "presente",
+    "jugador": "Mario",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "presente",
+    "jugador": "Mato",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "ausente",
+    "jugador": "Pollo",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "ausente",
+    "jugador": "Yamil",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "ausente",
+    "jugador": "Marcelo",
+    "extension": 3,
+    "dias": 15,
+    "inicio": "2026-01-07"
+  },
+  {
+    "racha": "paternidad (tiempo)",
+    "jugador": "Cesar -> Naicha",
+    "extension": 3,
+    "dias": 1,
+    "inicio": "2026-01-21"
+  },
+  {
+    "racha": "paternidad (tiempo)",
+    "jugador": "Mato -> Lomba",
+    "extension": 3,
+    "dias": 1,
+    "inicio": "2026-01-21"
+  }
+]

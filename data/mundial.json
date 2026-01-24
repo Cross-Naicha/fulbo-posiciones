@@ -7,19 +7,19 @@
           "etapa": "cuartos",
           "numero": 1,
           "tipo_cruce": "ida_vuelta",
-          "ventaja": "Lomba",
+          "ventaja": "???",
 
-          "jugador1": "Lomba",
-          "jugador2": "Marcos",
+          "jugador1": "???",
+          "jugador2": "???",
 
           "fechas": {
-            "ida": "2026-01-14",
+            "ida": null,
             "vuelta": null
           },
 
           "ida": {
-            "goles_j1": 0,
-            "goles_j2": 1
+            "goles_j1": null,
+            "goles_j2": null
           },
           "vuelta": {
             "goles_j1": null,

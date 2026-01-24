@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "+ 1",
-    "delta": "↑2"
+    "delta": "↓3"
   },
   "winning_streak_statistics": {
     "empieza": "2026-01-14",
@@ -17,15 +17,16 @@
     "puntos acumulados": 3,
     "victorias": 1,
     "empates": 0,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2026-01-14",
     "termina": "2026-01-14",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2026-01-21": "A",
     "2026-01-14": "G",
     "2026-01-07": "A"
   },

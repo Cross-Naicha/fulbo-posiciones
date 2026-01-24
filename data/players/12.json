@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 1,
     "diferencia de gol": "+ 1",
-    "delta": "↓1"
+    "delta": "↓2"
   },
   "winning_streak_statistics": {
     "empieza": "2026-01-07",
@@ -29,9 +29,10 @@
     "empieza": "2026-01-07",
     "termina": "2026-01-14",
     "extension": 2,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2026-01-21": "A",
     "2026-01-14": "P",
     "2026-01-07": "G"
   },
@@ -49,7 +50,8 @@
     "Mato": 3,
     "Marcos": 2,
     "Naicha": 1,
-    "Bag": 1
+    "Bag": 1,
+    "Pollo": 1
   },
   "worse_partner": {
     "Chicho": 1,
