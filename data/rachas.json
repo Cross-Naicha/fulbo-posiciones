@@ -2,85 +2,92 @@
   {
     "racha": "victorias",
     "jugador": "Mario",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "invicto",
     "jugador": "Mario",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Naicha",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Lomba",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Cesar",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Mario",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Mato",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "ausente",
     "jugador": "Pollo",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "ausente",
     "jugador": "Yamil",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "ausente",
     "jugador": "Marcelo",
-    "extension": 3,
-    "dias": 20,
+    "extension": 4,
+    "dias": 24,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
-    "jugador": "Cesar -> Naicha",
+    "jugador": "Lomba -> Chicho",
     "extension": 3,
-    "dias": 6,
-    "inicio": "2026-01-21"
+    "dias": 3,
+    "inicio": "2026-01-28"
   },
   {
     "racha": "paternidad (tiempo)",
-    "jugador": "Mato -> Lomba",
+    "jugador": "Lomba -> Bag",
     "extension": 3,
-    "dias": 6,
-    "inicio": "2026-01-21"
+    "dias": 3,
+    "inicio": "2026-01-28"
+  },
+  {
+    "racha": "paternidad (tiempo)",
+    "jugador": "Marcos -> Cesar",
+    "extension": 3,
+    "dias": 3,
+    "inicio": "2026-01-28"
   }
 ]

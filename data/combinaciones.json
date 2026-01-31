@@ -11,9 +11,90 @@
   [
     "GAN",
     2,
+    "Lomba",
+    "Mario",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "Naicha",
+    "Mario",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
     "Mario",
     "Mato",
     null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "Mario",
+    "Marcos",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "Naicha",
+    "Marcos",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    3,
+    "Naicha",
+    "Mario",
+    "Marcos",
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Chicho",
+    "Bag",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Bag",
+    "Mato",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Chicho",
+    "Mato",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    3,
+    "Chicho",
+    "Bag",
+    "Mato",
     null,
     2
   ]

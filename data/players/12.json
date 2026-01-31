@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 1,
     "diferencia de gol": "+ 1",
-    "delta": "↓2"
+    "delta": "↓3"
   },
   "winning_streak_statistics": {
     "empieza": "2026-01-07",
@@ -32,6 +32,7 @@
     "actual": false
   },
   "last_5": {
+    "2026-01-28": "A",
     "2026-01-21": "A",
     "2026-01-14": "P",
     "2026-01-07": "G"
