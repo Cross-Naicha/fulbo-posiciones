@@ -822,31 +822,83 @@ function matchCard(fecha, partido) {
 }
 
 async function loadMatches() {
-  matchesStatus.style.display = 'block';
-  matchesGrid.style.display = 'none';
-  matchesEmpty.style.display = 'none';
+  const matchesStatus = document.getElementById('matchesStatus');
+  const matchesGrid = document.getElementById('matchesGrid');
+  const matchesEmpty = document.getElementById('matchesEmpty');
+  const ultimoContenedor = document.getElementById('ultimo-resultado-container');
+  const ultimoCard = document.getElementById('ultimo-match-card');
 
   try {
-    // Corregir el nombre! partidaos a partidos!
     const res = await fetch(`data/partidos.json?v=${Date.now()}`, { cache: 'no-store' });
-    if (!res.ok) throw new Error('Todavía no hay partidos que mostrar...');
+    if (!res.ok) throw new Error('Todavía no hay partidos...');
+    
     const obj = await res.json();
     const entries = Object.entries(obj).sort(([f1], [f2]) => f2.localeCompare(f1));
+
     if (!entries.length) {
-      matchesStatus.style.display = 'none';
-      matchesEmpty.style.display = 'block';
+      if (matchesEmpty) matchesEmpty.style.display = 'block';
       return;
     }
-    matchesGrid.innerHTML = '';
-    // Pseudomanejo de los ultimos 6 partidos
-    for (const [fecha, partido] of entries.slice(0, 6)) {
-      matchesGrid.appendChild(matchCard(fecha, partido));
+
+    if (ultimoContenedor && ultimoCard) {
+      const [fecha, partido] = entries[0];
+      ultimoContenedor.style.display = 'block';
+      
+      const esEmpate = partido.balance === 0;
+      const ganoA = partido.balance > 0;
+      
+      // Lógica del marcador: Si es 5-0 balance +5, si es 0-5 balance -5 (aunque vos cargás balance positivo siempre)
+      const golesA = ganoA ? partido.balance : 0;
+      const golesB = !ganoA && !esEmpate ? partido.balance : 0;
+
+      ultimoCard.innerHTML = `
+        <div style="text-align: center; margin-bottom: 12px;">
+          <span class="badge" style="border-color: var(--line); color: var(--muted);">${fecha}</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          
+          <div style="flex: 1; text-align: right;">
+            <div class="final-title" style="color: var(--accent); margin-bottom: 4px; font-size: 10px;">
+              EQUIPO A ${ganoA ? '🏆' : ''}
+            </div>
+            <div class="mono" style="font-size: 0.85rem; color: var(--ink); line-height: 1.3;">
+              ${partido.team_a.join(', ')}
+            </div>
+          </div>
+
+          <div style="background: var(--line); padding: 8px 12px; border-radius: 8px; min-width: 80px; text-align: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+            <div class="mono" style="font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; color: #fff;">
+              ${golesA} - ${golesB}
+            </div>
+          </div>
+
+          <div style="flex: 1; text-align: left;">
+            <div class="final-title" style="color: var(--neg); margin-bottom: 4px; font-size: 10px;">
+              EQUIPO B ${(!ganoA && !esEmpate) ? '🏆' : ''}
+            </div>
+            <div class="mono" style="font-size: 0.85rem; color: var(--ink); line-height: 1.3;">
+              ${partido.team_b.join(', ')}
+            </div>
+          </div>
+
+        </div>
+      `;
     }
-    matchesStatus.style.display = 'none';
-    matchesGrid.style.display = 'grid';
+
+    if (matchesGrid) {
+      matchesGrid.innerHTML = '';
+      for (const [fecha, partido] of entries.slice(0, 6)) {
+        matchesGrid.appendChild(matchCard(fecha, partido));
+      }
+    }
+
+    if (matchesStatus) matchesStatus.style.display = 'none';
+    if (matchesGrid) matchesGrid.style.display = 'grid';
+
   } catch (err) {
     console.error(err);
-    matchesStatus.textContent = err.message;
+    if (matchesStatus) matchesStatus.textContent = err.message;
   }
 }
 
