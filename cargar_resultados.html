@@ -47,6 +47,7 @@
       letter-spacing: -1px;
       background: linear-gradient(to bottom, #fff, var(--muted));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
     }
@@ -323,29 +324,25 @@ function togglePlayer(name) {
           method: 'PUT',
           headers: { 
             'Content-Type': 'application/json', 
-            'X-Access-Key': API_KEY // <--- CAMBIADO A X-Access-Key
+            'X-Access-Key': API_KEY 
           },
           body: JSON.stringify(payload)
         });
 
-        const resData = await res.json();
-
         if (res.ok) { 
           alert("✅ ¡Éxito! Datos guardados en la nube."); 
-          location.reload(); 
+          // Redirección automática al index
+          window.location.href = "index.html"; 
         } else {
-          // Si JSONbin responde pero con un error (ej: PIN o ID mal)
-          console.error("Detalle del error:", resData);
-          alert("Error de JSONbin: " + (resData.message || "Credenciales incorrectas"));
+          const resData = await res.json();
+          alert("Error de JSONbin: " + (resData.message || "Revisá las credenciales"));
           btn.disabled = false; 
-          btn.innerText = originalText;
+          btn.innerText = "🚀 FINALIZAR Y SUBIR";
         }
       } catch (e) {
-        // Si hay un error de red o de código
-        console.error("Error de conexión:", e);
-        alert("Error de red: No se pudo alcanzar el servidor.");
+        alert("Error de red: No se pudo conectar.");
         btn.disabled = false; 
-        btn.innerText = originalText;
+        btn.innerText = "🚀 FINALIZAR Y SUBIR";
       }
     }
 
