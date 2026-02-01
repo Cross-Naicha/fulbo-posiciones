@@ -497,7 +497,7 @@ async function loadStreaks() {
       return;
     }
 
-    renderStreaksByFilter('todas');
+    renderStreaksByFilter('victorias');
     // startStreakAuto();
 
   } catch (err) {
