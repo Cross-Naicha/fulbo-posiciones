@@ -315,8 +315,8 @@ function togglePlayer(name) {
           ganador: winner, 
           balance: parseInt(document.getElementById('inputBalance').value) || 0 
         },
-        equipo_a: [...eqA, ...Array(5 - eqA.length).fill("BOT")],
-        equipo_b: [...eqB, ...Array(5 - eqB.length).fill("BOT")]
+        equipo_a: eqA,
+        equipo_b: eqB
       };
 
       try {
