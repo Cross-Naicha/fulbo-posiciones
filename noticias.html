@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Noticias · Liga de Fulbo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="generador.html" class="nav-item">🔢 ARM</a>
+      <a href="noticias.html" class="nav-item active">📰 NOT</a>
+      <a href="index.html" class="nav-item">🏆 POS</a>
+      <a href="historica.html" class="nav-item">📊 HIS</a>
+      <a href="copas.html" class="nav-item">🥇 COP</a>
+      <a href="salon.html" class="nav-item">👑 SDF</a>
+      <a href="jugadores.html" class="nav-item">⚽ JUG</a>
+    </div>
+  </nav>
+
+  <div class="top-tab" id="auspiciante"></div>
+
+  <div class="wrap">
+    
+    <h1 class="section-title-accent">Crónica de la Semana</h1>
+    <div class="sep"></div>
+    <div id="noticiaDestacada"></div>
+
+    <div class="sep"></div>
+
+    <h2 class="section-title-accent">Archivo Histórico</h2>
+    
+    <div class="search-container">
+      <input type="text" id="newsSearch" placeholder="Buscar jugador o palabra clave..." class="search-input">
+      <div class="search-filters">
+        <select id="monthFilter" class="search-select">
+          <option value="">Cualquier mes</option>
+          </select>
+      </div>
+    </div>
+
+    <div id="archiveGrid" class="archive-grid">
+      </div>
+    
+    <div id="archiveStatus" class="streaks-status">Cargando archivo...</div>
+  </div>
+
+  <div id="newsOverlay" class="news-overlay">
+    <div class="news-content-card">
+        <button class="news-close" id="closeNews">✕</button>
+        <div id="newsFullBody"></div>
+    </div>
+  </div>
+
+  <button id="toTopBtn" class="to-top">▲</button>
+  <script src="js/noticias.js"></script>
+  <script src="js/textos.js"></script>
+</body>
+</html>

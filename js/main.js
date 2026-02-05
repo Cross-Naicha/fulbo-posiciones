@@ -910,6 +910,26 @@ if (ultimoContenedor && ultimoCard) {
   }
 }
 
+async function cargarPreviewNoticia() {
+  const tituloNoticia = document.getElementById('noticia-semanal-titulo');
+  if (!tituloNoticia) return;
+
+  try {
+    const res = await fetch(`data/noticias.json?v=${Date.now()}`);
+    const noticias = await res.json();
+    
+    if (noticias.length > 0) {
+      // Tomamos el título de la primera noticia (la más nueva)
+      tituloNoticia.textContent = noticias[0].titulo;
+    }
+  } catch (e) {
+    tituloNoticia.textContent = "Revisá la última crónica de la jornada";
+  }
+}
+
+// Llamala al final del DOMContentLoaded o de loadMatches
+cargarPreviewNoticia();
+
 async function initCopaPreview() {
   const previewContainer = document.getElementById('copaPreview');
   const previewGrid = document.getElementById('previewGrid');
