@@ -840,49 +840,57 @@ async function loadMatches() {
       return;
     }
 
-    if (ultimoContenedor && ultimoCard) {
+if (ultimoContenedor && ultimoCard) {
       const [fecha, partido] = entries[0];
       ultimoContenedor.style.display = 'block';
       
       const esEmpate = partido.balance === 0;
       const ganoA = partido.balance > 0;
-      
-      // Lógica del marcador: Si es 5-0 balance +5, si es 0-5 balance -5 (aunque vos cargás balance positivo siempre)
+      const ganoB = partido.balance < 0;
+
       const golesA = ganoA ? partido.balance : 0;
-      const golesB = !ganoA && !esEmpate ? partido.balance : 0;
+      const golesB = ganoB ? Math.abs(partido.balance) : 0;
 
+      // El HTML ahora genera la tarjeta completa con su propia sombra y fondo
       ultimoCard.innerHTML = `
-        <div style="text-align: center; margin-bottom: 12px;">
-          <span class="badge" style="border-color: var(--line); color: var(--muted);">${fecha}</span>
-        </div>
-
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+        <article class="streak ${!esEmpate ? 'blue' : 'gray'}" style="border-left: 8px solid ${ganoA ? 'var(--accent)' : ganoB ? 'var(--neg)' : 'var(--line)'}; margin: 0; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+          <div class="streak-top">
+            <span class="badge blue">ÚLTIMO REPORTE</span>
+            <span class="badge">${fecha}</span>
+          </div>
           
-          <div style="flex: 1; text-align: right;">
-            <div class="final-title" style="color: var(--accent); margin-bottom: 4px; font-size: 10px;">
-              EQUIPO A ${ganoA ? '🏆' : ''}
+          <div class="streak-main" style="display:flex; justify-content:space-between; align-items:center; margin: 15px 0; gap: 15px; padding: 0 10px;">
+            
+            <div style="flex: 1; text-align: left;">
+              <div style="color: var(--accent); font-size: 10px; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">
+                Equipo A ${ganoA ? '🏆' : ''}
+              </div>
+              <div class="mono" style="font-size: 0.85rem; color: var(--ink); line-height: 1.5; font-weight: 500;">
+                ${partido.team_a.join('<br>')}
+              </div>
             </div>
-            <div class="mono" style="font-size: 0.85rem; color: var(--ink); line-height: 1.3;">
-              ${partido.team_a.join(', ')}
+
+            <div style="background: var(--line); padding: 12px 18px; border-radius: 10px; min-width: 95px; text-align: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);">
+              <div class="mono" style="font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: 3px;">
+                ${golesA}-${golesB}
+              </div>
             </div>
+
+            <div style="flex: 1; text-align: right;">
+              <div style="color: var(--neg); font-size: 10px; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">
+                ${ganoB ? '🏆' : ''} Equipo B
+              </div>
+              <div class="mono" style="font-size: 0.85rem; color: var(--ink); line-height: 1.5; font-weight: 500;">
+                ${partido.team_b.join('<br>')}
+              </div>
+            </div>
+
           </div>
 
-          <div style="background: var(--line); padding: 8px 12px; border-radius: 8px; min-width: 80px; text-align: center; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
-            <div class="mono" style="font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; color: #fff;">
-              ${golesA} - ${golesB}
-            </div>
+          <div class="streak-footer" style="text-align: center; font-size: 0.75rem; border-top: 1px solid var(--line); padding-top: 10px; color: var(--muted); font-style: italic; letter-spacing: 0.5px;">
+            ${esEmpate ? 'Jornada de máxima paridad' : (ganoA ? 'Victoria contundente del Equipo A' : 'Victoria estratégica del Equipo B')}
           </div>
-
-          <div style="flex: 1; text-align: left;">
-            <div class="final-title" style="color: var(--neg); margin-bottom: 4px; font-size: 10px;">
-              EQUIPO B ${(!ganoA && !esEmpate) ? '🏆' : ''}
-            </div>
-            <div class="mono" style="font-size: 0.85rem; color: var(--ink); line-height: 1.3;">
-              ${partido.team_b.join(', ')}
-            </div>
-          </div>
-
-        </div>
+        </article>
       `;
     }
 
@@ -901,6 +909,107 @@ async function loadMatches() {
     if (matchesStatus) matchesStatus.textContent = err.message;
   }
 }
+
+async function initCopaPreview() {
+  const previewContainer = document.getElementById('copaPreview');
+  const previewGrid = document.getElementById('previewGrid');
+  if (!previewContainer) return;
+
+  try {
+    const [cRes, clRes] = await Promise.all([
+      fetch(`data/copas.json?v=${Date.now()}`),
+      fetch(`data/clasificacion_copas.json?v=${Date.now()}`)
+    ]);
+    
+    const copasJson = await cRes.json();
+    const clasifData = await clRes.json();
+    const copa = copasJson[0];
+    const ranking = {};
+    clasifData.forEach(r => { ranking[r.N] = r.JUG; });
+
+    const b = copa.bracket;
+    const todos = [...(b.cuartos || []), ...(b.semifinales || []), ...(b.final || [])];
+
+    // Buscamos el primer partido pendiente (vuelta sin goles)
+    const proximo = todos.find(p => !p.vuelta || p.vuelta.goles_j1 === null);
+
+    if (proximo) {
+      const iJ1 = proximo.ida?.goles_j1 || 0;
+      const iJ2 = proximo.ida?.goles_j2 || 0;
+      const vJ1 = proximo.vuelta?.goles_j1 || 0;
+      const vJ2 = proximo.vuelta?.goles_j2 || 0;
+      const totalJ1 = iJ1 + vJ1;
+      const totalJ2 = iJ2 + vJ2;
+      const jugado = proximo.ida?.goles_j1 !== null;
+
+      // Lógica de fechas
+      const fIda = proximo.fechas?.ida || 'TBD';
+      const fVue = proximo.fechas?.vuelta || 'TBD';
+      let fechaDisplay = 'TBD';
+      if (fIda !== 'TBD' && fVue !== 'TBD') {
+          fechaDisplay = `Ida: ${fIda} | Vuelta: ${fVue}`;
+      } else if (fIda !== 'TBD') {
+          fechaDisplay = `Ida: ${fIda}`;
+      }
+
+      const resolver = (s) => {
+        const raw = String(s || '').trim();
+        const num = raw.match(/\d+$/);
+        return num && ranking[num[0]] ? ranking[num[0]] : raw;
+      };
+
+      previewContainer.style.display = 'block';
+      previewGrid.innerHTML = `
+        <article class="streak ${jugado ? 'blue' : 'gray'}" style="border-left: 8px solid var(--accent); margin: 0; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+          <div class="streak-top">
+            <span class="badge blue">${proximo.id_partido}</span>
+            <span class="badge">${fechaDisplay}</span>
+          </div>
+          
+          <div class="streak-main" style="display:flex; justify-content:space-between; align-items:center; margin: 15px 0; gap: 15px; padding: 0 10px;">
+            
+            <div style="flex: 1; text-align: left;">
+              <div style="color: var(--accent); font-size: 10px; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">
+                LOCAL
+              </div>
+              <div class="mono" style="font-size: 0.9rem; color: var(--ink); line-height: 1.4; font-weight: 500;">
+                ${resolver(proximo.jugador1)}
+              </div>
+            </div>
+
+            <div style="background: var(--line); padding: 12px 18px; border-radius: 10px; min-width: 95px; text-align: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);">
+              <div class="mono" style="font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: 3px;">
+                ${jugado ? `${totalJ1}-${totalJ2}` : 'vs'}
+              </div>
+            </div>
+
+            <div style="flex: 1; text-align: right;">
+              <div style="color: var(--neg); font-size: 10px; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">
+                VISITANTE
+              </div>
+              <div class="mono" style="font-size: 0.9rem; color: var(--ink); line-height: 1.4; font-weight: 500;">
+                ${resolver(proximo.jugador2)}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="streak-footer" style="display:flex; justify-content:space-between; font-size:11px; border-top:1px solid var(--line); padding-top:10px; margin-top:8px; color:var(--muted); font-style: italic;">
+            <span>Vantaggio: ${resolver(proximo.ventaja)}</span>
+            ${jugado && !proximo.vuelta?.goles_j1 ? 
+              '<span style="color:var(--accent)">En definición (Vuelta TBD)</span>' : 
+              '<span>Próximo encuentro</span>'}
+          </div>
+        </article>
+      `;
+    }
+  } catch (e) {
+    console.warn("Copa preview error:", e);
+  }
+}
+
+// Ejecutar al cargar
+document.addEventListener('DOMContentLoaded', initCopaPreview);
 
 /* ========== 8. INIT ========== */
 // initLockCycle();

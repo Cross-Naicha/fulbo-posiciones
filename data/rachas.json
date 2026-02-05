@@ -1,93 +1,65 @@
 [
   {
-    "racha": "victorias",
-    "jugador": "Mario",
-    "extension": 4,
-    "dias": 24,
-    "inicio": "2026-01-07"
-  },
-  {
-    "racha": "invicto",
-    "jugador": "Mario",
-    "extension": 4,
-    "dias": 24,
-    "inicio": "2026-01-07"
-  },
-  {
     "racha": "presente",
     "jugador": "Naicha",
-    "extension": 4,
-    "dias": 24,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Lomba",
-    "extension": 4,
-    "dias": 24,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Cesar",
-    "extension": 4,
-    "dias": 24,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Mario",
-    "extension": 4,
-    "dias": 24,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Mato",
-    "extension": 4,
-    "dias": 24,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-01-07"
   },
   {
     "racha": "ausente",
     "jugador": "Pollo",
-    "extension": 4,
-    "dias": 24,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-01-07"
   },
   {
     "racha": "ausente",
     "jugador": "Yamil",
-    "extension": 4,
-    "dias": 24,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-01-07"
   },
   {
     "racha": "ausente",
     "jugador": "Marcelo",
-    "extension": 4,
-    "dias": 24,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
-    "jugador": "Lomba -> Chicho",
-    "extension": 3,
-    "dias": 3,
-    "inicio": "2026-01-28"
-  },
-  {
-    "racha": "paternidad (tiempo)",
-    "jugador": "Lomba -> Bag",
-    "extension": 3,
-    "dias": 3,
-    "inicio": "2026-01-28"
-  },
-  {
-    "racha": "paternidad (tiempo)",
-    "jugador": "Marcos -> Cesar",
-    "extension": 3,
-    "dias": 3,
-    "inicio": "2026-01-28"
+    "jugador": "Cesar -> Naicha",
+    "extension": 5,
+    "dias": 0,
+    "inicio": "2026-02-04"
   }
 ]

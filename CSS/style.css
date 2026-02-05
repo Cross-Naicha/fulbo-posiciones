@@ -677,3 +677,63 @@ h1 { text-align: center; margin-bottom: 8px; }
   .countdown{ gap: 8px; }
   .cd-num{ font-size: 20px; }
 }
+
+/* Mejoras para la sección de Copas */
+.streak {
+    transition: transform 0.2s ease;
+    background: rgba(17, 22, 28, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.streak:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.streak-main {
+    align-items: center;
+    gap: 10px;
+}
+
+.text-right { text-align: right; }
+
+.streak-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+/* Efecto especial para la Final */
+.is-final {
+    border: 2px solid var(--accent) !important;
+    box-shadow: 0 0 15px rgba(47, 139, 253, 0.25);
+    background: linear-gradient(180deg, #161b22, #0b0d10) !important;
+}
+
+.is-final::before {
+    content: "🏆 GRAN FINAL";
+    display: block;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+/* Contenedor de grids para que no se peguen */
+.matches-grid {
+    margin-bottom: 40px;
+}
+
+/* Ajuste para que los 5 nombres entren en la tarjeta del index */
+.streak-team-list {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.4;
+    max-width: 40%;
+}

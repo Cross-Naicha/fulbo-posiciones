@@ -1,180 +1,82 @@
 [
   {
+    "nombre": "COPA DE VERANO 2026",
+    "descripcion": "Fase eliminatoria ida y vuelta con ventaja deportiva.",
     "bracket": {
       "cuartos": [
         {
           "id_partido": "QF1",
-          "etapa": "cuartos",
           "numero": 1,
-          "tipo_cruce": "ida_vuelta",
           "ventaja": "Lomba",
-
           "jugador1": "Lomba",
           "jugador2": "Marcos",
-
-          "fechas": {
-            "ida": "2026-01-14",
-            "vuelta": null
-          },
-
-          "ida": {
-            "goles_j1": 0,
-            "goles_j2": 1
-          },
-          "vuelta": {
-            "goles_j1": null,
-            "goles_j2": null
-          }
+          "fechas": { "ida": "2026-01-14", "vuelta": "2026-02-04" },
+          "ida": { "goles_j1": 0, "goles_j2": 1 },
+          "vuelta": { "goles_j1": 5, "goles_j2": 0 }
         },
         {
           "id_partido": "QF2",
-          "etapa": "cuartos",
           "numero": 2,
-          "tipo_cruce": "ida_vuelta",
           "ventaja": "Chagay",
-
           "jugador1": "Chagay",
           "jugador2": "Mato",
-
-          "fechas": {
-            "ida": "2026-01-07",
-            "vuelta": null
-          },
-
-          "ida": {
-            "goles_j1": 2,
-            "goles_j2": 0
-          },
-          "vuelta": {
-            "goles_j1": null,
-            "goles_j2": null
-          }
+          "fechas": { "ida": "2026-01-07", "vuelta": null },
+          "ida": { "goles_j1": 2, "goles_j2": 0 },
+          "vuelta": { "goles_j1": null, "goles_j2": null }
         },
         {
           "id_partido": "QF3",
-          "etapa": "cuartos",
           "numero": 3,
-          "tipo_cruce": "ida_vuelta",
           "ventaja": "Bag",
-
           "jugador1": "Bag",
           "jugador2": "Naicha",
-
-          "fechas": {
-            "ida": "2026-01-21",
-            "vuelta": null
-          },
-
-          "ida": {
-            "goles_j1": 1,
-            "goles_j2": 0
-          },
-          "vuelta": {
-            "goles_j1": null,
-            "goles_j2": null
-          }
+          "fechas": { "ida": "2026-01-21", "vuelta": null },
+          "ida": { "goles_j1": 1, "goles_j2": 0 },
+          "vuelta": { "goles_j1": null, "goles_j2": null }
         },
         {
           "id_partido": "QF4",
-          "etapa": "cuartos",
           "numero": 4,
-          "tipo_cruce": "ida_vuelta",
           "ventaja": "Mario",
-
           "jugador1": "Mario",
           "jugador2": "Cesar",
-
-          "fechas": {
-            "ida": "2026-01-28",
-            "vuelta": null
-          },
-
-          "ida": {
-            "goles_j1": 5,
-            "goles_j2": 0
-          },
-          "vuelta": {
-            "goles_j1": null,
-            "goles_j2": null
-          }
+          "fechas": { "ida": "2026-01-28", "vuelta": null },
+          "ida": { "goles_j1": 5, "goles_j2": 0 },
+          "vuelta": { "goles_j1": null, "goles_j2": null }
         }
       ],
-
       "semifinales": [
         {
           "id_partido": "SF1",
-          "etapa": "semifinal",
           "numero": 1,
-          "tipo_cruce": "ida_vuelta",
-          "ventaja": "A definir",
-
-          "jugador1": "QF1",
+          "ventaja": "Lomba",
+          "jugador1": "Lomba",
           "jugador2": "QF4",
-
-          "fechas": {
-            "ida": null,
-            "vuelta": null
-          },
-
-          "ida": {
-            "goles_j1": null,
-            "goles_j2": null
-          },
-          "vuelta": {
-            "goles_j1": null,
-            "goles_j2": null
-          }
+          "fechas": { "ida": null, "vuelta": null },
+          "ida": { "goles_j1": null, "goles_j2": null },
+          "vuelta": { "goles_j1": null, "goles_j2": null }
         },
         {
           "id_partido": "SF2",
-          "etapa": "semifinal",
           "numero": 2,
-          "tipo_cruce": "ida_vuelta",
           "ventaja": "A definir",
-
           "jugador1": "QF2",
           "jugador2": "QF3",
-
-          "fechas": {
-            "ida": null,
-            "vuelta": null
-          },
-
-          "ida": {
-            "goles_j1": null,
-            "goles_j2": null
-          },
-          "vuelta": {
-            "goles_j1": null,
-            "goles_j2": null
-          }
+          "fechas": { "ida": null, "vuelta": null },
+          "ida": { "goles_j1": null, "goles_j2": null },
+          "vuelta": { "goles_j1": null, "goles_j2": null }
         }
       ],
-
       "final": [
         {
           "id_partido": "F1",
-          "etapa": "final",
           "numero": 1,
-          "tipo_cruce": "ida_vuelta",
           "ventaja": "A definir",
-
           "jugador1": "SF1",
           "jugador2": "SF2",
-
-          "fechas": {
-            "ida": null,
-            "vuelta": null
-          },
-
-          "ida": {
-            "goles_j1": null,
-            "goles_j2": null
-          },
-          "vuelta": {
-            "goles_j1": null,
-            "goles_j2": null
-          }
+          "fechas": { "ida": null, "vuelta": null },
+          "ida": { "goles_j1": null, "goles_j2": null },
+          "vuelta": { "goles_j1": null, "goles_j2": null }
         }
       ]
     }
