@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 5.0,
+    "partidos": 6.0,
     "apodo": "Naicha",
     "puntos": 6,
-    "efectividad": 0.4,
+    "efectividad": 0.33,
     "ganados": 2,
     "empatados": 0,
-    "perdidos": 3,
-    "diferencia de gol": "- 2",
-    "delta": "↓2"
+    "perdidos": 4,
+    "diferencia de gol": "- 4",
+    "delta": "↓1"
   },
   "winning_streak_statistics": {
     "empieza": "2026-01-28",
@@ -21,36 +21,35 @@
   },
   "losses_streak_statistics": {
     "empieza": "2026-02-04",
-    "termina": "2026-02-04",
-    "extension": 1,
+    "termina": "2026-02-11",
+    "extension": 2,
     "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2026-01-07",
-    "termina": "2026-02-04",
-    "extension": 5,
+    "termina": "2026-02-11",
+    "extension": 6,
     "actual": true
   },
   "last_5": {
+    "2026-02-11": "P",
     "2026-02-04": "P",
     "2026-01-28": "G",
     "2026-01-21": "P",
-    "2026-01-14": "G",
-    "2026-01-07": "P"
+    "2026-01-14": "G"
   },
   "balance_vs": {
-    "P11": 1,
     "Chicho": 0,
     "Bag": 0,
+    "P11": 0,
     "Lomba": -1,
-    "Cesar": -1,
-    "Chagay": -1,
     "Mato": -1,
-    "Mario": -2
+    "Pollo": -1,
+    "Cesar": -2,
+    "Chagay": -2,
+    "Mario": -3
   },
   "best_partner": {
-    "Lomba": 1,
-    "Mato": 1,
     "Chagay": 1,
     "Pollo": 1,
     "Marcos": 1,
@@ -58,8 +57,8 @@
   },
   "worse_partner": {
     "Benja": 3,
-    "Chicho": 2,
-    "Bag": 1,
+    "Chicho": 3,
+    "Bag": 2,
     "Cesar": 1,
     "Yamil": 1
   },

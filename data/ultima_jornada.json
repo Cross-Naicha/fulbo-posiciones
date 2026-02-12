@@ -1,19 +1,21 @@
 {
-    "fecha": "2026-02-05",
+    "fecha": "2026-02-12",
     "resultado": {
         "ganador": "A",
-        "balance": 6
+        "balance": 2
     },
     "equipo_a": [
+        "Pollo",
         "Cesar",
-        "Lomba",
-        "Mato",
-        "Chagay"
+        "P11",
+        "Chagay",
+        "Mario"
     ],
     "equipo_b": [
-        "Bag",
+        "Chicho",
         "Naicha",
-        "Marcos",
-        "Mario"
+        "Bag",
+        "Lomba",
+        "Mato"
     ]
 }

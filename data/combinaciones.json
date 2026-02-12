@@ -2,6 +2,24 @@
   [
     "GAN",
     2,
+    "Cesar",
+    "Chagay",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
+    "Cesar",
+    "Mario",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
     "Lomba",
     "Cesar",
     null,
@@ -11,15 +29,6 @@
   [
     "GAN",
     2,
-    "Cesar",
-    "Chagay",
-    null,
-    null,
-    2
-  ],
-  [
-    "GAN",
-    2,
     "Lomba",
     "Chagay",
     null,
@@ -29,7 +38,7 @@
   [
     "GAN",
     2,
-    "Cesar",
+    "Chagay",
     "Mario",
     null,
     null,
@@ -39,6 +48,15 @@
     "GAN",
     2,
     "Lomba",
+    "Mario",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "P11",
     "Mario",
     null,
     null,
@@ -101,6 +119,15 @@
   [
     "GAN",
     3,
+    "Cesar",
+    "Chagay",
+    "Mario",
+    null,
+    2
+  ],
+  [
+    "GAN",
+    3,
     "Naicha",
     "Mario",
     "Marcos",
@@ -114,7 +141,7 @@
     "Bag",
     null,
     null,
-    2
+    3
   ],
   [
     "PER",
@@ -123,7 +150,7 @@
     "Bag",
     null,
     null,
-    2
+    3
   ],
   [
     "PER",
@@ -132,13 +159,40 @@
     "Mato",
     null,
     null,
-    2
+    3
   ],
   [
     "PER",
     2,
     "Chicho",
     "Mato",
+    null,
+    null,
+    3
+  ],
+  [
+    "PER",
+    2,
+    "Chicho",
+    "Naicha",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Naicha",
+    "Mato",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Naicha",
+    "Lomba",
     null,
     null,
     2
@@ -159,6 +213,42 @@
     "Bag",
     "Mato",
     null,
+    3
+  ],
+  [
+    "PER",
+    3,
+    "Chicho",
+    "Naicha",
+    "Bag",
+    null,
+    2
+  ],
+  [
+    "PER",
+    3,
+    "Naicha",
+    "Bag",
+    "Mato",
+    null,
+    2
+  ],
+  [
+    "PER",
+    3,
+    "Chicho",
+    "Naicha",
+    "Mato",
+    null,
+    2
+  ],
+  [
+    "PER",
+    4,
+    "Chicho",
+    "Naicha",
+    "Bag",
+    "Mato",
     2
   ]
 ]

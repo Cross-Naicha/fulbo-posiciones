@@ -20,9 +20,9 @@
           "ventaja": "Chagay",
           "jugador1": "Chagay",
           "jugador2": "Mato",
-          "fechas": { "ida": "2026-01-07", "vuelta": null },
+          "fechas": { "ida": "2026-01-07", "vuelta": "2026-02-11" },
           "ida": { "goles_j1": 2, "goles_j2": 0 },
-          "vuelta": { "goles_j1": null, "goles_j2": null }
+          "vuelta": { "goles_j1": 2, "goles_j2": 0 }
         },
         {
           "id_partido": "QF3",
