@@ -45,8 +45,7 @@
               </div>
               
               <div class="streak-main" style="display:flex; justify-content:space-between; align-items:center; margin: 20px 0; gap: 15px;">
-                 <div style="flex:1; font-weight:800; color:var(--accent); font-size:0.7rem; letter-spacing:1px;">CHIQUINEWS</div>
-                 
+                         
                  <div style="background: var(--line); padding: 12px 18px; border-radius: 10px; min-width: 95px; text-align: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.5);">
                     <div class="mono" style="font-size: 1.8rem; font-weight: 900; color: #fff;">${n.marcador}</div>
                  </div>
