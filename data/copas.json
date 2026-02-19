@@ -30,9 +30,9 @@
           "ventaja": "Bag",
           "jugador1": "Bag",
           "jugador2": "Naicha",
-          "fechas": { "ida": "2026-01-21", "vuelta": null },
+          "fechas": { "ida": "2026-01-21", "vuelta": "2026-02-18" },
           "ida": { "goles_j1": 1, "goles_j2": 0 },
-          "vuelta": { "goles_j1": null, "goles_j2": null }
+          "vuelta": { "goles_j1": 0, "goles_j2": 1 }
         },
         {
           "id_partido": "QF4",

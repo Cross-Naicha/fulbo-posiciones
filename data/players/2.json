@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 0,
     "diferencia de gol": "+ 2",
-    "delta": "↑0"
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2026-02-11",
@@ -17,20 +17,20 @@
     "puntos acumulados": 3,
     "victorias": 1,
     "empates": 0,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2026-02-11",
     "termina": "2026-02-11",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2026-02-18": "A",
     "2026-02-11": "G",
     "2026-02-04": "A",
     "2026-01-28": "A",
-    "2026-01-21": "A",
-    "2026-01-14": "A"
+    "2026-01-21": "A"
   },
   "balance_vs": {
     "Chicho": 1,

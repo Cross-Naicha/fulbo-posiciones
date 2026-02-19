@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 1,
     "diferencia de gol": "- 1",
-    "delta": "↓1"
+    "delta": "↓3"
   },
   "winning_streak_statistics": {
     "empieza": null,
@@ -32,18 +32,18 @@
     "actual": false
   },
   "last_5": {
+    "2026-02-18": "A",
     "2026-02-11": "A",
     "2026-02-04": "A",
     "2026-01-28": "A",
-    "2026-01-21": "P",
-    "2026-01-14": "A"
+    "2026-01-21": "P"
   },
   "balance_vs": {
-    "Mato": -1,
-    "Bag": -1,
-    "Mario": -1,
+    "Chicho": -1,
     "Cesar": -1,
-    "Chicho": -1
+    "Mario": -1,
+    "Bag": -1,
+    "Mato": -1
   },
   "best_partner": {
     "Yamil": 1
