@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calendario · Chiqui Liga</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/titulo.css">
+  <style>
+    /* Barra de filtros Estática (No se mueve) */
+    .filter-container {
+        background: var(--card);
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .filter-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .filter-grid select, .filter-grid input {
+        background: var(--bg); /* Un poco más oscuro que el contenedor */
+        border: 1px solid var(--line);
+        color: var(--ink);
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        width: 100%;
+        outline: none;
+    }
+    .filter-grid input:focus { border-color: var(--accent); }
+
+    /* Estilos de Tarjetas */
+    .match-day-section { margin-top: 25px; }
+    .day-title { 
+        font-size: 0.8rem; color: var(--accent); 
+        letter-spacing: 1px; text-transform: uppercase;
+        margin-bottom: 15px; border-left: 3px solid var(--accent); padding-left: 10px;
+    }
+    .match-card-full {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 12px;
+    }
+    .game-header { font-size: 10px; color: var(--muted); margin-bottom: 12px; text-align: center; }
+    .vs-row { display: flex; align-items: center; justify-content: space-between; }
+    .team-box { width: 40%; text-align: center; }
+    .player-highlight { font-weight: 900; font-size: 1rem; color: var(--ink); display: block; overflow: hidden; text-overflow: ellipsis; }
+    .country-sub { font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 5px; }
+    .country-sub img { width: 18px; border-radius: 2px; }
+    .score-box { width: 20%; text-align: center; font-size: 1.4rem; font-weight: 900; color: var(--accent); }
+    .unassigned-text { color: var(--muted); font-weight: 400; font-size: 0.85rem; font-style: italic; }
+    .no-results { text-align: center; padding: 50px; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <!-- 📌 NAV SUPERIOR -->
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="noticias.html" class="nav-item">📰 NOT</a>
+      <a href="index.html" class="nav-item">🏆 POS</a>
+      <a href="mundial.html" class="nav-item">🌎 MUN</a>
+      <a href="grupos.html" class="nav-item">🫂 GRU</a>
+      <a href="partidos_mundial.html" class="nav-item active">⚽ PAR</a>
+    </div>
+  </nav>
+
+    <!-- BARRA SUPERIOR DEL AUSPICIANTE -->
+  <div class="top-tab" id="auspiciante"></div>
+
+  <div class="wrap">
+    <h1 id="titulo">Partidos del Mundial FIFA 2026</h1>
+
+    <div class="filter-container">
+        <div class="filter-grid">
+            <select id="dateSelect">
+                <option value="all">Todas las fechas</option>
+            </select>
+            <input type="text" id="nameSearch" placeholder="Jugador, país o grupo...">
+        </div>
+    </div>
+
+    <div id="fixtureContainer">
+        <p style="text-align:center; padding:30px; color:var(--muted);">Cargando partidos...</p>
+    </div>
+  </div>
+
+    <div class="bottom-tab">© 2026 Liga de Fulbo · PROMIEDOS</div>
+
+  <script src="js/partidos.js"></script>
+</body>
+</html>

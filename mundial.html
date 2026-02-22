@@ -5,19 +5,18 @@
   <title>Copas · Liga de Fulbo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/titulo.css">
 </head>
 
 <body>
   <!-- 📌 NAV SUPERIOR -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
-      <a href="generador.html" class="nav-item">🔢 ARM</a>
+      <a href="noticias.html" class="nav-item">📰 NOT</a>
       <a href="index.html" class="nav-item">🏆 POS</a>
-      <a href="historica.html" class="nav-item">📊 HIS</a>
-      <a href="copas.html" class="nav-item">🥇 COP</a>
       <a href="mundial.html" class="nav-item active">🌎 MUN</a>
-      <a href="salon.html" class="nav-item">👑 SDF</a>
-      <a href="jugadores.html" class="nav-item">⚽ JUG</a>
+      <a href="grupos.html" class="nav-item">🫂 GRU</a>
+      <a href="partidos_mundial.html" class="nav-item">⚽ PAR</a>
     </div>
   </nav>
 
@@ -28,7 +27,7 @@
   <div class="wrap">
 
     <!-- TÍTULOS -->
-  <h1>Mundial 2026</h1>
+  <h1 id="titulo">Mundial FIFA 2026</h1>
 
   <div class="sep"></div>
 
@@ -55,7 +54,7 @@
   <div class="sep"></div>
 
         <!-- CLASIFICACIÓN A LAS COPAS -->
-    <h2>Clasificación - Depende de Copa de Verano Citric 2026</h2>
+    <h2>Clasificación: Según Copa de Verano Citric 2026</h2>
     
     <div class="card matches-card clasif-card">
       <div id="clasifStatus" class="matches-status">
@@ -73,50 +72,23 @@
         </table>
       </div>
     </div>
-    <p>Clasifican los 12 primeros.</p>
+    <p>Clasifican los 12 primeros - En VERDE, ya clasificados - En AMARILLO, aún pueden clasificar.</p>
     
-    <!-- <p>Clasifican los 8 primeros. En VERDE, los ya clasificados; en AMARILLO los que pueden todavía clasificar.</p> -->
     <div class="sep"></div>
 
-    <!-- CUARTOS DE FINAL -->
-    <h2>Cuartos de final</h2>
-    <div class="card matches-card">
-      <div id="cuartosStatus" class="matches-status">
-        Cargando cuartos de final…
-      </div>
-      <div id="cuartosGrid" class="matches-grid" style="display:none"></div>
-      <div id="cuartosEmpty" class="matches-status" style="display:none">
-        No hay cuartos de final cargados.
-      </div>
+    <h2>Equipos Clasificados</h2>
+    <div class="filter-bar">
+        <input type="text" id="filterSearch" placeholder="Buscar país o jugador...">
+        <select id="filterBombo">
+            <option value="all">TODOS</option>
+            <option value="1">BOMBO 1</option>
+            <option value="2">BOMBO 2</option>
+            <option value="3">BOMBO 3</option>
+            <option value="4">BOMBO 4</option>
+        </select>
     </div>
 
-    <div class="sep"></div>
-
-    <!-- SEMIFINALES -->
-    <h2>Semifinales</h2>
-    <div class="card matches-card">
-      <div id="semisStatus" class="matches-status">
-        Cargando semifinales…
-      </div>
-      <div id="semisGrid" class="matches-grid" style="display:none"></div>
-      <div id="semisEmpty" class="matches-status" style="display:none">
-        No hay semifinales cargadas.
-      </div>
-    </div>
-
-    <div class="sep"></div>
-
-    <!-- FINAL -->
-    <h2>Final</h2>
-    <div class="card matches-card">
-      <div id="finalStatus" class="matches-status">
-        Cargando final…
-      </div>
-      <div id="finalGrid" class="matches-grid" style="display:none"></div>
-      <div id="finalEmpty" class="matches-status" style="display:none">
-        No hay final cargada todavía.
-      </div>
-    </div>
+    <div id="paisesContainer"></div>
 
     <div class="sep"></div>
 
