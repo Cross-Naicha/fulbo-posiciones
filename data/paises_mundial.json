@@ -1,7 +1,7 @@
 [
-  { "pais": "Argentina", "abr": "ARG", "codigo": "ar", "jugador": "Chiqui", "bombo": 1 },
+  { "pais": "Argentina", "abr": "ARG", "codigo": "ar", "jugador": "Sin Asignar", "bombo": 1 },
   { "pais": "Estados Unidos", "abr": "USA", "codigo": "us", "jugador": "Sin Asignar", "bombo": 1 },
-  { "pais": "México", "abr": "MEX", "codigo": "mx", "jugador": "Chagay", "bombo": 1 },
+  { "pais": "México", "abr": "MEX", "codigo": "mx", "jugador": "Sin Asignar", "bombo": 1 },
   { "pais": "Canadá", "abr": "CAN", "codigo": "ca", "jugador": "Sin Asignar", "bombo": 1 },
   { "pais": "España", "abr": "ESP", "codigo": "es", "jugador": "Sin Asignar", "bombo": 1 },
   { "pais": "Francia", "abr": "FRA", "codigo": "fr", "jugador": "Sin Asignar", "bombo": 1 },

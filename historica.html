@@ -12,7 +12,7 @@
   -->
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/titulo.css">
-
+  <link rel="stylesheet" href="CSS/boton.css">
 </head>
 
 <body>
@@ -20,14 +20,11 @@
   <!-- 📌 NUEVA NAVEGACIÓN SUPERIOR FIJA -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
-      <a href="generador.html" class="nav-item">🔢 ARM</a>
-      <a href="noticias.html" class="nav-item">📰 NOT</a>
-      <a href="index.html" class="nav-item">🏆 POS</a>
-      <a href="historica.html" class="nav-item active">📊 HIS</a>
-      <a href="copas.html" class="nav-item">🥇 COP</a>
-      <a href="mundial.html" class="nav-item">🌎 MUN</a>
-      <a href="salon.html" class="nav-item">👑 SDF</a>
-      <a href="jugadores.html" class="nav-item">⚽ JUG</a>
+      <a href="salon.html" class="nav-item">👑 FAMA</a>
+      <a href="jugadores.html" class="nav-item">🏃🏻 PJS</a>
+      <a href="metricas.html" class="nav-item">📊 KPI</a>
+      <a href="historica.html" class="nav-item active">📈</a>
+      <a href="index.html" class="nav-item">📋</a>
     </div>
   </nav>
   <!-- === HEADER / SPONSOR AREA ===
@@ -90,7 +87,15 @@
        Floating button that appears when user scrolls down.
        Controlled by the initScrollToTop() function in JS.
   -->
-  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
+    <!-- Botón -->
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+      <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
+  </div>
 
   <!-- === MAIN SCRIPT ===
        Contains all interactive logic for loading texts, JSON data, overlays,
@@ -98,6 +103,8 @@
   -->
   
   <script src="js/historica.js"></script>
+  <script src="js/textos.js"></script>
+  <script src="js/boton.js"></script>
 
 </body>
 </html>

@@ -7,6 +7,7 @@
   
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/generador.css">
+  <link rel="stylesheet" href="CSS/boton.css">
 </head>
 
 <body>
@@ -36,14 +37,10 @@
 
     <nav class="top-nav" id="mainNav">
       <div class="nav-scroll">
-        <a href="generador.html" class="nav-item active">🔢 ARM</a>
-        <a href="noticias.html" class="nav-item">📰 NOT</a>
-        <a href="index.html" class="nav-item">🏆 POS</a>
-        <a href="historica.html" class="nav-item">📊 HIS</a>
-        <a href="copas.html" class="nav-item">🥇 COP</a>
-        <a href="mundial.html" class="nav-item">🌎 MUN</a>
-        <a href="salon.html" class="nav-item">👑 SDF</a>
-        <a href="jugadores.html" class="nav-item">⚽ JUG</a>
+        <a href="mundial.html" class="nav-item">🌎 MUNDIAL</a>
+        <a href="copas.html" class="nav-item">🏆 COPAS</a>
+        <a href="generador.html" class="nav-item active">🔢</a>
+        <a href="index.html" class="nav-item">📋</a>
       </div>
     </nav>
 
@@ -110,9 +107,21 @@
       </div>
     </div>
   </div>
+
+  <!-- Botón -->
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="index.html" class="chiqui-circle-mini">📋</a>
+      <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
+  </div>
   
   <div class="bottom-tab">© 2026 Liga de Fulbo · PROMIEDOS</div>
   <script src="js/generador.js"></script>
+  <script src="js/boton.js"></script>
+  <script src="js/textos.js"></script>
   
   
 </body>

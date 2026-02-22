@@ -5,66 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salón de la Fama - La Liga</title>
 
-  <!-- Fuente opcional, podés borrarla si ya usás otra -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
-  <!-- CSS específico del Salón de la Fama -->
   <link rel="stylesheet" href="CSS/style.css" />
   <link rel="stylesheet" href="CSS/salon.css" />
   <link rel="stylesheet" href="CSS/titulo.css" />
-  
+  <link rel="stylesheet" href="CSS/boton.css" />
 </head>
-<body>
+<body class="sticky-footer-body">
 
-      <!-- 📌 NUEVA NAVEGACIÓN SUPERIOR FIJA -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
-      <a href="generador.html" class="nav-item">🔢 ARM</a>
-      <a href="noticias.html" class="nav-item">📰 NOT</a>
-      <a href="index.html" class="nav-item">🏆 POS</a>
-      <a href="historica.html" class="nav-item">📊 HIS</a>
-      <a href="copas.html" class="nav-item">🥇 COP</a>
-      <a href="mundial.html" class="nav-item">🌎 MUN</a>
-      <a href="salon.html" class="nav-item active">👑 SDF</a>
-      <a href="jugadores.html" class="nav-item">⚽ JUG</a>
+      <a href="historica.html" class="nav-item">📈 REGISTRO</a>
+      <a href="jugadores.html" class="nav-item">🏃🏻 PJS</a>
+      <a href="metricas.html" class="nav-item">📊 KPI</a>
+      <a href="salon.html" class="nav-item active">👑</a>
+      <a href="index.html" class="nav-item">📋</a>
     </div>
   </nav>
   
-  <!-- BARRA SUPERIOR DEL AUSpICIANTE -->
   <div class="top-tab" id="auspiciante"></div>
-
-  <!-- Acá podría ir tu header/nav general de La Liga -->
 
   <main class="hof-main">
     <header class="hof-hero">
        <h1 id="titulo">Salon de la Fama</h1>
     </header>
 
-    <!-- Línea de tiempo (años) -->
     <section class="hof-controls">
-      <div class="hof-timeline" aria-label="Línea de tiempo de años del Salón de la Fama">
-        <!-- Botones de años generados por JS -->
-      </div>
-
-      <!-- Filtros por competencia -->
-      <div class="hof-filters" aria-label="Filtros por competencia">
-        <!-- Botones de filtros generados por JS -->
-      </div>
+      <div class="hof-timeline" id="hofTimeline">
+        </div>
+      <div class="hof-filters" id="hofFilters">
+        </div>
     </section>
     
-    
-
-    <!-- Contenedor de años -->
     <section id="hof-years" class="hof-years">
-      <!-- Cada año + sus tarjetas se inyectan acá vía JS -->
-    </section>
+      </section>
+  </main>
 
-  <!-- JS del Salón de la Fama -->
+  <footer class="bottom-tab">
+    <div class="footer-content">
+      © 2026 Liga de Fulbo · PROMIEDOS
+    </div>
+  </footer>
+
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp" title="Subir">▲</button>
+      <a href="generador.html" class="chiqui-circle-mini" title="Armador">🔢</a>
+      <a href="noticias.html" class="chiqui-circle-mini" title="Noticias">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
+  </div>
+
   <script src="js/main.js"></script>
   <script src="js/salon.js"></script>
-
+  <script src="js/textos.js"></script>
+  <script src="js/boton.js"></script>
+  
 </body>
 </html>

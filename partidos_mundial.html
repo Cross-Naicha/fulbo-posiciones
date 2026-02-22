@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/titulo.css">
+  <link rel="stylesheet" href="CSS/boton.css">
   <style>
     /* Barra de filtros Estática (No se mueve) */
     .filter-container {
@@ -63,11 +64,10 @@
   <!-- 📌 NAV SUPERIOR -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
-      <a href="noticias.html" class="nav-item">📰 NOT</a>
-      <a href="index.html" class="nav-item">🏆 POS</a>
-      <a href="mundial.html" class="nav-item">🌎 MUN</a>
-      <a href="grupos.html" class="nav-item">🫂 GRU</a>
-      <a href="partidos_mundial.html" class="nav-item active">⚽ PAR</a>
+      <a href="mundial.html" class="nav-item">🌎 MUNDIAL</a>
+      <a href="grupos.html" class="nav-item">🫂 GRUPOS</a>
+      <a href="partidos_mundial.html" class="nav-item active">⚽</a>
+      <a href="index.html" class="nav-item">📋</a>
     </div>
   </nav>
 
@@ -91,8 +91,20 @@
     </div>
   </div>
 
+    <!-- Botón -->
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+      <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
+  </div>
+
     <div class="bottom-tab">© 2026 Liga de Fulbo · PROMIEDOS</div>
 
   <script src="js/partidos.js"></script>
+  <script src="js/textos.js"></script>
+  <script src="js/boton.js"></script>
 </body>
 </html>

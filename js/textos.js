@@ -1,40 +1,47 @@
 /* =========================================================
-   1. LOAD TEXTS AND ANNOUNCEMENTS
+   1. LOAD TEXTS AND ANNOUNCEMENTS (RESILIENT VERSION)
    ========================================================= */
 
-/**
- * Fetches all static texts (titles, subtitles, ticker, etc.)
- * from textos.json and fills them into the HTML.
- * Also handles announcements that appear once per session.
- */
 let ANNOUNCEMENTS = [];
 
 fetch('textos.json')
   .then(r => r.json())
   .then(data => {
-    // Fill static text content
-    document.getElementById('auspiciante').textContent = data.auspiciante;
-    document.getElementById('titulo').textContent = data.titulo;
-    document.getElementById('subtitulo').textContent = data.subtitulo;
-    document.getElementById('fechas_1').textContent = data.fechas_1;
-    document.getElementById('fechas_2').textContent = data.fechas_2;
-    document.getElementById('fechas_3').textContent = data.fechas_3;
-    document.getElementById('frase_chiqui').textContent = data.frase_chiqui;
-    document.getElementById('novedades').textContent = data.novedades;
-    document.getElementById('riesgo').textContent = data.riesgo;
+    
+    // Función de seguridad: solo escribe si el elemento existe en el HTML
+    const safelyFill = (id, content) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = content || "";
+      }
+    };
 
-    // Set ticker text (rotating banner)
+    // Llenado de textos estáticos con protección ante faltantes
+    safelyFill('auspiciante', data.auspiciante);
+    safelyFill('titulo', data.titulo);
+    safelyFill('subtitulo', data.subtitulo);
+    safelyFill('fechas_1', data.fechas_1);
+    safelyFill('fechas_2', data.fechas_2);
+    safelyFill('fechas_3', data.fechas_3);
+    safelyFill('frase_chiqui', data.frase_chiqui);
+    safelyFill('novedades', data.novedades);
+    safelyFill('riesgo', data.riesgo);
+
+    // Ticker text (Rotating banner)
     const a = document.getElementById('tickerA');
     const b = document.getElementById('tickerB');
     if (a && b) {
-      a.textContent = data.ticker;
-      b.textContent = data.ticker;
+      a.textContent = data.ticker || "";
+      b.textContent = data.ticker || "";
     }
 
-    // Handle announcements (only show once per session)
+    // Handle announcements
     ANNOUNCEMENTS = data.anuncios || [];
     if (ANNOUNCEMENTS.length > 0 && !sessionStorage.getItem("announcements_shown")) {
-      startAnnouncements();
+      // Verificamos que la función startAnnouncements exista antes de llamarla
+      if (typeof startAnnouncements === 'function') {
+        startAnnouncements();
+      }
       sessionStorage.setItem("announcements_shown", "true");
     }
   })

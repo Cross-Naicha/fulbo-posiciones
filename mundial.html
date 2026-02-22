@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/titulo.css">
+  <link rel="stylesheet" href="CSS/boton.css">
 </head>
 
 <body>
   <!-- 📌 NAV SUPERIOR -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
-      <a href="noticias.html" class="nav-item">📰 NOT</a>
-      <a href="index.html" class="nav-item">🏆 POS</a>
-      <a href="mundial.html" class="nav-item active">🌎 MUN</a>
-      <a href="grupos.html" class="nav-item">🫂 GRU</a>
-      <a href="partidos_mundial.html" class="nav-item">⚽ PAR</a>
+      <a href="grupos.html" class="nav-item">🫂 GRUPOS</a>
+      <a href="partidos_mundial.html" class="nav-item">⚽ PARTIDOS</a>
+      <a href="mundial.html" class="nav-item active">🌎</a>
+      <a href="index.html" class="nav-item">📋</a>
     </div>
   </nav>
 
@@ -99,18 +99,22 @@
   <!-- OVERLAY DE WHATSAPP / LOCK (si lo reutilizás) -->
   <div class="lock-overlay" id="lockOverlay" aria-live="polite"></div>
 
-  <!-- BOTÓN FLOTANTE -->
-  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
-
-  <!-- MENÚ DE BURBUJAS SOBRE EL BOTÓN -->
-  <div id="fabMenu" class="fab-menu" aria-hidden="true">
-    <a href="index.html" class="fab-bubble">🏆</a>
-    <a href="historica.html" class="fab-bubble">📊</a>
+  <!-- Botón -->
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+      <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
   </div>
 
   <!-- SCRIPTS -->
   <!-- Podés reutilizar la parte de scroll/FAB del main.js acá dentro de copas.js -->
   <script src="js/mundial.js"></script>
   <script src="js/final.js"></script>
+  <script src="js/textos.js"></script>
+  <script src="js/boton.js"></script>
+
 </body>
 </html>

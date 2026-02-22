@@ -5,21 +5,15 @@
   <title>Copas · Liga de Fulbo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="CSS/style.css">
-  <link rel="stylesheet" href="CSS/titulo.css">
+  <link rel="stylesheet" href="CSS/boton.css">
 </head>
 
 <body>
   <!-- 📌 NAV SUPERIOR -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
-      <a href="generador.html" class="nav-item">🔢 ARM</a>
-      <a href="noticias.html" class="nav-item">📰 NOT</a>
-      <a href="index.html" class="nav-item">🏆 POS</a>
-      <a href="historica.html" class="nav-item">📊 HIS</a>
-      <a href="copas.html" class="nav-item active">🥇 COP</a>
-      <a href="mundial.html" class="nav-item">🌎 MUN</a>
-      <a href="salon.html" class="nav-item">👑 SDF</a>
-      <a href="jugadores.html" class="nav-item">⚽ JUG</a>
+      <a href="copas.html" class="nav-item active">🏆</a>
+      <a href="index.html" class="nav-item">📋</a>
     </div>
   </nav>
 
@@ -59,7 +53,7 @@
   <div class="sep"></div>
 
         <!-- CLASIFICACIÓN A LAS COPAS -->
-    <h2>Clasificados</h2>
+    <h2>Clasificados: Según Liga de Primavera LOMBARDOIL 2026</h2>
     <div class="card matches-card clasif-card">
       <div id="clasifStatus" class="matches-status">
         Cargando clasificación…
@@ -126,20 +120,20 @@
 
   <div class="bottom-tab">© 2026 Liga de Fulbo · PROMIEDOS</div>
 
-  <!-- OVERLAY DE WHATSAPP / LOCK (si lo reutilizás) -->
-  <div class="lock-overlay" id="lockOverlay" aria-live="polite"></div>
-
-  <!-- BOTÓN FLOTANTE -->
-  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
-
-  <!-- MENÚ DE BURBUJAS SOBRE EL BOTÓN -->
-  <div id="fabMenu" class="fab-menu" aria-hidden="true">
-    <a href="index.html" class="fab-bubble">🏆</a>
-    <a href="historica.html" class="fab-bubble">📊</a>
+  <!-- Botón -->
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+      <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
   </div>
 
   <!-- SCRIPTS -->
   <!-- Podés reutilizar la parte de scroll/FAB del main.js acá dentro de copas.js -->
   <script src="js/copas.js"></script>
+  <script src="js/boton.js"></script>
+  <script src="js/textos.js"></script>
 </body>
 </html>

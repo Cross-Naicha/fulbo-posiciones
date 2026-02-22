@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="CSS/style.css" />
   <link rel="stylesheet" href="CSS/jugadores.css" />
   <link rel="stylesheet" href="CSS/generador.css" />
-  <link rel="stylesheet" href="CSS/btn-volver.css" />
-  <link rel="stylesheet" href="CSS/titulo.css" />
+  <link rel="stylesheet" href="CSS/boton.css" />
 
 </head>
 
@@ -22,14 +21,11 @@
   <!-- 📌 NAVEGACIÓN SUPERIOR FIJA (misma lógica que el resto del sitio) -->
   <nav class="top-nav" id="mainNav">
     <div class="nav-scroll">
-      <a href="generador.html" class="nav-item">🔢 ARM</a>
-      <a href="noticias.html" class="nav-item">📰 NOT</a>
-      <a href="index.html" class="nav-item">🏆 POS</a>
-      <a href="historica.html" class="nav-item">📊 HIS</a>
-      <a href="copas.html" class="nav-item">🥇 COP</a>
-      <a href="mundial.html" class="nav-item">🌎 MUN</a>
-      <a href="salon.html" class="nav-item">👑 SDF</a>
-      <a href="jugadores.html" class="nav-item active">⚽ JUG</a>
+      <a href="historica.html" class="nav-item">📈 REGISTRO</a>
+      <a href="salon.html" class="nav-item">👑 FAMA</a>
+      <a href="metricas.html" class="nav-item">📊 KPI</a>
+      <a href="jugadores.html" class="nav-item active">🏃🏻</a>
+      <a href="index.html" class="nav-item">📋</a>
     </div>
   </nav>
 
@@ -65,13 +61,14 @@
 
     <div class="sep"></div>
   
-    <!-- BOTÓN FLOTANTE -->
-  <button id="toTopBtn" class="to-top" aria-label="Ir arriba" title="Ir arriba" type="button">▲</button>
-
-  <!-- MENÚ DE BURBUJAS SOBRE EL BOTÓN -->
-  <div id="fabMenu" class="fab-menu" aria-hidden="true">
-    <a href="generador.html" class="fab-bubble">🛠</a>
-    <a href="historica.html" class="fab-bubble">📊</a>
+  <!-- Botón -->
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+      <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
   </div>
 
   
@@ -81,6 +78,8 @@
   <!-- JS que va a leer jugadores.json y renderizar -->
   
   <script defer src="js/jugadores.js"></script>
+  <script defer src="js/boton.js"></script>
+  <script defer src="js/textos.js"></script>
   
 </body>
 </html>

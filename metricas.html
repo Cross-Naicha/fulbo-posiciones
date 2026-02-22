@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Métricas y Rachas · Liga de Fulbo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/boton.css">
+</head>
+
+<body>
+  
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="historica.html" class="nav-item">📊 REGISTRO</a>
+        <a href="salon.html" class="nav-item">👑 FAMA</a>
+        <a href="jugadores.html" class="nav-item">🏃🏻 PJS</a>
+        <a href="metricas.html" class="nav-item active">📈</a>
+        <a href="index.html" class="nav-item">📋</a>
+    </div>
+  </nav>
+  
+  <div class="top-tab" id="auspiciante"></div>
+  
+  <div class="wrap">
+    <h1 id="titulo"></h1>
+    <div class="sep"></div>
+    <h2 id="subtitulo"></h2>
+
+    <h3 id="fechas_1"></h3>
+    <p id="fechas_2"></p>
+    <p id="fechas_3"></p>
+
+    <div class="sep"></div>
+    
+    <h2>Rachas destacadas</h2>
+    <div class="streaks-panel">
+      <div class="streaks-tabs" id="streakTabs">
+        <button data-filter="todas">Todas</button>
+        <button data-filter="victorias" class="active">GAN</button>
+        <button data-filter="derrotas">PER</button>
+        <button data-filter="paternidad">PAT</button>
+        <button data-filter="ausente">AUS</button>
+      </div>
+      <div class="card streaks-card">
+        <div id="streaksStatus" class="streaks-status">Cargando rachas…</div>
+        <div id="streaksGrid" class="streaks-grid" style="display:none"></div>
+        <div id="streaksEmpty" class="streaks-status" style="display:none">No hay rachas disponibles...</div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <h2>Combinaciones destacadas</h2>
+    <div class="comb-panel">
+      <div class="comb-filters">
+        <div class="comb-group" id="combTipo">
+          <span class="comb-label">Tipo:</span>
+          <button data-tipo="GAN" class="active success">Ganadoras</button>
+          <button data-tipo="PER" class="danger">Perdedoras</button>
+        </div>
+        <div class="comb-group" id="combSize">
+          <span class="comb-label">Tamaño:</span>
+        </div>
+      </div>
+      <div class="card comb-card">
+        <div id="combStatus" class="streaks-status">Cargando combinaciones…</div>
+        <div id="combGrid" class="streaks-grid" style="display:none"></div>
+        <div id="combEmpty" class="streaks-status" style="display:none">No hay datos para este filtro.</div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <h2>Historial Reciente</h2>
+    <div class="card matches-card">
+      <div id="matchesStatus" class="matches-status">Cargando partidos…</div>
+      <div id="matchesGrid" class="matches-grid" style="display:none"></div>
+      <div id="matchesEmpty" class="matches-status" style="display:none">No hay partidos registrados.</div>
+    </div>
+
+  </div> <footer class="bottom-tab">
+    <a href="cargar_resultados.html" class="enlace-secreto">©</a> 2026 Liga de Fulbo · PROMIEDOS
+  </footer>
+
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="index.html" class="chiqui-circle-mini">🏠</a>
+      <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/boton.js"></script>
+  <script src="js/textos.js"></script>
+</body>
+</html>
