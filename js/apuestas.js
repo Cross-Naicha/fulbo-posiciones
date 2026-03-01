@@ -148,6 +148,9 @@ function renderMarket() {
   document.getElementById("poolA").innerText = "$" + m.poolA;
   document.getElementById("poolB").innerText = "$" + m.poolB;
   document.getElementById("totalPool").innerText = "$" + m.total;
+  
+  document.getElementById("sideA").innerText = data.mercado_activo.ladoA;
+  document.getElementById("sideB").innerText = data.mercado_activo.ladoB;
 
   document.querySelectorAll(".streak-name")[0].innerText = data.mercado_activo.ladoA;
   document.querySelectorAll(".streak-name")[1].innerText = data.mercado_activo.ladoB;
@@ -224,11 +227,13 @@ function attachEvents() {
   document.getElementById("sideA").addEventListener("click", () => {
     selectedSide = "A";
     setActiveButton();
+    updateProjected();   // 🔥 agregar esto
   });
 
   document.getElementById("sideB").addEventListener("click", () => {
     selectedSide = "B";
     setActiveButton();
+    updateProjected();   // 🔥 agregar esto
   });
 
   document.getElementById("apostarBtn").addEventListener("click", prepareBet);
@@ -337,11 +342,31 @@ function updateProjected() {
   const monto = Number(document.getElementById("montoInput").value);
   if (!monto || !selectedSide) return;
 
-  const m = calculateMarket();
   const user = data.usuarios[CURRENT_USER];
 
-  let cuota = selectedSide === "A" ? m.cuotaA : m.cuotaB;
-  if (cuota === "-") return;
+  const apuestas = data.mercado_activo.apuestas;
+
+  let poolA = 0;
+  let poolB = 0;
+
+  apuestas.forEach(a => {
+    if (a.lado === "A") poolA += a.monto;
+    if (a.lado === "B") poolB += a.monto;
+  });
+
+  // 🔥 Simulamos agregar esta apuesta
+  if (selectedSide === "A") poolA += monto;
+  if (selectedSide === "B") poolB += monto;
+
+  const total = poolA + poolB;
+
+  let cuota = 1;
+
+  if (selectedSide === "A" && poolA > 0)
+    cuota = total / poolA;
+
+  if (selectedSide === "B" && poolB > 0)
+    cuota = total / poolB;
 
   const payout = monto * cuota;
   const proyectado = (user.saldo - monto + payout).toFixed(2);

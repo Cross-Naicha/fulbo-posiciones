@@ -37,6 +37,8 @@
 
     
     <div class="sep"></div>
+
+    <p>En este mercado las apuestas funcionan bajo un sistema parimutuel: todos los participantes apuestan a uno de los dos lados y el dinero conforma un pozo común. Cuando se define el resultado, el total acumulado se reparte proporcionalmente entre quienes eligieron el lado ganador, según el monto que haya aportado cada uno. La cuota se calcula de manera dinámica en función de cuánto dinero haya en cada lado, por lo que puede variar hasta el cierre del mercado. Si solo hay apuestas de un lado, no existe contrapartida y el dinero se devuelve. Cada jugador puede apostar hasta el 40% de su saldo, con un mínimo de 50 unidades por apuesta.</p>
     
     <!-- ESTADO DEL MERCADO -->
     <div class="card">
@@ -45,30 +47,30 @@
             <article class="streak blue">
                 <div class="streak-top">
                     <span class="badge">Lado A</span>
-                    <span class="badge mono" id="pctA">65%</span>
+                    <span class="badge mono" id="pctA"></span>
                 </div>
                 <div class="streak-main">
-                    <div class="streak-name">Lomba</div>
-                    <div class="streak-len mono" id="cuotaA">1.54</div>
+                    <div class="streak-name"></div>
+                    <div class="streak-len mono" id="cuotaA"></div>
                 </div>
           <div class="streak-footer">
               <span>Pool:</span>
-            <strong class="mono" id="poolA">$1300</strong>
+            <strong class="mono" id="poolA"></strong>
         </div>
     </article>
     
     <article class="streak red">
         <div class="streak-top">
             <span class="badge">Lado B</span>
-            <span class="badge mono" id="pctB">35%</span>
+            <span class="badge mono" id="pctB"></span>
         </div>
         <div class="streak-main">
-            <div class="streak-name">Chagay</div>
-            <div class="streak-len mono" id="cuotaB">2.85</div>
+            <div class="streak-name"></div>
+            <div class="streak-len mono" id="cuotaB"></div>
         </div>
         <div class="streak-footer">
             <span>Pool:</span>
-            <strong class="mono" id="poolB">$700</strong>
+            <strong class="mono" id="poolB"></strong>
         </div>
     </article>
     
@@ -76,7 +78,7 @@
 
 <div class="streak-footer" style="padding:12px;">
     <span>Total Apostado:</span>
-    <strong class="mono" id="totalPool">$2000</strong>
+    <strong class="mono" id="totalPool"></strong>
 </div>
 </div>
 
@@ -85,7 +87,7 @@
 <!-- PANEL DEL USUARIO -->
 <div class="card mini-card">
     <div class="mono" style="margin-bottom:8px;">
-        Usuario: <strong id="userName">Nico</strong>
+        Usuario: <strong id="userName"></strong>
     </div>
     
     <table>
@@ -165,6 +167,8 @@
     </div>
 </div>
 
+<p>El ROI (Return on Investment) indica el rendimiento acumulado de cada jugador respecto de su saldo inicial. Se calcula comparando el saldo actual con el saldo con el que comenzó la temporada, mostrando cuánto ganó o perdió en términos proporcionales. Un ROI positivo significa que el jugador aumentó su capital; un ROI negativo indica que está por debajo del punto de partida. Esto permite comparar el desempeño entre jugadores más allá del saldo absoluto.</p>
+
 </div>  
 
 <div id="pinModal" class="news-overlay">
@@ -174,6 +178,7 @@
         <button id="confirmPinBtn" class="bet-confirm-btn">Confirmar</button>
     </div>
 </div>
+
 
 <div class="bottom-tab">© 2026 Liga de Fulbo · PROMIEDOS</div>
 
