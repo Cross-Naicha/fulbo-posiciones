@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apuestas · Liga de Fulbo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/boton.css">
+</head>
+
+<body>
+
+  <!-- NAV SUPERIOR -->
+  <nav class="top-nav">
+    <div class="nav-scroll">
+      <a href="metricas.html" class="nav-item">KPI 📈</a>
+      <a href="copas.html" class="nav-item">COPAS 🏆</a>
+      <a href="apuestas.html" class="nav-item active">💰</a>
+    </div>
+  </nav>
+
+  <div class="top-tab">
+    CHIQUI365.COM
+  </div>
+
+  <div class="wrap">
+
+    <!-- TÍTULO -->
+    <h1>Mercado de Apuestas</h1>
+    <div class="sub mono" id="marketInfo">
+      QF1 · Cierre: 15/04 19:00
+    </div>
+
+    <div class="selector-jugador">
+        <select id="userSelect"></select>
+    </div>
+
+    
+    <div class="sep"></div>
+    
+    <!-- ESTADO DEL MERCADO -->
+    <div class="card">
+        <div class="matches-grid">
+            
+            <article class="streak blue">
+                <div class="streak-top">
+                    <span class="badge">Lado A</span>
+                    <span class="badge mono" id="pctA">65%</span>
+                </div>
+                <div class="streak-main">
+                    <div class="streak-name">Lomba</div>
+                    <div class="streak-len mono" id="cuotaA">1.54</div>
+                </div>
+          <div class="streak-footer">
+              <span>Pool:</span>
+            <strong class="mono" id="poolA">$1300</strong>
+        </div>
+    </article>
+    
+    <article class="streak red">
+        <div class="streak-top">
+            <span class="badge">Lado B</span>
+            <span class="badge mono" id="pctB">35%</span>
+        </div>
+        <div class="streak-main">
+            <div class="streak-name">Chagay</div>
+            <div class="streak-len mono" id="cuotaB">2.85</div>
+        </div>
+        <div class="streak-footer">
+            <span>Pool:</span>
+            <strong class="mono" id="poolB">$700</strong>
+        </div>
+    </article>
+    
+</div>
+
+<div class="streak-footer" style="padding:12px;">
+    <span>Total Apostado:</span>
+    <strong class="mono" id="totalPool">$2000</strong>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- PANEL DEL USUARIO -->
+<div class="card mini-card">
+    <div class="mono" style="margin-bottom:8px;">
+        Usuario: <strong id="userName">Nico</strong>
+    </div>
+    
+    <table>
+        <tr>
+            <td>Saldo actual</td>
+            <td class="mono" id="saldoActual">$1000</td>
+        </tr>
+        <tr>
+            <td>Máximo permitido (40%)</td>
+            <td class="mono" id="maxPermitido">$400</td>
+        </tr>
+        <tr>
+            <td>Saldo proyectado si gana</td>
+            <td class="mono" id="saldoProyectado">$1150</td>
+        </tr>
+    </table>
+
+    <div class="bet-side-group">
+        <button class="bet-side-btn" id="sideA">Lomba</button>
+        <button class="bet-side-btn" id="sideB">Chagay</button>
+    </div>
+    
+    <div class="sep"></div>
+    
+    <input 
+    type="number"
+    id="montoInput"
+    placeholder="Monto (mín 50)"
+    min="50"
+    class="bet-input"
+    />
+    
+    <textarea 
+    id="comentarioInput"
+    placeholder="Comentario (opcional)"
+    class="bet-input"
+    style="margin-top:8px;"
+    ></textarea>
+    
+    <button 
+    class="bet-confirm-btn"
+    id="apostarBtn">
+    Confirmar apuesta
+    </button>
+
+</div> <!-- FIN PANEL USUARIO -->
+
+<div class="sep"></div>
+
+<!-- COMENTARIOS DEL MERCADO -->
+<h2>Comentarios del mercado</h2>
+<div class="card" id="comentariosContainer" style="padding:12px;">
+    <div class="mono" style="opacity:.6;">
+        Aún no hay comentarios.
+    </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- RANKING FINANCIERO -->
+<h2>Liga Financiera</h2>
+<div class="card">
+    <div class="tabla-posiciones">
+        <table class="pos-table" id="rankingTable">
+            <thead>
+                <tr>
+                    <th>Pos</th>
+                    <th>Usuario</th>
+                    <th>Saldo</th>
+                    <th>ROI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Se llena vía JS -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>  
+
+<div id="pinModal" class="news-overlay">
+    <div class="news-content-card">
+        <h3>Confirmar identidad</h3>
+        <input type="password" id="pinInput" class="bet-input" placeholder="Ingresar PIN" />
+        <button id="confirmPinBtn" class="bet-confirm-btn">Confirmar</button>
+    </div>
+</div>
+
+<div class="bottom-tab">
+    © 2026 Liga de Fulbo · Mercado Financiero
+</div>
+
+<!-- Botón -->
+<div class="chiqui-floating-system" id="fabMenu">
+<div class="chiqui-menu-list">
+    <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+    <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+    <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    <a href="index.html" class="chiqui-circle-mini">📋</a>
+</div>
+<button class="chiqui-circle-main" id="btnFabMain">+</button>
+</div>
+
+<script src="js/apuestas.js"></script>
+<script src="js/boton.js"></script>
+
+</body>
+</html>

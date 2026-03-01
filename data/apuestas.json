@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "saldo_inicial": 1000,
+    "max_porcentaje_apuesta": 0.4,
+    "min_apuesta": 50
+  },
+
+  "usuarios": {
+    "naicha": {
+      "saldo": 1000,
+      "pin": "4890"
+    },
+    "chicho": {
+      "saldo": 1000,
+        "pin": "5678"
+    },
+    "pollo": {
+      "saldo": 1000,
+        "pin": "9012"
+    },
+    "bag": {
+      "saldo": 1000,
+      "pin": "3456"
+    },
+    "yamil": {
+      "saldo": 1000,
+      "pin": "7890"
+    },
+    "lomba": {
+      "saldo": 1000,
+      "pin": "2345"
+    },
+    "cesar": {
+      "saldo": 1000,
+      "pin": "4567"
+    },
+    "p11": {
+      "saldo": 1000,
+      "pin": "5678"
+    },
+    "chagay": {
+      "saldo": 1000,
+      "pin": "6789"
+    },
+    "mario": {
+      "saldo": 1000,
+      "pin": "8901"
+    },
+    "marcos": {
+      "saldo": 1000,
+      "pin": "6842"
+    },
+    "mato": {
+      "saldo": 1000,
+      "pin": "4526"
+    },
+    "benja": {
+      "saldo": 1000,
+      "pin": "4714"
+    }
+  },
+
+  "mercado_activo": {
+    "match_id": "QF1",
+    "ladoA": "Lomba",
+    "ladoB": "Chagay",
+    "fecha_cierre": "TBD",
+    "cerrado": false,
+    "liquidado": false,
+    "apuestas": []
+  }
+}

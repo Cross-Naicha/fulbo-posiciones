@@ -1,0 +1,107 @@
+/* =========================
+   APUESTAS - ESTILOS EXTRA
+   ========================= */
+
+/* Contenedor de selección de lado */
+.bet-side-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Botones tipo toggle */
+.bet-side-btn {
+  flex: 1;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.bet-side-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.bet-side-btn.active-a {
+  background: rgba(47,139,253,.15);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 10px rgba(47,139,253,.25);
+}
+
+.bet-side-btn.active-b {
+  background: rgba(231,76,60,.15);
+  border-color: #e74c3c;
+  color: #e74c3c;
+  box-shadow: 0 0 10px rgba(231,76,60,.25);
+}
+
+/* Input de monto mejorado */
+.bet-input {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 12px;
+  color: var(--ink);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.bet-input:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 8px rgba(47,139,253,.25);
+}
+
+/* Botón confirmar apuesta */
+.bet-confirm-btn {
+  width: 100%;
+  margin-top: 12px;
+  background: linear-gradient(90deg, var(--accent), #1e90ff);
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: .5px;
+}
+
+.bet-confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(47,139,253,.35);
+}
+
+.bet-confirm-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(47,139,253,.25);
+}
+
+/* Estado deshabilitado */
+.bet-confirm-btn:disabled {
+  background: var(--line);
+  color: var(--muted);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Comentarios */
+.bet-comment-box {
+  margin-top: 10px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}

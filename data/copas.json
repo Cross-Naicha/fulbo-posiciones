@@ -42,7 +42,7 @@
           "jugador2": "Cesar",
           "fechas": { "ida": "2026-01-28", "vuelta": "2026-02-25" },
           "ida": { "goles_j1": 5, "goles_j2": 0 },
-          "vuelta": { "goles_j1": 0, "goles_j2": 2 }
+          "vuelta": { "goles_j1": 0, "goles_j2": 3 }
         }
       ],
       "semifinales": [
