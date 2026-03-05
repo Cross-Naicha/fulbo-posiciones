@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 8.0,
+    "partidos": 9.0,
     "apodo": "Mario",
-    "puntos": 18,
-    "efectividad": 0.75,
+    "puntos": 19,
+    "efectividad": 0.7,
     "ganados": 6,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 2,
-    "diferencia de gol": "+ 5",
+    "diferencia de gol": "+ 4",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -23,20 +23,20 @@
     "empieza": "2026-02-25",
     "termina": "2026-02-25",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2026-01-07",
-    "termina": "2026-02-25",
-    "extension": 8,
+    "termina": "2026-03-04",
+    "extension": 9,
     "actual": true
   },
   "last_5": {
+    "2026-03-04": "E",
     "2026-02-25": "P",
     "2026-02-18": "G",
     "2026-02-11": "G",
-    "2026-02-04": "P",
-    "2026-01-28": "G"
+    "2026-02-04": "P"
   },
   "balance_vs": {
     "Bag": 4,

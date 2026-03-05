@@ -1,79 +1,58 @@
 [
   {
-    "racha": "derrotas",
-    "jugador": "Bag",
-    "extension": 5,
-    "dias": 28,
-    "inicio": "2026-01-28"
-  },
-  {
     "racha": "sin ganar",
-    "jugador": "Bag",
-    "extension": 5,
-    "dias": 28,
-    "inicio": "2026-01-28"
-  },
-  {
-    "racha": "victorias",
-    "jugador": "Chagay",
+    "jugador": "Naicha",
     "extension": 4,
-    "dias": 21,
+    "dias": 28,
     "inicio": "2026-02-04"
   },
   {
     "racha": "invicto",
     "jugador": "Chagay",
-    "extension": 4,
-    "dias": 21,
+    "extension": 5,
+    "dias": 28,
     "inicio": "2026-02-04"
   },
   {
     "racha": "presente",
     "jugador": "Lomba",
-    "extension": 8,
-    "dias": 49,
+    "extension": 9,
+    "dias": 56,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Cesar",
-    "extension": 8,
-    "dias": 49,
+    "extension": 9,
+    "dias": 56,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Mario",
-    "extension": 8,
-    "dias": 49,
+    "extension": 9,
+    "dias": 56,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Mato",
-    "extension": 8,
-    "dias": 49,
+    "extension": 9,
+    "dias": 56,
     "inicio": "2026-01-07"
-  },
-  {
-    "racha": "ausente",
-    "jugador": "Benja",
-    "extension": 5,
-    "dias": 28,
-    "inicio": "2026-01-28"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
     "extension": 5,
-    "dias": 49,
+    "dias": 56,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Cesar -> Naicha",
     "extension": 7,
-    "dias": 21,
+    "dias": 28,
     "inicio": "2026-02-04"
   }
 ]
