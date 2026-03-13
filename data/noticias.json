@@ -1,5 +1,14 @@
 [
-        {
+    {
+    "id": "2026-03-11",
+    "fecha": "11/03/2026",
+    "titulo": "DILUVIO, LIGA EN PAUSA Y UNA FINAL A TODO O NADA",
+    "marcador": "Partido suspendido",
+    "jugadores": ["Mario", "César", "Mato", "Chagay", "Lomba", "Naicha", "Marcos", "Marcelo", "Chicho"],
+    "resumen": "El temporal que golpeó al sur de Tucumán obligó a suspender la fecha. La liga queda con un solo partido por disputarse y el título se definirá entre Mario y César.",
+    "cuerpo": "⚽ EL MONITOR DE LA LIGA: Órgano Oficial de la Copa Scania 2026\n\nCIUDAD DEPORTIVA (El Club) – El fútbol no pudo contra el clima. El miércoles debía disputarse una nueva jornada de la CHIQUILIGA, pero el diluvio que azotó la provincia obligó a suspender toda actividad deportiva.\n\nLa decisión no fue exagerada: el sur tucumano atraviesa horas críticas. En la localidad de La Madrid, uno de los puntos más afectados por el temporal, cientos de familias debieron abandonar sus casas y refugiarse al costado de la ruta tras el avance del agua. Las lluvias intensas provocaron inundaciones generalizadas y escenas de evacuación que todavía conmueven a la región.\n\nAnte este panorama, la organización de la Liga decidió suspender la jornada y preservar la integridad física de los participantes, además de evitar que la cancha se convierta literalmente en un sistema lagunar.\n\n### Una última fecha para todo\n\nLa consecuencia deportiva es enorme: el campeonato queda reducido a **una última fecha decisiva**.\n\nLa tabla llega al final con dos protagonistas claros:\n\n1. Mario – 19 puntos (+4)\n2. César – 16 puntos (+6)\n\nEl líder mantiene tres puntos de ventaja, pero el diferencial de gol favorece claramente a su perseguidor.\n\nEsto significa que la ecuación del campeonato es simple pero brutal:\n\n- Si Mario gana o empata, será campeón.\n- Si César gana, igualará en puntos y el título podría definirse por diferencia de gol.\n\n### La Liga entra en modo final\n\nTras once semanas de polémicas, redes traicioneras, apuestas incomprendidas y llegadas tarde sistemáticas, todo queda reducido a **un último partido**.\n\nEl margen desapareció.\n\nYa no hay calendario que reorganizar, ni lluvia que posponga la definición.\n\nLa CHIQUILIGA entra en su última escena.\n\n© 2026 Portal de Noticias CHIQUINEWS – Donde el que saca del medio tiene la razón."
+    },
+    {
     "id": "2026-03-04-2",
     "fecha": "04/03/2026",
     "titulo": "EMPATE, REDES TRAICIONERAS Y CONFUSIÓN EN EL MERCADO DE APUESTAS",
