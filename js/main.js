@@ -1031,9 +1031,49 @@ async function initCopaPreview() {
 // Ejecutar al cargar
 document.addEventListener('DOMContentLoaded', initCopaPreview);
 
+// TIMER
+let intervalo = null;
+
+function formatearCountdown(ms) {
+  const totalSec = Math.floor(ms / 1000);
+
+  const dias = Math.floor(totalSec / 86400);
+  const horas = Math.floor((totalSec % 86400) / 3600);
+  const minutos = Math.floor((totalSec % 3600) / 60);
+  const segundos = totalSec % 60;
+
+  return `${dias}d ${String(horas).padStart(2, '0')}h ${String(minutos).padStart(2, '0')}m ${String(segundos).padStart(2, '0')}s`;
+}
+
+function iniciarCountdown() {
+  const el = document.getElementById("timer");
+  if (!el) return;
+
+  const target = new Date("2026-03-18T20:00:00-03:00");
+
+  if (intervalo) clearInterval(intervalo);
+
+  intervalo = setInterval(() => {
+    const ahora = new Date();
+    const diff = target - ahora;
+
+    if (diff <= 0) {
+      el.textContent = "¡Es hoy!";
+      clearInterval(intervalo);
+      return;
+    }
+
+    el.textContent = formatearCountdown(diff);
+  }, 1000);
+}
+
 /* ========== 8. INIT ========== */
 // initLockCycle();
 initTabla();
 loadStreaks();
 loadCombinaciones();
 loadMatches();
+
+document.addEventListener('DOMContentLoaded', () => {
+  iniciarCountdown();
+});
