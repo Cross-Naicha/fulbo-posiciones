@@ -1037,12 +1037,11 @@ let intervalo = null;
 function formatearCountdown(ms) {
   const totalSec = Math.floor(ms / 1000);
 
-  const dias = Math.floor(totalSec / 86400);
-  const horas = Math.floor((totalSec % 86400) / 3600);
+  const horas = Math.floor(totalSec / 3600); // 🔥 horas totales (incluye días)
   const minutos = Math.floor((totalSec % 3600) / 60);
   const segundos = totalSec % 60;
 
-  return `${dias}d ${String(horas).padStart(2, '0')}h ${String(minutos).padStart(2, '0')}m ${String(segundos).padStart(2, '0')}s`;
+  return `${String(horas).padStart(2, '0')} h ${String(minutos).padStart(2, '0')} m ${String(segundos).padStart(2, '0')} s`;
 }
 
 function iniciarCountdown() {
