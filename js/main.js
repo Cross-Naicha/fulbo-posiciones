@@ -1069,8 +1069,15 @@ function iniciarCountdown() {
 /* ========== 8. INIT ========== */
 // initLockCycle();
 initTabla();
-loadStreaks();
-loadCombinaciones();
+
+if (document.getElementById('streaksGrid')) {
+  loadStreaks();
+}
+
+if (document.getElementById('combGrid')) {
+  loadCombinaciones();
+}
+
 loadMatches();
 
 document.addEventListener('DOMContentLoaded', () => {
