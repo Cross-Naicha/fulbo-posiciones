@@ -931,6 +931,9 @@ async function cargarPreviewNoticia() {
 cargarPreviewNoticia();
 
 async function initCopaPreview() {
+
+  const PARTIDO_DESTACADO = "SF2"; // ← ELEGIR QUE PARTIDO MOSTRAR
+
   const previewContainer = document.getElementById('copaPreview');
   const previewGrid = document.getElementById('previewGrid');
   if (!previewContainer) return;
@@ -951,7 +954,7 @@ async function initCopaPreview() {
     const todos = [...(b.cuartos || []), ...(b.semifinales || []), ...(b.final || [])];
 
     // Buscamos el primer partido pendiente (vuelta sin goles)
-    const proximo = todos.find(p => !p.vuelta || p.vuelta.goles_j1 === null);
+    const proximo = todos.find(p => p.id_partido === PARTIDO_DESTACADO);
 
     if (proximo) {
       const iJ1 = proximo.ida?.goles_j1 || 0;

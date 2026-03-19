@@ -40,7 +40,7 @@
     {
       "id": "Naicha",
       "photo": "naicha.png",
-      "stars": 0,
+      "stars": 3,
       "text": "Naicha",
       "active": true,
       "order": 5
@@ -48,7 +48,7 @@
     {
       "id": "Mario",
       "photo": "mario.png",
-      "stars": 1,
+      "stars": 2,
       "text": "Mario",
       "active": true,
       "order": 6

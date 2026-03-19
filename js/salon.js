@@ -32,7 +32,7 @@ const SALON_DE_LA_FAMA_DATA = {
       expanded: true,
       tarjetas: [
         {
-          titulo: "??? | Liga de Verano 2026",
+          titulo: "MARIO | Liga de Verano 2026",
           competencia: "Liga",
           prioridad: 2
         },
@@ -62,7 +62,7 @@ const SALON_DE_LA_FAMA_DATA = {
           prioridad: 1
         },
         {
-          titulo: "LOMBA VS ??? | SuperCopa Estival 2026",
+          titulo: "LOMBA VS MARIO | SuperCopa Estival 2026",
           competencia: "SuperCopa",
           prioridad: 3
         },

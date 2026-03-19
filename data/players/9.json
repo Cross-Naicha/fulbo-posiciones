@@ -1,22 +1,22 @@
 {
   "basic_statistics": {
-    "partidos": 9.0,
+    "partidos": 10.0,
     "apodo": "Cesar",
-    "puntos": 16,
-    "efectividad": 0.59,
+    "puntos": 17,
+    "efectividad": 0.57,
     "ganados": 5,
-    "empatados": 1,
+    "empatados": 2,
     "perdidos": 3,
     "diferencia de gol": "+ 6",
     "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2026-02-25",
-    "termina": "2026-03-04",
-    "extension": 2,
-    "puntos acumulados": 4,
+    "termina": "2026-03-18",
+    "extension": 3,
+    "puntos acumulados": 5,
     "victorias": 1,
-    "empates": 1,
+    "empates": 2,
     "actual": true
   },
   "losses_streak_statistics": {
@@ -27,16 +27,16 @@
   },
   "present_streak_statistics": {
     "empieza": "2026-01-07",
-    "termina": "2026-03-04",
-    "extension": 9,
+    "termina": "2026-03-18",
+    "extension": 10,
     "actual": true
   },
   "last_5": {
+    "2026-03-18": "E",
     "2026-03-04": "E",
     "2026-02-25": "G",
     "2026-02-18": "P",
-    "2026-02-11": "G",
-    "2026-02-04": "G"
+    "2026-02-11": "G"
   },
   "balance_vs": {
     "Bag": 4,

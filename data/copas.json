@@ -51,7 +51,7 @@
           "numero": 1,
           "ventaja": "Lomba",
           "jugador1": "Lomba",
-          "jugador2": "QF4",
+          "jugador2": "Mario",
           "fechas": { "ida": null, "vuelta": null },
           "ida": { "goles_j1": null, "goles_j2": null },
           "vuelta": { "goles_j1": null, "goles_j2": null }
@@ -59,11 +59,11 @@
         {
           "id_partido": "SF2",
           "numero": 2,
-          "ventaja": "A definir",
-          "jugador1": "QF2",
-          "jugador2": "QF3",
-          "fechas": { "ida": null, "vuelta": null },
-          "ida": { "goles_j1": null, "goles_j2": null },
+          "ventaja": "Chagay",
+          "jugador1": "Chagay",
+          "jugador2": "Bag",
+          "fechas": { "ida": "2026-03-18", "vuelta": null },
+          "ida": { "goles_j1": 0, "goles_j2": 0 },
           "vuelta": { "goles_j1": null, "goles_j2": null }
         }
       ],

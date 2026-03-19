@@ -20,7 +20,7 @@
                 if (ganador) return resolveName(ganador); 
             }
             
-            const etiquetas = { 'QF': 'Ganador QF', 'SF': 'Ganador SF', 'Q': 'Clasif. ', 'S': 'Clasif. ' };
+            const etiquetas = { 'QF': 'QF', 'SF': 'SF', 'Q': 'Clasif. ', 'S': 'Clasif. ' };
             const prefix = raw.match(/^[A-Z]+/)[0];
             const num = raw.match(/\d+$/)[0];
 
