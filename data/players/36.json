@@ -1,12 +1,12 @@
 {
   "basic_statistics": {
-    "partidos": 6.0,
+    "partidos": 0.0,
     "apodo": "Marcos",
-    "puntos": 8,
-    "efectividad": 0.44,
-    "ganados": 2,
-    "empatados": 2,
-    "perdidos": 2,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
+    "empatados": 0,
+    "perdidos": 0,
     "diferencia de gol": "0",
     "delta": "-"
   },
@@ -17,7 +17,7 @@
     "puntos acumulados": 2,
     "victorias": 0,
     "empates": 2,
-    "actual": true
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2026-02-04",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-03-25": "A",
     "2026-03-18": "E",
     "2026-03-04": "E",
     "2026-02-25": "A",
-    "2026-02-18": "A",
-    "2026-02-11": "A"
+    "2026-02-18": "A"
   },
   "balance_vs": {
     "P11": 1,

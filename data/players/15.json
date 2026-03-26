@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 3.0,
+    "partidos": 0.0,
     "apodo": "Marcelo",
-    "puntos": 5,
-    "efectividad": 0.56,
-    "ganados": 1,
-    "empatados": 2,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
+    "empatados": 0,
     "perdidos": 0,
-    "diferencia de gol": "+ 1",
+    "diferencia de gol": "0",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -17,24 +17,23 @@
     "puntos acumulados": 2,
     "victorias": 0,
     "empates": 2,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2026-03-04",
     "termina": "2026-03-18",
     "extension": 2,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2026-03-25": "A",
     "2026-03-18": "E",
     "2026-03-04": "E",
     "2026-02-25": "A",
-    "2026-02-18": "G",
-    "2026-02-11": "A"
+    "2026-02-18": "G"
   },
   "balance_vs": {
     "Bag": 1,
-    "Yamil": 1,
     "Lomba": 1,
     "Cesar": 1
   },
@@ -47,8 +46,7 @@
     "Cesar": 2,
     "Mario": 2,
     "Chicho": 2,
-    "P11": 2,
-    "Yamil": 1
+    "P11": 2
   },
   "paternity": {},
   "filiation": {}

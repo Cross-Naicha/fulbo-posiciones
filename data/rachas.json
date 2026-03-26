@@ -2,43 +2,71 @@
   {
     "racha": "sin ganar",
     "jugador": "Bag",
-    "extension": 6,
-    "dias": 50,
+    "extension": 7,
+    "dias": 57,
     "inicio": "2026-01-28"
+  },
+  {
+    "racha": "invicto",
+    "jugador": "Mato",
+    "extension": 4,
+    "dias": 36,
+    "inicio": "2026-02-18"
   },
   {
     "racha": "presente",
     "jugador": "Cesar",
-    "extension": 10,
-    "dias": 71,
+    "extension": 11,
+    "dias": 78,
     "inicio": "2026-01-07"
   },
   {
     "racha": "presente",
     "jugador": "Mario",
-    "extension": 10,
-    "dias": 71,
+    "extension": 11,
+    "dias": 78,
     "inicio": "2026-01-07"
   },
   {
     "racha": "ausente",
-    "jugador": "Yamil",
+    "jugador": "Chicho",
     "extension": 3,
     "dias": 22,
-    "inicio": "2026-02-25"
+    "inicio": "2026-03-04"
+  },
+  {
+    "racha": "ausente",
+    "jugador": "Pollo",
+    "extension": 3,
+    "dias": 22,
+    "inicio": "2026-03-04"
+  },
+  {
+    "racha": "ausente",
+    "jugador": "P11",
+    "extension": 3,
+    "dias": 22,
+    "inicio": "2026-03-04"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
-    "extension": 5,
-    "dias": 71,
+    "extension": 6,
+    "dias": 78,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Cesar -> Naicha",
     "extension": 7,
-    "dias": 43,
+    "dias": 50,
     "inicio": "2026-02-04"
+  },
+  {
+    "racha": "paternidad (tiempo)",
+    "jugador": "Mario -> Lomba",
+    "extension": 7,
+    "dias": 71,
+    "inicio": "2026-01-14"
   }
 ]

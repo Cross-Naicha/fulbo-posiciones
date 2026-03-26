@@ -52,8 +52,8 @@
           "ventaja": "Lomba",
           "jugador1": "Lomba",
           "jugador2": "Mario",
-          "fechas": { "ida": null, "vuelta": null },
-          "ida": { "goles_j1": null, "goles_j2": null },
+          "fechas": { "ida": "2026-03-25", "vuelta": null },
+          "ida": { "goles_j1": 2, "goles_j2": 0 },
           "vuelta": { "goles_j1": null, "goles_j2": null }
         },
         {

@@ -12,7 +12,61 @@
     "GAN",
     2,
     "Lomba",
+    "Chagay",
+    null,
+    null,
+    4
+  ],
+  [
+    "GAN",
+    2,
+    "Chagay",
+    "Mato",
+    null,
+    null,
+    4
+  ],
+  [
+    "GAN",
+    2,
+    "Lomba",
     "Cesar",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
+    "Chagay",
+    "Mario",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
+    "Cesar",
+    "Mario",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
+    "Mario",
+    "Mato",
+    null,
+    null,
+    3
+  ],
+  [
+    "GAN",
+    2,
+    "Cesar",
+    "Mato",
     null,
     null,
     3
@@ -21,51 +75,6 @@
     "GAN",
     2,
     "Lomba",
-    "Chagay",
-    null,
-    null,
-    3
-  ],
-  [
-    "GAN",
-    2,
-    "Chagay",
-    "Mario",
-    null,
-    null,
-    3
-  ],
-  [
-    "GAN",
-    2,
-    "Cesar",
-    "Mario",
-    null,
-    null,
-    3
-  ],
-  [
-    "GAN",
-    2,
-    "Mario",
-    "Mato",
-    null,
-    null,
-    3
-  ],
-  [
-    "GAN",
-    2,
-    "Cesar",
-    "Mato",
-    null,
-    null,
-    3
-  ],
-  [
-    "GAN",
-    2,
-    "Chagay",
     "Mato",
     null,
     null,
@@ -136,19 +145,19 @@
   ],
   [
     "GAN",
-    2,
+    3,
     "Lomba",
-    "Mato",
+    "Cesar",
+    "Chagay",
     null,
-    null,
-    2
+    3
   ],
   [
     "GAN",
     3,
     "Lomba",
-    "Cesar",
     "Chagay",
+    "Mato",
     null,
     3
   ],
@@ -183,15 +192,6 @@
     "GAN",
     3,
     "Cesar",
-    "Chagay",
-    "Mato",
-    null,
-    2
-  ],
-  [
-    "GAN",
-    3,
-    "Lomba",
     "Chagay",
     "Mato",
     null,
@@ -222,7 +222,7 @@
     "Bag",
     null,
     null,
-    4
+    5
   ],
   [
     "PER",
@@ -247,6 +247,33 @@
     2,
     "Chicho",
     "Mato",
+    null,
+    null,
+    3
+  ],
+  [
+    "PER",
+    2,
+    "Bag",
+    "Cesar",
+    null,
+    null,
+    3
+  ],
+  [
+    "PER",
+    2,
+    "Naicha",
+    "Mario",
+    null,
+    null,
+    3
+  ],
+  [
+    "PER",
+    2,
+    "Bag",
+    "Mario",
     null,
     null,
     3
@@ -300,34 +327,7 @@
     "PER",
     2,
     "Bag",
-    "Cesar",
-    null,
-    null,
-    2
-  ],
-  [
-    "PER",
-    2,
-    "Bag",
     "P11",
-    null,
-    null,
-    2
-  ],
-  [
-    "PER",
-    2,
-    "Naicha",
-    "Mario",
-    null,
-    null,
-    2
-  ],
-  [
-    "PER",
-    2,
-    "Bag",
-    "Mario",
     null,
     null,
     2
@@ -347,6 +347,15 @@
     "Chicho",
     "Bag",
     "Mato",
+    null,
+    3
+  ],
+  [
+    "PER",
+    3,
+    "Naicha",
+    "Bag",
+    "Mario",
     null,
     3
   ],
@@ -374,15 +383,6 @@
     "Chicho",
     "Naicha",
     "Mato",
-    null,
-    2
-  ],
-  [
-    "PER",
-    3,
-    "Naicha",
-    "Bag",
-    "Mario",
     null,
     2
   ],
