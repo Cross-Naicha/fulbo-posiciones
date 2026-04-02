@@ -932,7 +932,7 @@ cargarPreviewNoticia();
 
 async function initCopaPreview() {
 
-  const PARTIDO_DESTACADO = "SF2"; // ← ELEGIR QUE PARTIDO MOSTRAR
+  const PARTIDO_DESTACADO = "SF1"; // ← ELEGIR QUE PARTIDO MOSTRAR
 
   const previewContainer = document.getElementById('copaPreview');
   const previewGrid = document.getElementById('previewGrid');

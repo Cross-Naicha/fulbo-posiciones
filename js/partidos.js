@@ -44,7 +44,14 @@
         "Jordan": "Jordania",
         "Uzbekistan": "Uzbekistán",
         "Croatia": "Croacia",
-        "Panama": "Panamá"
+        "Panama": "Panamá",
+        "Iraq": "Irak",
+        "Turkey": "Turquía",
+        "Ghana": "Ghana",
+        "Sweden": "Suecia",
+        "Bosnia-Herzegovina": "Bosnia",
+        "Czechia": "Chequia",
+        "Congo DR": "RD Congo"        
     };
 
     try {

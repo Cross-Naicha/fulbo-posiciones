@@ -85,7 +85,7 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_A",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
       "id": 772,
       "name": "South Korea",
@@ -94,11 +94,11 @@
       "crest": "https://crests.football-data.org/772.png"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 798,
+      "name": "Czechia",
+      "shortName": "Czechia",
+      "tla": "CZE",
+      "crest": "https://crests.football-data.org/798.svg"
     },
     "score": {
       "winner": null,
@@ -144,7 +144,7 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_B",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
       "id": 828,
       "name": "Canada",
@@ -153,11 +153,11 @@
       "crest": "https://crests.football-data.org/canada.svg"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 1060,
+      "name": "Bosnia-Herzegovina",
+      "shortName": "Bosnia-H.",
+      "tla": "BIH",
+      "crest": "https://crests.football-data.org/bosnia.svg"
     },
     "score": {
       "winner": null,
@@ -217,65 +217,6 @@
       "shortName": "Paraguay",
       "tla": "PAR",
       "crest": "https://crests.football-data.org/761.svg"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2267,
-      "name": "World",
-      "code": "INT",
-      "flag": null
-    },
-    "competition": {
-      "id": 2000,
-      "name": "FIFA World Cup",
-      "code": "WC",
-      "type": "CUP",
-      "emblem": "https://crests.football-data.org/wm26.png"
-    },
-    "season": {
-      "id": 2398,
-      "startDate": "2026-06-11",
-      "endDate": "2026-07-19",
-      "currentMatchday": 1,
-      "winner": null
-    },
-    "id": 537346,
-    "utcDate": "2026-06-13T04:00:00Z",
-    "status": "TIMED",
-    "matchday": 1,
-    "stage": "GROUP_STAGE",
-    "group": "GROUP_D",
-    "lastUpdated": "2025-12-06T20:20:44Z",
-    "homeTeam": {
-      "id": 779,
-      "name": "Australia",
-      "shortName": "Australia",
-      "tla": "AUS",
-      "crest": "https://crests.football-data.org/779.svg"
-    },
-    "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
     },
     "score": {
       "winner": null,
@@ -380,7 +321,7 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_C",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 764,
       "name": "Brazil",
@@ -492,13 +433,72 @@
       "currentMatchday": 1,
       "winner": null
     },
+    "id": 537346,
+    "utcDate": "2026-06-14T04:00:00Z",
+    "status": "TIMED",
+    "matchday": 1,
+    "stage": "GROUP_STAGE",
+    "group": "GROUP_D",
+    "lastUpdated": "2026-04-02T13:25:00Z",
+    "homeTeam": {
+      "id": 779,
+      "name": "Australia",
+      "shortName": "Australia",
+      "tla": "AUS",
+      "crest": "https://crests.football-data.org/779.svg"
+    },
+    "awayTeam": {
+      "id": 803,
+      "name": "Turkey",
+      "shortName": "Turkey",
+      "tla": "TUR",
+      "crest": "https://crests.football-data.org/803.svg"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2267,
+      "name": "World",
+      "code": "INT",
+      "flag": null
+    },
+    "competition": {
+      "id": 2000,
+      "name": "FIFA World Cup",
+      "code": "WC",
+      "type": "CUP",
+      "emblem": "https://crests.football-data.org/wm26.png"
+    },
+    "season": {
+      "id": 2398,
+      "startDate": "2026-06-11",
+      "endDate": "2026-07-19",
+      "currentMatchday": 1,
+      "winner": null
+    },
     "id": 537351,
     "utcDate": "2026-06-14T17:00:00Z",
     "status": "TIMED",
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_E",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 759,
       "name": "Germany",
@@ -675,13 +675,13 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_F",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 792,
+      "name": "Sweden",
+      "shortName": "Sweden",
+      "tla": "SWE",
+      "crest": "https://crests.football-data.org/792.svg"
     },
     "awayTeam": {
       "id": 802,
@@ -734,7 +734,7 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_H",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 760,
       "name": "Spain",
@@ -852,7 +852,7 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_H",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 801,
       "name": "Saudi Arabia",
@@ -970,7 +970,7 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_I",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 773,
       "name": "France",
@@ -1024,18 +1024,18 @@
       "winner": null
     },
     "id": 537392,
-    "utcDate": "2026-06-17T00:00:00Z",
+    "utcDate": "2026-06-16T22:00:00Z",
     "status": "TIMED",
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_I",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T10:21:10Z",
     "homeTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 8062,
+      "name": "Iraq",
+      "shortName": "Iraq",
+      "tla": "IRQ",
+      "crest": "https://crests.football-data.org/iraq.svg"
     },
     "awayTeam": {
       "id": 8872,
@@ -1088,7 +1088,7 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_J",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 762,
       "name": "Argentina",
@@ -1206,7 +1206,7 @@
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_K",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T10:21:10Z",
     "homeTeam": {
       "id": 765,
       "name": "Portugal",
@@ -1215,11 +1215,11 @@
       "crest": "https://crests.football-data.org/765.svg"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 1934,
+      "name": "Congo DR",
+      "shortName": "Congo DR",
+      "tla": "COD",
+      "crest": "https://crests.football-data.org/congo_dr.svg"
     },
     "score": {
       "winner": null,
@@ -1260,12 +1260,12 @@
       "winner": null
     },
     "id": 537409,
-    "utcDate": "2026-06-17T19:00:00Z",
+    "utcDate": "2026-06-17T20:00:00Z",
     "status": "TIMED",
     "matchday": 1,
     "stage": "GROUP_STAGE",
     "group": "GROUP_L",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 770,
       "name": "England",
@@ -1442,13 +1442,13 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_A",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 798,
+      "name": "Czechia",
+      "shortName": "Czechia",
+      "tla": "CZE",
+      "crest": "https://crests.football-data.org/798.svg"
     },
     "awayTeam": {
       "id": 774,
@@ -1501,7 +1501,7 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_B",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
       "id": 788,
       "name": "Switzerland",
@@ -1510,11 +1510,11 @@
       "crest": "https://crests.football-data.org/788.svg"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 1060,
+      "name": "Bosnia-Herzegovina",
+      "shortName": "Bosnia-H.",
+      "tla": "BIH",
+      "crest": "https://crests.football-data.org/bosnia.svg"
     },
     "score": {
       "winner": null,
@@ -1614,12 +1614,12 @@
       "winner": null
     },
     "id": 537330,
-    "utcDate": "2026-06-19T02:00:00Z",
+    "utcDate": "2026-06-19T01:00:00Z",
     "status": "TIMED",
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_A",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-03-30T20:21:10Z",
     "homeTeam": {
       "id": 769,
       "name": "Mexico",
@@ -1633,65 +1633,6 @@
       "shortName": "Korea Republic",
       "tla": "KOR",
       "crest": "https://crests.football-data.org/772.png"
-    },
-    "score": {
-      "winner": null,
-      "duration": "REGULAR",
-      "fullTime": {
-        "home": null,
-        "away": null
-      },
-      "halfTime": {
-        "home": null,
-        "away": null
-      }
-    },
-    "odds": {
-      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
-    },
-    "referees": []
-  },
-  {
-    "area": {
-      "id": 2267,
-      "name": "World",
-      "code": "INT",
-      "flag": null
-    },
-    "competition": {
-      "id": 2000,
-      "name": "FIFA World Cup",
-      "code": "WC",
-      "type": "CUP",
-      "emblem": "https://crests.football-data.org/wm26.png"
-    },
-    "season": {
-      "id": 2398,
-      "startDate": "2026-06-11",
-      "endDate": "2026-07-19",
-      "currentMatchday": 1,
-      "winner": null
-    },
-    "id": 537347,
-    "utcDate": "2026-06-19T04:00:00Z",
-    "status": "TIMED",
-    "matchday": 2,
-    "stage": "GROUP_STAGE",
-    "group": "GROUP_D",
-    "lastUpdated": "2025-12-06T20:20:44Z",
-    "homeTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
-    },
-    "awayTeam": {
-      "id": 761,
-      "name": "Paraguay",
-      "shortName": "Paraguay",
-      "tla": "PAR",
-      "crest": "https://crests.football-data.org/761.svg"
     },
     "score": {
       "winner": null,
@@ -1850,12 +1791,12 @@
       "winner": null
     },
     "id": 537341,
-    "utcDate": "2026-06-20T01:00:00Z",
+    "utcDate": "2026-06-20T00:30:00Z",
     "status": "TIMED",
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_C",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 764,
       "name": "Brazil",
@@ -1908,26 +1849,26 @@
       "currentMatchday": 1,
       "winner": null
     },
-    "id": 537360,
-    "utcDate": "2026-06-20T04:00:00Z",
+    "id": 537347,
+    "utcDate": "2026-06-20T03:00:00Z",
     "status": "TIMED",
     "matchday": 2,
     "stage": "GROUP_STAGE",
-    "group": "GROUP_F",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "group": "GROUP_D",
+    "lastUpdated": "2026-04-01T15:21:07Z",
     "homeTeam": {
-      "id": 802,
-      "name": "Tunisia",
-      "shortName": "Tunisia",
-      "tla": "TUN",
-      "crest": "https://crests.football-data.org/tunisia.svg"
+      "id": 803,
+      "name": "Turkey",
+      "shortName": "Turkey",
+      "tla": "TUR",
+      "crest": "https://crests.football-data.org/803.svg"
     },
     "awayTeam": {
-      "id": 766,
-      "name": "Japan",
-      "shortName": "Japan",
-      "tla": "JPN",
-      "crest": "https://crests.football-data.org/766.svg"
+      "id": 761,
+      "name": "Paraguay",
+      "shortName": "Paraguay",
+      "tla": "PAR",
+      "crest": "https://crests.football-data.org/761.svg"
     },
     "score": {
       "winner": null,
@@ -1973,7 +1914,7 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_F",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
       "id": 8601,
       "name": "Netherlands",
@@ -1982,11 +1923,11 @@
       "crest": "https://crests.football-data.org/8601.svg"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 792,
+      "name": "Sweden",
+      "shortName": "Sweden",
+      "tla": "SWE",
+      "crest": "https://crests.football-data.org/792.svg"
     },
     "score": {
       "winner": null,
@@ -2032,7 +1973,7 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_E",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 759,
       "name": "Germany",
@@ -2144,13 +2085,72 @@
       "currentMatchday": 1,
       "winner": null
     },
+    "id": 537360,
+    "utcDate": "2026-06-21T04:00:00Z",
+    "status": "TIMED",
+    "matchday": 2,
+    "stage": "GROUP_STAGE",
+    "group": "GROUP_F",
+    "lastUpdated": "2026-03-30T20:21:10Z",
+    "homeTeam": {
+      "id": 802,
+      "name": "Tunisia",
+      "shortName": "Tunisia",
+      "tla": "TUN",
+      "crest": "https://crests.football-data.org/tunisia.svg"
+    },
+    "awayTeam": {
+      "id": 766,
+      "name": "Japan",
+      "shortName": "Japan",
+      "tla": "JPN",
+      "crest": "https://crests.football-data.org/766.svg"
+    },
+    "score": {
+      "winner": null,
+      "duration": "REGULAR",
+      "fullTime": {
+        "home": null,
+        "away": null
+      },
+      "halfTime": {
+        "home": null,
+        "away": null
+      }
+    },
+    "odds": {
+      "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+    },
+    "referees": []
+  },
+  {
+    "area": {
+      "id": 2267,
+      "name": "World",
+      "code": "INT",
+      "flag": null
+    },
+    "competition": {
+      "id": 2000,
+      "name": "FIFA World Cup",
+      "code": "WC",
+      "type": "CUP",
+      "emblem": "https://crests.football-data.org/wm26.png"
+    },
+    "season": {
+      "id": 2398,
+      "startDate": "2026-06-11",
+      "endDate": "2026-07-19",
+      "currentMatchday": 1,
+      "winner": null
+    },
     "id": 537371,
     "utcDate": "2026-06-21T16:00:00Z",
     "status": "TIMED",
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_H",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 760,
       "name": "Spain",
@@ -2268,7 +2268,7 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_H",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 758,
       "name": "Uruguay",
@@ -2386,7 +2386,7 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_J",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 762,
       "name": "Argentina",
@@ -2445,7 +2445,7 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_I",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 773,
       "name": "France",
@@ -2454,11 +2454,11 @@
       "crest": "https://crests.football-data.org/773.svg"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 8062,
+      "name": "Iraq",
+      "shortName": "Iraq",
+      "tla": "IRQ",
+      "crest": "https://crests.football-data.org/iraq.svg"
     },
     "score": {
       "winner": null,
@@ -2558,12 +2558,12 @@
       "winner": null
     },
     "id": 537400,
-    "utcDate": "2026-06-23T01:00:00Z",
+    "utcDate": "2026-06-23T03:00:00Z",
     "status": "TIMED",
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_J",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-03-30T20:21:10Z",
     "homeTeam": {
       "id": 8049,
       "name": "Jordan",
@@ -2681,7 +2681,7 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_L",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 770,
       "name": "England",
@@ -2799,7 +2799,7 @@
     "matchday": 2,
     "stage": "GROUP_STAGE",
     "group": "GROUP_K",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T10:21:10Z",
     "homeTeam": {
       "id": 818,
       "name": "Colombia",
@@ -2808,11 +2808,11 @@
       "crest": "https://crests.football-data.org/818.svg"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 1934,
+      "name": "Congo DR",
+      "shortName": "Congo DR",
+      "tla": "COD",
+      "crest": "https://crests.football-data.org/congo_dr.svg"
     },
     "score": {
       "winner": null,
@@ -2917,13 +2917,13 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_B",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 1060,
+      "name": "Bosnia-Herzegovina",
+      "shortName": "Bosnia-H.",
+      "tla": "BIH",
+      "crest": "https://crests.football-data.org/bosnia.svg"
     },
     "awayTeam": {
       "id": 8030,
@@ -3035,7 +3035,7 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_C",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 8873,
       "name": "Scotland",
@@ -3094,13 +3094,13 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_A",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 798,
+      "name": "Czechia",
+      "shortName": "Czechia",
+      "tla": "CZE",
+      "crest": "https://crests.football-data.org/798.svg"
     },
     "awayTeam": {
       "id": 769,
@@ -3212,7 +3212,7 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_E",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 791,
       "name": "Ecuador",
@@ -3389,7 +3389,7 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_F",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
       "id": 766,
       "name": "Japan",
@@ -3398,11 +3398,11 @@
       "crest": "https://crests.football-data.org/766.svg"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 792,
+      "name": "Sweden",
+      "shortName": "Sweden",
+      "tla": "SWE",
+      "crest": "https://crests.football-data.org/792.svg"
     },
     "score": {
       "winner": null,
@@ -3448,13 +3448,13 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_D",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T00:21:07Z",
     "homeTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 803,
+      "name": "Turkey",
+      "shortName": "Turkey",
+      "tla": "TUR",
+      "crest": "https://crests.football-data.org/803.svg"
     },
     "awayTeam": {
       "id": 771,
@@ -3566,7 +3566,7 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_I",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 8872,
       "name": "Norway",
@@ -3625,7 +3625,7 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_I",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T10:21:10Z",
     "homeTeam": {
       "id": 804,
       "name": "Senegal",
@@ -3634,11 +3634,11 @@
       "crest": "https://crests.football-data.org/senegal.svg"
     },
     "awayTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 8062,
+      "name": "Iraq",
+      "shortName": "Iraq",
+      "tla": "IRQ",
+      "crest": "https://crests.football-data.org/iraq.svg"
     },
     "score": {
       "winner": null,
@@ -3684,7 +3684,7 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_H",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 758,
       "name": "Uruguay",
@@ -3920,7 +3920,7 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_L",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 1836,
       "name": "Panama",
@@ -4097,13 +4097,13 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_K",
-    "lastUpdated": "2025-12-06T20:20:44Z",
+    "lastUpdated": "2026-04-01T10:21:10Z",
     "homeTeam": {
-      "id": null,
-      "name": null,
-      "shortName": null,
-      "tla": null,
-      "crest": null
+      "id": 1934,
+      "name": "Congo DR",
+      "shortName": "Congo DR",
+      "tla": "COD",
+      "crest": "https://crests.football-data.org/congo_dr.svg"
     },
     "awayTeam": {
       "id": 8070,
@@ -4156,7 +4156,7 @@
     "matchday": 3,
     "stage": "GROUP_STAGE",
     "group": "GROUP_J",
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T00:21:05Z",
     "homeTeam": {
       "id": 8049,
       "name": "Jordan",
@@ -4274,7 +4274,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4333,7 +4333,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4392,7 +4392,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4451,7 +4451,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4510,7 +4510,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4569,7 +4569,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4628,7 +4628,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4687,7 +4687,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4746,7 +4746,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4805,7 +4805,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4864,7 +4864,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4923,7 +4923,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -4982,7 +4982,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5041,7 +5041,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5100,7 +5100,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5159,7 +5159,7 @@
     "matchday": null,
     "stage": "LAST_32",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5218,7 +5218,7 @@
     "matchday": null,
     "stage": "LAST_16",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5277,7 +5277,7 @@
     "matchday": null,
     "stage": "LAST_16",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5336,7 +5336,7 @@
     "matchday": null,
     "stage": "LAST_16",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5395,7 +5395,7 @@
     "matchday": null,
     "stage": "LAST_16",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5454,7 +5454,7 @@
     "matchday": null,
     "stage": "LAST_16",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5513,7 +5513,7 @@
     "matchday": null,
     "stage": "LAST_16",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5572,7 +5572,7 @@
     "matchday": null,
     "stage": "LAST_16",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5631,7 +5631,7 @@
     "matchday": null,
     "stage": "LAST_16",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5690,7 +5690,7 @@
     "matchday": null,
     "stage": "QUARTER_FINALS",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5749,7 +5749,7 @@
     "matchday": null,
     "stage": "QUARTER_FINALS",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5808,7 +5808,7 @@
     "matchday": null,
     "stage": "QUARTER_FINALS",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5867,7 +5867,7 @@
     "matchday": null,
     "stage": "QUARTER_FINALS",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5926,7 +5926,7 @@
     "matchday": null,
     "stage": "SEMI_FINALS",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -5985,7 +5985,7 @@
     "matchday": null,
     "stage": "SEMI_FINALS",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -6044,7 +6044,7 @@
     "matchday": null,
     "stage": "THIRD_PLACE",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,
@@ -6103,7 +6103,7 @@
     "matchday": null,
     "stage": "FINAL",
     "group": null,
-    "lastUpdated": "2026-02-21T00:20:54Z",
+    "lastUpdated": "2026-04-02T02:33:27Z",
     "homeTeam": {
       "id": null,
       "name": null,

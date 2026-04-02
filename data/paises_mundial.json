@@ -43,5 +43,12 @@
   { "pais": "Ghana", "abr": "GHA", "codigo": "gh", "jugador": "Sin Asignar", "bombo": 4 },
   { "pais": "Curazao", "abr": "CUW", "codigo": "cw", "jugador": "Sin Asignar", "bombo": 4 },
   { "pais": "Haití", "abr": "HAI", "codigo": "ht", "jugador": "Sin Asignar", "bombo": 4 },
-  { "pais": "Nueva Zelanda", "abr": "NZL", "codigo": "nz", "jugador": "Sin Asignar", "bombo": 4 }
+  { "pais": "Nueva Zelanda", "abr": "NZL", "codigo": "nz", "jugador": "Sin Asignar", "bombo": 4 },
+  { "pais": "RD Congo", "abr": "COD", "codigo": "cd", "jugador": "Sin Asignar", "bombo": 4 },
+  { "pais": "Bosnia", "abr": "BIH", "codigo": "ba", "jugador": "Sin Asignar", "bombo": 4 },
+  { "pais": "Chequia", "abr": "CZE", "codigo": "cz", "jugador": "Sin Asignar", "bombo": 4 },
+  { "pais": "Suecia", "abr": "SWE", "codigo": "se", "jugador": "Sin Asignar", "bombo": 4 },
+  { "pais": "Turquía", "abr": "TUR", "codigo": "tr", "jugador": "Sin Asignar", "bombo": 4 },
+  { "pais": "Irak", "abr": "IRQ", "codigo": "iq", "jugador": "Sin Asignar", "bombo": 4 }
+  
 ]

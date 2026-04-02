@@ -1,4 +1,13 @@
 {
+  "2026-04-08": {
+    "team_a": [
+      "Naicha, Bag, Lomba, Mato, P11"
+    ],
+    "team_b": [
+      "Chagay, Bot, Bot, Bot, Bot"
+    ],
+    "balance": 4
+  },
   "2026-03-25": {
     "team_a": [
       "Mato, Lomba, Chagay, Bot, Bot"

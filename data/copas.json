@@ -48,7 +48,7 @@
       "semifinales": [
         {
           "id_partido": "SF1",
-          "numero": 1,
+          "numero": 2,
           "ventaja": "Lomba",
           "jugador1": "Lomba",
           "jugador2": "Mario",
@@ -58,13 +58,13 @@
         },
         {
           "id_partido": "SF2",
-          "numero": 2,
+          "numero": 1,
           "ventaja": "Chagay",
           "jugador1": "Chagay",
           "jugador2": "Bag",
-          "fechas": { "ida": "2026-03-18", "vuelta": null },
+          "fechas": { "ida": "2026-03-18", "vuelta": "2026-04-01" },
           "ida": { "goles_j1": 0, "goles_j2": 0 },
-          "vuelta": { "goles_j1": null, "goles_j2": null }
+          "vuelta": { "goles_j1": 0, "goles_j2": 4 }
         }
       ],
       "final": [
