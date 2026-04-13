@@ -22,38 +22,10 @@
   },
   {
     "racha": "paternidad (intensidad)",
-    "jugador": "Lomba -> Bag",
-    "extension": 4,
-    "dias": 75,
-    "inicio": "2026-01-28"
-  },
-  {
-    "racha": "paternidad (intensidad)",
-    "jugador": "Cesar -> Bag",
-    "extension": 4,
-    "dias": 96,
-    "inicio": "2026-01-07"
-  },
-  {
-    "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
-    "extension": 4,
+    "extension": 6,
     "dias": 96,
     "inicio": "2026-01-07"
-  },
-  {
-    "racha": "paternidad (intensidad)",
-    "jugador": "Mario -> Bag",
-    "extension": 4,
-    "dias": 96,
-    "inicio": "2026-01-07"
-  },
-  {
-    "racha": "paternidad (intensidad)",
-    "jugador": "Mato -> Bag",
-    "extension": 4,
-    "dias": 68,
-    "inicio": "2026-02-04"
   },
   {
     "racha": "paternidad (tiempo)",
