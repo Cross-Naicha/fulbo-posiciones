@@ -1,65 +1,65 @@
 [
   {
-    "racha": "invicto",
-    "jugador": "Mato",
-    "extension": 5,
-    "dias": 43,
-    "inicio": "2026-02-18"
-  },
-  {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 8,
-    "dias": 57,
+    "extension": 9,
+    "dias": 68,
     "inicio": "2026-02-04"
   },
   {
     "racha": "ausente",
-    "jugador": "Chicho",
-    "extension": 4,
-    "dias": 29,
-    "inicio": "2026-03-04"
+    "jugador": "Marcelo",
+    "extension": 3,
+    "dias": 19,
+    "inicio": "2026-03-25"
   },
   {
     "racha": "ausente",
-    "jugador": "Pollo",
+    "jugador": "Marcos",
+    "extension": 3,
+    "dias": 19,
+    "inicio": "2026-03-25"
+  },
+  {
+    "racha": "paternidad (intensidad)",
+    "jugador": "Lomba -> Bag",
     "extension": 4,
-    "dias": 29,
-    "inicio": "2026-03-04"
+    "dias": 75,
+    "inicio": "2026-01-28"
+  },
+  {
+    "racha": "paternidad (intensidad)",
+    "jugador": "Cesar -> Bag",
+    "extension": 4,
+    "dias": 96,
+    "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
-    "extension": 5,
-    "dias": 85,
+    "extension": 4,
+    "dias": 96,
     "inicio": "2026-01-07"
   },
   {
-    "racha": "paternidad (tiempo)",
-    "jugador": "Cesar -> Naicha",
-    "extension": 7,
-    "dias": 57,
-    "inicio": "2026-02-04"
+    "racha": "paternidad (intensidad)",
+    "jugador": "Mario -> Bag",
+    "extension": 4,
+    "dias": 96,
+    "inicio": "2026-01-07"
   },
   {
-    "racha": "paternidad (tiempo)",
-    "jugador": "Chagay -> Naicha",
-    "extension": 7,
-    "dias": 57,
+    "racha": "paternidad (intensidad)",
+    "jugador": "Mato -> Bag",
+    "extension": 4,
+    "dias": 68,
     "inicio": "2026-02-04"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
-    "extension": 7,
-    "dias": 85,
+    "extension": 8,
+    "dias": 96,
     "inicio": "2026-01-07"
-  },
-  {
-    "racha": "paternidad (tiempo)",
-    "jugador": "Mario -> Lomba",
-    "extension": 7,
-    "dias": 78,
-    "inicio": "2026-01-14"
   }
 ]

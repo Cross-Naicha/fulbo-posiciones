@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 2.0,
+    "partidos": 3.0,
     "apodo": "Chagay",
     "puntos": 3,
-    "efectividad": 0.5,
+    "efectividad": 0.33,
     "ganados": 1,
     "empatados": 0,
-    "perdidos": 1,
-    "diferencia de gol": "+ 1",
+    "perdidos": 2,
+    "diferencia de gol": "0",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -20,35 +20,35 @@
     "actual": false
   },
   "losses_streak_statistics": {
-    "empieza": "2026-04-08",
+    "empieza": "2026-04-01",
     "termina": "2026-04-08",
-    "extension": 1,
+    "extension": 2,
     "actual": true
   },
   "present_streak_statistics": {
     "empieza": "2026-02-04",
     "termina": "2026-04-08",
-    "extension": 8,
+    "extension": 9,
     "actual": true
   },
   "last_5": {
     "2026-04-08": "P",
+    "2026-04-01": "P",
     "2026-03-25": "G",
     "2026-03-18": "E",
-    "2026-03-04": "E",
-    "2026-02-25": "G"
+    "2026-03-04": "E"
   },
   "balance_vs": {
-    "Bag": 5,
+    "Bag": 4,
     "Naicha": 3,
     "Chicho": 2,
     "Mario": 2,
-    "Cesar": 2,
     "Lomba": 1,
     "Yamil": 1,
-    "Pollo": 1,
+    "Cesar": 1,
     "Mato": 0,
     "Marcos": 0,
+    "Pollo": 0,
     "P11": -1
   },
   "best_partner": {

@@ -155,6 +155,15 @@
   [
     "GAN",
     2,
+    "Bag",
+    "Cesar",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
     "Chicho",
     "Cesar",
     null,
@@ -184,6 +193,15 @@
     2,
     "Naicha",
     "Lomba",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "Pollo",
+    "Cesar",
     null,
     null,
     2

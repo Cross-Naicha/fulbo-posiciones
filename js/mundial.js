@@ -92,5 +92,27 @@
             });
         } catch (e) { console.error("Error crítico:", e); }
     }
+
+        function aplicarFiltros() {
+        const txt = document.getElementById('filterSearch').value.toLowerCase();
+        const bombo = document.getElementById('filterBombo').value;
+
+        let filtrados = datosPaises.filter(p => {
+            const matchTexto =
+                p.pais.toLowerCase().includes(txt) ||
+                p.jugador.toLowerCase().includes(txt);
+
+            const matchBombo =
+                bombo === "all" || p.bombo == bombo;
+
+            return matchTexto && matchBombo;
+        });
+
+        renderPaises(filtrados);
+    }
+
+    document.getElementById('filterSearch')?.addEventListener('input', aplicarFiltros);
+    document.getElementById('filterBombo')?.addEventListener('change', aplicarFiltros);
+
     document.addEventListener('DOMContentLoaded', cargarTodo);
 })();
