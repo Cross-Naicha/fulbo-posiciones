@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Pack de figuritas</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:radial-gradient(circle,#1e293b,#020617);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+}
+
+.container{
+text-align:center;
+}
+
+/* SOBRE */
+
+.pack{
+width:170px;
+height:230px;
+background:linear-gradient(135deg,#facc15,#f97316);
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,.6);
+transition:transform .2s;
+}
+
+.pack:hover{
+transform:scale(1.08);
+}
+
+.pack.open{
+animation:tear .6s forwards;
+}
+
+@keyframes tear{
+40%{transform:scale(1.2)}
+100%{transform:scale(0);opacity:0}
+}
+
+/* CARTAS */
+
+.cards{
+margin-top:40px;
+display:flex;
+gap:60px;
+justify-content:center;
+}
+
+.card{
+width:250px;
+height:350px;
+perspective:1000px;
+transform:translateY(80px);
+opacity:0;
+transition:transform .2s ease;
+}
+
+.card.show{
+animation:pop .6s forwards;
+}
+
+@keyframes pop{
+0%{transform:translateY(80px);opacity:0}
+70%{transform:translateY(-10px)}
+100%{transform:translateY(0);opacity:1}
+}
+
+.inner{
+width:100%;
+height:100%;
+position:relative;
+transform-style:preserve-3d;
+transition:transform .2s ease;
+}
+
+.card.reveal .inner{
+transform:rotateY(180deg);
+}
+
+.front,.back{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+border-radius:12px;
+overflow:hidden;
+}
+
+.front{
+background:#0f172a;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+}
+
+.back{
+transform:rotateY(180deg);
+}
+
+/* FIGURITA */
+
+.sticker{
+width:100%;
+height:100%;
+position:relative;
+border-radius:10px;
+overflow:hidden;
+box-sizing:border-box;
+display:block;
+isolation:isolate;
+}
+
+.sticker::before{
+content:"";
+position:absolute;
+inset:0;
+
+background:radial-gradient(
+circle at center,
+transparent 60%,
+rgba(0,0,0,.35)
+);
+
+z-index:2;
+pointer-events:none;
+}
+
+/* BORDES METALICOS */
+
+.common{
+background:
+linear-gradient(white,white) padding-box,
+linear-gradient(45deg,#f3f4f6,#9ca3af,#e5e7eb,#6b7280,#f3f4f6) border-box;
+border:8px solid transparent;
+}
+
+.rare{
+background:
+linear-gradient(white,white) padding-box,
+linear-gradient(45deg,#60a5fa,#1d4ed8,#93c5fd,#1e40af,#60a5fa) border-box;
+border:8px solid transparent;
+}
+
+.legend{
+background:
+linear-gradient(white,white) padding-box,
+linear-gradient(45deg,#fde68a,#facc15,#eab308,#f59e0b,#fde68a) border-box;
+border:8px solid transparent;
+}
+
+/* HEADER */
+
+.header{
+position:absolute;
+top:10px;
+left:10px;
+right:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+font-size:14px;
+font-weight:bold;
+color:white;
+
+z-index:3;
+text-shadow:0 2px 6px rgba(0,0,0,.8);
+}
+
+.flag{
+width:28px;
+height:20px;
+object-fit:cover;
+border-radius:2px;
+border:1px solid rgba(255,255,255,.6);
+box-shadow:0 2px 6px rgba(0,0,0,.6);
+}
+
+/* IMAGEN */
+
+.player{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:1;
+transition:transform .2s ease;
+}
+
+/* INFO */
+
+.info{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+
+padding:16px 10px;
+
+background:linear-gradient(
+to top,
+rgba(0,0,0,.9),
+rgba(0,0,0,.45),
+transparent
+);
+
+color:white;
+text-align:center;
+
+z-index:2;
+}
+
+.name{
+font-weight:bold;
+font-size:16px;
+}
+
+.country{
+font-size:13px;
+opacity:.85;
+}
+
+/* FOIL */
+
+.foil::after{
+content:"";
+position:absolute;
+
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+
+background:linear-gradient(
+var(--foil-angle,120deg),
+transparent 42%,
+rgba(255,255,255,0.55) 50%,
+transparent 58%
+);
+
+pointer-events:none;
+z-index:5;
+mix-blend-mode:screen;
+}
+
+/* BOTON */
+
+.hidden{
+display:none;
+}
+
+button{
+margin-top:30px;
+padding:10px 20px;
+background:#2563eb;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+
+@keyframes revealFlash{
+
+0%{
+transform:translateX(-120%) rotate(20deg);
+opacity:0;
+}
+
+30%{
+opacity:1;
+}
+
+100%{
+transform:translateX(120%) rotate(20deg);
+opacity:0;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Abrir paquete</h2>
+
+<div id="pack" class="pack">ABRIR</div>
+
+<div id="cards" class="cards hidden">
+
+<!-- CARTA 1 -->
+
+<div class="card">
+<div class="inner">
+
+<div class="front">?</div>
+
+<div class="back">
+<div class="sticker legend">
+
+<div class="header">
+<img class="flag" src="https://flagcdn.com/w40/de.png">
+<span>#001</span>
+</div>
+
+<img class="player" src="data/img/figuritas/Alemania.png">
+
+<div class="info">
+<div class="name"></div>
+<div class="country"></div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- CARTA 2 -->
+
+<div class="card">
+<div class="inner">
+
+<div class="front">?</div>
+
+<div class="back">
+<div class="sticker rare">
+
+<div class="header">
+<img class="flag" src="https://flagcdn.com/w40/jo.png">
+<span></span>
+</div>
+
+<img class="player" src="data/img/figuritas/Jordania.png">
+
+<div class="info">
+<div class="name"></div>
+<div class="country"></div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- CARTA 3 -->
+
+<div class="card">
+<div class="inner">
+
+<div class="front">?</div>
+
+<div class="back">
+<div class="sticker common">
+
+<div class="header">
+<img class="flag" src="https://flagcdn.com/w40/ch.png">
+<span></span>
+</div>
+
+<img class="player" src="data/img/figuritas/Suiza.png">
+
+<div class="info">
+<div class="name"></div>
+<div class="country"></div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<button id="reset" class="hidden">Abrir otro paquete</button>
+
+</div>
+
+<script>
+
+const FLAGS = {
+    argentina:"ar",
+    alemania:"de",
+    suiza:"ch",
+    jordania:"jo",
+    mexico:"mx",
+    brasil:"br",
+    espana:"es",
+    francia:"fr",
+    inglaterra:"gb",
+    portugal:"pt",
+    paises_bajos:"nl",
+    belgica:"be",
+    croacia:"hr",
+    marruecos:"ma",
+    colombia:"co",
+    uruguay:"uy",
+    japon:"jp",
+    senegal:"sn",
+    iran:"ir",
+    corea_sur:"kr",
+    ecuador:"ec",
+    austria:"at",
+    australia:"au",
+    noruega:"no",
+    panama:"pa",
+    egipto:"eg",
+    argelia:"dz",
+    escocia:"gb",
+    paraguay:"py",
+    tunez:"tn",
+    costa_marfil:"ci",
+    uzbekistan:"uz",
+    qatar:"qa",
+    arabia_saudita:"sa",
+    sudafrica:"za",
+    cabo_verde:"cv",
+    ghana:"gh",
+    curazao:"cw",
+    haiti:"ht",
+    nueva_zelanda:"nz",
+    rd_congo:"cd",
+    bosnia:"ba",
+    chequia:"cz",
+    suecia:"se",
+    turquia:"tr",
+    irak:"iq"
+}
+
+/* =========================
+   CARGAR CARTAS
+========================= */
+
+let CARTAS = []
+let CARTAS_CARGADAS = false
+
+async function cargarCartas(){
+
+const res = await fetch("data/figuritas.json")
+CARTAS = await res.json()
+
+CARTAS_CARGADAS = true
+
+}
+
+cargarCartas()
+
+
+/* =========================
+   RANDOM PONDERADO
+========================= */
+
+function cartaRandom(lista){
+
+const total = lista.reduce((s,c)=>s+c.prob,0)
+
+let r = Math.random()*total
+
+for(const c of lista){
+
+r -= c.prob
+
+if(r<=0){
+return c
+}
+
+}
+
+return lista[lista.length-1]
+
+}
+
+
+/* =========================
+   GENERAR PACK
+========================= */
+
+function generarPack(){
+
+const pack = []
+const disponibles = [...CARTAS]
+
+while(pack.length < 3){
+
+const carta = cartaRandom(disponibles)
+
+pack.push(carta)
+
+/* evitar duplicados */
+
+const i = disponibles.findIndex(c=>c.id===carta.id)
+disponibles.splice(i,1)
+
+}
+
+return pack
+
+}
+
+
+/* =========================
+   MOSTRAR CARTAS
+========================= */
+
+function mostrarCarta(card,carta){
+
+card.querySelector(".player").src =
+`data/img/figuritas/${carta.imagen}`
+
+card.querySelector(".name").textContent =
+carta.jugador.replaceAll("_"," ")
+
+card.querySelector(".country").textContent =
+carta.pais.replaceAll("_"," ")
+
+const idFormateado = String(carta.id).padStart(3,"0")
+
+card.querySelector(".header span").textContent =
+`#${idFormateado}`
+
+/* bandera */
+
+const codigo = FLAGS[carta.pais]
+
+if(codigo){
+card.querySelector(".flag").src =
+`https://flagcdn.com/w40/${codigo}.png`
+}
+
+}
+
+
+/* =========================
+   ELEMENTOS UI
+========================= */
+
+const packBtn = document.getElementById("pack")
+const cards = document.getElementById("cards")
+const reset = document.getElementById("reset")
+
+
+/* =========================
+   ABRIR PACK
+========================= */
+
+packBtn.onclick = () => {
+
+packBtn.classList.add("open")
+
+setTimeout(()=>{
+
+packBtn.style.display="none"
+
+cards.classList.remove("hidden")
+
+const pack = generarPack()
+
+const allCards = document.querySelectorAll(".card")
+
+allCards.forEach((card,i)=>{
+
+/* insertar datos */
+
+mostrarCarta(card,pack[i])
+
+/* animacion aparición */
+
+setTimeout(()=>{
+card.classList.add("show")
+},i*300)
+
+/* animacion reveal */
+
+setTimeout(()=>{
+
+card.classList.add("reveal")
+
+const inner = card.querySelector(".inner")
+inner.style.transform = "rotateX(0deg) rotateY(180deg)"
+
+const sticker = card.querySelector(".sticker")
+
+sticker.classList.add("flash")
+
+setTimeout(()=>{
+sticker.classList.add("foil")
+},400)
+
+},1200+i*700)
+
+})
+
+reset.classList.remove("hidden")
+
+},600)
+
+}
+
+
+/* =========================
+   RESET PACK
+========================= */
+
+reset.onclick = () => location.reload()
+
+
+/* =========================
+   TILT + PARALLAX
+========================= */
+
+const cardsTilt = document.querySelectorAll(".card")
+
+cardsTilt.forEach(card=>{
+
+const inner = card.querySelector(".inner")
+const img = card.querySelector(".player")
+const sticker = card.querySelector(".sticker")
+
+card.addEventListener("mousemove",e=>{
+
+if(!card.classList.contains("reveal")) return
+
+const rect = card.getBoundingClientRect()
+
+const x = e.clientX - rect.left
+const y = e.clientY - rect.top
+
+const midX = rect.width/2
+const midY = rect.height/2
+
+const rotateY = (x-midX)/14
+const rotateX = (midY-y)/14
+
+if(card.classList.contains("reveal")){
+
+inner.style.transform =
+`rotateX(${rotateX}deg) rotateY(${180+rotateY}deg)`
+
+}else{
+
+inner.style.transform =
+`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+
+}
+
+/* parallax imagen */
+
+img.style.transform =
+`translateX(${rotateY*0.8}px) translateY(${rotateX*0.8}px) scale(1.05)`
+
+/* foil angle */
+
+const angle = 120 + rotateY*4
+
+sticker.style.setProperty("--foil-angle",angle+"deg")
+
+/* sombra */
+
+card.style.transform="translateY(-10px)"
+card.style.boxShadow=
+`${-rotateY*2}px ${rotateX*2}px 30px rgba(0,0,0,.6)`
+
+})
+
+
+card.addEventListener("mouseleave",()=>{
+
+if(card.classList.contains("reveal")){
+
+inner.style.transform="rotateX(0deg) rotateY(180deg)"
+
+}else{
+
+inner.style.transform="rotateX(0deg) rotateY(0deg)"
+
+}
+
+img.style.transform="translateX(0) translateY(0) scale(1)"
+
+card.style.transform="translateY(0)"
+card.style.boxShadow="none"
+
+})
+
+})
+
+</script>
+
+</body>
+</html>

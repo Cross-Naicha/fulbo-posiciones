@@ -52,9 +52,9 @@
           "ventaja": "Lomba",
           "jugador1": "Lomba",
           "jugador2": "Mario",
-          "fechas": { "ida": "2026-03-25", "vuelta": null },
+          "fechas": { "ida": "2026-03-25", "vuelta": "2026-04-15" },
           "ida": { "goles_j1": 2, "goles_j2": 0 },
-          "vuelta": { "goles_j1": null, "goles_j2": null }
+          "vuelta": { "goles_j1": 1, "goles_j2": 0 }
         },
         {
           "id_partido": "SF2",
@@ -71,9 +71,9 @@
         {
           "id_partido": "F1",
           "numero": 1,
-          "ventaja": "A definir",
-          "jugador1": "SF1",
-          "jugador2": "SF2",
+          "ventaja": "Sin Ventajas",
+          "jugador1": "Lomba",
+          "jugador2": "Bag",
           "fechas": { "ida": null, "vuelta": null },
           "ida": { "goles_j1": null, "goles_j2": null },
           "vuelta": { "goles_j1": null, "goles_j2": null }

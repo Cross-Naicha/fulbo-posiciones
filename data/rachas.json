@@ -1,37 +1,44 @@
 [
   {
+    "racha": "victorias",
+    "jugador": "Lomba",
+    "extension": 3,
+    "dias": 22,
+    "inicio": "2026-03-25"
+  },
+  {
+    "racha": "invicto",
+    "jugador": "Lomba",
+    "extension": 5,
+    "dias": 50,
+    "inicio": "2026-02-25"
+  },
+  {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 9,
-    "dias": 68,
+    "extension": 10,
+    "dias": 71,
     "inicio": "2026-02-04"
   },
   {
     "racha": "ausente",
-    "jugador": "Marcelo",
-    "extension": 3,
-    "dias": 19,
-    "inicio": "2026-03-25"
-  },
-  {
-    "racha": "ausente",
     "jugador": "Marcos",
-    "extension": 3,
-    "dias": 19,
+    "extension": 4,
+    "dias": 22,
     "inicio": "2026-03-25"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
-    "extension": 6,
-    "dias": 96,
+    "extension": 7,
+    "dias": 99,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
-    "extension": 8,
-    "dias": 96,
+    "extension": 9,
+    "dias": 99,
     "inicio": "2026-01-07"
   }
 ]
