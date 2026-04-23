@@ -32,7 +32,7 @@
     {
       "id": "Bag",
       "photo": "bag.png",
-      "stars": 0,
+      "stars": 1,
       "text": "Bag",
       "active": true,
       "order": 4
@@ -40,7 +40,7 @@
     {
       "id": "Naicha",
       "photo": "naicha.png",
-      "stars": 3,
+      "stars": 1,
       "text": "Naicha",
       "active": true,
       "order": 5
@@ -48,7 +48,7 @@
     {
       "id": "Mario",
       "photo": "mario.png",
-      "stars": 2,
+      "stars": 3,
       "text": "Mario",
       "active": true,
       "order": 6
@@ -56,7 +56,7 @@
     {
       "id": "Cesar",
       "photo": "cesar.png",
-      "stars": 0,
+      "stars": 1,
       "text": "Cesar",
       "active": true,
       "order": 7
@@ -104,7 +104,7 @@
     {
       "id": "Marcelo",
       "photo": "marcelo.png",
-      "stars": 0,
+      "stars": 1,
       "text": "Marcelo",
       "active": true,
       "order": 13

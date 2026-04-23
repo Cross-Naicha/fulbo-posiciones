@@ -75,6 +75,11 @@ const SALON_DE_LA_FAMA_DATA = {
           titulo: "??? | Mundial FIFA 2026",
           competencia: "Mundial",
           prioridad: 1
+        },
+        {
+          titulo: "Mario, Bag, Cesar, Marcelo, Naicha | Copa Natalicio 2026",
+          competencia: "Escritorio",
+          prioridad: 1
         }
       ]
     }
