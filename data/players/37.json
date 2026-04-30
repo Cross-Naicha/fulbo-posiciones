@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 0.0,
-    "apodo": "Yamil",
+    "partidos": 1.0,
+    "apodo": "Emi",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
     "empatados": 0,
-    "perdidos": 0,
-    "diferencia de gol": "0",
+    "perdidos": 1,
+    "diferencia de gol": "- 5",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -20,39 +20,35 @@
     "actual": false
   },
   "losses_streak_statistics": {
-    "empieza": "2026-02-18",
-    "termina": "2026-02-18",
+    "empieza": "2026-04-29",
+    "termina": "2026-04-29",
     "extension": 1,
     "actual": true
   },
   "present_streak_statistics": {
-    "empieza": "2026-02-18",
-    "termina": "2026-02-18",
+    "empieza": "2026-04-29",
+    "termina": "2026-04-29",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "last_5": {
-    "2026-04-29": "A",
+    "2026-04-29": "P",
     "2026-04-15": "A",
     "2026-04-08": "A",
     "2026-04-01": "A",
     "2026-03-25": "A"
   },
   "balance_vs": {
-    "Chagay": -1,
+    "Naicha": -1,
+    "Lomba": -1,
     "Mario": -1,
-    "Mato": -1,
     "Marcelo": -1
   },
-  "best_partner": {
-    "Benja": 1
-  },
+  "best_partner": {},
   "worse_partner": {
-    "Cesar": 2,
-    "Lomba": 1,
-    "Naicha": 1,
-    "Marcelo": 1,
-    "Bag": 1
+    "Bag": 1,
+    "Chagay": 1,
+    "Mato": 1
   },
   "paternity": {},
   "filiation": {}
