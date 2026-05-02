@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Álbum · Liga de Fulbo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="CSS/style.css">
+
+<style>
+
+/* ================= LOGIN ================= */
+.login-box{
+  max-width:320px;
+  margin:120px auto;
+  text-align:center;
+}
+
+.login-box select,
+.login-box input{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:8px;
+  border:1px solid #333;
+  background:#111;
+  color:white;
+}
+
+/* ================= HEADER ================= */
+.album-header{
+  text-align:center;
+  margin-top:90px;
+}
+
+.logout{
+  position:fixed;
+  top:10px;
+  right:10px;
+  padding:6px 10px;
+  border:none;
+  border-radius:8px;
+  background:#ff4444;
+  color:white;
+  cursor:pointer;
+}
+
+/* ================= GRID ================= */
+.album{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
+  gap:10px;
+  padding:20px;
+}
+
+/* ================= SLOT ================= */
+.slot{
+  aspect-ratio:2/3;
+  border-radius:10px;
+  position:relative;
+  overflow:hidden;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.empty{
+  background:#111;
+  border:1px dashed #333;
+  color:#777;
+}
+
+.filled{
+  background:#000;
+  border:1px solid #222;
+}
+
+.slot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* rareza */
+.rare{ box-shadow:0 0 8px #3b82f6; }
+.legend{ box-shadow:0 0 14px gold; }
+
+/* contador */
+.count{
+  position:absolute;
+  bottom:2px;
+  right:4px;
+  font-size:10px;
+  background:rgba(0,0,0,.7);
+  padding:2px 5px;
+  border-radius:6px;
+}
+
+/* ================= MODAL ================= */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
+}
+
+.hidden{ display:none; }
+
+.modal-content{
+  width:260px;
+  height:360px;
+}
+
+/* carta */
+.modal-frame{
+  width:100%;
+  height:100%;
+  border-radius:12px;
+  padding:10px;
+}
+
+.modal-frame.common{
+  background:linear-gradient(45deg,#f3f4f6,#9ca3af,#6b7280);
+}
+
+.modal-frame.rare{
+  background:linear-gradient(45deg,#60a5fa,#1d4ed8,#93c5fd);
+}
+
+.modal-frame.legend{
+  background:linear-gradient(45deg,#fde68a,#facc15,#f59e0b);
+  box-shadow:0 0 20px gold;
+}
+
+.modal-sticker{
+  width:100%;
+  height:100%;
+  border-radius:8px;
+  overflow:hidden;
+  position:relative;
+}
+
+.modal-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.modal-header{
+  position:absolute;
+  top:10px;
+  left:10px;
+  right:10px;
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  z-index:2;
+}
+
+.modal-info{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding:10px;
+  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+  font-size:13px;
+}
+
+.modal-info div:last-child{
+  text-transform: uppercase;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="top-nav" id="mainNav">
+  <div class="nav-scroll">
+    <a href="index.html" class="nav-item">🏠 HOME</a>
+    <a href="figuritas.html" class="nav-item">🃏 FIGURITAS</a>
+    <a href="albums.html" class="active nav-item">📇</a>
+  </div>
+</nav>
+
+
+<div class="top-tab" id="auspiciante"></div>
+
+<!-- LOGIN -->
+<div id="login" class="login-box">
+  <h2>Álbum</h2>
+
+  <select id="user">
+    <option value="">Seleccionar usuario</option>
+    <option value="naicha">naicha</option>
+    <option value="pollo">pollo</option>
+    <option value="mario">mario</option>
+    <option value="ponce">ponce</option>
+    <option value="benja">benja</option>
+    <option value="berna">berna</option>
+    <option value="lomba">lomba</option>
+    <option value="chagay">chagay</option>
+  </select>
+
+  <input id="code" placeholder="Código">
+  <button onclick="login()">VALIDAR</button>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none">
+
+  <button class="logout" onclick="logout()">Salir</button>
+
+  <div class="album-header">
+    <h2 id="title"></h2>
+    <p id="progress"></p>
+  </div>
+
+  <div id="album" class="album"></div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal hidden">
+  <div id="modalContent" class="modal-content"></div>
+</div>
+
+
+
+<script>
+
+/* 🔐 USERS */
+const USERS = {
+  naicha:'z5YP',
+  pollo:'ncoT',
+  mario:'g8sX',
+  ponce:'a9vR',
+  benja:'k3wL',
+  berna:'h2mQ',
+  lomba:'f7jD',
+  chagay:'e6rS'
+}
+
+/* DATA */
+let CARTAS = []
+let ALBUMS = {}
+
+async function load(){
+  CARTAS = await (await fetch("data/figuritas.json")).json()
+  ALBUMS = await (await fetch("data/albums.json")).json()
+}
+
+/* LOGIN */
+function login(){
+  const user = document.getElementById("user").value
+  const code = document.getElementById("code").value.trim()
+
+  if(!USERS[user] || USERS[user] !== code){
+    alert("Código incorrecto")
+    return
+  }
+
+  localStorage.setItem("user", user)
+  start(user)
+}
+
+/* LOGOUT */
+function logout(){
+  localStorage.removeItem("user")
+  location.reload()
+}
+
+/* INIT */
+async function start(user){
+
+  await load()
+
+  document.getElementById("login").style.display="none"
+  document.getElementById("app").style.display="block"
+
+  document.getElementById("title").innerText = "Álbum de " + user
+
+  const userSet = new Set(ALBUMS[user] || [])
+
+  /* GLOBAL COUNT */
+  const globalCount = {}
+
+  Object.values(ALBUMS).forEach(arr=>{
+    const set = new Set(arr)
+    set.forEach(id=>{
+      globalCount[id] = (globalCount[id] || 0) + 1
+    })
+  })
+
+  document.getElementById("progress").innerText =
+    userSet.size + " / " + CARTAS.length
+
+  const container = document.getElementById("album")
+  container.innerHTML=""
+
+  for(let i=1;i<=CARTAS.length;i++){
+
+    const carta = CARTAS.find(c=>c.id===i)
+    const has = userSet.has(i)
+
+    const div = document.createElement("div")
+    div.className = "slot " + (has ? "filled" : "empty")
+
+    if(has){
+
+      div.innerHTML = `
+        <img src="data/img/figuritas/${carta.imagen}">
+        <div class="count">👥 ${globalCount[i] || 0}</div>
+      `
+
+      if(carta.tipo==="raras") div.classList.add("rare")
+      if(carta.tipo==="leyenda") div.classList.add("legend")
+
+      div.onclick = () => openCard(carta, globalCount)
+
+    }else{
+      div.innerText = "#" + i
+    }
+
+    container.appendChild(div)
+  }
+}
+
+/* MODAL OPEN */
+function openCard(carta, globalCount){
+
+  const modal = document.getElementById("modal")
+  const content = document.getElementById("modalContent")
+
+  const rare =
+    carta.tipo==="leyenda" ? "legend" :
+    carta.tipo==="raras" ? "rare" : "common"
+
+  content.innerHTML = `
+    <div class="modal-frame ${rare}">
+      <div class="modal-sticker">
+
+        <div class="modal-header">
+          <span>#${carta.id}</span>
+          <span>👥 ${globalCount[carta.id] || 0}</span>
+        </div>
+
+        <img class="modal-img" src="data/img/figuritas/${carta.imagen}">
+
+        <div class="modal-info">
+          <div>${carta.jugador}</div>
+          <div style="opacity:.7">${carta.pais.replaceAll("_"," ")}</div>
+        </div>
+
+      </div>
+    </div>
+  `
+
+  modal.classList.remove("hidden")
+}
+
+/* MODAL CLOSE */
+document.getElementById("modal").onclick = (e)=>{
+  if(e.target.id==="modal"){
+    e.currentTarget.classList.add("hidden")
+  }
+}
+
+/* AUTO LOGIN */
+const saved = localStorage.getItem("user")
+if(saved) start(saved)
+
+</script>
+
+</body>
+</html>

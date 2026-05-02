@@ -1,0 +1,198 @@
+/* BASE */
+
+body{
+  margin:0;
+  font-family:Arial;
+  background:radial-gradient(circle,#1e293b,#020617);
+  color:white;
+}
+
+.container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  text-align:center;
+}
+
+input{padding:10px;border-radius:6px;border:none;margin-right:10px;}
+
+/* PACK */
+
+.pack{
+width:170px;height:230px;margin:20px auto;
+display:flex;align-items:center;justify-content:center;
+background:linear-gradient(135deg,#facc15,#f97316);
+border-radius:10px;cursor:pointer;
+}
+
+/* CARTAS */
+
+.cards{display:flex;gap:60px;margin-top:40px;}
+
+.card{
+width:250px;height:350px;
+perspective:1000px;
+opacity:0;
+transform:translateY(80px);
+transition:transform .2s;
+}
+
+.card.show{animation:pop .8s forwards;}
+
+@keyframes pop{
+0%{transform:translateY(80px);opacity:0}
+100%{transform:translateY(0);opacity:1}
+}
+
+.inner{
+width:100%;height:100%;
+position:relative;
+transform-style:preserve-3d;
+transition:transform .3s ease;
+}
+
+.card.reveal .inner{
+transform:rotateY(180deg);
+}
+
+.front,.back{
+position:absolute;
+width:100%;height:100%;
+backface-visibility:hidden;
+border-radius:12px;
+overflow:hidden;
+}
+
+.front{
+background:#0f172a;
+display:flex;align-items:center;justify-content:center;
+font-size:40px;
+}
+
+.back{transform:rotateY(180deg);}
+
+/* FRAME */
+
+.frame{
+width:100%;
+height:100%;
+border-radius:12px;
+padding:10px;
+box-sizing:border-box;
+}
+
+.frame.common{
+background:linear-gradient(45deg,#f3f4f6,#9ca3af,#6b7280);
+}
+
+.frame.rare{
+background:linear-gradient(45deg,#60a5fa,#1d4ed8,#93c5fd);
+}
+
+.frame.legend{
+background:linear-gradient(45deg,#fde68a,#facc15,#f59e0b,#eab308);
+animation:legendGlow 2s infinite alternate;
+}
+
+@keyframes legendGlow{
+from{filter:brightness(1);}
+to{filter:brightness(1.6);}
+}
+
+/* STICKER */
+
+.sticker{
+width:100%;
+height:100%;
+border-radius:8px;
+overflow:hidden;
+position:relative;
+background:white;
+isolation:isolate;
+}
+
+/* VIGNETTE */
+
+.sticker::after{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at center,
+transparent 60%,
+rgba(0,0,0,0.25));
+z-index:2;
+pointer-events:none;
+}
+
+/* IMAGEN */
+
+.player{
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+object-fit:cover;
+z-index:1;
+transition:transform .2s ease;
+}
+
+/* HEADER */
+
+.header{
+position:absolute;
+top:10px;left:10px;right:10px;
+display:flex;justify-content:space-between;
+z-index:3;
+}
+
+.flag{width:28px;height:20px}
+
+/* INFO */
+
+.info{
+position:absolute;
+bottom:0;width:100%;
+padding:10px;
+background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+z-index:3;
+}
+
+.country{text-transform:uppercase;}
+
+/* FOIL */
+
+.foil::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(var(--foil-angle,120deg),
+transparent 47%,
+rgba(255,255,255,0.5) 50%,
+transparent 53%);
+mix-blend-mode:screen;
+z-index:2;
+}
+
+.legend .foil::before{
+background:linear-gradient(
+var(--foil-angle,120deg),
+red,orange,yellow,green,cyan,blue,violet
+);
+opacity:.25;
+}
+
+/* HIGHLIGHT */
+
+.sticker::before{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at var(--light-x,50%) var(--light-y,50%),
+rgba(255,255,255,0.25),
+transparent 40%);
+mix-blend-mode:screen;
+z-index:2;
+}
+
+.hidden{display:none;}
