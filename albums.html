@@ -45,25 +45,73 @@
   cursor:pointer;
 }
 
+/* ================= STATS ================= */
+.stats{
+  text-align:center;
+  margin-top:10px;
+  color:#ccc;
+}
+
+/* ================= FILTROS ================= */
+.filter-bar{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
+.filter-bar button{
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid #333;
+  background:#111;
+  color:white;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.filter-bar button.active{
+  background:#2f8bfd;
+}
+
+/* ================= COMPARADOR ================= */
+.compare-box{
+  display:flex;
+  justify-content:center;
+  margin-top:10px;
+}
+
 /* ================= GRID ================= */
 .album{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
   gap:10px;
   padding:20px;
+  transition:.3s;
+}
+
+.album.filtered{
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
 }
 
 /* ================= SLOT ================= */
 .slot{
   aspect-ratio:2/3;
   border-radius:10px;
-  position:relative;
   overflow:hidden;
-  font-size:11px;
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
+
+  transform:scale(.95);
+  opacity:0;
+  animation:fadeIn .4s forwards;
+}
+
+@keyframes fadeIn{
+  to{ transform:scale(1); opacity:1 }
 }
 
 .empty{
@@ -83,11 +131,9 @@
   object-fit:cover;
 }
 
-/* rareza */
 .rare{ box-shadow:0 0 8px #3b82f6; }
 .legend{ box-shadow:0 0 14px gold; }
 
-/* contador */
 .count{
   position:absolute;
   bottom:2px;
@@ -96,6 +142,32 @@
   background:rgba(0,0,0,.7);
   padding:2px 5px;
   border-radius:6px;
+}
+
+/* ================= RANKING ================= */
+.ranking{
+  max-width:500px;
+  margin:30px auto;
+  background:#111;
+  border-radius:12px;
+  padding:10px;
+}
+
+.rank-item{
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  border-bottom:1px solid #222;
+  font-size:14px;
+}
+
+.rank-item:first-child{
+  font-weight:700;
+  color:gold;
+}
+
+.rank-item.me{
+  background:#2f8bfd22;
 }
 
 /* ================= MODAL ================= */
@@ -114,9 +186,14 @@
 .modal-content{
   width:260px;
   height:360px;
+  animation:pop .3s ease;
 }
 
-/* carta */
+@keyframes pop{
+  from{ transform:scale(.8); opacity:0 }
+  to{ transform:scale(1); opacity:1 }
+}
+
 .modal-frame{
   width:100%;
   height:100%;
@@ -158,8 +235,6 @@
   right:10px;
   display:flex;
   justify-content:space-between;
-  font-size:12px;
-  z-index:2;
 }
 
 .modal-info{
@@ -168,50 +243,34 @@
   width:100%;
   padding:10px;
   background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
-  font-size:13px;
 }
 
 .modal-info div:last-child{
-  text-transform: uppercase;
+  text-transform:uppercase;
 }
 
 </style>
+
+<link rel="stylesheet" href="CSS/boton.css">
+
 </head>
 
 <body>
 
 <nav class="top-nav" id="mainNav">
-  <div class="nav-scroll">
-    <a href="index.html" class="nav-item">🏠 HOME</a>
-    <a href="figuritas.html" class="nav-item">🃏 FIGURITAS</a>
-    <a href="albums.html" class="active nav-item">📇</a>
-  </div>
+<div class="nav-scroll">
+  <a href="index.html" class="nav-item">🏠 HOME</a>
+  <a href="figuritas.html" class="nav-item">🃏 FIGURITAS</a>
+  <a href="albums.html" class="active nav-item">📚</a>
+</div>
 </nav>
-
 
 <div class="top-tab" id="auspiciante"></div>
 
 <!-- LOGIN -->
 <div id="login" class="login-box">
   <h2>Álbum</h2>
-
-  <select id="user">
-    <option value="">Seleccionar usuario</option>
-    <option value="naicha">naicha</option>
-    <option value="pollo">pollo</option>
-    <option value="mario">mario</option>
-    <option value="ponce">ponce</option>
-    <option value="benja">benja</option>
-    <option value="berna">berna</option>
-    <option value="lomba">lomba</option>
-    <option value="chagay">chagay</option>
-    <option value="cesar">cesar</option>
-    <option value="mato">mato</option>
-    <option value="chicho">chicho</option>
-    <option value="juan">juan</option>
-    <option value="marcos">marcos</option>
-  </select>
-
+  <select id="user"></select>
   <input id="code" placeholder="Código">
   <button onclick="login()">VALIDAR</button>
 </div>
@@ -226,6 +285,12 @@
     <p id="progress"></p>
   </div>
 
+  <div class="stats" id="stats"></div>
+
+  <div class="filter-bar" id="filters"></div>
+
+  <div id="ranking" class="ranking" style="display:none"></div>
+
   <div id="album" class="album"></div>
 
 </div>
@@ -235,9 +300,22 @@
   <div id="modalContent" class="modal-content"></div>
 </div>
 
+  </div> <footer class="bottom-tab">
+    <a href="cargar_resultados.html" class="enlace-secreto">©</a> 2026 Liga de Fulbo · PROMIEDOS
+  </footer>
+
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+      <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
+  </div>
+
 <script>
 
-/* 🔐 USERS */
+/* USERS */
 const USERS = {
   naicha:'z5YP',
   pollo:'ncoT',
@@ -251,139 +329,244 @@ const USERS = {
   mato: 'c4tY',
   chicho: 'd0xV',
   juan: 'l9oW',
-  marcos: 'i5pB',
+  marcos: 'i5pB'
 }
 
-/* DATA */
-let CARTAS = []
-let ALBUMS = {}
+let CARTAS=[], ALBUMS=[]
+let currentFilter="all"
+let viewMode="album"
+let userSet, globalCount, currentUser
+
+/* INIT SELECT */
+Object.keys(USERS).forEach(u=>{
+  const opt=document.createElement("option")
+  opt.value=u
+  opt.innerText=u
+  document.getElementById("user").appendChild(opt)
+})
 
 async function load(){
   CARTAS = await (await fetch("data/figuritas.json")).json()
   ALBUMS = await (await fetch("data/albums.json")).json()
 }
 
-/* LOGIN */
 function login(){
-  const user = document.getElementById("user").value
-  const code = document.getElementById("code").value.trim()
+  const user=document.getElementById("user").value
+  const code=document.getElementById("code").value.trim()
 
-  if(!USERS[user] || USERS[user] !== code){
-    alert("Código incorrecto")
-    return
+  if(!USERS[user]||USERS[user]!==code){
+    alert("Código incorrecto");return
   }
 
-  localStorage.setItem("user", user)
+  localStorage.setItem("user",user)
   start(user)
 }
 
-/* LOGOUT */
 function logout(){
   localStorage.removeItem("user")
   location.reload()
 }
 
-/* INIT */
 async function start(user){
+
+  currentUser=user
 
   await load()
 
   document.getElementById("login").style.display="none"
   document.getElementById("app").style.display="block"
 
-  document.getElementById("title").innerText = "Álbum de " + user
+  userSet=new Set(ALBUMS[user]||[])
 
-  const userSet = new Set(ALBUMS[user] || [])
-
-  /* GLOBAL COUNT */
-  const globalCount = {}
-
+  globalCount={}
   Object.values(ALBUMS).forEach(arr=>{
-    const set = new Set(arr)
-    set.forEach(id=>{
-      globalCount[id] = (globalCount[id] || 0) + 1
+    new Set(arr).forEach(id=>{
+      globalCount[id]=(globalCount[id]||0)+1
     })
   })
 
-  document.getElementById("progress").innerText =
-    userSet.size + " / " + CARTAS.length
+  document.getElementById("title").innerText="Álbum de "+user.toUpperCase()
 
-  const container = document.getElementById("album")
+  updateStats()
+  createFilters()
+  createRanking()
+
+  renderAlbum()
+}
+
+function updateStats(){
+  const total=CARTAS.length
+  const owned=userSet.size
+  const percent=Math.round((owned/total)*100)
+
+  document.getElementById("progress").innerText=
+    `${owned} / ${total} (${percent}%)`
+}
+
+/* RANKING */
+function createRanking(){
+
+  const rankingDiv=document.getElementById("ranking")
+  rankingDiv.innerHTML=""
+
+  const ranking=Object.entries(ALBUMS)
+    .map(([u,arr])=>[u,new Set(arr).size])
+    .sort((a,b)=>b[1]-a[1])
+
+  ranking.forEach(([u,count])=>{
+    const div=document.createElement("div")
+    div.className="rank-item "+(u===currentUser?"me":"")
+    div.innerHTML=`<span>${u}</span><span>${count}</span>`
+    rankingDiv.appendChild(div)
+  })
+}
+
+/* FILTROS + MODOS */
+function createFilters(){
+
+  const div=document.getElementById("filters")
+  div.innerHTML=""
+
+  /* ÁLBUM */
+  const albumBtn=document.createElement("button")
+  albumBtn.innerText="ÁLBUM"
+  albumBtn.classList.add("active")
+
+  albumBtn.onclick=()=>{
+    viewMode="album"
+
+    /* 👇 CLAVE */
+    currentFilter="all"
+
+    resetButtons(albumBtn)
+
+    document.getElementById("ranking").style.display="none"
+    document.getElementById("album").style.display="grid"
+
+    renderAlbum()
+  }
+
+  div.appendChild(albumBtn)
+
+  /* TIPOS */
+  const tipos=[...new Set(CARTAS.map(c=>c.tipo))]
+  tipos.forEach(tipo=>{
+    const btn=document.createElement("button")
+    btn.innerText=tipo.toUpperCase()
+
+    btn.onclick=()=>{
+      viewMode="album"
+      currentFilter=tipo
+      resetButtons(btn)
+      document.getElementById("ranking").style.display="none"
+      document.getElementById("album").style.display="grid"
+      renderAlbum()
+    }
+
+    div.appendChild(btn)
+  })
+
+  /* RANKING */
+  const rankBtn=document.createElement("button")
+  rankBtn.innerText="🏆 RANKING"
+
+  rankBtn.onclick=()=>{
+    viewMode="ranking"
+    resetButtons(rankBtn)
+    document.getElementById("album").style.display="none"
+    document.getElementById("ranking").style.display="block"
+  }
+
+  div.appendChild(rankBtn)
+}
+
+function resetButtons(activeBtn){
+  document.querySelectorAll(".filter-bar button")
+    .forEach(b=>b.classList.remove("active"))
+  activeBtn.classList.add("active")
+}
+
+/* RENDER */
+function renderAlbum(compareSet=null){
+
+  if(viewMode==="ranking") return
+
+  const container=document.getElementById("album")
   container.innerHTML=""
+  container.classList.toggle("filtered",currentFilter!=="all")
 
-  for(let i=1;i<=CARTAS.length;i++){
+  CARTAS.forEach((carta,i)=>{
 
-    const carta = CARTAS.find(c=>c.id===i)
-    const has = userSet.has(i)
+    if(currentFilter!=="all" && carta.tipo!==currentFilter) return
 
-    const div = document.createElement("div")
-    div.className = "slot " + (has ? "filled" : "empty")
+    const has=userSet.has(carta.id)
+    const other=compareSet?.has(carta.id)
+
+    const div=document.createElement("div")
+    div.className="slot "+(has?"filled":"empty")
+    div.style.animationDelay=(i*0.01)+"s"
 
     if(has){
-
-      div.innerHTML = `
+      div.innerHTML=`
         <img src="data/img/figuritas/${carta.imagen}">
-        <div class="count">👥 ${globalCount[i] || 0}</div>
+        <div class="count">👥 ${globalCount[carta.id]||0}</div>
       `
 
       if(carta.tipo==="raras") div.classList.add("rare")
       if(carta.tipo==="leyenda") div.classList.add("legend")
 
-      div.onclick = () => openCard(carta, globalCount)
+      if(compareSet && !other){
+        div.style.opacity=".3"
+      }
 
+      div.onclick=()=>openCard(carta)
     }else{
-      div.innerText = "#" + i
+      div.innerText="#"+carta.id
     }
 
     container.appendChild(div)
-  }
+  })
 }
 
-/* MODAL OPEN */
-function openCard(carta, globalCount){
+/* MODAL */
+function openCard(carta){
 
-  const modal = document.getElementById("modal")
-  const content = document.getElementById("modalContent")
+  const rare=
+    carta.tipo==="leyenda"?"legend":
+    carta.tipo==="raras"?"rare":"common"
 
-  const rare =
-    carta.tipo==="leyenda" ? "legend" :
-    carta.tipo==="raras" ? "rare" : "common"
-
-  content.innerHTML = `
+  document.getElementById("modalContent").innerHTML=`
     <div class="modal-frame ${rare}">
       <div class="modal-sticker">
-
         <div class="modal-header">
           <span>#${carta.id}</span>
-          <span>👥 ${globalCount[carta.id] || 0}</span>
+          <span>👥 ${globalCount[carta.id]||0}</span>
         </div>
-
         <img class="modal-img" src="data/img/figuritas/${carta.imagen}">
-
         <div class="modal-info">
           <div>${carta.jugador}</div>
-          <div style="opacity:.7">${carta.pais.replaceAll("_"," ")}</div>
+          <div>${carta.pais.replaceAll("_"," ")}</div>
         </div>
-
       </div>
     </div>
   `
 
-  modal.classList.remove("hidden")
+  document.getElementById("modal").classList.remove("hidden")
 }
 
-/* MODAL CLOSE */
-document.getElementById("modal").onclick = (e)=>{
+document.getElementById("modal").onclick=e=>{
   if(e.target.id==="modal"){
     e.currentTarget.classList.add("hidden")
   }
 }
 
 /* AUTO LOGIN */
-const saved = localStorage.getItem("user")
+const saved=localStorage.getItem("user")
 if(saved) start(saved)
 
 </script>
+<script src="js/textos.js"></script>
+<script src="js/boton.js"></script>
 
 </body>
 </html>

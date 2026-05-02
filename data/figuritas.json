@@ -1,18 +1,6 @@
 [
-{"id":1,"tipo":"leyenda","pais":"argentina","jugador":"Juan Pablo Lombardo","imagen":"argentina.png"},
-{"id":2,"tipo":"leyenda","pais":"mexico","jugador":"José Benjamín Salas","imagen":"mexico.png"},
-{"id":3,"tipo":"leyenda","pais":"canada","jugador":"Gavin Carter","imagen":"canada.png"},
-{"id":4,"tipo":"leyenda","pais":"espana","jugador":"Álex Chacón","imagen":"españa.png"},
-{"id":5,"tipo":"leyenda","pais":"inglaterra","jugador":"Bernard Gilley","imagen":"inglaterra.png"}, 
-{"id":6,"tipo":"leyenda","pais":"paises_bajos","jugador":"Marijn de Ruijter","imagen":"paises bajos.png"},
-{"id":7,"tipo":"leyenda","pais":"alemania","jugador":"Nikolaus Darwig","imagen":"alemania.png"},
-{"id":8,"tipo":"leyenda","pais":"belgica","jugador":"Maarten Poncelet","imagen":"belgica.png"},
-{"id":9,"tipo":"comunes","pais":"francia","jugador":"Césaire Nunier","imagen":"francia.png"},
-{"id":10,"tipo":"comunes","pais":"brasil","jugador":"Raphina","imagen":"brasil.png"},
-{"id":11,"tipo":"comunes","pais":"portugal","jugador":"Cristiano Ronaldo","imagen":"portugal.png"},
-{"id":12,"tipo":"comunes","pais":"estados_unidos","jugador":"Christian Pulisic","imagen":"estados unidos.png"},
 
-{"id":13,"tipo":"comunes","pais":"croacia","jugador":"Luka Modriç","imagen":"croacia.png"},
+{"id":13,"tipo":"comunes","pais":"croacia","jugador":"Matija Benetović","imagen":"croacia.png"},
 {"id":14,"tipo":"comunes","pais":"marruecos","jugador":"Benyamin Salhi","imagen":"marruecos.png"},
 {"id":15,"tipo":"comunes","pais":"colombia","jugador":"Luis Gonzalo Cortés","imagen":"colombia.png"},
 {"id":16,"tipo":"comunes","pais":"uruguay","jugador":"Luis Suárez","imagen":"uruguay.png"},
@@ -35,7 +23,7 @@
 {"id":32,"tipo":"comunes","pais":"costa_marfil","jugador":"Alexis Kouadio","imagen":"costa de marfil.png"},
 {"id":33,"tipo":"comunes","pais":"uzbekistan","jugador":"Mardon Ponzov","imagen":"uzbekistan.png"},
 {"id":34,"tipo":"comunes","pais":"qatar","jugador":"Binyamin Al-Salmi","imagen":"qatar.png"},
-{"id":35,"tipo":"comunes","pais":"arabia_saudita","jugador":"Salem Al-Dawsari","imagen":"arabia saudita.png"},
+{"id":35,"tipo":"comunes","pais":"arabia_saudita","jugador":"Matiyas ibn Banitiz","imagen":"arabia saudita.png"},
 {"id":36,"tipo":"comunes","pais":"sudafrica","jugador":"John-Paul Lombard","imagen":"sudafrica.png"},
 
 {"id":37,"tipo":"comunes","pais":"jordania","jugador":"Nikolás Darwesh","imagen":"jordania.png"},
@@ -49,7 +37,7 @@
 {"id":45,"tipo":"comunes","pais":"chequia","jugador":"Bernard Gajl","imagen":"chequia.png"},
 {"id":46,"tipo":"comunes","pais":"suecia","jugador":"Zlatan Ibrahimović","imagen":"suecia.png"},
 {"id":47,"tipo":"comunes","pais":"turquia","jugador":"Gonca Kurt","imagen":"turquia.png"},
-{"id":48,"tipo":"comunes","pais":"irak","jugador":"Gareth Bale","imagen":"irak.png"},
+{"id":48,"tipo":"comunes","pais":"irak","jugador":"Matiyas al-Banitiz","imagen":"irak.png"},
 
 {"id":49,"tipo":"raras","pais":"argentina","jugador":"Nicolás Daruich","imagen":"naicha.png"},
 {"id":50,"tipo":"raras","pais":"argentina","jugador":"Mariano Ruiz","imagen":"mario.png"},
@@ -78,11 +66,24 @@
 {"id":72,"tipo":"raras","pais":"argentina","jugador":"Julian Alvarez","imagen":"alvarez.png"},
 {"id":73,"tipo":"raras","pais":"argentina","jugador":"Angel Di Maria","imagen":"dimaria.png"},
 
+{"id":1,"tipo":"leyenda","pais":"argentina","jugador":"Juan Pablo Lombardo","imagen":"argentina.png"},
+{"id":2,"tipo":"leyenda","pais":"mexico","jugador":"José Benjamín Salas","imagen":"mexico.png"},
+{"id":3,"tipo":"leyenda","pais":"canada","jugador":"Gavin Carter","imagen":"canada.png"},
+{"id":4,"tipo":"leyenda","pais":"espana","jugador":"Álex Chacón","imagen":"españa.png"},
+{"id":5,"tipo":"leyenda","pais":"inglaterra","jugador":"Bernard Gilley","imagen":"inglaterra.png"}, 
+{"id":6,"tipo":"leyenda","pais":"paises_bajos","jugador":"Marijn de Ruijter","imagen":"paises bajos.png"},
+{"id":7,"tipo":"leyenda","pais":"alemania","jugador":"Nikolaus Darwig","imagen":"alemania.png"},
+{"id":8,"tipo":"leyenda","pais":"belgica","jugador":"Maarten Poncelet","imagen":"belgica.png"},
+{"id":9,"tipo":"leyenda","pais":"francia","jugador":"Césaire Nunier","imagen":"francia.png"},
+{"id":10,"tipo":"leyenda","pais":"brasil","jugador":"Matias Beneites","imagen":"brasil.png"},
+{"id":11,"tipo":"comunes","pais":"portugal","jugador":"Cristiano Ronaldo","imagen":"portugal.png"},
+{"id":12,"tipo":"comunes","pais":"estados_unidos","jugador":"Christian Pulisic","imagen":"estados unidos.png"},
+
 {"id":74,"tipo":"leyenda","pais":"argentina","jugador":"Diego Maradona","imagen":"maradona.png"},
 {"id":75,"tipo":"leyenda","pais":"argentina","jugador":"Lionel Messi","imagen":"lionel.png"},
-
 {"id":76,"tipo":"leyenda","pais":"argentina","jugador":"Lionel Scaloni","imagen":"scaloni.png"},
-{"id":77,"tipo":"leyenda","pais":"argentina","jugador":"JPR - ARG 72'","imagen":"juan72.png"},
-{"id":78,"tipo":"leyenda","pais":"argentina","jugador":"JPR - ARG 86","imagen":"juan86.png"},
-{"id":79,"tipo":"leyenda","pais":"argentina","jugador":"JPR - ARG 22","imagen":"juan22.png"}
+
+{"id":77,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 72'","imagen":"juan72.png"},
+{"id":78,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 86","imagen":"juan86.png"},
+{"id":79,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 22","imagen":"juan22.png"}
 ]
