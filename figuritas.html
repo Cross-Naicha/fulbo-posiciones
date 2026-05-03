@@ -32,6 +32,7 @@
 <p>El codigo genera nuevos packs cada dia, sin embargo los cambios en el album no se reflejan instantaneamente.</p>
 
 <button id="validar">VALIDAR</button>
+<div id="estado" style="margin-top:10px; display:none;"></div>
 
 
 <div id="pack" class="pack hidden">ABRIR</div>
@@ -45,9 +46,10 @@
 
 <script>
 
-/* ================= DATA ================= */
+/* ================= CONFIG ================= */
 
-let CARTAS=[], PACKS=[], packActual=null
+let CARTAS = [], PACKS = [], packActual = null
+let bloqueado = false
 
 const BIN_ID = "69f69157aaba88219764a5f0"
 const API_KEY = "$2a$10$GOKT1tAWaguksXB1ZE0FO.x1723cMViMcGp1Ee4iG.xGq9udSGCnS"
@@ -122,48 +124,67 @@ const FLAGS = {
   gales: "gb"
 }
 
+/* ================= ESTADO UI ================= */
+
+function setEstado(msg, tipo="info"){
+  const el = document.getElementById("estado")
+  if(!el) return
+  el.style.display = "block"
+  el.textContent = msg
+
+  el.style.color =
+    tipo === "error" ? "#ff4d4d" :
+    tipo === "ok" ? "#4dff88" :
+    "#ffffff"
+}
+
+function resetUI(){
+  const btn = document.getElementById("validar")
+  btn.disabled = false
+  btn.textContent = "VALIDAR"
+  bloqueado = false
+}
+
 /* ================= HELPERS ================= */
 
 function getUserFromCode(code){
   return Object.keys(BASE).find(u => BASE[u] === code)
 }
 
+/* ================= JSONBIN ================= */
+
 async function actualizarBin(usuario){
 
   const url = `https://api.jsonbin.io/v3/b/${BIN_ID}`
 
-  // GET
-  const res = await fetch(url, {
-    headers: { "X-Master-Key": API_KEY }
-  })
+  try {
 
-  if(!res.ok){
-    alert("Error leyendo bin")
+    const res = await fetch(url, {
+      headers: { "X-Master-Key": API_KEY }
+    })
+
+    if(!res.ok) return false
+
+    const data = await res.json()
+    const json = data.record
+
+    json[usuario] = 1
+
+    const update = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": API_KEY
+      },
+      body: JSON.stringify(json)
+    })
+
+    return update.ok
+
+  } catch(e){
+    setEstado("Error de conexión", "error")
     return false
   }
-
-  const data = await res.json()
-  const json = data.record
-
-  // Update
-  json[usuario] = 1
-
-  // PUT
-  const update = await fetch(url, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Master-Key": API_KEY
-    },
-    body: JSON.stringify(json)
-  })
-
-  if(!update.ok){
-    alert("Error guardando en bin")
-    return false
-  }
-
-  return true
 }
 
 /* ================= RAREZA ================= */
@@ -184,60 +205,84 @@ function ordenarPack(pack){
 /* ================= LOAD ================= */
 
 async function cargar(){
-  CARTAS=await (await fetch("data/figuritas.json")).json()
-  PACKS=await (await fetch("data/packs.json")).json()
+  CARTAS = await (await fetch("data/figuritas.json")).json()
+  PACKS = await (await fetch("data/packs.json")).json()
 }
 cargar()
 
 /* ================= VALIDAR ================= */
 
-document.getElementById("validar").onclick=async ()=>{
+document.getElementById("validar").onclick = async () => {
 
-  const codigo=document.getElementById("codigo").value.trim()
+  if(bloqueado) return
+  bloqueado = true
 
-  const ids=PACKS[codigo]
+  const btn = document.getElementById("validar")
+  btn.disabled = true
+  btn.textContent = "VALIDANDO..."
+
+  setEstado("Verificando código...")
+
+  const codigo = document.getElementById("codigo").value.trim()
+  const ids = PACKS[codigo]
+
   if(!ids){
-    alert("Código inválido")
+    setEstado("Código inválido", "error")
+    resetUI()
     return
   }
 
   const usuario = getUserFromCode(codigo)
-
   if(!usuario){
-    alert("Código sin usuario asociado")
+    setEstado("Código sin usuario", "error")
+    resetUI()
     return
   }
 
+  setEstado("Validando contra servidor...")
+
   const ok = await actualizarBin(usuario)
-  if(!ok) return
 
-  const cont=document.getElementById("cards")
-  cont.innerHTML=""
-  cont.classList.add("hidden")
+  if(!ok){
+    resetUI()
+    return
+  }
 
-  document.getElementById("pack").style.display="flex"
+  setEstado("Código válido ✔", "ok")
 
   packActual = ordenarPack(ids.map(id=>CARTAS.find(c=>c.id===id)))
+
+  const cont = document.getElementById("cards")
+  cont.innerHTML = ""
+  cont.classList.add("hidden")
+
+  document.getElementById("pack").style.display = "flex"
+
+  btn.disabled = false
+  btn.textContent = "VALIDAR"
+  bloqueado = false
 }
 
 /* ================= ABRIR ================= */
 
-document.getElementById("pack").onclick=()=>{
+document.getElementById("pack").onclick = () => {
 
-  const cont=document.getElementById("cards")
+  if(!packActual) return
+
+  const cont = document.getElementById("cards")
   cont.classList.remove("hidden")
 
-  document.getElementById("pack").style.display="none"
+  document.getElementById("pack").style.display = "none"
 
   packActual.forEach((c,i)=>{
 
-    const rare=getRareza(c)
-    const flag=FLAGS[c.pais]||"ar"
+    const rare = getRareza(c)
+    const flag = FLAGS[c.pais] || "ar"
 
-    const card=document.createElement("div")
-    card.className="card"
+    const card = document.createElement("div")
+    card.className = "card"
 
-    card.innerHTML=`
+    card.innerHTML = `
     <div class="inner">
       <div class="front">?</div>
       <div class="back">
@@ -264,7 +309,7 @@ document.getElementById("pack").onclick=()=>{
 
     cont.appendChild(card)
 
-    setTimeout(()=>card.classList.add("show"),i*400)
+    setTimeout(()=>card.classList.add("show"), i*400)
 
     const delay = rare==="legend"?600:rare==="rare"?300:0
 
@@ -281,16 +326,18 @@ document.getElementById("pack").onclick=()=>{
       activarTilt(card)
 
     },1200+i*600+delay)
-
   })
+
+  // reset estado
+  packActual = null
 }
 
 /* ================= FX ================= */
 
 function spawnParticles(card, rare){
   const colors = rare==="legend"
-  ? ["#FFD700","#FFF3B0","#FFF"]
-  : ["#FFF"]
+    ? ["#FFD700","#FFF3B0","#FFF"]
+    : ["#FFF"]
 
   for(let i=0;i<10;i++){
     const p=document.createElement("div")
@@ -325,7 +372,6 @@ function activarTilt(card){
 
   card.addEventListener("mousemove",e=>{
     const rect=card.getBoundingClientRect()
-
     const mx=e.clientX-rect.left
     const my=e.clientY-rect.top
 
