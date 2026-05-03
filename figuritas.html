@@ -29,8 +29,7 @@
 <input id="codigo">
 
 <p>
-naicha[j2kG] pollo[tv0Y] mario[tguA] ponce[bsRz] benja[6wAI] berna[yfmb] lomba[LuLw] chagay[YkAb] 
-cesar[q7Ks] mato[p2Hd] chicho[r8Lm] juan[z3Xa] marcos[v6Rn]
+Usa tu codigo unico (4 letras) para abrir tu pack de figuritas.
 </p>
 
 <button id="validar">VALIDAR</button>
@@ -47,9 +46,28 @@ cesar[q7Ks] mato[p2Hd] chicho[r8Lm] juan[z3Xa] marcos[v6Rn]
 
 <script>
 
-/* DATA */
+/* ================= DATA ================= */
 
 let CARTAS=[], PACKS=[], packActual=null
+
+const BIN_ID = "69f69157aaba88219764a5f0"
+const API_KEY = "$2a$10$GOKT1tAWaguksXB1ZE0FO.x1723cMViMcGp1Ee4iG.xGq9udSGCnS"
+
+const BASE = {
+  'naicha': 'z5YP',
+  'pollo': 'ncoT',
+  'mario': 'g8sX',
+  'ponce': 'a9vR',
+  'benja': 'k3wL',
+  'berna': 'h2mQ',
+  'lomba': 'f7jD',
+  'chagay': 'e6rS',
+  'cesar': 'b1uN',
+  'mato': 'c4tY',
+  'chicho': 'd0xV',
+  'juan': 'l9oW',
+  'marcos': 'i5pB',
+}
 
 const FLAGS = {
   argentina: "ar",
@@ -82,7 +100,7 @@ const FLAGS = {
   panama: "pa",
   egipto: "eg",
   argelia: "dz",
-  escocia: "gb",        // 🇬🇧 UK
+  escocia: "gb",
   paraguay: "py",
   tunez: "tn",
   costa_marfil: "ci",
@@ -102,193 +120,234 @@ const FLAGS = {
   chequia: "cz",
   suecia: "se",
   turquia: "tr",
-  gales: "gb"           // 🇬🇧 UK
+  gales: "gb"
 }
 
-/* RAREZA */
+/* ================= HELPERS ================= */
+
+function getUserFromCode(code){
+  return Object.keys(BASE).find(u => BASE[u] === code)
+}
+
+async function actualizarBin(usuario){
+
+  const url = `https://api.jsonbin.io/v3/b/${BIN_ID}`
+
+  // GET
+  const res = await fetch(url, {
+    headers: { "X-Master-Key": API_KEY }
+  })
+
+  if(!res.ok){
+    alert("Error leyendo bin")
+    return false
+  }
+
+  const data = await res.json()
+  const json = data.record
+
+  // Update
+  json[usuario] = 1
+
+  // PUT
+  const update = await fetch(url, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Master-Key": API_KEY
+    },
+    body: JSON.stringify(json)
+  })
+
+  if(!update.ok){
+    alert("Error guardando en bin")
+    return false
+  }
+
+  return true
+}
+
+/* ================= RAREZA ================= */
 
 function getRareza(c){
-if(c.tipo==="leyenda") return "legend"
-if(c.tipo==="raras") return "rare"
-return "common"
+  if(c.tipo==="leyenda") return "legend"
+  if(c.tipo==="raras") return "rare"
+  return "common"
 }
-
-/* ORDEN */
 
 function ordenarPack(pack){
-return pack.sort((a,b)=>{
-const r={common:0,rare:1,legend:2}
-return r[getRareza(a)]-r[getRareza(b)]
-})
+  return pack.sort((a,b)=>{
+    const r={common:0,rare:1,legend:2}
+    return r[getRareza(a)]-r[getRareza(b)]
+  })
 }
 
-/* LOAD */
+/* ================= LOAD ================= */
 
 async function cargar(){
-CARTAS=await (await fetch("data/figuritas.json")).json()
-PACKS=await (await fetch("data/packs.json")).json()
+  CARTAS=await (await fetch("data/figuritas.json")).json()
+  PACKS=await (await fetch("data/packs.json")).json()
 }
 cargar()
 
-/* VALIDAR */
+/* ================= VALIDAR ================= */
 
-document.getElementById("validar").onclick=()=>{
+document.getElementById("validar").onclick=async ()=>{
 
-const codigo=document.getElementById("codigo").value.trim()
-const ids=PACKS[codigo]
+  const codigo=document.getElementById("codigo").value.trim()
 
-if(!ids){alert("Código inválido");return}
+  const ids=PACKS[codigo]
+  if(!ids){
+    alert("Código inválido")
+    return
+  }
 
-const cont=document.getElementById("cards")
-cont.innerHTML=""
-cont.classList.add("hidden")
+  const usuario = getUserFromCode(codigo)
 
-document.getElementById("pack").style.display="flex"
+  if(!usuario){
+    alert("Código sin usuario asociado")
+    return
+  }
 
-packActual = ordenarPack(ids.map(id=>CARTAS.find(c=>c.id===id)))
+  const ok = await actualizarBin(usuario)
+  if(!ok) return
+
+  const cont=document.getElementById("cards")
+  cont.innerHTML=""
+  cont.classList.add("hidden")
+
+  document.getElementById("pack").style.display="flex"
+
+  packActual = ordenarPack(ids.map(id=>CARTAS.find(c=>c.id===id)))
 }
 
-/* ABRIR */
+/* ================= ABRIR ================= */
 
 document.getElementById("pack").onclick=()=>{
 
-const cont=document.getElementById("cards")
-cont.classList.remove("hidden")
+  const cont=document.getElementById("cards")
+  cont.classList.remove("hidden")
 
-document.getElementById("pack").style.display="none"
+  document.getElementById("pack").style.display="none"
 
-packActual.forEach((c,i)=>{
+  packActual.forEach((c,i)=>{
 
-const rare=getRareza(c)
-const flag=FLAGS[c.pais]||"ar"
+    const rare=getRareza(c)
+    const flag=FLAGS[c.pais]||"ar"
 
-const card=document.createElement("div")
-card.className="card"
+    const card=document.createElement("div")
+    card.className="card"
 
-card.innerHTML=`
-<div class="inner">
-<div class="front">?</div>
-<div class="back">
-<div class="frame ${rare}">
-<div class="sticker foil">
+    card.innerHTML=`
+    <div class="inner">
+      <div class="front">?</div>
+      <div class="back">
+        <div class="frame ${rare}">
+          <div class="sticker foil">
 
-<div class="header">
-<img class="flag" src="https://flagcdn.com/w40/${flag}.png">
-<span>#${c.id}</span>
-</div>
+            <div class="header">
+              <img class="flag" src="https://flagcdn.com/w40/${flag}.png">
+              <span>#${c.id}</span>
+            </div>
 
-<img class="player" src="data/img/figuritas/${c.imagen}">
+            <img class="player" src="data/img/figuritas/${c.imagen}">
 
-<div class="info">
-<div>${c.jugador}</div>
-<div class="country">${c.pais.replaceAll("_"," ")}</div>
-</div>
+            <div class="info">
+              <div>${c.jugador}</div>
+              <div class="country">${c.pais.replaceAll("_"," ")}</div>
+            </div>
 
-</div>
-</div>
-</div>
-</div>
-`
+          </div>
+        </div>
+      </div>
+    </div>
+    `
 
-cont.appendChild(card)
+    cont.appendChild(card)
 
-/* aparición */
-setTimeout(()=>card.classList.add("show"),i*400)
+    setTimeout(()=>card.classList.add("show"),i*400)
 
-/* reveal */
-const delay = rare==="legend"?600:rare==="rare"?300:0
+    const delay = rare==="legend"?600:rare==="rare"?300:0
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-card.classList.add("reveal")
+      card.classList.add("reveal")
 
-/* WOW legend */
-if(rare==="legend"){
-card.style.transform="scale(1.1)"
-setTimeout(()=>card.style.transform="",400)
+      if(rare==="legend"){
+        card.style.transform="scale(1.1)"
+        setTimeout(()=>card.style.transform="",400)
+      }
+
+      spawnParticles(card, rare)
+      activarTilt(card)
+
+    },1200+i*600+delay)
+
+  })
 }
 
-spawnParticles(card, rare)
-
-activarTilt(card)
-
-},1200+i*600+delay)
-
-})
-
-}
-
-/* PARTICULAS */
+/* ================= FX ================= */
 
 function spawnParticles(card, rare){
+  const colors = rare==="legend"
+  ? ["#FFD700","#FFF3B0","#FFF"]
+  : ["#FFF"]
 
-const colors = rare==="legend"
-? ["#FFD700","#FFF3B0","#FFF"]
-: ["#FFF"]
+  for(let i=0;i<10;i++){
+    const p=document.createElement("div")
+    p.style.position="absolute"
+    p.style.width="6px"
+    p.style.height="6px"
+    p.style.borderRadius="50%"
+    p.style.background=colors[Math.floor(Math.random()*colors.length)]
+    p.style.zIndex="10"
 
-for(let i=0;i<10;i++){
+    p.style.left=Math.random()*200+"px"
+    p.style.top=Math.random()*300+"px"
 
-const p=document.createElement("div")
-p.style.position="absolute"
-p.style.width="6px"
-p.style.height="6px"
-p.style.borderRadius="50%"
-p.style.background=colors[Math.floor(Math.random()*colors.length)]
-p.style.zIndex="10"
+    card.appendChild(p)
 
-p.style.left=Math.random()*200+"px"
-p.style.top=Math.random()*300+"px"
+    setTimeout(()=>{
+      p.style.transition="all .7s"
+      p.style.transform=`translate(${(Math.random()-0.5)*200}px,${(Math.random()-0.5)*200}px)`
+      p.style.opacity=0
+    },10)
 
-card.appendChild(p)
-
-setTimeout(()=>{
-p.style.transition="all .7s"
-p.style.transform=`translate(${(Math.random()-0.5)*200}px,${(Math.random()-0.5)*200}px)`
-p.style.opacity=0
-},10)
-
-setTimeout(()=>p.remove(),700)
-
+    setTimeout(()=>p.remove(),700)
+  }
 }
-}
-
-/* TILT */
 
 function activarTilt(card){
+  const inner=card.querySelector(".inner")
+  const img=card.querySelector(".player")
+  const sticker=card.querySelector(".sticker")
 
-const inner=card.querySelector(".inner")
-const img=card.querySelector(".player")
-const sticker=card.querySelector(".sticker")
+  let x=0,y=0
 
-let x=0,y=0
+  card.addEventListener("mousemove",e=>{
+    const rect=card.getBoundingClientRect()
 
-card.addEventListener("mousemove",e=>{
+    const mx=e.clientX-rect.left
+    const my=e.clientY-rect.top
 
-const rect=card.getBoundingClientRect()
+    const dx=(mx-rect.width/2)/12
+    const dy=(rect.height/2-my)/12
 
-const mx=e.clientX-rect.left
-const my=e.clientY-rect.top
+    x+=(dy-x)*0.15
+    y+=(dx-y)*0.15
 
-const dx=(mx-rect.width/2)/12
-const dy=(rect.height/2-my)/12
+    inner.style.transform=`rotateX(${x}deg) rotateY(${180+y}deg)`
+    img.style.transform=`translate(${y}px,${x}px) scale(1.05)`
 
-x+=(dy-x)*0.15
-y+=(dx-y)*0.15
+    sticker.style.setProperty("--foil-angle",120+y*3+"deg")
+    sticker.style.setProperty("--light-x",(mx/rect.width*100)+"%")
+    sticker.style.setProperty("--light-y",(my/rect.height*100)+"%")
+  })
 
-inner.style.transform=`rotateX(${x}deg) rotateY(${180+y}deg)`
-img.style.transform=`translate(${y}px,${x}px) scale(1.05)`
-
-sticker.style.setProperty("--foil-angle",120+y*3+"deg")
-sticker.style.setProperty("--light-x",(mx/rect.width*100)+"%")
-sticker.style.setProperty("--light-y",(my/rect.height*100)+"%")
-
-})
-
-card.addEventListener("mouseleave",()=>{
-inner.style.transform="rotateY(180deg)"
-img.style.transform="none"
-})
-
+  card.addEventListener("mouseleave",()=>{
+    inner.style.transform="rotateY(180deg)"
+    img.style.transform="none"
+  })
 }
 
 </script>
