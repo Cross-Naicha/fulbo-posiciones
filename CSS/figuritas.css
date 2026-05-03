@@ -236,3 +236,12 @@ z-index:2;
   }
 
 }
+
+@media (min-width: 1024px) {
+
+  .card {
+    width: 350px;
+    height: 500px;
+  }
+
+}
