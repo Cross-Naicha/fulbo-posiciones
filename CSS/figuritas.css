@@ -196,3 +196,43 @@ z-index:2;
 }
 
 .hidden{display:none;}
+
+/* ================= BASE (desktop) ================= */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* carta base */
+.card {
+  width: 180px;
+  height: 260px;
+  perspective: 1000px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 80vw;          /* ocupa ancho de pantalla */
+    max-width: 300px;     /* límite para no deformar */
+    height: calc(80vw * 1.4);  /* mantiene proporción */
+    max-height: 420px;
+  }
+
+  /* mejora táctil */
+  .card {
+    touch-action: manipulation;
+  }
+
+}
