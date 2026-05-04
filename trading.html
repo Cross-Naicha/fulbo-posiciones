@@ -136,7 +136,7 @@
     <a href="index.html" class="nav-item">🏠 HOME</a>
     <a href="figuritas.html" class="nav-item">FIGURITAS 📚</a>
     <a href="albums.html" class="nav-item">ALBÚM 📇</a>
-    <a href="trading.html" class="nav-item active">🔀 TRADING</a>
+    <a href="trading.html" class="nav-item active">🔀</a>
   </div>
 </nav>
 
@@ -404,8 +404,8 @@ return c;
 function updatePreview(){
 preview.innerText =
 (CURRENT_USER && SELECTED_USER_B && SELECTED_CARD_A && SELECTED_CARD_B)
-? `${CURRENT_USER} ${SELECTED_CARD_A} â†” ${SELECTED_USER_B} ${SELECTED_CARD_B}`
-: "Completar selecciÃ³n...";
+? `${CURRENT_USER} ${SELECTED_CARD_A} <-> ${SELECTED_USER_B} ${SELECTED_CARD_B}`
+: "Completar selección...";
 }
 
 // ================= TRADES =================
@@ -432,7 +432,7 @@ const statusText = isPending ? "Pendiente" : "Confirmado";
 
 return `
 <div class="trade-box">
-${t.user_a} (${t.card_a}) â†” ${t.user_b} (${t.card_b})
+${t.user_a} (${t.card_a}) <-> ${t.user_b} (${t.card_b})
 <br><span class="${isPending ? "warn" : "ok"}">${statusText}</span><br>
 
 ${isReceiver && isPending
