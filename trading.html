@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -133,14 +133,14 @@
 
 <nav class="top-nav" id="mainNav">
   <div class="nav-scroll">
-    <a href="index.html" class="nav-item">🏠 HOME</a>
-    <a href="figuritas.html" class="nav-item">FIGURITAS 📚</a>
-    <a href="albums.html" class="nav-item">ALBÚM 📇</a>
-    <a href="trading.html" class="nav-item active">🔀</a>
+    <a href="index.html" class="nav-item">ðŸ  HOME</a>
+    <a href="figuritas.html" class="nav-item">FIGURITAS ðŸ“š</a>
+    <a href="albums.html" class="nav-item">ALBÃšM ðŸ“‡</a>
+    <a href="trading.html" class="nav-item active">ðŸ”€</a>
   </div>
 </nav>
 
-<div class="top-tab" id="auspiciante">INTERCAMBIOS · Liga de Fulbo</div>
+<div class="top-tab" id="auspiciante">INTERCAMBIOS Â· Liga de Fulbo</div>
 
 <main class="wrap trade-page">
 <h1 class="trade-title">Intercambios</h1>
@@ -163,7 +163,7 @@
 <h3 id="welcome"></h3>
 
 <div id="blockedMsg" class="warn hidden">
-Ya tenés un intercambio pendiente
+Ya tenÃ©s un intercambio pendiente o confirmado para procesar
 </div>
 
 <div id="newTradeForm" class="trade-panel">
@@ -215,6 +215,7 @@ const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 let ALBUMS = {};
 let CURRENT_USER = null;
 let CURRENT_TRADES = [];
+let DAILY_LOCKS = {};
 
 let SELECTED_USER_B = null;
 let SELECTED_CARD_A = null;
@@ -241,10 +242,32 @@ const res = await fetch(`${BIN_URL}/latest`, {
 headers:{ "X-Access-Key": API_KEY }
 });
 const data = await res.json();
-CURRENT_TRADES = Array.isArray(data.record) ? data.record : [];
+const record = normalizeBinRecord(data.record);
+CURRENT_TRADES = record.trades;
+DAILY_LOCKS = record.daily_locks;
 }catch{
 CURRENT_TRADES = [];
+DAILY_LOCKS = {};
 }
+}
+
+function normalizeBinRecord(record){
+if(Array.isArray(record)){
+return { trades: record, daily_locks: {} };
+}
+
+return {
+trades: Array.isArray(record?.trades) ? record.trades : [],
+daily_locks: record?.daily_locks || {}
+};
+}
+
+function todayKey(){
+const d = new Date();
+const y = d.getFullYear();
+const m = String(d.getMonth()+1).padStart(2,"0");
+const day = String(d.getDate()).padStart(2,"0");
+return `${y}-${m}-${day}`;
 }
 
 // ================= LOGIN =================
@@ -303,10 +326,18 @@ renderCardsA();
 }
 
 function isBlocked(user){
+if((DAILY_LOCKS[todayKey()]||[]).includes(user)){
+return true;
+}
+
 return CURRENT_TRADES.some(t =>
-t.status==="pending" &&
+isOpenTrade(t) &&
 (t.user_a===user || t.user_b===user)
 );
+}
+
+function isOpenTrade(trade){
+return trade.status==="pending" || trade.status==="accepted";
 }
 
 function renderUsers(){
@@ -333,7 +364,7 @@ const counts = count(cards);
 cardsA.innerHTML = cards.map(c=>{
 const dup = counts[c]>1;
 return `<button class="btn" onclick="pickA(${c})">${c}
-<span class="pill ${dup?'ok':'warn'}">${dup?'dup':'única'}</span></button>`;
+<span class="pill ${dup?'ok':'warn'}">${dup?'dup':'Ãºnica'}</span></button>`;
 }).join("");
 }
 
@@ -344,21 +375,21 @@ const counts = count(cards);
 cardsB.innerHTML = cards.map(c=>{
 const dup = counts[c]>1;
 return `<button class="btn" onclick="pickB(${c})">${c}
-<span class="pill ${dup?'ok':'warn'}">${dup?'dup':'única'}</span></button>`;
+<span class="pill ${dup?'ok':'warn'}">${dup?'dup':'Ãºnica'}</span></button>`;
 }).join("");
 }
 
 function pickA(c){
 SELECTED_CARD_A = c;
 warnA.innerText = count(ALBUMS[CURRENT_USER])[c]===1
-? "⚠️ Es tu única copia" : "";
+? "âš ï¸ Es tu Ãºnica copia" : "";
 updatePreview();
 }
 
 function pickB(c){
 SELECTED_CARD_B = c;
 warnB.innerText = count(ALBUMS[SELECTED_USER_B])[c]===1
-? "⚠️ No es duplicada" : "";
+? "âš ï¸ No es duplicada" : "";
 updatePreview();
 }
 
@@ -373,8 +404,8 @@ return c;
 function updatePreview(){
 preview.innerText =
 (CURRENT_USER && SELECTED_USER_B && SELECTED_CARD_A && SELECTED_CARD_B)
-? `${CURRENT_USER} ${SELECTED_CARD_A} ↔ ${SELECTED_USER_B} ${SELECTED_CARD_B}`
-: "Completar selección...";
+? `${CURRENT_USER} ${SELECTED_CARD_A} â†” ${SELECTED_USER_B} ${SELECTED_CARD_B}`
+: "Completar selecciÃ³n...";
 }
 
 // ================= TRADES =================
@@ -384,27 +415,29 @@ function renderActiveTrades(){
 const trades = CURRENT_TRADES
 .map((t,i)=>({...t,index:i}))
 .filter(t =>
-t.status==="pending" &&
+isOpenTrade(t) &&
 (t.user_a===CURRENT_USER || t.user_b===CURRENT_USER)
 );
 
 if(trades.length===0){
-activeTrades.innerHTML="No tenés trades activos";
+activeTrades.innerHTML="No tenÃ©s trades activos";
 return;
 }
 
 activeTrades.innerHTML = trades.map(t=>{
 
 const isReceiver = t.user_b===CURRENT_USER;
+const isPending = t.status==="pending";
+const statusText = isPending ? "Pendiente" : "Confirmado";
 
 return `
 <div class="trade-box">
-${t.user_a} (${t.card_a}) ↔ ${t.user_b} (${t.card_b})
-<br><span class="warn">Pendiente</span><br>
+${t.user_a} (${t.card_a}) â†” ${t.user_b} (${t.card_b})
+<br><span class="${isPending ? "warn" : "ok"}">${statusText}</span><br>
 
-${isReceiver
+${isReceiver && isPending
 ? `<button onclick="acceptTrade(${t.index}, this)" data-jsonbin-btn>Confirmar intercambio</button>`
-: `Esperando confirmación`
+: isPending ? `Esperando confirmación` : `Listo para procesar localmente`
 }
 
 </div>
@@ -441,9 +474,21 @@ const res = await fetch(`${BIN_URL}/latest`, {
 headers:{ "X-Access-Key": API_KEY }
 });
 const data = await res.json();
-const current = Array.isArray(data.record)?data.record:[];
+const record = normalizeBinRecord(data.record);
+const current = record.trades;
 
 const updated = [...current, trade];
+const day = todayKey();
+const lockedToday = new Set(record.daily_locks[day] || []);
+lockedToday.add(CURRENT_USER);
+lockedToday.add(SELECTED_USER_B);
+const updatedRecord = {
+trades: updated,
+daily_locks: {
+...record.daily_locks,
+[day]: [...lockedToday]
+}
+};
 
 const put = await fetch(BIN_URL,{
 method:"PUT",
@@ -451,11 +496,11 @@ headers:{
 "Content-Type":"application/json",
 "X-Access-Key": API_KEY
 },
-body: JSON.stringify(updated)
+body: JSON.stringify(updatedRecord)
 });
 
 if(put.ok){
-status.innerText="✔ Trade registrado";
+status.innerText="âœ” Trade registrado";
 
 await loadTrades();
 initApp();
@@ -486,7 +531,8 @@ const res = await fetch(`${BIN_URL}/latest`, {
 headers:{ "X-Access-Key": API_KEY }
 });
 const data = await res.json();
-const trades = Array.isArray(data.record)?data.record:[];
+const record = normalizeBinRecord(data.record);
+const trades = record.trades;
 
 trades[index].status="accepted";
 
@@ -496,10 +542,13 @@ headers:{
 "Content-Type":"application/json",
 "X-Access-Key": API_KEY
 },
-body: JSON.stringify(trades)
+body: JSON.stringify({
+...record,
+trades
+})
 });
 
-status.innerText="✔ Trade aceptado";
+status.innerText="âœ” Trade aceptado";
 
 await loadTrades();
 initApp();
@@ -528,13 +577,13 @@ btn.innerText = isBusy && btn===activeBtn
 </script>
 
 <footer class="bottom-tab">
-  <a href="cargar_resultados.html" class="enlace-secreto">©</a> 2026 Liga de Fulbo · PROMIEDOS
+  <a href="cargar_resultados.html" class="enlace-secreto">Â©</a> 2026 Liga de Fulbo Â· PROMIEDOS
 </footer>
 
 <div class="chiqui-floating-system" id="fabMenu">
   <div class="chiqui-menu-list">
-    <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
-    <a href="index.html" class="chiqui-circle-mini">⌂</a>
+    <button class="chiqui-circle-mini" id="btnScrollUp">â–²</button>
+    <a href="index.html" class="chiqui-circle-mini">âŒ‚</a>
     <a href="generador.html" class="chiqui-circle-mini">#</a>
     <a href="noticias.html" class="chiqui-circle-mini">N</a>
   </div>
@@ -546,3 +595,4 @@ btn.innerText = isBusy && btn===activeBtn
 
 </body>
 </html>
+
