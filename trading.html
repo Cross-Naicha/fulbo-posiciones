@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Intercambios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/boton.css">
+
+<style>
+.hidden { display:none; }
+.trading-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.trade-page {
+  display: grid;
+  gap: 18px;
+  width: 100%;
+  flex: 1;
+}
+.trading-body .bottom-tab { margin-top: auto; }
+.trade-title { text-align: center; margin: 0 0 8px; }
+.trade-panel { padding: 18px; }
+.trade-panel h3,
+.trade-panel h4 { margin: 0 0 12px; }
+.trade-form {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(160px, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+.trade-page select,
+.trade-page input {
+  width: 100%;
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: .95rem;
+  outline: none;
+}
+.trade-page select:focus,
+.trade-page input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(47,139,253,.25);
+}
+.trade-page button,
+.trade-page .btn {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease;
+}
+.trade-page button:hover,
+.trade-page .btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.trade-page button:active,
+.trade-page .btn:active { transform: translateY(1px); }
+#submitBtn,
+[onclick^="acceptTrade"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+.cards,
+#users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.cards .btn,
+#users .btn { margin: 0; }
+.warn { color: var(--neg); font-weight:bold; }
+.ok { color: var(--pos); }
+.pill {
+  margin-left:6px;
+  font-size:11px;
+  padding:2px 7px;
+  border-radius:999px;
+  border: 1px solid var(--line);
+}
+.pill.warn {
+  background: rgba(255,107,107,.12);
+  border-color: rgba(255,107,107,.35);
+}
+.pill.ok {
+  background: rgba(47,191,113,.12);
+  border-color: rgba(47,191,113,.35);
+}
+.disabled,
+.trade-page button:disabled { opacity:0.45; pointer-events:none; }
+#preview,
+#status,
+#activeTrades { color: var(--muted); }
+#preview {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255,255,255,.02);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+#status { min-height: 24px; font-weight: 700; }
+.trade-box {
+  border:1px solid var(--line);
+  padding:14px;
+  margin:10px 0 0;
+  border-radius:12px;
+  background: linear-gradient(180deg, #10151c, #0f141b);
+  color: var(--ink);
+}
+.trade-section-title { margin: 0 0 8px; color: var(--ink); }
+.nav-item.active { background: var(--accent); border-color: var(--accent); }
+@media (max-width: 640px) {
+  .trade-form { grid-template-columns: 1fr; }
+  .trade-panel { padding: 14px; }
+  .trade-page button,
+  .trade-page .btn { min-height: 42px; }
+}
+</style>
+</head>
+
+<body class="trading-body">
+
+<nav class="top-nav" id="mainNav">
+  <div class="nav-scroll">
+    <a href="index.html" class="nav-item">🏠 HOME</a>
+    <a href="figuritas.html" class="nav-item">FIGURITAS 📚</a>
+    <a href="albums.html" class="nav-item">ALBÚM 📇</a>
+    <a href="trading.html" class="nav-item active">🔀</a>
+  </div>
+</nav>
+
+<div class="top-tab" id="auspiciante">INTERCAMBIOS · Liga de Fulbo</div>
+
+<main class="wrap trade-page">
+<h1 class="trade-title">Intercambios</h1>
+<div class="sub">Generador de recibos para cambios de figuritas</div>
+<div class="sep"></div>
+
+<section id="login" class="card trade-panel">
+<h3>Ingreso</h3>
+<div class="trade-form">
+<select id="userSelect"></select>
+<input type="password" id="password" placeholder="Clave">
+<button onclick="login(this)" data-jsonbin-btn>Entrar</button>
+</div>
+<div id="loginError" class="warn"></div>
+</section>
+
+<div id="app" class="hidden">
+
+<section class="card trade-panel">
+<h3 id="welcome"></h3>
+
+<div id="blockedMsg" class="warn hidden">
+Ya tenés un intercambio pendiente
+</div>
+
+<div id="newTradeForm" class="trade-panel">
+<h4>Elegir contraparte</h4>
+<div id="users"></div>
+
+<h4>Tus cartas</h4>
+<div id="cardsA" class="cards"></div>
+<div id="warnA" class="warn"></div>
+
+<h4>Cartas de la contraparte</h4>
+<div id="cardsB" class="cards"></div>
+<div id="warnB" class="warn"></div>
+
+<h4>Vista previa</h4>
+<div id="preview"></div>
+
+<button id="submitBtn" onclick="submitTrade(this)" data-jsonbin-btn>Generar recibo</button>
+</div>
+
+<div id="status"></div>
+</section>
+
+<div class="sep"></div>
+<section class="card trade-panel">
+<h3 class="trade-section-title">Trades en curso</h3>
+<div id="activeTrades"></div>
+</section>
+
+</div>
+</main>
+
+<script>
+
+// ================= CONFIG =================
+
+const BASE = {
+'naicha':'z5YP','pollo':'ncoT','mario':'g8sX','ponce':'a9vR',
+'benja':'k3wL','berna':'h2mQ','lomba':'f7jD','chagay':'e6rS',
+'cesar':'b1uN','mato':'c4tY','chicho':'d0xV','juan':'l9oW','marcos':'i5pB'
+};
+
+const BIN_ID = "69f8b37536566621a823a468";
+const API_KEY = "$2a$10$Bre/f/YRmPMXJjx0Ng62Cu0hSkWsZHgEwoh0P37DGEBK5ZcQvKfHG";
+const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+// ================= STATE =================
+
+let ALBUMS = {};
+let CURRENT_USER = null;
+let CURRENT_TRADES = [];
+
+let SELECTED_USER_B = null;
+let SELECTED_CARD_A = null;
+let SELECTED_CARD_B = null;
+let JSONBIN_BUSY = false;
+
+// ================= INIT =================
+
+(async function init(){
+populateUsers();
+await loadAlbums();
+})();
+
+// ================= DATA =================
+
+async function loadAlbums(){
+const res = await fetch("data/albums.json");
+ALBUMS = await res.json();
+}
+
+async function loadTrades(){
+try{
+const res = await fetch(`${BIN_URL}/latest`, {
+headers:{ "X-Access-Key": API_KEY }
+});
+const data = await res.json();
+CURRENT_TRADES = Array.isArray(data.record) ? data.record : [];
+}catch{
+CURRENT_TRADES = [];
+}
+}
+
+// ================= LOGIN =================
+
+function populateUsers(){
+userSelect.innerHTML = Object.keys(BASE)
+.map(u=>`<option>${u}</option>`).join("");
+}
+
+async function login(btn){
+
+if(JSONBIN_BUSY) return;
+
+const u = userSelect.value;
+const p = password.value;
+
+if(BASE[u]===p){
+
+CURRENT_USER = u;
+
+setJsonbinBusy(true, btn, "Entrando...");
+
+try{
+await loadTrades();
+
+document.getElementById("login").style.display="none";
+document.getElementById("app").classList.remove("hidden");
+welcome.innerText="Usuario: "+u;
+
+initApp();
+}finally{
+setJsonbinBusy(false);
+}
+
+}else{
+loginError.innerText="Clave incorrecta";
+}
+}
+
+// ================= APP =================
+
+function initApp(){
+
+renderActiveTrades();
+
+if(isBlocked(CURRENT_USER)){
+blockedMsg.classList.remove("hidden");
+newTradeForm.classList.add("hidden");
+return;
+}
+
+blockedMsg.classList.add("hidden");
+newTradeForm.classList.remove("hidden");
+renderUsers();
+renderCardsA();
+}
+
+function isBlocked(user){
+return CURRENT_TRADES.some(t =>
+t.status==="pending" &&
+(t.user_a===user || t.user_b===user)
+);
+}
+
+function renderUsers(){
+users.innerHTML = Object.keys(BASE)
+.filter(u=>u!==CURRENT_USER)
+.map(u=>{
+const disabled = isBlocked(u) ? "disabled" : "";
+return `<button class="btn ${disabled}" onclick="selectUser('${u}')">${u}</button>`;
+}).join("");
+}
+
+function selectUser(u){
+SELECTED_USER_B = u;
+renderCardsB();
+updatePreview();
+}
+
+// ================= CARDS =================
+
+function renderCardsA(){
+const cards = ALBUMS[CURRENT_USER]||[];
+const counts = count(cards);
+
+cardsA.innerHTML = cards.map(c=>{
+const dup = counts[c]>1;
+return `<button class="btn" onclick="pickA(${c})">${c}
+<span class="pill ${dup?'ok':'warn'}">${dup?'dup':'única'}</span></button>`;
+}).join("");
+}
+
+function renderCardsB(){
+const cards = ALBUMS[SELECTED_USER_B]||[];
+const counts = count(cards);
+
+cardsB.innerHTML = cards.map(c=>{
+const dup = counts[c]>1;
+return `<button class="btn" onclick="pickB(${c})">${c}
+<span class="pill ${dup?'ok':'warn'}">${dup?'dup':'única'}</span></button>`;
+}).join("");
+}
+
+function pickA(c){
+SELECTED_CARD_A = c;
+warnA.innerText = count(ALBUMS[CURRENT_USER])[c]===1
+? "⚠️ Es tu única copia" : "";
+updatePreview();
+}
+
+function pickB(c){
+SELECTED_CARD_B = c;
+warnB.innerText = count(ALBUMS[SELECTED_USER_B])[c]===1
+? "⚠️ No es duplicada" : "";
+updatePreview();
+}
+
+function count(arr){
+const c={};
+arr.forEach(x=>c[x]=(c[x]||0)+1);
+return c;
+}
+
+// ================= PREVIEW =================
+
+function updatePreview(){
+preview.innerText =
+(CURRENT_USER && SELECTED_USER_B && SELECTED_CARD_A && SELECTED_CARD_B)
+? `${CURRENT_USER} ${SELECTED_CARD_A} ↔ ${SELECTED_USER_B} ${SELECTED_CARD_B}`
+: "Completar selección...";
+}
+
+// ================= TRADES =================
+
+function renderActiveTrades(){
+
+const trades = CURRENT_TRADES
+.map((t,i)=>({...t,index:i}))
+.filter(t =>
+t.status==="pending" &&
+(t.user_a===CURRENT_USER || t.user_b===CURRENT_USER)
+);
+
+if(trades.length===0){
+activeTrades.innerHTML="No tenés trades activos";
+return;
+}
+
+activeTrades.innerHTML = trades.map(t=>{
+
+const isReceiver = t.user_b===CURRENT_USER;
+
+return `
+<div class="trade-box">
+${t.user_a} (${t.card_a}) ↔ ${t.user_b} (${t.card_b})
+<br><span class="warn">Pendiente</span><br>
+
+${isReceiver
+? `<button onclick="acceptTrade(${t.index}, this)" data-jsonbin-btn>Confirmar intercambio</button>`
+: `Esperando confirmación`
+}
+
+</div>
+`;
+}).join("");
+}
+
+// ================= SUBMIT =================
+
+async function submitTrade(btn){
+
+if(JSONBIN_BUSY) return;
+
+if(!SELECTED_USER_B||!SELECTED_CARD_A||!SELECTED_CARD_B){
+alert("Faltan datos");
+return;
+}
+
+setJsonbinBusy(true, btn || document.getElementById("submitBtn"), "Enviando...");
+
+const trade = {
+id: window.crypto?.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+created_at: new Date().toISOString(),
+user_a: CURRENT_USER,
+user_b: SELECTED_USER_B,
+card_a: SELECTED_CARD_A,
+card_b: SELECTED_CARD_B,
+status:"pending"
+};
+
+try{
+
+const res = await fetch(`${BIN_URL}/latest`, {
+headers:{ "X-Access-Key": API_KEY }
+});
+const data = await res.json();
+const current = Array.isArray(data.record)?data.record:[];
+
+const updated = [...current, trade];
+
+const put = await fetch(BIN_URL,{
+method:"PUT",
+headers:{
+"Content-Type":"application/json",
+"X-Access-Key": API_KEY
+},
+body: JSON.stringify(updated)
+});
+
+if(put.ok){
+status.innerText="✔ Trade registrado";
+
+await loadTrades();
+initApp();
+
+}else{
+status.innerText="Error al guardar";
+}
+
+}catch(e){
+console.error(e);
+status.innerText="Error de red";
+}finally{
+setJsonbinBusy(false);
+}
+}
+
+// ================= ACCEPT =================
+
+async function acceptTrade(index, btn){
+
+if(JSONBIN_BUSY) return;
+
+setJsonbinBusy(true, btn, "Aceptando...");
+
+try{
+
+const res = await fetch(`${BIN_URL}/latest`, {
+headers:{ "X-Access-Key": API_KEY }
+});
+const data = await res.json();
+const trades = Array.isArray(data.record)?data.record:[];
+
+trades[index].status="accepted";
+
+await fetch(BIN_URL,{
+method:"PUT",
+headers:{
+"Content-Type":"application/json",
+"X-Access-Key": API_KEY
+},
+body: JSON.stringify(trades)
+});
+
+status.innerText="✔ Trade aceptado";
+
+await loadTrades();
+initApp();
+
+}catch(e){
+console.error(e);
+status.innerText="Error de red";
+}finally{
+setJsonbinBusy(false);
+}
+}
+
+function setJsonbinBusy(isBusy, activeBtn, busyText){
+JSONBIN_BUSY = isBusy;
+
+document.querySelectorAll("[data-jsonbin-btn]").forEach(btn=>{
+if(!btn.dataset.defaultText) btn.dataset.defaultText = btn.innerText;
+btn.disabled = isBusy;
+btn.classList.toggle("disabled", isBusy);
+btn.innerText = isBusy && btn===activeBtn
+? busyText
+: btn.dataset.defaultText;
+});
+}
+
+</script>
+
+<footer class="bottom-tab">
+  <a href="cargar_resultados.html" class="enlace-secreto">©</a> 2026 Liga de Fulbo · PROMIEDOS
+</footer>
+
+<div class="chiqui-floating-system" id="fabMenu">
+  <div class="chiqui-menu-list">
+    <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+    <a href="index.html" class="chiqui-circle-mini">⌂</a>
+    <a href="generador.html" class="chiqui-circle-mini">#</a>
+    <a href="noticias.html" class="chiqui-circle-mini">N</a>
+  </div>
+  <button class="chiqui-circle-main" id="btnFabMain">+</button>
+</div>
+
+<script src="js/boton.js"></script>
+<script src="js/textos.js"></script>
+
+</body>
+</html>
