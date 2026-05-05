@@ -364,7 +364,7 @@ const counts = count(cards);
 cardsA.innerHTML = cards.map(c=>{
 const dup = counts[c]>1;
 return `<button class="btn" onclick="pickA(${c})">${c}
-<span class="pill ${dup?'ok':'warn'}">${dup?'dup':'Ãºnica'}</span></button>`;
+<span class="pill ${dup?'ok':'warn'}">${dup?'Duplicada':'Única'}</span></button>`;
 }).join("");
 }
 
@@ -375,21 +375,21 @@ const counts = count(cards);
 cardsB.innerHTML = cards.map(c=>{
 const dup = counts[c]>1;
 return `<button class="btn" onclick="pickB(${c})">${c}
-<span class="pill ${dup?'ok':'warn'}">${dup?'dup':'Ãºnica'}</span></button>`;
+<span class="pill ${dup?'ok':'warn'}">${dup?'Duplicada':'Única'}</span></button>`;
 }).join("");
 }
 
 function pickA(c){
 SELECTED_CARD_A = c;
 warnA.innerText = count(ALBUMS[CURRENT_USER])[c]===1
-? "âš ï¸ Es tu Ãºnica copia" : "";
+? "⚠️ Es tu única copia" : "";
 updatePreview();
 }
 
 function pickB(c){
 SELECTED_CARD_B = c;
 warnB.innerText = count(ALBUMS[SELECTED_USER_B])[c]===1
-? "âš ï¸ No es duplicada" : "";
+? "⚠️ No es duplicada" : "";
 updatePreview();
 }
 
@@ -420,7 +420,7 @@ isOpenTrade(t) &&
 );
 
 if(trades.length===0){
-activeTrades.innerHTML="No tenÃ©s trades activos";
+activeTrades.innerHTML="No tenés trades activos";
 return;
 }
 
@@ -500,7 +500,7 @@ body: JSON.stringify(updatedRecord)
 });
 
 if(put.ok){
-status.innerText="âœ” Trade registrado";
+status.innerText="Trade registrado";
 
 await loadTrades();
 initApp();
@@ -548,7 +548,7 @@ trades
 })
 });
 
-status.innerText="âœ” Trade aceptado";
+status.innerText="Trade aceptado";
 
 await loadTrades();
 initApp();
@@ -583,9 +583,9 @@ btn.innerText = isBusy && btn===activeBtn
 <div class="chiqui-floating-system" id="fabMenu">
   <div class="chiqui-menu-list">
     <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
-    <a href="index.html" class="chiqui-circle-mini">âŒ‚</a>
-    <a href="generador.html" class="chiqui-circle-mini">#</a>
-    <a href="noticias.html" class="chiqui-circle-mini">N</a>
+    <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+    <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    <a href="index.html" class="chiqui-circle-mini">🏠</a>
   </div>
   <button class="chiqui-circle-main" id="btnFabMain">+</button>
 </div>
