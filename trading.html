@@ -78,6 +78,39 @@
   gap: 8px;
   margin-bottom: 14px;
 }
+.card-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.card-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+}
+.card-id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: var(--accent);
+  font-weight: 800;
+}
+.card-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.trade-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.trade-toggle input {
+  width: auto;
+}
 .cards .btn,
 #users .btn { margin: 0; }
 .warn { color: var(--neg); font-weight:bold; }
@@ -133,8 +166,8 @@
 
 <nav class="top-nav" id="mainNav">
   <div class="nav-scroll">
-    <a href="index.html" class="nav-item">🏠 HOME</a>
-    <a href="figuritas.html" class="nav-item">FIGURITAS 📚</a>
+    <a href="index.html" class="nav-item">🏠</a>
+    <a href="figuritas.html" class="nav-item">FIGURITAS 🃏</a>
     <a href="albums.html" class="nav-item">ALBÚM 📇</a>
     <a href="trading.html" class="nav-item active">🔀</a>
   </div>
@@ -170,12 +203,17 @@ Ya tenés un intercambio pendiente o confirmado para procesar
 <h4>Elegir contraparte</h4>
 <div id="users"></div>
 
-<h4>Tus cartas</h4>
-<div id="cardsA" class="cards"></div>
+<label class="trade-toggle">
+<input type="checkbox" id="onlyDupes" onchange="toggleDuplicateFilter();">
+Solo duplicados
+</label>
+
+<h4>Mis cartas</h4>
+<div id="cardsA" class="card-list"></div>
 <div id="warnA" class="warn"></div>
 
 <h4>Cartas de la contraparte</h4>
-<div id="cardsB" class="cards"></div>
+<div id="cardsB" class="card-list"></div>
 <div id="warnB" class="warn"></div>
 
 <h4>Vista previa</h4>
@@ -213,6 +251,7 @@ const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 // ================= STATE =================
 
 let ALBUMS = {};
+let CARDS_BY_ID = {};
 let CURRENT_USER = null;
 let CURRENT_TRADES = [];
 let DAILY_LOCKS = {};
@@ -232,8 +271,13 @@ await loadAlbums();
 // ================= DATA =================
 
 async function loadAlbums(){
-const res = await fetch("data/albums.json");
-ALBUMS = await res.json();
+const [albumsRes, cardsRes] = await Promise.all([
+fetch("data/albums.json"),
+fetch("data/figuritas.json")
+]);
+ALBUMS = await albumsRes.json();
+const cards = await cardsRes.json();
+CARDS_BY_ID = Object.fromEntries(cards.map(card=>[card.id, card]));
 }
 
 async function loadTrades(){
@@ -345,7 +389,7 @@ users.innerHTML = Object.keys(BASE)
 .filter(u=>u!==CURRENT_USER)
 .map(u=>{
 const disabled = isBlocked(u) ? "disabled" : "";
-return `<button class="btn ${disabled}" onclick="selectUser('${u}')">${u}</button>`;
+return `<button class="btn ${disabled}" onclick="selectUser('${u}')">${u.toUpperCase()}</button>`;
 }).join("");
 }
 
@@ -355,28 +399,63 @@ renderCardsB();
 updatePreview();
 }
 
+function toggleDuplicateFilter(){
+if(onlyDupes.checked){
+if(SELECTED_CARD_A && !isDuplicate(CURRENT_USER, SELECTED_CARD_A)){
+SELECTED_CARD_A = null;
+warnA.innerText = "";
+}
+if(SELECTED_CARD_B && !isDuplicate(SELECTED_USER_B, SELECTED_CARD_B)){
+SELECTED_CARD_B = null;
+warnB.innerText = "";
+}
+}
+
+renderCardsA();
+if(SELECTED_USER_B) renderCardsB();
+updatePreview();
+}
+
 // ================= CARDS =================
 
 function renderCardsA(){
 const cards = ALBUMS[CURRENT_USER]||[];
-const counts = count(cards);
-
-cardsA.innerHTML = cards.map(c=>{
-const dup = counts[c]>1;
-return `<button class="btn" onclick="pickA(${c})">${c}
-<span class="pill ${dup?'ok':'warn'}">${dup?'Duplicada':'Única'}</span></button>`;
-}).join("");
+cardsA.innerHTML = renderCardList(cards, "pickA");
 }
 
 function renderCardsB(){
 const cards = ALBUMS[SELECTED_USER_B]||[];
-const counts = count(cards);
+cardsB.innerHTML = renderCardList(cards, "pickB");
+}
 
-cardsB.innerHTML = cards.map(c=>{
-const dup = counts[c]>1;
-return `<button class="btn" onclick="pickB(${c})">${c}
-<span class="pill ${dup?'ok':'warn'}">${dup?'Duplicada':'Única'}</span></button>`;
+function renderCardList(cards, pickFn){
+const counts = count(cards);
+const onlyDuplicates = onlyDupes.checked;
+const ids = Object.keys(counts)
+.map(Number)
+.filter(id=>!onlyDuplicates || counts[id]>1)
+.sort((a,b)=>a-b);
+
+if(ids.length===0){
+return `<div class="sub">No hay cartas para mostrar</div>`;
+}
+
+return ids.map(id=>{
+const dup = counts[id]>1;
+return `<button class="btn card-row" onclick="${pickFn}(${id})">
+<span class="card-id">#${id}</span>
+<span class="card-name">${cardName(id)}</span>
+<span class="pill ${dup?'ok':'warn'}">${dup?`x${counts[id]}`:'Única'}</span>
+</button>`;
 }).join("");
+}
+
+function cardName(id){
+return CARDS_BY_ID[id]?.jugador || "Carta sin nombre";
+}
+
+function isDuplicate(user, card){
+return user && count(ALBUMS[user]||[])[card]>1;
 }
 
 function pickA(c){
