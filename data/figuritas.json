@@ -1,5 +1,4 @@
 [
-
 {"id":13,"tipo":"comunes","pais":"croacia","jugador":"Matija Benetović","imagen":"croacia.png"},
 {"id":14,"tipo":"comunes","pais":"marruecos","jugador":"Benyamin Salhi","imagen":"marruecos.png"},
 {"id":15,"tipo":"comunes","pais":"colombia","jugador":"Luis Gonzalo Cortés","imagen":"colombia.png"},
@@ -16,7 +15,7 @@
 {"id":25,"tipo":"comunes","pais":"noruega","jugador":"Marius Rønning","imagen":"noruega.png"},
 {"id":26,"tipo":"comunes","pais":"panama","jugador":"César Núñez Jr.","imagen":"panama.png"},
 {"id":27,"tipo":"comunes","pais":"egipto","jugador":"نيكولا درويش","imagen":"egipto.png"},
-{"id":28,"tipo":"comunes","pais":"argelia","jugador":"Riyad Mahrez","imagen":"argelia.png"},
+{"id":28,"tipo":"comunes","pais":"argelia","jugador":"Yuan Balo Al-Onzua","imagen":"argelia.png"},
 {"id":29,"tipo":"comunes","pais":"escocia","jugador":"Andrew Robertson","imagen":"escocia.png"},
 {"id":30,"tipo":"comunes","pais":"paraguay","jugador":"Juan Gonzalo Cortés","imagen":"paraguay.png"},
 {"id":31,"tipo":"comunes","pais":"tunez","jugador":"Béchir Ghouili","imagen":"tunez.png"},
@@ -31,7 +30,7 @@
 {"id":39,"tipo":"comunes","pais":"ghana","jugador":"Martin Mensah","imagen":"ghana.png"},
 {"id":40,"tipo":"comunes","pais":"curazao","jugador":"Sesar Nunes","imagen":"curazao.png"},
 {"id":41,"tipo":"comunes","pais":"haiti","jugador":"Alexis Chéry","imagen":"haiti.png"},
-{"id":42,"tipo":"comunes","pais":"nueva_zelanda","jugador":"Chris Wood","imagen":"nueva zelanda.png"},
+{"id":42,"tipo":"comunes","pais":"nueva_zelanda","jugador":"John Paul Rice Alonsway","imagen":"nueva zelanda.png"},
 {"id":43,"tipo":"comunes","pais":"rd_congo","jugador":"Jean-Paul Nzambe","imagen":"congo.png"},
 {"id":44,"tipo":"comunes","pais":"bosnia","jugador":"Benjamin Salić","imagen":"bosnia.png"},
 {"id":45,"tipo":"comunes","pais":"chequia","jugador":"Bernard Gajl","imagen":"chequia.png"},
@@ -76,14 +75,15 @@
 {"id":8,"tipo":"leyenda","pais":"belgica","jugador":"Maarten Poncelet","imagen":"belgica.png"},
 {"id":9,"tipo":"leyenda","pais":"francia","jugador":"Césaire Nunier","imagen":"francia.png"},
 {"id":10,"tipo":"leyenda","pais":"brasil","jugador":"Matias Beneites","imagen":"brasil.png"},
-{"id":11,"tipo":"comunes","pais":"portugal","jugador":"Cristiano Ronaldo","imagen":"portugal.png"},
+{"id":11,"tipo":"leyenda","pais":"portugal","jugador":"João Paulo Rodrigues Alonzua","imagen":"portugal.png"},
 {"id":12,"tipo":"comunes","pais":"estados_unidos","jugador":"Christian Pulisic","imagen":"estados unidos.png"},
 
 {"id":74,"tipo":"leyenda","pais":"argentina","jugador":"Diego Maradona","imagen":"maradona.png"},
 {"id":75,"tipo":"leyenda","pais":"argentina","jugador":"Lionel Messi","imagen":"lionel.png"},
 {"id":76,"tipo":"leyenda","pais":"argentina","jugador":"Lionel Scaloni","imagen":"scaloni.png"},
 
-{"id":77,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 72'","imagen":"juan72.png"},
-{"id":78,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 86","imagen":"juan86.png"},
-{"id":79,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 22","imagen":"juan22.png"}
+{"id":77,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1978'","imagen":"juan72.png"},
+{"id":78,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1986","imagen":"juan86.png"},
+{"id":79,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 2022","imagen":"juan22.png"},
+{"id":80,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1810","imagen":"belgrano.jpeg"}
 ]

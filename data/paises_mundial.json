@@ -7,7 +7,7 @@
   { "pais": "Francia", "abr": "FRA", "codigo": "fr", "jugador": "Cesar", "bombo": 1 },
   { "pais": "Inglaterra", "abr": "ENG", "codigo": "gb-eng", "jugador": "Berna", "bombo": 1 },
   { "pais": "Brasil", "abr": "BRA", "codigo": "br", "jugador": "Mato", "bombo": 1 },
-  { "pais": "Portugal", "abr": "POR", "codigo": "pt", "jugador": "Chicho", "bombo": 1 },
+  { "pais": "Portugal", "abr": "POR", "codigo": "pt", "jugador": "Juan", "bombo": 1 },
   { "pais": "Países Bajos", "abr": "NED", "codigo": "nl", "jugador": "Mario", "bombo": 1 },
   { "pais": "Alemania", "abr": "GER", "codigo": "de", "jugador": "Naicha", "bombo": 1 },
   { "pais": "Bélgica", "abr": "BEL", "codigo": "be", "jugador": "P11", "bombo": 1 },
@@ -15,7 +15,7 @@
   { "pais": "Croacia", "abr": "CRO", "codigo": "hr", "jugador": "Mato", "bombo": 2 },
   { "pais": "Marruecos", "abr": "MAR", "codigo": "ma", "jugador": "Benja", "bombo": 2 },
   { "pais": "Colombia", "abr": "COL", "codigo": "co", "jugador": "Pollo", "bombo": 2 },
-  { "pais": "Uruguay", "abr": "URU", "codigo": "uy", "jugador": "Chicho", "bombo": 2 },
+  { "pais": "Uruguay", "abr": "URU", "codigo": "uy", "jugador": "Juan", "bombo": 2 },
   { "pais": "Suiza", "abr": "SUI", "codigo": "ch", "jugador": "Naicha", "bombo": 2 },
   { "pais": "Japón", "abr": "JPN", "codigo": "jp", "jugador": "P11", "bombo": 2 },
   { "pais": "Senegal", "abr": "SEN", "codigo": "sn", "jugador": "Marcos", "bombo": 2 },
@@ -28,7 +28,7 @@
   { "pais": "Noruega", "abr": "NOR", "codigo": "no", "jugador": "Mario", "bombo": 3 },
   { "pais": "Panamá", "abr": "PAN", "codigo": "pa", "jugador": "Cesar", "bombo": 3 },
   { "pais": "Egipto", "abr": "EGY", "codigo": "eg", "jugador": "Naicha", "bombo": 3 },
-  { "pais": "Argelia", "abr": "ALG", "codigo": "dz", "jugador": "Chicho", "bombo": 3 },
+  { "pais": "Argelia", "abr": "ALG", "codigo": "dz", "jugador": "Juan", "bombo": 3 },
   { "pais": "Escocia", "abr": "SCO", "codigo": "gb-sct", "jugador": "Marcos", "bombo": 3 },
   { "pais": "Paraguay", "abr": "PAR", "codigo": "py", "jugador": "Pollo", "bombo": 3 },
   { "pais": "Túnez", "abr": "TUN", "codigo": "tn", "jugador": "Berna", "bombo": 3 },
@@ -43,12 +43,11 @@
   { "pais": "Ghana", "abr": "GHA", "codigo": "gh", "jugador": "P11", "bombo": 4 },
   { "pais": "Curazao", "abr": "CUW", "codigo": "cw", "jugador": "Cesar", "bombo": 4 },
   { "pais": "Haití", "abr": "HAI", "codigo": "ht", "jugador": "Alexis", "bombo": 4 },
-  { "pais": "Nueva Zelanda", "abr": "NZL", "codigo": "nz", "jugador": "Chicho", "bombo": 4 },
+  { "pais": "Nueva Zelanda", "abr": "NZL", "codigo": "nz", "jugador": "Juan", "bombo": 4 },
   { "pais": "RD Congo", "abr": "COD", "codigo": "cd", "jugador": "Lomba", "bombo": 4 },
   { "pais": "Bosnia", "abr": "BIH", "codigo": "ba", "jugador": "Benja", "bombo": 4 },
   { "pais": "Chequia", "abr": "CZE", "codigo": "cz", "jugador": "Berna", "bombo": 4 },
   { "pais": "Suecia", "abr": "SWE", "codigo": "se", "jugador": "Marcos", "bombo": 4 },
   { "pais": "Turquía", "abr": "TUR", "codigo": "tr", "jugador": "Pollo", "bombo": 4 },
-  { "pais": "Irak", "abr": "IRQ", "codigo": "iq", "jugador": "Mato", "bombo": 4 }
-  
+  { "pais": "Irak", "abr": "IRQ", "codigo": "iq", "jugador": "Mato", "bombo": 4 } 
 ]
