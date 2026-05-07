@@ -1,53 +1,57 @@
 {
   "basic_statistics": {
-    "partidos": 1.0,
+    "partidos": 2.0,
     "apodo": "Emi",
-    "puntos": 0,
-    "efectividad": 0.0,
-    "ganados": 0,
+    "puntos": 3,
+    "efectividad": 0.5,
+    "ganados": 1,
     "empatados": 0,
     "perdidos": 1,
-    "diferencia de gol": "- 5",
+    "diferencia de gol": "- 3",
     "delta": "-"
   },
   "winning_streak_statistics": {
-    "empieza": null,
-    "termina": null,
-    "extension": 0,
-    "puntos_acumulados": 0,
-    "victorias": 0,
+    "empieza": "2026-05-06",
+    "termina": "2026-05-06",
+    "extension": 1,
+    "puntos acumulados": 3,
+    "victorias": 1,
     "empates": 0,
-    "actual": false
+    "actual": true
   },
   "losses_streak_statistics": {
     "empieza": "2026-04-29",
     "termina": "2026-04-29",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2026-04-29",
-    "termina": "2026-04-29",
-    "extension": 1,
+    "termina": "2026-05-06",
+    "extension": 2,
     "actual": true
   },
   "last_5": {
+    "2026-05-06": "G",
     "2026-04-29": "P",
     "2026-04-15": "A",
     "2026-04-08": "A",
-    "2026-04-01": "A",
-    "2026-03-25": "A"
+    "2026-04-01": "A"
   },
   "balance_vs": {
+    "Bag": 1,
+    "Mato": 1,
+    "Mario": 0,
+    "Marcelo": 0,
     "Naicha": -1,
-    "Lomba": -1,
-    "Mario": -1,
-    "Marcelo": -1
+    "Lomba": -1
   },
-  "best_partner": {},
+  "best_partner": {
+    "Cesar": 1,
+    "P11": 1
+  },
   "worse_partner": {
     "Bag": 1,
-    "Chagay": 1,
     "Mato": 1
   },
   "paternity": {},
