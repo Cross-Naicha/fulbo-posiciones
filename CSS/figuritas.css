@@ -146,7 +146,27 @@ display:flex;justify-content:space-between;
 z-index:3;
 }
 
-.flag{width:28px;height:20px}
+.header span,
+.header .flag{
+background:rgba(0,0,0,.72);
+box-shadow:0 2px 8px rgba(0,0,0,.45);
+}
+
+.header span{
+color:#fff;
+padding:5px 8px;
+border-radius:8px;
+font-weight:800;
+text-shadow:0 1px 4px rgba(0,0,0,.9);
+}
+
+.flag{
+width:28px;
+height:20px;
+border-radius:4px;
+padding:2px;
+object-fit:cover;
+}
 
 /* INFO */
 
@@ -156,8 +176,11 @@ bottom:0;width:100%;
 padding:10px;
 background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
 z-index:3;
+color:#fff;
+text-shadow:0 1px 4px rgba(0,0,0,.9);
 }
 
+.info div:first-child{font-weight:800;}
 .country{text-transform:uppercase;}
 
 /* FOIL */

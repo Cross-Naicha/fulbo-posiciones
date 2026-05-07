@@ -9,6 +9,20 @@
 
 <style>
 
+.album-page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.album-page #app{
+  flex:1;
+}
+
+.album-page .bottom-tab{
+  margin-top:auto;
+}
+
 /* ================= LOGIN ================= */
 .login-box{
   max-width:320px;
@@ -184,9 +198,11 @@
 .hidden{ display:none; }
 
 .modal-content{
-  width:260px;
-  height:360px;
+  width:clamp(300px,82vw,390px);
   animation:pop .3s ease;
+  display:grid;
+  gap:12px;
+  justify-items:center;
 }
 
 @keyframes pop{
@@ -196,7 +212,7 @@
 
 .modal-frame{
   width:100%;
-  height:100%;
+  aspect-ratio:2/3;
   border-radius:12px;
   padding:10px;
 }
@@ -237,12 +253,47 @@
   justify-content:space-between;
 }
 
+.modal-header span{
+  background:rgba(0,0,0,.72);
+  color:#fff;
+  padding:5px 8px;
+  border-radius:8px;
+  font-weight:800;
+  text-shadow:0 1px 4px rgba(0,0,0,.9);
+}
+
+.modal-flag{
+  width:32px;
+  height:24px;
+  object-fit:cover;
+  border-radius:5px;
+  padding:2px;
+  background:rgba(0,0,0,.72);
+  box-shadow:0 2px 8px rgba(0,0,0,.45);
+}
+
 .modal-info{
   position:absolute;
   bottom:0;
   width:100%;
   padding:10px;
   background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+  color:#fff;
+  text-shadow:0 1px 4px rgba(0,0,0,.9);
+}
+
+.modal-info div:first-child{
+  font-weight:800;
+}
+
+.download-card-btn{
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--accent);
+  color:#fff;
+  padding:8px 14px;
+  font-weight:700;
+  cursor:pointer;
 }
 
 .modal-info div:last-child{
@@ -255,7 +306,7 @@
 
 </head>
 
-<body>
+<body class="album-page">
 
 <nav class="top-nav" id="mainNav">
 <div class="nav-scroll">
@@ -334,7 +385,59 @@ const USERS = {
   marcos: 'i5pB'
 }
 
+const FLAGS = {
+  argentina: "ar",
+  estados_unidos: "us",
+  mexico: "mx",
+  canada: "ca",
+  espana: "es",
+  francia: "fr",
+  inglaterra: "gb",
+  brasil: "br",
+  portugal: "pt",
+  paises_bajos: "nl",
+  alemania: "de",
+  belgica: "be",
+  croacia: "hr",
+  marruecos: "ma",
+  colombia: "co",
+  uruguay: "uy",
+  suiza: "ch",
+  japon: "jp",
+  senegal: "sn",
+  iran: "ir",
+  corea_sur: "kr",
+  ecuador: "ec",
+  austria: "at",
+  australia: "au",
+  noruega: "no",
+  panama: "pa",
+  egipto: "eg",
+  argelia: "dz",
+  escocia: "gb",
+  paraguay: "py",
+  tunez: "tn",
+  costa_marfil: "ci",
+  uzbekistan: "uz",
+  qatar: "qa",
+  arabia_saudita: "sa",
+  sudafrica: "za",
+  jordania: "jo",
+  cabo_verde: "cv",
+  ghana: "gh",
+  curazao: "cw",
+  haiti: "ht",
+  nueva_zelanda: "nz",
+  rd_congo: "cd",
+  bosnia: "ba",
+  chequia: "cz",
+  suecia: "se",
+  turquia: "tr",
+  irak: "iq"
+}
+
 let CARTAS=[], ALBUMS=[]
+const ALBUM_MAX_ID = 80
 let currentFilter="all"
 let viewMode="album"
 let userSet, globalCount, currentUser
@@ -499,6 +602,8 @@ function renderAlbum(compareSet=null){
 
   CARTAS.forEach((carta,i)=>{
 
+    if(currentFilter==="all" && carta.id>ALBUM_MAX_ID) return
+
     if(currentFilter!=="all" && carta.tipo!==currentFilter) return
 
     const has=userSet.has(carta.id)
@@ -536,13 +641,14 @@ function openCard(carta){
   const rare=
     carta.tipo==="leyenda"?"legend":
     carta.tipo==="raras"?"rare":"common"
+  const flag=FLAGS[carta.pais] || "ar"
 
   document.getElementById("modalContent").innerHTML=`
     <div class="modal-frame ${rare}">
       <div class="modal-sticker">
         <div class="modal-header">
+          <img class="modal-flag" src="https://flagcdn.com/w40/${flag}.png">
           <span>#${carta.id}</span>
-          <span>👥 ${globalCount[carta.id]||0}</span>
         </div>
         <img class="modal-img" src="data/img/figuritas/${carta.imagen}">
         <div class="modal-info">
@@ -551,9 +657,129 @@ function openCard(carta){
         </div>
       </div>
     </div>
+    <button class="download-card-btn" onclick="downloadCard(${carta.id})">Descargar imagen</button>
   `
 
   document.getElementById("modal").classList.remove("hidden")
+}
+
+async function downloadCard(cardId){
+  const carta=CARTAS.find(c=>c.id===cardId)
+  if(!carta) return
+
+  const canvas=document.createElement("canvas")
+  canvas.width=900
+  canvas.height=1350
+  const ctx=canvas.getContext("2d")
+
+  drawCardFrame(ctx,carta,canvas.width,canvas.height)
+
+  const img=await loadImage(`data/img/figuritas/${carta.imagen}`)
+  drawCoverImage(ctx,img,36,36,canvas.width-72,canvas.height-72)
+  const flagCode=FLAGS[carta.pais] || "ar"
+  const flagImg=await loadImage(`https://flagcdn.com/w80/${flagCode}.png`)
+
+  ctx.fillStyle="rgba(0,0,0,.72)"
+  ctx.fillRect(0,canvas.height-280,canvas.width,280)
+  roundRect(ctx,66,66,118,82,14)
+  ctx.fill()
+  roundRect(ctx,canvas.width-184,66,118,82,14)
+  ctx.fill()
+
+  ctx.drawImage(flagImg,88,86,74,42)
+
+  ctx.fillStyle="#fff"
+  ctx.font="700 44px system-ui, Arial"
+  ctx.textBaseline="middle"
+  ctx.textAlign="right"
+  ctx.fillText(`#${carta.id}`,canvas.width-92,107)
+
+  ctx.textAlign="left"
+  ctx.textBaseline="alphabetic"
+  ctx.font="800 54px system-ui, Arial"
+  drawTextFit(ctx,carta.jugador,70,canvas.height-150,canvas.width-140,54)
+  ctx.font="700 34px system-ui, Arial"
+  ctx.fillStyle="rgba(255,255,255,.86)"
+  drawTextFit(ctx,carta.pais.replaceAll("_"," ").toUpperCase(),70,canvas.height-92,canvas.width-140,34)
+
+  const a=document.createElement("a")
+  a.href=canvas.toDataURL("image/png")
+  a.download=`figurita-${carta.id}-${slug(carta.jugador)}.png`
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+}
+
+function loadImage(src){
+  return new Promise((resolve,reject)=>{
+    const img=new Image()
+    img.crossOrigin="anonymous"
+    img.onload=()=>resolve(img)
+    img.onerror=reject
+    img.src=src
+  })
+}
+
+function drawCardFrame(ctx,carta,w,h){
+  const gradient=ctx.createLinearGradient(0,0,w,h)
+  if(carta.tipo==="leyenda"){
+    gradient.addColorStop(0,"#fde68a")
+    gradient.addColorStop(.5,"#facc15")
+    gradient.addColorStop(1,"#f59e0b")
+  }else if(carta.tipo==="raras"){
+    gradient.addColorStop(0,"#60a5fa")
+    gradient.addColorStop(.5,"#1d4ed8")
+    gradient.addColorStop(1,"#93c5fd")
+  }else{
+    gradient.addColorStop(0,"#f3f4f6")
+    gradient.addColorStop(.5,"#9ca3af")
+    gradient.addColorStop(1,"#6b7280")
+  }
+  ctx.fillStyle=gradient
+  ctx.fillRect(0,0,w,h)
+}
+
+function drawCoverImage(ctx,img,x,y,w,h){
+  const scale=Math.max(w/img.width,h/img.height)
+  const sw=w/scale
+  const sh=h/scale
+  const sx=(img.width-sw)/2
+  const sy=(img.height-sh)/2
+  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h)
+}
+
+function drawTextFit(ctx,text,x,y,maxWidth,lineHeight){
+  let size=parseInt(ctx.font.match(/\d+/)[0],10)
+  const parts=ctx.font.split(" ")
+  while(ctx.measureText(text).width>maxWidth && size>22){
+    size-=2
+    parts[1]=`${size}px`
+    ctx.font=parts.join(" ")
+  }
+  ctx.fillText(text,x,y)
+}
+
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath()
+  ctx.moveTo(x+r,y)
+  ctx.lineTo(x+w-r,y)
+  ctx.quadraticCurveTo(x+w,y,x+w,y+r)
+  ctx.lineTo(x+w,y+h-r)
+  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h)
+  ctx.lineTo(x+r,y+h)
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r)
+  ctx.lineTo(x,y+r)
+  ctx.quadraticCurveTo(x,y,x+r,y)
+  ctx.closePath()
+}
+
+function slug(text){
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-zA-Z0-9]+/g,"-")
+    .replace(/^-|-$/g,"")
+    .toLowerCase()
 }
 
 document.getElementById("modal").onclick=e=>{
