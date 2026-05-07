@@ -85,5 +85,9 @@
 {"id":77,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1978'","imagen":"juan72.png"},
 {"id":78,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1986","imagen":"juan86.png"},
 {"id":79,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 2022","imagen":"juan22.png"},
-{"id":80,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1810","imagen":"belgrano.jpeg"}
+{"id":80,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1810","imagen":"belgrano.jpeg"},
+
+{"id":81,"tipo":"leyenda","pais":"","jugador":"","imagen":"berna_extra1.png"},
+{"id":82,"tipo":"extra","pais":"","jugador":"","imagen":"berna_extra2.png"},
+{"id":83,"tipo":"extra","pais":"","jugador":"","imagen":"berna_extra3.png"}
 ]
