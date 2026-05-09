@@ -1129,3 +1129,33 @@ h1 { text-align: center; margin-bottom: 8px; }
   border-radius: 10px;
   letter-spacing: 2px;
 }
+
+.ultimo-resultado{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.players-row{
+  display:flex;
+  gap:8px;
+}
+
+.players-row img{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--line);
+  background:#222;
+}
+
+.score-center{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:2.2rem;
+  font-weight:900;
+}

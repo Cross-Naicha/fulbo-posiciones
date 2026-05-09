@@ -87,7 +87,40 @@
 {"id":79,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 2022","imagen":"juan22.png"},
 {"id":80,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1810","imagen":"belgrano.jpeg"},
 
-{"id":81,"tipo":"???","pais":"","jugador":"","imagen":"berna_extra1.png"},
-{"id":82,"tipo":"???","pais":"","jugador":"","imagen":"berna_extra2.png"},
-{"id":83,"tipo":"???","pais":"","jugador":"","imagen":"berna_extra3.png"}
+{"id":81,"tipo":"???","pais":"","jugador":"","imagen":"bronce (1).png"},
+{"id":82,"tipo":"???","pais":"","jugador":"","imagen":"bronce (2).png"},
+{"id":83,"tipo":"???","pais":"","jugador":"","imagen":"bronce (3).png"},
+{"id":84,"tipo":"???","pais":"","jugador":"","imagen":"bronce (4).png"},
+{"id":85,"tipo":"???","pais":"","jugador":"","imagen":"bronce (5).png"},
+{"id":86,"tipo":"???","pais":"","jugador":"","imagen":"bronce (6).png"},
+{"id":87,"tipo":"???","pais":"","jugador":"","imagen":"bronce (7).png"},
+{"id":88,"tipo":"???","pais":"","jugador":"","imagen":"bronce (8).png"},
+{"id":89,"tipo":"???","pais":"","jugador":"","imagen":"bronce (9).png"},
+{"id":90,"tipo":"???","pais":"","jugador":"","imagen":"bronce (10).png"},
+{"id":91,"tipo":"???","pais":"","jugador":"","imagen":"bronce (11).png"},
+
+{"id":92,"tipo":"???","pais":"","jugador":"","imagen":"plata (1).png"},
+{"id":93,"tipo":"???","pais":"","jugador":"","imagen":"plata (2).png"},
+{"id":94,"tipo":"???","pais":"","jugador":"","imagen":"plata (3).png"},
+{"id":95,"tipo":"???","pais":"","jugador":"","imagen":"plata (4).png"},
+{"id":96,"tipo":"???","pais":"","jugador":"","imagen":"plata (5).png"},
+{"id":97,"tipo":"???","pais":"","jugador":"","imagen":"plata (6).png"},
+{"id":98,"tipo":"???","pais":"","jugador":"","imagen":"plata (7).png"},
+{"id":99,"tipo":"???","pais":"","jugador":"","imagen":"plata (8).png"},
+{"id":100,"tipo":"???","pais":"","jugador":"","imagen":"plata (9).png"},
+{"id":101,"tipo":"???","pais":"","jugador":"","imagen":"plata (10).png"},
+{"id":102,"tipo":"???","pais":"","jugador":"","imagen":"plata (11).png"},
+
+{"id":103,"tipo":"???","pais":"","jugador":"","imagen":"oro (1).png"},
+{"id":104,"tipo":"???","pais":"","jugador":"","imagen":"oro (2).png"},
+{"id":105,"tipo":"???","pais":"","jugador":"","imagen":"oro (3).png"},
+{"id":106,"tipo":"???","pais":"","jugador":"","imagen":"oro (4).png"},
+{"id":107,"tipo":"???","pais":"","jugador":"","imagen":"oro (5).png"},
+{"id":108,"tipo":"???","pais":"","jugador":"","imagen":"oro (6).png"},
+{"id":109,"tipo":"???","pais":"","jugador":"","imagen":"oro (7).png"},
+{"id":110,"tipo":"???","pais":"","jugador":"","imagen":"oro (8).png"},
+{"id":111,"tipo":"???","pais":"","jugador":"","imagen":"oro (9).png"},
+{"id":112,"tipo":"???","pais":"","jugador":"","imagen":"oro (10).png"},
+{"id":113,"tipo":"???","pais":"","jugador":"","imagen":"oro (11).png"}
+
 ]
