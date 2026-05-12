@@ -198,7 +198,7 @@
 
 <main class="wrap trade-page">
 <h1 class="trade-title">Intercambios</h1>
-<div class="sub">Generador de recibos para cambios de figuritas</div>
+<div class="sub">Generador de Trades</div>
 <div class="sep"></div>
 
 <section id="login" class="card trade-panel">
@@ -217,7 +217,7 @@
 <h3 id="welcome"></h3>
 
 <div id="blockedMsg" class="warn hidden">
-Ya tenés un intercambio pendiente o confirmado para procesar
+Ya tenés un intercambio en curso
 </div>
 
 <div id="newTradeForm" class="trade-panel">
@@ -245,8 +245,8 @@ Solo faltantes
 <h4>Vista previa</h4>
 <div id="preview"></div>
 
-<button id="shareQueryBtn" onclick="shareTradeQuery()">Compartir consulta</button>
-<button id="submitBtn" onclick="submitTrade(this)" data-jsonbin-btn>Generar recibo</button>
+<button id="shareQueryBtn" onclick="shareTradeQuery()">Enviar por WhatsApp</button>
+<button id="submitBtn" onclick="submitTrade(this)" data-jsonbin-btn>Generar Trade</button>
 </div>
 
 <div id="status"></div>
@@ -341,6 +341,20 @@ const day = String(d.getDate()).padStart(2,"0");
 return `${y}-${m}-${day}`;
 }
 
+const PHONES = {
+  naicha: "5493815303224",
+  pollo: "5493813045879",
+  mario: "5493814181046",
+  ponce: "5493815457707",
+  benja: "5493816225766",
+  berna: "5493815423680",
+  lomba: "5493815085711",
+  chagay: "5493813568195",
+  cesar: "5493815121839",
+  mato: "5493816815324",
+  juan: "5493814015021"
+};
+
 // ================= LOGIN =================
 
 function populateUsers(){
@@ -366,7 +380,7 @@ await loadTrades();
 
 document.getElementById("login").style.display="none";
 document.getElementById("app").classList.remove("hidden");
-welcome.innerText="Usuario: "+u;
+welcome.innerText="Usuario: "+u.toUpperCase();
 
 initApp();
 }finally{
@@ -537,7 +551,7 @@ return c;
 function updatePreview(){
 preview.innerText =
 (CURRENT_USER && SELECTED_USER_B && SELECTED_CARD_A && SELECTED_CARD_B)
-? `${CURRENT_USER} ${SELECTED_CARD_A} <-> ${SELECTED_USER_B} ${SELECTED_CARD_B}`
+? `${CURRENT_USER.toUpperCase()} (${SELECTED_CARD_A}) <-> ${SELECTED_USER_B.toUpperCase()} (${SELECTED_CARD_B})`
 : "Completar selección...";
 }
 
@@ -547,11 +561,17 @@ alert("Faltan datos");
 return;
 }
 
-const mine = `#${SELECTED_CARD_A} ${cardName(SELECTED_CARD_A)}`;
-const theirs = `#${SELECTED_CARD_B} ${cardName(SELECTED_CARD_B)}`;
-const message = `Hola ${SELECTED_USER_B.toUpperCase()}, queres compartir ${mine}, por tu ${theirs}?`;
+const mine = `#${SELECTED_CARD_A} (${cardName(SELECTED_CARD_A)})`;
+const theirs = `#${SELECTED_CARD_B} (${cardName(SELECTED_CARD_B)})`;
+const message = `Hola ${SELECTED_USER_B.toUpperCase()}, queres cambiar tu ${theirs}, por mi ${mine}?`;
 
-window.open(`https://wa.me/?text=${encodeURIComponent(message)}`,"_blank");
+const phone = PHONES[SELECTED_USER_B];
+if(!phone){
+alert("Número de teléfono no disponible para esta contraparte");
+return;
+}
+
+window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,"_blank");
 }
 
 // ================= TRADES =================
@@ -583,7 +603,7 @@ ${t.user_a} (${t.card_a}) <-> ${t.user_b} (${t.card_b})
 
 ${isReceiver && isPending
 ? `<button onclick="acceptTrade(${t.index}, this)" data-jsonbin-btn>Confirmar intercambio</button>`
-: isPending ? `Esperando confirmación` : `Listo para procesar localmente`
+: isPending ? `Esperando confirmación` : `En el Departamente de Trading`
 }
 
 </div>
