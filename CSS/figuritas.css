@@ -3,8 +3,59 @@
 body{
   margin:0;
   font-family:Arial;
-  background:radial-gradient(circle,#1e293b,#020617);
+  background:#020617;
   color:white;
+}
+
+.sticker-bg{
+  position:fixed;
+  inset:-32px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(86px,1fr));
+  gap:10px;
+  padding:18px;
+  z-index:-2;
+  pointer-events:none;
+  overflow:hidden;
+  filter:blur(4px);
+  opacity:.55;
+  transform:scale(1.04);
+}
+
+.sticker-bg::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at center,rgba(15,23,42,.12),rgba(2,6,23,.25)),
+    rgba(2,6,23,.25);
+  z-index:1;
+}
+
+.sticker-bg img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  border-radius:8px;
+  opacity:.86;
+}
+
+.container,
+.bottom-tab{
+  position:relative;
+  z-index:1;
+}
+
+.top-nav{
+  position:fixed;
+  top:56px;
+  z-index:1200;
+}
+
+.top-tab{
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .container{
@@ -21,10 +72,18 @@ input{padding:10px;border-radius:6px;border:none;margin-right:10px;}
 /* PACK */
 
 .pack{
-width:170px;height:230px;margin:20px auto;
-display:flex;align-items:center;justify-content:center;
-background:linear-gradient(135deg,#facc15,#f97316);
-border-radius:10px;cursor:pointer;
+  width:430px;
+  height:330px;
+  margin:20px auto;
+
+  background: url('fondo.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius:10px;
+  cursor:pointer;
 }
 
 /* CARTAS */
@@ -37,6 +96,8 @@ perspective:1000px;
 opacity:0;
 transform:translateY(80px);
 transition:transform .2s;
+position:relative;
+margin-bottom:48px;
 }
 
 .card.show{animation:pop .8s forwards;}
@@ -219,6 +280,33 @@ z-index:2;
 }
 
 .hidden{display:none;}
+
+.share-pack-btn{
+  position:absolute;
+  left:50%;
+  bottom:-44px;
+  transform:translateX(-50%);
+  border:1px solid rgba(37,211,102,.45);
+  border-radius:8px;
+  background:#25d366;
+  color:#07130b;
+  padding:8px 14px;
+  font-weight:800;
+  cursor:pointer;
+  opacity:1;
+  transition:opacity .2s ease, transform .2s ease;
+  white-space:nowrap;
+  z-index:20;
+}
+
+.card:not(.reveal) .share-pack-btn{
+  opacity:0;
+  pointer-events:none;
+}
+
+.share-pack-btn:hover{
+  transform:translateX(-50%) translateY(-1px);
+}
 
 /* ================= BASE (desktop) ================= */
 

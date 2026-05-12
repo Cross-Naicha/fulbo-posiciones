@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/figuritas.css">
-</head>
-
+  <link rel="stylesheet" href="CSS/boton.css">
 </head>
 
 <body>
+
+<div id="stickerBg" class="sticker-bg" aria-hidden="true"></div>
 
 <nav class="top-nav" id="mainNav">
   <div class="nav-scroll">
@@ -25,8 +26,6 @@
 <div class="top-tab" id="auspiciante"></div>
 <div class="container">
 
-<h2>Abrir pack</h2>
-
 <input id="codigo">
 
 <p>Usa tu codigo unico (4 letras) para abrir tu pack de figuritas hasta las 20:00 h</p>
@@ -37,12 +36,22 @@
 <div id="estado" style="margin-top:10px; display:none;"></div>
 
 
-<div id="pack" class="pack hidden">ABRIR</div>
+<div id="pack" class="pack hidden"></div>
 <div id="cards" class="cards hidden"></div>
 
 </div>
 
 <footer class="bottom-tab">2026 Liga de Fulbo · PROMIEDOS</footer>
+
+<div class="chiqui-floating-system" id="fabMenu">
+  <div class="chiqui-menu-list">
+    <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+    <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+    <a href="noticias.html" class="chiqui-circle-mini">📰</a>
+    <a href="index.html" class="chiqui-circle-mini">🏠</a>
+  </div>
+  <button class="chiqui-circle-main" id="btnFabMain">+</button>
+</div>
 
 <script>
 
@@ -206,8 +215,20 @@ function ordenarPack(pack){
 async function cargar(){
   CARTAS = await (await fetch("data/figuritas.json")).json()
   PACKS = await (await fetch("data/packs.json")).json()
+  renderStickerBackground()
 }
 cargar()
+
+function renderStickerBackground(){
+  const bg=document.getElementById("stickerBg")
+  if(!bg) return
+
+  bg.innerHTML=CARTAS
+    .filter(c=>c.id<=80)
+    .slice(0,75)
+    .map(c=>`<img src="data/img/figuritas/${c.imagen}" alt="">`)
+    .join("")
+}
 
 /* ================= VALIDAR ================= */
 
@@ -304,6 +325,7 @@ document.getElementById("pack").onclick = () => {
         </div>
       </div>
     </div>
+    <button class="share-pack-btn" onclick="shareCardWhatsapp(${c.id})">Compartir WhatsApp</button>
     `
 
     cont.appendChild(card)
@@ -370,6 +392,8 @@ function activarTilt(card){
   let x=0,y=0
 
   card.addEventListener("mousemove",e=>{
+    if(e.target.closest(".share-pack-btn")) return
+
     const rect=card.getBoundingClientRect()
     const mx=e.clientX-rect.left
     const my=e.clientY-rect.top
@@ -394,9 +418,146 @@ function activarTilt(card){
   })
 }
 
+async function shareCardWhatsapp(cardId){
+  const carta=CARTAS.find(c=>c.id===cardId)
+  if(!carta) return
+
+  const canvas=await buildCardCanvas(carta)
+  const blob=await canvasToBlob(canvas)
+  const file=new File([blob],`figurita-${carta.id}-${slug(carta.jugador)}.png`,{type:"image/png"})
+  const text=`Mirá esta figurita: #${carta.id} ${carta.jugador}`
+
+  if(navigator.canShare?.({files:[file]}) && navigator.share){
+    await navigator.share({files:[file],text,title:"Figurita Liga de Fulbo"})
+    return
+  }
+
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,"_blank")
+}
+
+async function buildCardCanvas(carta){
+  const canvas=document.createElement("canvas")
+  canvas.width=900
+  canvas.height=1350
+  const ctx=canvas.getContext("2d")
+
+  drawCardFrame(ctx,carta,canvas.width,canvas.height)
+
+  const img=await loadImage(`data/img/figuritas/${carta.imagen}`)
+  drawCoverImage(ctx,img,36,36,canvas.width-72,canvas.height-72)
+
+  const flagCode=FLAGS[carta.pais] || "ar"
+  const flagImg=await loadImage(`https://flagcdn.com/w80/${flagCode}.png`)
+
+  ctx.fillStyle="rgba(0,0,0,.72)"
+  ctx.fillRect(0,canvas.height-280,canvas.width,280)
+  roundRect(ctx,66,66,118,82,14)
+  ctx.fill()
+  roundRect(ctx,canvas.width-184,66,118,82,14)
+  ctx.fill()
+
+  ctx.drawImage(flagImg,88,86,74,42)
+
+  ctx.fillStyle="#fff"
+  ctx.font="700 44px system-ui, Arial"
+  ctx.textBaseline="middle"
+  ctx.textAlign="right"
+  ctx.fillText(`#${carta.id}`,canvas.width-92,107)
+
+  ctx.textAlign="left"
+  ctx.textBaseline="alphabetic"
+  ctx.font="800 54px system-ui, Arial"
+  drawTextFit(ctx,carta.jugador,70,canvas.height-150,canvas.width-140)
+  ctx.font="700 34px system-ui, Arial"
+  ctx.fillStyle="rgba(255,255,255,.86)"
+  drawTextFit(ctx,carta.pais.replaceAll("_"," ").toUpperCase(),70,canvas.height-92,canvas.width-140)
+
+  return canvas
+}
+
+function loadImage(src){
+  return new Promise((resolve,reject)=>{
+    const img=new Image()
+    img.crossOrigin="anonymous"
+    img.onload=()=>resolve(img)
+    img.onerror=reject
+    img.src=src
+  })
+}
+
+function drawCardFrame(ctx,carta,w,h){
+  const gradient=ctx.createLinearGradient(0,0,w,h)
+  const rare=getRareza(carta)
+
+  if(rare==="legend"){
+    gradient.addColorStop(0,"#fde68a")
+    gradient.addColorStop(.5,"#facc15")
+    gradient.addColorStop(1,"#f59e0b")
+  }else if(rare==="rare"){
+    gradient.addColorStop(0,"#60a5fa")
+    gradient.addColorStop(.5,"#1d4ed8")
+    gradient.addColorStop(1,"#93c5fd")
+  }else{
+    gradient.addColorStop(0,"#f3f4f6")
+    gradient.addColorStop(.5,"#9ca3af")
+    gradient.addColorStop(1,"#6b7280")
+  }
+
+  ctx.fillStyle=gradient
+  ctx.fillRect(0,0,w,h)
+}
+
+function drawCoverImage(ctx,img,x,y,w,h){
+  const scale=Math.max(w/img.width,h/img.height)
+  const sw=w/scale
+  const sh=h/scale
+  const sx=(img.width-sw)/2
+  const sy=(img.height-sh)/2
+  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h)
+}
+
+function drawTextFit(ctx,text,x,y,maxWidth){
+  let size=parseInt(ctx.font.match(/\d+/)[0],10)
+  const parts=ctx.font.split(" ")
+  while(ctx.measureText(text).width>maxWidth && size>22){
+    size-=2
+    parts[1]=`${size}px`
+    ctx.font=parts.join(" ")
+  }
+  ctx.fillText(text,x,y)
+}
+
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath()
+  ctx.moveTo(x+r,y)
+  ctx.lineTo(x+w-r,y)
+  ctx.quadraticCurveTo(x+w,y,x+w,y+r)
+  ctx.lineTo(x+w,y+h-r)
+  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h)
+  ctx.lineTo(x+r,y+h)
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r)
+  ctx.lineTo(x,y+r)
+  ctx.quadraticCurveTo(x,y,x+r,y)
+  ctx.closePath()
+}
+
+function canvasToBlob(canvas){
+  return new Promise(resolve=>canvas.toBlob(resolve,"image/png"))
+}
+
+function slug(text){
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-zA-Z0-9]+/g,"-")
+    .replace(/^-|-$/g,"")
+    .toLowerCase()
+}
+
 </script>
 
 <script src="js/textos.js"></script>
+<script src="js/boton.js"></script>
 
 </body>
 </html>

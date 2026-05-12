@@ -296,6 +296,16 @@
   cursor:pointer;
 }
 
+.share-card-btn{
+  border:1px solid rgba(37,211,102,.45);
+  border-radius:8px;
+  background:#25d366;
+  color:#07130b;
+  padding:8px 14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
 .modal-info div:last-child{
   text-transform:uppercase;
 }
@@ -500,8 +510,9 @@ async function start(user){
 }
 
 function updateStats(){
-  const total=CARTAS.length
-  const owned=userSet.size
+  const albumCards=CARTAS.filter(c=>c.id<=ALBUM_MAX_ID)
+  const total=albumCards.length
+  const owned=albumCards.filter(c=>userSet.has(c.id)).length
   const percent=Math.round((owned/total)*100)
 
   document.getElementById("progress").innerText=
@@ -515,13 +526,18 @@ function createRanking(){
   rankingDiv.innerHTML=""
 
   const ranking=Object.entries(ALBUMS)
-    .map(([u,arr])=>[u,new Set(arr).size])
-    .sort((a,b)=>b[1]-a[1])
+    .map(([u,arr])=>{
+      const unique=new Set(arr).size
+      const total=arr.length
+      const duplicates=total-unique
+      return {u,unique,total,duplicates}
+    })
+    .sort((a,b)=>b.unique-a.unique)
 
-  ranking.forEach(([u,count])=>{
+  ranking.forEach(({u,unique,total,duplicates})=>{
     const div=document.createElement("div")
     div.className="rank-item "+(u===currentUser?"me":"")
-    div.innerHTML=`<span>${u}</span><span>${count}</span>`
+    div.innerHTML=`<span>${u.toUpperCase()}</span><span>${unique} únicas · ${total} total · ${duplicates} duplicadas</span>`
     rankingDiv.appendChild(div)
   })
 }
@@ -557,7 +573,7 @@ function createFilters(){
   const tipos=[...new Set(CARTAS.map(c=>c.tipo))]
   tipos.forEach(tipo=>{
     const btn=document.createElement("button")
-    btn.innerText=tipo.toUpperCase()
+    btn.innerText=tipo==="???" ? "EXTRAS" : tipo.toUpperCase()
 
     btn.onclick=()=>{
       viewMode="album"
@@ -607,6 +623,8 @@ function renderAlbum(compareSet=null){
     if(currentFilter!=="all" && carta.tipo!==currentFilter) return
 
     const has=userSet.has(carta.id)
+    if(currentFilter==="???" && !has) return
+
     const other=compareSet?.has(carta.id)
 
     const div=document.createElement("div")
@@ -658,6 +676,7 @@ function openCard(carta){
       </div>
     </div>
     <button class="download-card-btn" onclick="downloadCard(${carta.id})">Descargar imagen</button>
+    <button class="share-card-btn" onclick="shareCardWhatsapp(${carta.id})">Compartir WhatsApp</button>
   `
 
   document.getElementById("modal").classList.remove("hidden")
@@ -667,6 +686,33 @@ async function downloadCard(cardId){
   const carta=CARTAS.find(c=>c.id===cardId)
   if(!carta) return
 
+  const canvas=await buildCardCanvas(carta)
+  const a=document.createElement("a")
+  a.href=canvas.toDataURL("image/png")
+  a.download=`figurita-${carta.id}-${slug(carta.jugador)}.png`
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+}
+
+async function shareCardWhatsapp(cardId){
+  const carta=CARTAS.find(c=>c.id===cardId)
+  if(!carta) return
+
+  const canvas=await buildCardCanvas(carta)
+  const blob=await canvasToBlob(canvas)
+  const file=new File([blob],`figurita-${carta.id}-${slug(carta.jugador)}.png`,{type:"image/png"})
+  const text=`Mirá esta figurita: #${carta.id} ${carta.jugador}`
+
+  if(navigator.canShare?.({files:[file]}) && navigator.share){
+    await navigator.share({files:[file],text,title:"Figurita Liga de Fulbo"})
+    return
+  }
+
+  window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,"_blank")
+}
+
+async function buildCardCanvas(carta){
   const canvas=document.createElement("canvas")
   canvas.width=900
   canvas.height=1350
@@ -702,12 +748,11 @@ async function downloadCard(cardId){
   ctx.fillStyle="rgba(255,255,255,.86)"
   drawTextFit(ctx,carta.pais.replaceAll("_"," ").toUpperCase(),70,canvas.height-92,canvas.width-140,34)
 
-  const a=document.createElement("a")
-  a.href=canvas.toDataURL("image/png")
-  a.download=`figurita-${carta.id}-${slug(carta.jugador)}.png`
-  document.body.appendChild(a)
-  a.click()
-  a.remove()
+  return canvas
+}
+
+function canvasToBlob(canvas){
+  return new Promise(resolve=>canvas.toBlob(resolve,"image/png"))
 }
 
 function loadImage(src){

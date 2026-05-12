@@ -71,6 +71,16 @@
   color: #fff;
   font-weight: 700;
 }
+#shareQueryBtn {
+  background: #25d366;
+  border-color: rgba(37,211,102,.45);
+  color: #07130b;
+  font-weight: 800;
+}
+#shareQueryBtn:hover {
+  color: #07130b;
+  border-color: #25d366;
+}
 .cards,
 #users {
   display: flex;
@@ -153,6 +163,17 @@
 }
 .trade-section-title { margin: 0 0 8px; color: var(--ink); }
 .nav-item.active { background: var(--accent); border-color: var(--accent); }
+#users .btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 800;
+}
+.card-row.active {
+  border-color: var(--accent);
+  background: rgba(47,139,253,.18);
+  box-shadow: 0 0 0 1px rgba(47,139,253,.25);
+}
 @media (max-width: 640px) {
   .trade-form { grid-template-columns: 1fr; }
   .trade-panel { padding: 14px; }
@@ -204,8 +225,13 @@ Ya tenés un intercambio pendiente o confirmado para procesar
 <div id="users"></div>
 
 <label class="trade-toggle">
-<input type="checkbox" id="onlyDupes" onchange="toggleDuplicateFilter();">
+<input type="checkbox" id="onlyDupes" onchange="applyCardFilters();" checked>
 Solo duplicados
+</label>
+
+<label class="trade-toggle">
+<input type="checkbox" id="onlyMissing" onchange="applyCardFilters();" checked>
+Solo faltantes
 </label>
 
 <h4>Mis cartas</h4>
@@ -219,6 +245,7 @@ Solo duplicados
 <h4>Vista previa</h4>
 <div id="preview"></div>
 
+<button id="shareQueryBtn" onclick="shareTradeQuery()">Compartir consulta</button>
 <button id="submitBtn" onclick="submitTrade(this)" data-jsonbin-btn>Generar recibo</button>
 </div>
 
@@ -241,7 +268,7 @@ Solo duplicados
 const BASE = {
 'naicha':'z5YP','pollo':'ncoT','mario':'g8sX','ponce':'a9vR',
 'benja':'k3wL','berna':'h2mQ','lomba':'f7jD','chagay':'e6rS',
-'cesar':'b1uN','mato':'c4tY','chicho':'d0xV','juan':'l9oW','marcos':'i5pB'
+'cesar':'b1uN','mato':'c4tY','juan':'l9oW'
 };
 
 const BIN_ID = "69f8b37536566621a823a468";
@@ -387,28 +414,29 @@ return trade.status==="pending" || trade.status==="accepted";
 function renderUsers(){
 users.innerHTML = Object.keys(BASE)
 .filter(u=>u!==CURRENT_USER)
+.filter(u=>!isBlocked(u))
 .map(u=>{
-const disabled = isBlocked(u) ? "disabled" : "";
-return `<button class="btn ${disabled}" onclick="selectUser('${u}')">${u.toUpperCase()}</button>`;
+const active = u===SELECTED_USER_B ? "active" : "";
+return `<button class="btn ${active}" onclick="selectUser('${u}')">${u.toUpperCase()}</button>`;
 }).join("");
 }
 
 function selectUser(u){
 SELECTED_USER_B = u;
+renderUsers();
 renderCardsB();
 updatePreview();
 }
 
-function toggleDuplicateFilter(){
-if(onlyDupes.checked){
-if(SELECTED_CARD_A && !isDuplicate(CURRENT_USER, SELECTED_CARD_A)){
+function applyCardFilters(){
+if(SELECTED_CARD_A && !cardPassesFilters(CURRENT_USER, SELECTED_CARD_A, false)){
 SELECTED_CARD_A = null;
 warnA.innerText = "";
 }
-if(SELECTED_CARD_B && !isDuplicate(SELECTED_USER_B, SELECTED_CARD_B)){
+
+if(SELECTED_CARD_B && !cardPassesFilters(SELECTED_USER_B, SELECTED_CARD_B, true)){
 SELECTED_CARD_B = null;
 warnB.innerText = "";
-}
 }
 
 renderCardsA();
@@ -420,20 +448,19 @@ updatePreview();
 
 function renderCardsA(){
 const cards = ALBUMS[CURRENT_USER]||[];
-cardsA.innerHTML = renderCardList(cards, "pickA");
+cardsA.innerHTML = renderCardList(cards, "pickA", false);
 }
 
 function renderCardsB(){
 const cards = ALBUMS[SELECTED_USER_B]||[];
-cardsB.innerHTML = renderCardList(cards, "pickB");
+cardsB.innerHTML = renderCardList(cards, "pickB", true);
 }
 
-function renderCardList(cards, pickFn){
+function renderCardList(cards, pickFn, isCounterpart){
 const counts = count(cards);
-const onlyDuplicates = onlyDupes.checked;
 const ids = Object.keys(counts)
 .map(Number)
-.filter(id=>!onlyDuplicates || counts[id]>1)
+.filter(id=>cardPassesFilters(isCounterpart ? SELECTED_USER_B : CURRENT_USER, id, isCounterpart, counts))
 .sort((a,b)=>a-b);
 
 if(ids.length===0){
@@ -442,7 +469,8 @@ return `<div class="sub">No hay cartas para mostrar</div>`;
 
 return ids.map(id=>{
 const dup = counts[id]>1;
-return `<button class="btn card-row" onclick="${pickFn}(${id})">
+const active = pickFn==="pickA" && id===SELECTED_CARD_A || pickFn==="pickB" && id===SELECTED_CARD_B;
+return `<button class="btn card-row ${active ? "active" : ""}" onclick="${pickFn}(${id})">
 <span class="card-id">#${id}</span>
 <span class="card-name">${cardName(id)}</span>
 <span class="pill ${dup?'ok':'warn'}">${dup?`x${counts[id]}`:'Única'}</span>
@@ -458,10 +486,35 @@ function isDuplicate(user, card){
 return user && count(ALBUMS[user]||[])[card]>1;
 }
 
+function hasCard(user, card){
+return user && (ALBUMS[user]||[]).includes(card);
+}
+
+function cardPassesFilters(user, card, isCounterpart, countsOverride){
+const counts = countsOverride || count(ALBUMS[user]||[]);
+
+if(onlyDupes.checked && counts[card]<=1){
+return false;
+}
+
+if(onlyMissing.checked){
+if(isCounterpart && hasCard(CURRENT_USER, card)){
+return false;
+}
+
+if(!isCounterpart && SELECTED_USER_B && hasCard(SELECTED_USER_B, card)){
+return false;
+}
+}
+
+return true;
+}
+
 function pickA(c){
 SELECTED_CARD_A = c;
 warnA.innerText = count(ALBUMS[CURRENT_USER])[c]===1
 ? "⚠️ Es tu única copia" : "";
+renderCardsA();
 updatePreview();
 }
 
@@ -469,6 +522,7 @@ function pickB(c){
 SELECTED_CARD_B = c;
 warnB.innerText = count(ALBUMS[SELECTED_USER_B])[c]===1
 ? "⚠️ No es duplicada" : "";
+renderCardsB();
 updatePreview();
 }
 
@@ -485,6 +539,19 @@ preview.innerText =
 (CURRENT_USER && SELECTED_USER_B && SELECTED_CARD_A && SELECTED_CARD_B)
 ? `${CURRENT_USER} ${SELECTED_CARD_A} <-> ${SELECTED_USER_B} ${SELECTED_CARD_B}`
 : "Completar selección...";
+}
+
+function shareTradeQuery(){
+if(!SELECTED_USER_B||!SELECTED_CARD_A||!SELECTED_CARD_B){
+alert("Faltan datos");
+return;
+}
+
+const mine = `#${SELECTED_CARD_A} ${cardName(SELECTED_CARD_A)}`;
+const theirs = `#${SELECTED_CARD_B} ${cardName(SELECTED_CARD_B)}`;
+const message = `Hola ${SELECTED_USER_B.toUpperCase()}, queres compartir ${mine}, por tu ${theirs}?`;
+
+window.open(`https://wa.me/?text=${encodeURIComponent(message)}`,"_blank");
 }
 
 // ================= TRADES =================
