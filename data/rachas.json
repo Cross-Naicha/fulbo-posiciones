@@ -1,58 +1,23 @@
 [
   {
-    "racha": "derrotas",
-    "jugador": "Bag",
-    "extension": 4,
-    "dias": 29,
-    "inicio": "2026-04-08"
-  },
-  {
-    "racha": "sin ganar",
-    "jugador": "Bag",
-    "extension": 4,
-    "dias": 29,
-    "inicio": "2026-04-08"
-  },
-  {
-    "racha": "victorias",
-    "jugador": "P11",
-    "extension": 3,
-    "dias": 36,
-    "inicio": "2026-04-01"
-  },
-  {
-    "racha": "invicto",
-    "jugador": "P11",
-    "extension": 3,
-    "dias": 36,
-    "inicio": "2026-04-01"
-  },
-  {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 12,
-    "dias": 92,
+    "extension": 13,
+    "dias": 99,
     "inicio": "2026-02-04"
-  },
-  {
-    "racha": "ausente",
-    "jugador": "Pollo",
-    "extension": 3,
-    "dias": 22,
-    "inicio": "2026-04-15"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
     "extension": 8,
-    "dias": 120,
+    "dias": 127,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
     "extension": 10,
-    "dias": 120,
+    "dias": 127,
     "inicio": "2026-01-07"
   }
 ]
