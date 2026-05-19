@@ -125,16 +125,16 @@
 
 {"id":114,"tipo":"mitologicas","pais":"Argentina","jugador":"Hincha Anonimo","imagen":"hincha.png"},
 
-{"id":115,"tipo":"???","pais":"argentina","jugador":"Nicolás Daruich","imagen":"panini - naicha.png"},
-{"id":116,"tipo":"???","pais":"argentina","jugador":"Mariano Ruiz","imagen":"panini - mario.png"},
-{"id":117,"tipo":"???","pais":"argentina","jugador":"Martin Ponces","imagen":"panini - ponce.png"},
-{"id":118,"tipo":"???","pais":"argentina","jugador":"Alexis Chagay","imagen":"panini - chagay.png"},
-{"id":119,"tipo":"???","pais":"argentina","jugador":"Gonzalo Cortés","imagen":"panini - pollo.png"},
-{"id":120,"tipo":"???","pais":"argentina","jugador":"Benjamín Salas","imagen":"panini - benja.png"},
-{"id":121,"tipo":"???","pais":"argentina","jugador":"Juan Pablo Lombardo","imagen":"panini - lomba.png"},
-{"id":122,"tipo":"???","pais":"argentina","jugador":"Bernardo Guillou","imagen":"panini - berna.png"},
-{"id":123,"tipo":"???","pais":"argentina","jugador":"Cesár Nuñez","imagen":"panini - cesar.png"},
-{"id":124,"tipo":"???","pais":"argentina","jugador":"Matías Benitez","imagen":"panini - mato.png"},
-{"id":125,"tipo":"???","pais":"argentina","jugador":"Juan Pablo Ruiz Alonzua","imagen":"panini - juan.png"}
+{"id":115,"tipo":"???","pais":"","jugador":"","imagen":"panini - naicha.png"},
+{"id":116,"tipo":"???","pais":"","jugador":"","imagen":"panini - mario.png"},
+{"id":117,"tipo":"???","pais":"","jugador":"","imagen":"panini - ponce.png"},
+{"id":118,"tipo":"???","pais":"","jugador":"","imagen":"panini - chagay.png"},
+{"id":119,"tipo":"???","pais":"","jugador":"","imagen":"panini - pollo.png"},
+{"id":120,"tipo":"???","pais":"","jugador":"","imagen":"panini - benja.png"},
+{"id":121,"tipo":"???","pais":"","jugador":"","imagen":"panini - lomba.png"},
+{"id":122,"tipo":"???","pais":"","jugador":"","imagen":"panini - berna.png"},
+{"id":123,"tipo":"???","pais":"","jugador":"","imagen":"panini - cesar.png"},
+{"id":124,"tipo":"???","pais":"","jugador":"","imagen":"panini - mato.png"},
+{"id":125,"tipo":"???","pais":"","jugador":"","imagen":"panini - juan.png"}
 
 ]
