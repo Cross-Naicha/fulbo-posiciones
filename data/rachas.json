@@ -1,23 +1,37 @@
 [
   {
+    "racha": "derrotas",
+    "jugador": "Mato",
+    "extension": 4,
+    "dias": 35,
+    "inicio": "2026-04-15"
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Mato",
+    "extension": 4,
+    "dias": 35,
+    "inicio": "2026-04-15"
+  },
+  {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 13,
-    "dias": 99,
+    "extension": 14,
+    "dias": 105,
     "inicio": "2026-02-04"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
-    "extension": 8,
-    "dias": 127,
+    "extension": 7,
+    "dias": 133,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
-    "extension": 10,
-    "dias": 127,
+    "extension": 11,
+    "dias": 133,
     "inicio": "2026-01-07"
   }
 ]

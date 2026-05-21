@@ -30,6 +30,15 @@
     "GAN",
     2,
     "Naicha",
+    "Mario",
+    null,
+    null,
+    4
+  ],
+  [
+    "GAN",
+    2,
+    "Naicha",
     "Lomba",
     null,
     null,
@@ -85,15 +94,6 @@
     2,
     "Naicha",
     "P11",
-    null,
-    null,
-    3
-  ],
-  [
-    "GAN",
-    2,
-    "Naicha",
-    "Mario",
     null,
     null,
     3
@@ -192,6 +192,33 @@
     "GAN",
     2,
     "Bag",
+    "Mario",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "Chicho",
+    "Mario",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "Chicho",
+    "Bag",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "Bag",
     "Mato",
     null,
     null,
@@ -220,6 +247,15 @@
     2,
     "Mario",
     "Marcelo",
+    null,
+    null,
+    2
+  ],
+  [
+    "GAN",
+    2,
+    "Naicha",
+    "Bag",
     null,
     null,
     2
@@ -293,6 +329,15 @@
     "Naicha",
     "Mario",
     "Marcos",
+    null,
+    2
+  ],
+  [
+    "GAN",
+    3,
+    "Chicho",
+    "Bag",
+    "Mario",
     null,
     2
   ],
@@ -461,8 +506,26 @@
   [
     "PER",
     2,
+    "Lomba",
+    "Chagay",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
     "Naicha",
     "Marcos",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "P11",
+    "Mato",
     null,
     null,
     2
@@ -481,6 +544,15 @@
     2,
     "Bag",
     "Lomba",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Lomba",
+    "Mato",
     null,
     null,
     2
@@ -534,6 +606,15 @@
     "PER",
     2,
     "Mario",
+    "Mato",
+    null,
+    null,
+    2
+  ],
+  [
+    "PER",
+    2,
+    "Chagay",
     "Mato",
     null,
     null,

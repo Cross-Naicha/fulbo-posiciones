@@ -17,7 +17,7 @@
     "puntos acumulados": 6,
     "victorias": 2,
     "empates": 0,
-    "actual": true
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2026-04-29",
@@ -29,14 +29,14 @@
     "empieza": "2026-04-29",
     "termina": "2026-05-13",
     "extension": 3,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2026-05-20": "A",
     "2026-05-13": "G",
     "2026-05-06": "G",
     "2026-04-29": "P",
-    "2026-04-15": "A",
-    "2026-04-08": "A"
+    "2026-04-15": "A"
   },
   "balance_vs": {
     "Bag": 1,

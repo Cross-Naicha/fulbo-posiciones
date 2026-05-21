@@ -75,7 +75,7 @@
           "jugador1": "Lomba",
           "jugador2": "Bag",
           "fechas": { "ida": null, "vuelta": null },
-          "ida": { "goles_j1": 1, "goles_j2": 2 },
+          "ida": { "goles_j1": 1, "goles_j2": 3 },
           "vuelta": { "goles_j1": null, "goles_j2": null }
         }
       ]
