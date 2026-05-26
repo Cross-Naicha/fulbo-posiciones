@@ -234,6 +234,11 @@ Solo duplicados
 Solo faltantes
 </label>
 
+<label class="trade-toggle">
+<input type="checkbox" id="onlyUniqueExtras" onchange="applyCardFilters();">
+Incluir extras únicas
+</label>
+
 <h4>Mis cartas</h4>
 <div id="cardsA" class="card-list"></div>
 <div id="warnA" class="warn"></div>
@@ -437,9 +442,10 @@ return `<button class="btn ${active}" onclick="selectUser('${u}')">${u.toUpperCa
 
 function selectUser(u){
 SELECTED_USER_B = u;
+SELECTED_CARD_B = null;
+warnB.innerText = "";
 renderUsers();
-renderCardsB();
-updatePreview();
+applyCardFilters();
 }
 
 function applyCardFilters(){
@@ -496,6 +502,10 @@ function cardName(id){
 return CARDS_BY_ID[id]?.jugador || "Carta sin nombre";
 }
 
+function isExtraCard(card){
+return CARDS_BY_ID[card]?.tipo==="???";
+}
+
 function isDuplicate(user, card){
 return user && count(ALBUMS[user]||[])[card]>1;
 }
@@ -506,8 +516,9 @@ return user && (ALBUMS[user]||[]).includes(card);
 
 function cardPassesFilters(user, card, isCounterpart, countsOverride){
 const counts = countsOverride || count(ALBUMS[user]||[]);
+const isUniqueExtra = onlyUniqueExtras.checked && isExtraCard(card) && counts[card]===1;
 
-if(onlyDupes.checked && counts[card]<=1){
+if(onlyDupes.checked && counts[card]<=1 && !isUniqueExtra){
 return false;
 }
 

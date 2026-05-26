@@ -197,6 +197,7 @@ async function actualizarBin(usuario){
 
 function getRareza(c){
   if(c.tipo==="leyenda") return "legend"
+  if(c.tipo==="mitologicas") return "legend"
   if(c.tipo==="raras") return "rare"
   return "common"
 }
@@ -443,20 +444,17 @@ async function buildCardCanvas(carta){
 
   const img=await loadImage(`data/img/figuritas/${carta.imagen}`)
   drawCoverImage(ctx,img,36,36,canvas.width-72,canvas.height-72)
+  if(carta.tipo==="???"){
+    return canvas
+  }
 
   const flagCode=FLAGS[carta.pais] || "ar"
   const flagImg=await loadImage(`https://flagcdn.com/w80/${flagCode}.png`)
 
-  ctx.fillStyle="rgba(0,0,0,.72)"
-  ctx.fillRect(0,canvas.height-280,canvas.width,280)
-  roundRect(ctx,66,66,118,82,14)
-  ctx.fill()
-  roundRect(ctx,canvas.width-184,66,118,82,14)
-  ctx.fill()
-
   ctx.drawImage(flagImg,88,86,74,42)
 
   ctx.fillStyle="#fff"
+  setTextShadow(ctx)
   ctx.font="700 44px system-ui, Arial"
   ctx.textBaseline="middle"
   ctx.textAlign="right"
@@ -469,6 +467,7 @@ async function buildCardCanvas(carta){
   ctx.font="700 34px system-ui, Arial"
   ctx.fillStyle="rgba(255,255,255,.86)"
   drawTextFit(ctx,carta.pais.replaceAll("_"," ").toUpperCase(),70,canvas.height-92,canvas.width-140)
+  clearTextShadow(ctx)
 
   return canvas
 }
@@ -523,6 +522,20 @@ function drawTextFit(ctx,text,x,y,maxWidth){
     ctx.font=parts.join(" ")
   }
   ctx.fillText(text,x,y)
+}
+
+function setTextShadow(ctx){
+  ctx.shadowColor="rgba(0,0,0,.9)"
+  ctx.shadowBlur=8
+  ctx.shadowOffsetX=0
+  ctx.shadowOffsetY=2
+}
+
+function clearTextShadow(ctx){
+  ctx.shadowColor="transparent"
+  ctx.shadowBlur=0
+  ctx.shadowOffsetX=0
+  ctx.shadowOffsetY=0
 }
 
 function roundRect(ctx,x,y,w,h,r){
