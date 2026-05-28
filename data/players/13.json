@@ -1,10 +1,10 @@
 {
   "basic_statistics": {
-    "partidos": 6.0,
+    "partidos": 7.0,
     "apodo": "Mario",
-    "puntos": 6,
-    "efectividad": 0.33,
-    "ganados": 2,
+    "puntos": 9,
+    "efectividad": 0.43,
+    "ganados": 3,
     "empatados": 0,
     "perdidos": 4,
     "diferencia de gol": "- 2",
@@ -32,37 +32,37 @@
     "actual": false
   },
   "last_5": {
+    "2026-05-27": "G",
     "2026-05-20": "G",
     "2026-05-13": "P",
     "2026-05-06": "P",
-    "2026-04-29": "G",
-    "2026-04-15": "P"
+    "2026-04-29": "G"
   },
   "balance_vs": {
     "Bag": 4,
+    "Naicha": 3,
     "Chicho": 2,
-    "Naicha": 2,
     "Mato": 2,
-    "Lomba": 1,
+    "Lomba": 2,
     "Marcos": 1,
     "Benja": 1,
     "Yamil": 1,
+    "Cesar": 0,
     "P11": 0,
-    "Cesar": -1,
-    "Emi": -1,
+    "Emi": 0,
     "Pollo": -1,
-    "Chagay": -3
+    "Chagay": -2
   },
   "best_partner": {
     "Lomba": 4,
-    "Mato": 2,
+    "Mato": 3,
     "Chagay": 2,
     "P11": 1,
     "Marcos": 1
   },
   "worse_partner": {
-    "Bag": 4,
-    "Marcelo": 4,
+    "Bag": 3,
+    "Marcelo": 3,
     "Benja": 2,
     "Cesar": 2,
     "Naicha": 1

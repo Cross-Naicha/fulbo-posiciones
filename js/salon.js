@@ -52,7 +52,7 @@ const SALON_DE_LA_FAMA_DATA = {
           prioridad: 2
         },
         {
-          titulo: "??? | Copa Apertura 2026",
+          titulo: "BAG | Copa Apertura 2026",
           competencia: "Copa",
           prioridad: 1
         },

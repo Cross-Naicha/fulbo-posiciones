@@ -32,7 +32,7 @@
     {
       "id": "Bag",
       "photo": "bag.png",
-      "stars": 1,
+      "stars": 2,
       "text": "Bag",
       "active": true,
       "order": 4

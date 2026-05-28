@@ -1,12 +1,12 @@
 {
   "basic_statistics": {
-    "partidos": 6.0,
+    "partidos": 7.0,
     "apodo": "Naicha",
     "puntos": 12,
-    "efectividad": 0.67,
+    "efectividad": 0.57,
     "ganados": 4,
     "empatados": 0,
-    "perdidos": 2,
+    "perdidos": 3,
     "diferencia de gol": "+ 11",
     "delta": "-"
   },
@@ -32,39 +32,40 @@
     "actual": false
   },
   "last_5": {
+    "2026-05-27": "P",
     "2026-05-20": "G",
     "2026-05-13": "P",
     "2026-05-06": "A",
-    "2026-04-29": "G",
-    "2026-04-15": "G"
+    "2026-04-29": "G"
   },
   "balance_vs": {
-    "Bag": 1,
     "P11": 1,
-    "Marcelo": 1,
-    "Mato": 0,
+    "Bag": 0,
+    "Marcelo": 0,
     "Emi": 0,
     "Chicho": -1,
+    "Mato": -1,
     "Lomba": -2,
     "Chagay": -2,
-    "Mario": -2,
     "Pollo": -2,
-    "Cesar": -3
+    "Cesar": -3,
+    "Mario": -3
   },
   "best_partner": {
-    "Lomba": 2,
-    "Chagay": 2,
     "P11": 2,
+    "Lomba": 1,
     "Mato": 1,
+    "Chagay": 1,
     "Marcos": 1
   },
   "worse_partner": {
+    "Cesar": 3,
     "Benja": 3,
     "Bag": 2,
-    "Cesar": 2,
     "Chicho": 2,
     "Mario": 1,
-    "Yamil": 1
+    "Yamil": 1,
+    "Emi": 1
   },
   "paternity": {},
   "filiation": {}

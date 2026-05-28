@@ -1,37 +1,51 @@
 [
   {
     "racha": "derrotas",
-    "jugador": "Mato",
-    "extension": 4,
-    "dias": 35,
-    "inicio": "2026-04-15"
+    "jugador": "Lomba",
+    "extension": 3,
+    "dias": 14,
+    "inicio": "2026-05-13"
   },
   {
     "racha": "sin ganar",
-    "jugador": "Mato",
-    "extension": 4,
-    "dias": 35,
-    "inicio": "2026-04-15"
+    "jugador": "Lomba",
+    "extension": 3,
+    "dias": 14,
+    "inicio": "2026-05-13"
+  },
+  {
+    "racha": "victorias",
+    "jugador": "Bag",
+    "extension": 3,
+    "dias": 14,
+    "inicio": "2026-05-13"
+  },
+  {
+    "racha": "invicto",
+    "jugador": "Bag",
+    "extension": 3,
+    "dias": 14,
+    "inicio": "2026-05-13"
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 14,
-    "dias": 105,
+    "extension": 15,
+    "dias": 112,
     "inicio": "2026-02-04"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
-    "extension": 7,
-    "dias": 133,
+    "extension": 6,
+    "dias": 140,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
-    "extension": 11,
-    "dias": 133,
+    "extension": 12,
+    "dias": 140,
     "inicio": "2026-01-07"
   }
 ]
