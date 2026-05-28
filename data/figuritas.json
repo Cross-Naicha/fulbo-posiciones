@@ -79,7 +79,7 @@
 {"id":12,"tipo":"comunes","pais":"estados_unidos","jugador":"Christian Pulisic","imagen":"estados unidos.png", "persona":""},
 
 {"id":74,"tipo":"leyenda","pais":"argentina","jugador":"Diego Maradona","imagen":"maradona.png"},
-{"id":75,"tipo":"leyenda","pais":"argentina","jugador":"Lionel Messi","imagen":"lionel.png"},
+{"id":75,"tipo":"leyenda","pais":"argentina","jugador":"Lionel Messi","imagen":"messi.png"},
 {"id":76,"tipo":"leyenda","pais":"argentina","jugador":"Lionel Scaloni","imagen":"scaloni.png"},
 
 {"id":77,"tipo":"mitologicas","pais":"argentina","jugador":"JPR - ARG 1978'","imagen":"juan78.png", "persona":"Juan Pablo Ruiz Alonzua"},
