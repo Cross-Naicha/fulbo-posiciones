@@ -135,6 +135,8 @@
 {"id":122,"tipo":"???","pais":"Argentina","jugador":"Bernardo Guillou","imagen":"panini - berna.png", "persona":"Bernardo Guillou"},
 {"id":123,"tipo":"???","pais":"Argentina","jugador":"Cesar Nuñez","imagen":"panini - cesar.png", "persona":"Cesar Nuñez"},
 {"id":124,"tipo":"???","pais":"Argentina","jugador":"Matías Benitez","imagen":"panini - mato.png", "persona":"Matías Ramos Benitez"},
-{"id":125,"tipo":"???","pais":"Argentina","jugador":"Juan Pablo Ruiz Alonzua","imagen":"panini - juan.png", "persona":"Juan Pablo Ruiz Alonzua"}
+{"id":125,"tipo":"???","pais":"Argentina","jugador":"Juan Pablo Ruiz Alonzua","imagen":"panini - juan.png", "persona":"Juan Pablo Ruiz Alonzua"},
+
+{"id":126,"tipo":"mitologicas","pais":"nueva_zelanda","jugador":"Tim Payne","imagen":"payne.jpg", "persona":"Tim Payne"}
 
 ]
