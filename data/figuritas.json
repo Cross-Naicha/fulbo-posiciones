@@ -137,6 +137,8 @@
 {"id":124,"tipo":"???","pais":"Argentina","jugador":"Matías Benitez","imagen":"panini - mato.png", "persona":"Matías Ramos Benitez"},
 {"id":125,"tipo":"???","pais":"Argentina","jugador":"Juan Pablo Ruiz Alonzua","imagen":"panini - juan.png", "persona":"Juan Pablo Ruiz Alonzua"},
 
-{"id":126,"tipo":"mitologicas","pais":"nueva_zelanda","jugador":"Tim Payne","imagen":"payne.jpg", "persona":"Tim Payne"}
+{"id":126,"tipo":"mitologicas","pais":"nueva_zelanda","jugador":"Tim Payne","imagen":"payne.jpg", "persona":"Tim Payne"},
+{"id":127,"tipo":"mitologicas","pais":"argentina","jugador":"The End","imagen":"endgame.png", "persona":""}
+
 
 ]
