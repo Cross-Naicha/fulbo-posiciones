@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 7.0,
+    "partidos": 8.0,
     "apodo": "Mato",
-    "puntos": 9,
-    "efectividad": 0.43,
-    "ganados": 3,
+    "puntos": 12,
+    "efectividad": 0.5,
+    "ganados": 4,
     "empatados": 0,
     "perdidos": 4,
     "diferencia de gol": "- 12",
-    "delta": "-"
+    "delta": "↑1"
   },
   "winning_streak_statistics": {
     "empieza": "2026-02-18",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-06-03": "G",
     "2026-05-27": "G",
     "2026-05-20": "P",
     "2026-05-13": "A",
-    "2026-05-06": "P",
-    "2026-04-29": "P"
+    "2026-05-06": "P"
   },
   "balance_vs": {
     "Bag": 3,
@@ -44,29 +44,28 @@
     "Marcos": 1,
     "Benja": 1,
     "Yamil": 1,
+    "Emi": 1,
     "Lomba": 0,
     "Cesar": 0,
+    "Chagay": 0,
     "Pollo": 0,
-    "Emi": 0,
-    "Chagay": -1,
     "Marcelo": -1,
     "Chicho": -1,
     "Mario": -2,
     "P11": -2
   },
   "best_partner": {
-    "Lomba": 7,
+    "Lomba": 8,
     "Chagay": 5,
+    "Mario": 4,
     "Cesar": 4,
-    "Mario": 3,
+    "Marcelo": 2,
     "Marcos": 2,
-    "Naicha": 1,
-    "Marcelo": 1
+    "Naicha": 1
   },
   "worse_partner": {
     "Bag": 2,
     "Chicho": 1,
-    "P11": 1,
     "Emi": 1
   },
   "paternity": {},
