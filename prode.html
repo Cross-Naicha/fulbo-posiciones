@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prode Mundial 2026 - Liga de Fulbo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/prode.css">
+  <link rel="stylesheet" href="CSS/boton.css">
+</head>
+
+<body>
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="index.html" class="nav-item">Inicio</a>
+      <a href="mundial.html" class="nav-item">Mundial</a>
+      <a href="partidos_mundial.html" class="nav-item">Partidos</a>
+      <a href="prode.html" class="nav-item active">Prode</a>
+    </div>
+  </nav>
+
+  <div class="top-tab" id="auspiciante">PRODE MUNDIAL 2026</div>
+
+  <main class="wrap prode-wrap">
+    <h1 id="titulo">Prode Mundial 2026</h1>
+    <div class="sub mono" id="prodeStatus">Cargando datos...</div>
+    <p class="prode-note">Los goles corresponden al partido. El resultado indica ganador final, incluyendo penales.</p>
+
+    <section class="prode-login card" id="loginPanel">
+      <div>
+        <h2>Ingresar clave</h2>
+        <p>Usa tu clave para cargar o editar tus pronosticos.</p>
+      </div>
+      <div class="login-controls">
+        <input type="password" id="accessCode" autocomplete="current-password" placeholder="Clave">
+        <button id="loginBtn">Validar</button>
+      </div>
+      <div class="login-status mono" id="loginStatus"></div>
+    </section>
+
+    <section class="prode-userbar card" id="userPanel" hidden>
+      <div>
+        <span class="eyebrow">Jugador</span>
+        <strong id="currentUserLabel"></strong>
+      </div>
+      <div class="userbar-actions">
+        <button id="refreshBtn" type="button">Actualizar</button>
+        <button id="logoutBtn" type="button">Salir</button>
+      </div>
+    </section>
+
+    <div id="matchesContainer" class="prode-matches">
+      <div class="empty-state">Esperando datos del prode.</div>
+    </div>
+
+    <div class="save-bar" id="saveBar" hidden>
+      <button id="saveBtn" type="button">Guardar pronosticos</button>
+      <div class="mono" id="saveStatus"></div>
+    </div>
+
+    <section class="results-section">
+      <div class="sep"></div>
+      <h2>Tabla de resultados</h2>
+      <div class="card results-card">
+        <div class="tabla-posiciones">
+          <table class="pos-table" id="resultsTable">
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Apodo</th>
+                <th>Pts Totales</th>
+                <th>Pts Partidos</th>
+                <th>Pts Resultados</th>
+                <th>Apostados</th>
+                <th>% partidos</th>
+                <th>% resultados</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="empty-state" id="resultsEmpty">Sin resultados cargados.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">Arriba</button>
+      <a href="generador.html" class="chiqui-circle-mini">Gen</a>
+      <a href="noticias.html" class="chiqui-circle-mini">News</a>
+      <a href="index.html" class="chiqui-circle-mini">Home</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
+  </div>
+
+  <div class="bottom-tab">2026 Liga de Fulbo - PROMIEDOS</div>
+
+  <script src="js/prode.js"></script>
+  <script src="js/textos.js"></script>
+  <script src="js/boton.js"></script>
+</body>
+</html>
