@@ -37,7 +37,7 @@ const SALON_DE_LA_FAMA_DATA = {
           prioridad: 2
         },
         {
-          titulo: "??? | Liga de Otoño 2026",
+          titulo: "CHAGAY | Liga de Otoño 2026",
           competencia: "Liga",
           prioridad: 2
         },

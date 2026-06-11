@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 9.0,
+    "partidos": 10.0,
     "apodo": "Bag",
     "puntos": 12,
-    "efectividad": 0.44,
+    "efectividad": 0.4,
     "ganados": 4,
     "empatados": 0,
-    "perdidos": 5,
-    "diferencia de gol": "- 10",
+    "perdidos": 6,
+    "diferencia de gol": "- 3",
     "delta": "↓1"
   },
   "winning_streak_statistics": {
@@ -32,26 +32,26 @@
     "actual": false
   },
   "last_5": {
+    "2026-06-10": "P",
     "2026-06-03": "A",
     "2026-05-27": "G",
     "2026-05-20": "G",
-    "2026-05-13": "G",
-    "2026-05-06": "P"
+    "2026-05-13": "G"
   },
   "balance_vs": {
     "Benja": 1,
     "Naicha": 0,
     "Marcos": 0,
     "Emi": 0,
-    "Marcelo": -1,
     "Pollo": -1,
     "Chicho": -1,
+    "Marcelo": -2,
     "P11": -2,
     "Lomba": -3,
     "Mato": -3,
-    "Cesar": -4,
-    "Mario": -4,
-    "Chagay": -6
+    "Cesar": -5,
+    "Mario": -5,
+    "Chagay": -7
   },
   "best_partner": {
     "Lomba": 3,
@@ -62,9 +62,9 @@
     "Cesar": 2,
     "Naicha": 2,
     "Mato": 2,
+    "P11": 2,
     "Chicho": 2,
     "Marcelo": 1,
-    "P11": 1,
     "Pollo": 1,
     "Benja": 1,
     "Yamil": 1
