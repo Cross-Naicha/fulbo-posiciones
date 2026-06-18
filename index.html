@@ -7,6 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/boton.css">
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#111827">
+
 </head>
 
 <body>
@@ -128,7 +132,14 @@
   </div>
 
   <!-- Fuegos artificiales -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> -->
+
+  <!-- App -->
+  <script>
+  if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js");
+  }
+  </script>
 
   <script src="js/main.js"></script>
   <script src="js/boton.js"></script>
