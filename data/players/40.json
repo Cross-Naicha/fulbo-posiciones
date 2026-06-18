@@ -1,11 +1,11 @@
 {
   "basic_statistics": {
-    "partidos": 5.0,
+    "partidos": 6.0,
     "apodo": "Emi",
-    "puntos": 6,
-    "efectividad": 0.4,
+    "puntos": 7,
+    "efectividad": 0.39,
     "ganados": 2,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 3,
     "diferencia de gol": "- 5",
     "delta": "-"
@@ -23,7 +23,7 @@
     "empieza": "2026-05-27",
     "termina": "2026-06-03",
     "extension": 2,
-    "actual": true
+    "actual": false
   },
   "present_streak_statistics": {
     "empieza": "2026-04-29",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-06-17": "E",
     "2026-06-10": "A",
     "2026-06-03": "P",
     "2026-05-27": "P",
-    "2026-05-20": "A",
-    "2026-05-13": "G"
+    "2026-05-20": "A"
   },
   "balance_vs": {
     "Cesar": 1,

@@ -1,22 +1,22 @@
 {
   "basic_statistics": {
-    "partidos": 7.0,
+    "partidos": 8.0,
     "apodo": "Marcelo",
-    "puntos": 12,
-    "efectividad": 0.57,
+    "puntos": 13,
+    "efectividad": 0.54,
     "ganados": 4,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 3,
     "diferencia de gol": "+ 6",
-    "delta": "↑2"
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2026-05-27",
-    "termina": "2026-06-10",
-    "extension": 3,
-    "puntos acumulados": 9,
+    "termina": "2026-06-17",
+    "extension": 4,
+    "puntos acumulados": 10,
     "victorias": 3,
-    "empates": 0,
+    "empates": 1,
     "actual": true
   },
   "losses_streak_statistics": {
@@ -26,17 +26,17 @@
     "actual": false
   },
   "present_streak_statistics": {
-    "empieza": "2026-04-15",
-    "termina": "2026-05-13",
+    "empieza": "2026-05-27",
+    "termina": "2026-06-17",
     "extension": 4,
-    "actual": false
+    "actual": true
   },
   "last_5": {
+    "2026-06-17": "E",
     "2026-06-10": "G",
     "2026-06-03": "G",
     "2026-05-27": "G",
-    "2026-05-20": "A",
-    "2026-05-13": "P"
+    "2026-05-20": "A"
   },
   "balance_vs": {
     "Bag": 2,

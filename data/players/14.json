@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 8.0,
+    "partidos": 9.0,
     "apodo": "Mato",
-    "puntos": 12,
-    "efectividad": 0.5,
+    "puntos": 13,
+    "efectividad": 0.48,
     "ganados": 4,
-    "empatados": 0,
+    "empatados": 1,
     "perdidos": 4,
     "diferencia de gol": "+ 5",
-    "delta": "↓1"
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2026-02-18",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-06-17": "E",
     "2026-06-10": "A",
     "2026-06-03": "G",
     "2026-05-27": "G",
-    "2026-05-20": "P",
-    "2026-05-13": "A"
+    "2026-05-20": "P"
   },
   "balance_vs": {
     "Bag": 3,

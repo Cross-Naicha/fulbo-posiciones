@@ -1,44 +1,44 @@
 [
   {
-    "racha": "victorias",
-    "jugador": "Mario",
-    "extension": 4,
+    "racha": "sin ganar",
+    "jugador": "Emi",
+    "extension": 3,
     "dias": 22,
-    "inicio": "2026-05-20"
+    "inicio": "2026-05-27"
   },
   {
     "racha": "invicto",
     "jugador": "Mario",
-    "extension": 4,
-    "dias": 22,
+    "extension": 5,
+    "dias": 29,
     "inicio": "2026-05-20"
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 17,
-    "dias": 127,
+    "extension": 18,
+    "dias": 134,
     "inicio": "2026-02-04"
   },
   {
     "racha": "ausente",
     "jugador": "Pollo",
-    "extension": 4,
-    "dias": 22,
+    "extension": 5,
+    "dias": 29,
     "inicio": "2026-05-20"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
     "extension": 7,
-    "dias": 155,
+    "dias": 162,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
     "extension": 13,
-    "dias": 155,
+    "dias": 162,
     "inicio": "2026-01-07"
   }
 ]
