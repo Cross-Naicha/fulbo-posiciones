@@ -2,22 +2,22 @@
   "basic_statistics": {
     "partidos": 1.0,
     "apodo": "Chicho",
-    "puntos": 3,
-    "efectividad": 1.0,
-    "ganados": 1,
-    "empatados": 0,
+    "puntos": 1,
+    "efectividad": 0.33,
+    "ganados": 0,
+    "empatados": 1,
     "perdidos": 0,
-    "diferencia de gol": "+ 1",
+    "diferencia de gol": "0",
     "delta": "-"
   },
   "winning_streak_statistics": {
-    "empieza": "2026-05-20",
-    "termina": "2026-05-20",
+    "empieza": "2026-06-24",
+    "termina": "2026-06-24",
     "extension": 1,
-    "puntos acumulados": 3,
-    "victorias": 1,
-    "empates": 0,
-    "actual": false
+    "puntos acumulados": 1,
+    "victorias": 0,
+    "empates": 1,
+    "actual": true
   },
   "losses_streak_statistics": {
     "empieza": "2026-01-28",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-06-24": "E",
     "2026-06-17": "A",
     "2026-06-10": "A",
     "2026-06-03": "A",
-    "2026-05-27": "A",
-    "2026-05-20": "G"
+    "2026-05-27": "A"
   },
   "balance_vs": {
     "Naicha": 1,

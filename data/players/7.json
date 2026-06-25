@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 8.0,
+    "partidos": 0.0,
     "apodo": "Lomba",
-    "puntos": 15,
-    "efectividad": 0.63,
-    "ganados": 5,
+    "puntos": 0,
+    "efectividad": 0.0,
+    "ganados": 0,
     "empatados": 0,
-    "perdidos": 3,
-    "diferencia de gol": "+ 10",
+    "perdidos": 0,
+    "diferencia de gol": "0",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-06-24": "A",
     "2026-06-17": "A",
     "2026-06-10": "A",
     "2026-06-03": "G",
-    "2026-05-27": "P",
-    "2026-05-20": "P"
+    "2026-05-27": "P"
   },
   "balance_vs": {
     "Bag": 3,
