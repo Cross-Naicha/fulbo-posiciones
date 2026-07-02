@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Noticias: LA OPOSICION · Liga de Fulbo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/titulo.css">
+  <link rel="stylesheet" href="CSS/boton.css">
+</head>
+<body>
+  
+  <!-- 📌 NAVEGACIÓN SUPERIOR FIJA -->
+  <nav class="top-nav" id="mainNav">
+    <div class="nav-scroll">
+      <a href="index.html" class="nav-item">🏠</a>
+      <a href="mundial.html" class="nav-item">🌎 MUNDIAL</a>
+      <a href="copas.html" class="nav-item">🏆 COPAS</a>
+      <a href="noticias.html" class="nav-item active">📰</a>
+    </div>
+  </nav>
+
+  <div class="top-tab" id="auspiciante"></div>
+
+  <div class="wrap">
+    
+    <h1 id="titulo">Noticias</h1>
+    <div class="sep"></div>
+    <div id="noticiaDestacada"></div>
+
+    <div class="sep"></div>
+
+    <h2 class="section-title-accent">Archivo Histórico</h2>
+    
+    <div class="search-container">
+      <input type="text" id="newsSearch" placeholder="Buscar jugador o palabra clave..." class="search-input">
+      <div class="search-filters">
+        <select id="monthFilter" class="search-select">
+          <option value="">Cualquier mes</option>
+          </select>
+      </div>
+    </div>
+
+    <div id="archiveGrid" class="archive-grid">
+      </div>
+    
+    <div id="archiveStatus" class="streaks-status">Cargando archivo...</div>
+  </div>
+
+  <div id="newsOverlay" class="news-overlay">
+    <div class="news-content-card">
+        <button class="news-close" id="closeNews">✕</button>
+        <div id="newsFullBody"></div>
+    </div>
+  </div>
+
+    <div class="chiqui-floating-system" id="fabMenu">
+    <div class="chiqui-menu-list">
+      <button class="chiqui-circle-mini" id="btnScrollUp">▲</button>
+      <a href="generador.html" class="chiqui-circle-mini">🔢</a>
+      <a href="index.html" class="chiqui-circle-mini">🏠</a>
+    </div>
+    <button class="chiqui-circle-main" id="btnFabMain">+</button>
+  </div>
+
+  </div> <footer class="bottom-tab">
+    <a href="cargar_resultados.html" class="enlace-secreto">©</a> 2026 Liga de Fulbo · PROMIEDOS
+  </footer>
+
+  <script src="js/noticias_oposicion.js"></script>
+  <script src="js/textos.js"></script>
+  <script src="js/boton.js"></script>
+
+</body>
+</html>
