@@ -1,4 +1,13 @@
 {
+  "2026-07-01": {
+    "team_a": [
+      "Chicho, Yamil, Cesar, P11, Marcelo"
+    ],
+    "team_b": [
+      "Chagay, Mario, Mato, Bag, Bot"
+    ],
+    "balance": 3
+  },
   "2026-06-24": {
     "team_a": [
       "Chicho, Bag, Bot, Bot, Bot"

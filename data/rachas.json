@@ -2,36 +2,36 @@
   {
     "racha": "invicto",
     "jugador": "Chicho",
-    "extension": 3,
-    "dias": 120,
+    "extension": 4,
+    "dias": 127,
     "inicio": "2026-02-25"
   },
   {
     "racha": "presente",
     "jugador": "Chagay",
-    "extension": 19,
-    "dias": 141,
+    "extension": 20,
+    "dias": 148,
     "inicio": "2026-02-04"
   },
   {
     "racha": "ausente",
     "jugador": "Lomba",
-    "extension": 3,
-    "dias": 15,
+    "extension": 4,
+    "dias": 22,
     "inicio": "2026-06-10"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
     "extension": 7,
-    "dias": 169,
+    "dias": 176,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
     "extension": 13,
-    "dias": 169,
+    "dias": 176,
     "inicio": "2026-01-07"
   }
 ]

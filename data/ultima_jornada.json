@@ -1,16 +1,20 @@
 {
-    "fecha": "2026-06-25",
+    "fecha": "2026-07-02",
     "resultado": {
-        "ganador": "E",
-        "balance": 0
+        "ganador": "A",
+        "balance": 3
     },
     "equipo_a": [
-        "Mario",
-        "Chagay",
+        "Chicho",
+        "Yamil",
+        "Cesar",
+        "P11",
         "Marcelo"
     ],
     "equipo_b": [
-        "Chicho",
+        "Chagay",
+        "Mario",
+        "Mato",
         "Bag"
     ]
 }
