@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "chiquiliga-v2026-07-02-v2";
+const CACHE_NAME = "chiquiliga-v2026-07-02-v3";
 
 const urlsToCache = [
     "./",
