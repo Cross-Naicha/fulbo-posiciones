@@ -8,7 +8,7 @@
     "empatados": 1,
     "perdidos": 0,
     "diferencia de gol": "+ 3",
-    "delta": "↑3"
+    "delta": "↓2"
   },
   "winning_streak_statistics": {
     "empieza": "2026-05-27",
@@ -17,7 +17,7 @@
     "puntos acumulados": 14,
     "victorias": 4,
     "empates": 2,
-    "actual": true
+    "actual": false
   },
   "losses_streak_statistics": {
     "empieza": "2026-05-06",
@@ -29,14 +29,14 @@
     "empieza": "2026-05-27",
     "termina": "2026-07-01",
     "extension": 6,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2026-07-08": "A",
     "2026-07-01": "G",
     "2026-06-24": "E",
     "2026-06-17": "E",
-    "2026-06-10": "G",
-    "2026-06-03": "G"
+    "2026-06-10": "G"
   },
   "balance_vs": {
     "Bag": 3,

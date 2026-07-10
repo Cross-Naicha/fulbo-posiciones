@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 2.0,
+    "partidos": 3.0,
     "apodo": "Bag",
-    "puntos": 1,
-    "efectividad": 0.17,
+    "puntos": 2,
+    "efectividad": 0.22,
     "ganados": 0,
-    "empatados": 1,
+    "empatados": 2,
     "perdidos": 1,
     "diferencia de gol": "- 3",
-    "delta": "↓4"
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2026-05-13",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-07-08": "E",
     "2026-07-01": "P",
     "2026-06-24": "E",
     "2026-06-17": "E",
-    "2026-06-10": "P",
-    "2026-06-03": "A"
+    "2026-06-10": "P"
   },
   "balance_vs": {
     "Benja": 1,
