@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 2.0,
+    "partidos": 3.0,
     "apodo": "Marcelo",
-    "puntos": 4,
-    "efectividad": 0.67,
-    "ganados": 1,
+    "puntos": 7,
+    "efectividad": 0.78,
+    "ganados": 2,
     "empatados": 1,
     "perdidos": 0,
-    "diferencia de gol": "+ 3",
-    "delta": "↓2"
+    "diferencia de gol": "+ 5",
+    "delta": "↑2"
   },
   "winning_streak_statistics": {
     "empieza": "2026-05-27",
@@ -32,36 +32,34 @@
     "actual": false
   },
   "last_5": {
+    "2026-07-15": "G",
     "2026-07-08": "A",
     "2026-07-01": "G",
     "2026-06-24": "E",
-    "2026-06-17": "E",
-    "2026-06-10": "G"
+    "2026-06-17": "E"
   },
   "balance_vs": {
-    "Bag": 3,
+    "Bag": 4,
+    "Yamil": 2,
+    "Lomba": 2,
     "Mato": 2,
-    "Yamil": 1,
-    "Lomba": 1,
+    "Cesar": 1,
     "Chagay": 1,
     "Emi": 1,
+    "Naicha": 1,
     "Mario": 1,
-    "Cesar": 0,
-    "Naicha": 0,
     "P11": -1,
     "Pollo": -1
   },
   "best_partner": {
     "Lomba": 3,
-    "Mato": 2,
+    "Mato": 3,
     "Chagay": 1,
     "Marcos": 1
   },
   "worse_partner": {
     "Bag": 1,
-    "Cesar": 1,
-    "Mario": 1,
-    "Chicho": 1
+    "Cesar": 1
   },
   "paternity": {},
   "filiation": {}

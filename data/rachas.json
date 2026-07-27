@@ -1,37 +1,44 @@
 [
   {
+    "racha": "sin ganar",
+    "jugador": "Naicha",
+    "extension": 3,
+    "dias": 61,
+    "inicio": "2026-05-27"
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Bag",
+    "extension": 3,
+    "dias": 26,
+    "inicio": "2026-07-01"
+  },
+  {
     "racha": "invicto",
     "jugador": "Chicho",
-    "extension": 5,
-    "dias": 134,
+    "extension": 6,
+    "dias": 152,
     "inicio": "2026-02-25"
   },
   {
     "racha": "presente",
-    "jugador": "Chagay",
-    "extension": 21,
-    "dias": 155,
-    "inicio": "2026-02-04"
-  },
-  {
-    "racha": "ausente",
-    "jugador": "Lomba",
-    "extension": 5,
-    "dias": 29,
-    "inicio": "2026-06-10"
+    "jugador": "Mario",
+    "extension": 13,
+    "dias": 103,
+    "inicio": "2026-04-15"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
     "extension": 7,
-    "dias": 183,
+    "dias": 201,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
     "extension": 13,
-    "dias": 183,
+    "dias": 201,
     "inicio": "2026-01-07"
   }
 ]
