@@ -8,7 +8,7 @@
     "empatados": 1,
     "perdidos": 0,
     "diferencia de gol": "0",
-    "delta": "↓1"
+    "delta": "-"
   },
   "winning_streak_statistics": {
     "empieza": "2026-05-06",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-07-22": "A",
     "2026-07-15": "A",
     "2026-07-08": "E",
     "2026-07-01": "A",
-    "2026-06-24": "A",
-    "2026-06-17": "E"
+    "2026-06-24": "A"
   },
   "balance_vs": {
     "Cesar": 1,
