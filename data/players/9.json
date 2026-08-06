@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 4.0,
+    "partidos": 5.0,
     "apodo": "Cesar",
-    "puntos": 7,
-    "efectividad": 0.58,
-    "ganados": 2,
+    "puntos": 10,
+    "efectividad": 0.67,
+    "ganados": 3,
     "empatados": 1,
     "perdidos": 1,
-    "diferencia de gol": "+ 2",
-    "delta": "-"
+    "diferencia de gol": "+ 5",
+    "delta": "↑2"
   },
   "winning_streak_statistics": {
     "empieza": "2026-02-25",
@@ -32,34 +32,38 @@
     "actual": false
   },
   "last_5": {
+    "2026-07-29": "G",
     "2026-07-22": "G",
     "2026-07-15": "P",
     "2026-07-08": "E",
-    "2026-07-01": "G",
-    "2026-06-24": "A"
+    "2026-07-01": "G"
   },
   "balance_vs": {
-    "Bag": 6,
+    "Bag": 7,
     "Naicha": 3,
     "Chicho": 2,
     "Mato": 1,
+    "Lomba": 1,
     "Benja": 1,
     "P11": 1,
-    "Lomba": 0,
+    "Juan": 1,
+    "Vale": 1,
     "Marcos": 0,
     "Mario": 0,
     "Pollo": 0,
-    "Marcelo": -1,
+    "Marcelo": 0,
     "Emi": -1,
     "Chagay": -2
   },
   "best_partner": {
-    "Chagay": 5,
+    "Chagay": 6,
     "Mato": 4,
-    "P11": 3,
+    "P11": 4,
     "Lomba": 2,
     "Chicho": 2,
-    "Marcos": 1
+    "Mario": 1,
+    "Marcos": 1,
+    "Emi": 1
   },
   "worse_partner": {
     "Naicha": 4,

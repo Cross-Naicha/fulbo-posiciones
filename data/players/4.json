@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 5.0,
+    "partidos": 6.0,
     "apodo": "Bag",
     "puntos": 5,
-    "efectividad": 0.33,
+    "efectividad": 0.28,
     "ganados": 1,
     "empatados": 2,
-    "perdidos": 2,
-    "diferencia de gol": "- 4",
-    "delta": "↑3"
+    "perdidos": 3,
+    "diferencia de gol": "- 7",
+    "delta": "↓1"
   },
   "winning_streak_statistics": {
     "empieza": "2026-05-13",
@@ -32,30 +32,30 @@
     "actual": false
   },
   "last_5": {
+    "2026-07-29": "P",
     "2026-07-22": "G",
     "2026-07-15": "P",
     "2026-07-08": "E",
-    "2026-07-01": "P",
-    "2026-06-24": "E"
+    "2026-07-01": "P"
   },
   "balance_vs": {
     "Benja": 1,
     "Naicha": 0,
     "Marcos": 0,
-    "Emi": 0,
+    "Emi": -1,
     "Pollo": -1,
     "Yamil": -1,
     "Chicho": -2,
     "Lomba": -3,
-    "P11": -3,
     "Mato": -3,
     "Marcelo": -4,
-    "Chagay": -6,
-    "Cesar": -6,
-    "Mario": -6
+    "P11": -4,
+    "Chagay": -7,
+    "Cesar": -7,
+    "Mario": -7
   },
   "best_partner": {
-    "Lomba": 2
+    "Lomba": 1
   },
   "worse_partner": {
     "Naicha": 3,
@@ -65,8 +65,11 @@
     "P11": 2,
     "Chicho": 2,
     "Yamil": 2,
+    "Marcelo": 1,
     "Pollo": 1,
-    "Benja": 1
+    "Benja": 1,
+    "Juan": 1,
+    "Vale": 1
   },
   "paternity": {},
   "filiation": {}

@@ -8,7 +8,7 @@
     "empatados": 2,
     "perdidos": 1,
     "diferencia de gol": "+ 4",
-    "delta": "↓1"
+    "delta": "↓2"
   },
   "winning_streak_statistics": {
     "empieza": "2026-06-24",
@@ -29,14 +29,14 @@
     "empieza": "2026-06-24",
     "termina": "2026-07-22",
     "extension": 5,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2026-07-29": "A",
     "2026-07-22": "P",
     "2026-07-15": "G",
     "2026-07-08": "E",
-    "2026-07-01": "G",
-    "2026-06-24": "E"
+    "2026-07-01": "G"
   },
   "balance_vs": {
     "Naicha": 2,

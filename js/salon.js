@@ -62,7 +62,7 @@ const SALON_DE_LA_FAMA_DATA = {
           prioridad: 1
         },
         {
-          titulo: "LOMBA VS MARIO | SuperCopa Estival 2026",
+          titulo: "MARIO | SuperCopa Estival 2026",
           competencia: "SuperCopa",
           prioridad: 3
         },
@@ -70,11 +70,6 @@ const SALON_DE_LA_FAMA_DATA = {
           titulo: "??? | SuperCopa Invernal 2026",
           competencia: "SuperCopa",
           prioridad: 3
-        },
-        {
-          titulo: "??? | Mundial FIFA 2026",
-          competencia: "Mundial",
-          prioridad: 1
         },
         {
           titulo: "Mario, Bag, Cesar, Marcelo, Naicha | Copa Natalicio 2026",
