@@ -106,16 +106,6 @@
         const overlay = document.getElementById('newsOverlay');
         const body = document.getElementById('newsFullBody');
 
-        // const imagenesHTML = news.imagenes
-        //     .map(img => `
-        //         <img
-        //             src="data/img/editorial/${img}"
-        //             loading="lazy"
-        //             style="width:100%; height:auto; display:block; border-radius:8px; margin-bottom:12px;"
-        //         />
-        //     `)
-        //     .join('');
-
         body.innerHTML = `
             <h2 style="color:var(--accent); margin-bottom:15px; line-height:1.2; font-size:1.5rem;">${news.titulo}</h2>
             <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:var(--muted); margin-bottom:20px; border-bottom:1px solid var(--line); padding-bottom:10px;">
@@ -128,10 +118,6 @@
             <div style="background:var(--line); padding:15px; border-radius:8px; font-size:0.75rem; color:var(--muted);">
                 <strong>Mencionados:</strong> ${news.jugadores.join(', ')}
             </div>
-            // <div>
-            //     <h3>El encuentro en imágenes</h3>
-            //     ${imagenesHTML}
-            // </div>
         `;
         
         overlay.style.display = 'block';

@@ -1,51 +1,65 @@
 [
   {
     "racha": "victorias",
-    "jugador": "Mario",
+    "jugador": "P11",
     "extension": 3,
-    "dias": 21,
-    "inicio": "2026-07-15"
+    "dias": 44,
+    "inicio": "2026-07-01"
   },
   {
     "racha": "invicto",
-    "jugador": "Mario",
+    "jugador": "P11",
     "extension": 3,
-    "dias": 21,
-    "inicio": "2026-07-15"
+    "dias": 44,
+    "inicio": "2026-07-01"
   },
   {
     "racha": "presente",
-    "jugador": "Mario",
-    "extension": 15,
-    "dias": 112,
-    "inicio": "2026-04-15"
+    "jugador": "Marcelo",
+    "extension": 4,
+    "dias": 30,
+    "inicio": "2026-07-15"
+  },
+  {
+    "racha": "ausente",
+    "jugador": "Naicha",
+    "extension": 3,
+    "dias": 23,
+    "inicio": "2026-07-22"
+  },
+  {
+    "racha": "ausente",
+    "jugador": "Yamil",
+    "extension": 3,
+    "dias": 23,
+    "inicio": "2026-07-22"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Cesar -> Bag",
     "extension": 7,
-    "dias": 210,
+    "dias": 219,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
     "extension": 7,
-    "dias": 210,
+    "dias": 219,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Mario -> Bag",
     "extension": 7,
-    "dias": 210,
+    "dias": 219,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
     "extension": 15,
-    "dias": 210,
+    "dias": 219,
     "inicio": "2026-01-07"
   }
 ]

@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 1,
     "diferencia de gol": "- 3",
-    "delta": "↑2"
+    "delta": "↓3"
   },
   "winning_streak_statistics": {
     "empieza": null,
@@ -29,14 +29,14 @@
     "empieza": "2026-07-29",
     "termina": "2026-07-29",
     "extension": 1,
-    "actual": true
+    "actual": false
   },
   "last_5": {
+    "2026-08-12": "A",
     "2026-07-29": "P",
     "2026-07-22": "A",
     "2026-07-15": "A",
-    "2026-07-08": "A",
-    "2026-07-01": "A"
+    "2026-07-08": "A"
   },
   "balance_vs": {
     "Mario": -1,
