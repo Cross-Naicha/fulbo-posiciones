@@ -1,14 +1,14 @@
 {
   "basic_statistics": {
-    "partidos": 0.0,
+    "partidos": 1.0,
     "apodo": "Pollo",
     "puntos": 0,
     "efectividad": 0.0,
     "ganados": 0,
     "empatados": 0,
-    "perdidos": 0,
-    "diferencia de gol": "0",
-    "delta": "↓4"
+    "perdidos": 1,
+    "diferencia de gol": "- 2",
+    "delta": "↑1"
   },
   "winning_streak_statistics": {
     "empieza": "2026-05-13",
@@ -26,17 +26,17 @@
     "actual": false
   },
   "present_streak_statistics": {
-    "empieza": "2026-05-13",
-    "termina": "2026-05-13",
+    "empieza": "2026-08-12",
+    "termina": "2026-08-12",
     "extension": 1,
-    "actual": false
+    "actual": true
   },
   "last_5": {
+    "2026-08-12": "P",
     "2026-07-29": "A",
     "2026-07-22": "A",
     "2026-07-15": "A",
-    "2026-07-08": "A",
-    "2026-07-01": "A"
+    "2026-07-08": "A"
   },
   "balance_vs": {
     "Naicha": 2,
@@ -44,19 +44,21 @@
     "Lomba": 1,
     "Mario": 1,
     "Marcelo": 1,
-    "Chicho": 0,
-    "Mato": 0,
     "Cesar": 0,
+    "Chicho": -1,
+    "Mato": -1,
+    "P11": -1,
     "Chagay": -2
   },
   "best_partner": {
-    "Chagay": 3,
+    "Chagay": 2,
     "Lomba": 1,
     "Marcos": 1,
     "Emi": 1
   },
   "worse_partner": {
-    "Bag": 1
+    "Bag": 1,
+    "Marcelo": 1
   },
   "paternity": {},
   "filiation": {}
