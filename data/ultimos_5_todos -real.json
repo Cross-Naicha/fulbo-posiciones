@@ -46,23 +46,23 @@
   "3": {
     "1": {
       "date": "2026-09-02",
-      "situation": "G"
+      "situation": "A"
     },
     "2": {
       "date": "2026-08-26",
-      "situation": "G"
+      "situation": "A"
     },
     "3": {
       "date": "2026-08-19",
-      "situation": "G"
+      "situation": "A"
     },
     "4": {
       "date": "2026-08-12",
-      "situation": "G"
+      "situation": "A"
     },
     "5": {
       "date": "2026-07-29",
-      "situation": "G"
+      "situation": "A"
     }
   },
   "4": {
@@ -204,11 +204,11 @@
     },
     "2": {
       "date": "2026-08-26",
-      "situation": "G"
+      "situation": "A"
     },
     "3": {
       "date": "2026-08-19",
-      "situation": "G"
+      "situation": "P"
     },
     "4": {
       "date": "2026-08-12",
