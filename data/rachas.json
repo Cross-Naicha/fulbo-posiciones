@@ -1,65 +1,79 @@
 [
   {
-    "racha": "victorias",
-    "jugador": "P11",
+    "racha": "derrotas",
+    "jugador": "Chagay",
     "extension": 3,
-    "dias": 44,
-    "inicio": "2026-07-01"
+    "dias": 21,
+    "inicio": "2026-09-02"
   },
   {
-    "racha": "invicto",
-    "jugador": "P11",
+    "racha": "derrotas",
+    "jugador": "Mato",
     "extension": 3,
-    "dias": 44,
-    "inicio": "2026-07-01"
+    "dias": 28,
+    "inicio": "2026-08-26"
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Chagay",
+    "extension": 3,
+    "dias": 21,
+    "inicio": "2026-09-02"
+  },
+  {
+    "racha": "sin ganar",
+    "jugador": "Mato",
+    "extension": 3,
+    "dias": 28,
+    "inicio": "2026-08-26"
   },
   {
     "racha": "presente",
     "jugador": "Marcelo",
-    "extension": 4,
-    "dias": 30,
+    "extension": 9,
+    "dias": 70,
     "inicio": "2026-07-15"
   },
   {
     "racha": "ausente",
-    "jugador": "Naicha",
+    "jugador": "Chicho",
     "extension": 3,
-    "dias": 23,
-    "inicio": "2026-07-22"
-  },
-  {
-    "racha": "ausente",
-    "jugador": "Yamil",
-    "extension": 3,
-    "dias": 23,
-    "inicio": "2026-07-22"
+    "dias": 21,
+    "inicio": "2026-09-02"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Cesar -> Bag",
     "extension": 7,
-    "dias": 219,
+    "dias": 259,
     "inicio": "2026-01-07"
+  },
+  {
+    "racha": "paternidad (intensidad)",
+    "jugador": "P11 -> Bag",
+    "extension": 7,
+    "dias": 224,
+    "inicio": "2026-02-11"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Chagay -> Bag",
     "extension": 7,
-    "dias": 219,
+    "dias": 259,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (intensidad)",
     "jugador": "Mario -> Bag",
     "extension": 7,
-    "dias": 219,
+    "dias": 259,
     "inicio": "2026-01-07"
   },
   {
     "racha": "paternidad (tiempo)",
     "jugador": "Chagay -> Bag",
-    "extension": 15,
-    "dias": 219,
+    "extension": 17,
+    "dias": 259,
     "inicio": "2026-01-07"
   }
 ]

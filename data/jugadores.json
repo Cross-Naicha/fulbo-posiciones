@@ -88,7 +88,7 @@
     {
       "id": "Ponce",
       "photo": "ponce.png",
-      "stars": 0,
+      "stars": 1,
       "text": "Ponce",
       "active": true,
       "order": 11

@@ -1,4 +1,49 @@
 {
+  "2026-09-16": {
+    "team_a": [
+      "P11, Emi, Bag, Bot, Bot"
+    ],
+    "team_b": [
+      "Marcelo, Mario, Chagay, Mato, Bot"
+    ],
+    "balance": 8
+  },
+  "2026-09-09": {
+    "team_a": [
+      "Marcelo, Mario, Lomba, Bot, Bot"
+    ],
+    "team_b": [
+      "P11, Chagay, Emi, Bag, Bot"
+    ],
+    "balance": 1
+  },
+  "2026-09-02": {
+    "team_a": [
+      "P11, Emi, Bot, Bot, Bot"
+    ],
+    "team_b": [
+      "Marcelo, Mato, Bag, Mario, Chagay"
+    ],
+    "balance": 7
+  },
+  "2026-08-26": {
+    "team_a": [
+      "P11, Marcelo, Lomba, Emi, Bot"
+    ],
+    "team_b": [
+      "Chicho, Bag, Mato, Bot, Bot"
+    ],
+    "balance": 4
+  },
+  "2026-08-19": {
+    "team_a": [
+      "Chicho, P11, Chagay, Marcelo, Bot"
+    ],
+    "team_b": [
+      "Mario, Lomba, Bag, Emi, Bot"
+    ],
+    "balance": 1
+  },
   "2026-08-12": {
     "team_a": [
       "Chicho, P11, Mato, Bot, Bot"
