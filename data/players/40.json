@@ -1,13 +1,13 @@
 {
   "basic_statistics": {
-    "partidos": 6.0,
+    "partidos": 7.0,
     "apodo": "Emi",
-    "puntos": 10,
-    "efectividad": 0.56,
-    "ganados": 3,
+    "puntos": 13,
+    "efectividad": 0.62,
+    "ganados": 4,
     "empatados": 1,
     "perdidos": 2,
-    "diferencia de gol": "+ 12",
+    "diferencia de gol": "+ 20",
     "delta": "-"
   },
   "winning_streak_statistics": {
@@ -27,40 +27,40 @@
   },
   "present_streak_statistics": {
     "empieza": "2026-08-19",
-    "termina": "2026-09-09",
-    "extension": 4,
+    "termina": "2026-09-16",
+    "extension": 5,
     "actual": true
   },
   "last_5": {
+    "2026-09-16": "G",
     "2026-09-09": "P",
     "2026-09-02": "G",
     "2026-08-26": "G",
-    "2026-08-19": "P",
-    "2026-08-12": "A"
+    "2026-08-19": "P"
   },
   "balance_vs": {
     "Bag": 3,
-    "Mato": 1,
+    "Mato": 2,
     "Cesar": 1,
     "Juan": 1,
     "Vale": 1,
+    "Chagay": 1,
+    "Mario": 0,
+    "Marcelo": 0,
     "Naicha": 0,
     "Chicho": 0,
-    "Chagay": 0,
-    "Mario": -1,
-    "Marcelo": -1,
     "Lomba": -1,
     "P11": -2
   },
   "best_partner": {
-    "P11": 3,
+    "P11": 4,
     "Cesar": 1,
     "Pollo": 1,
     "Marcelo": 1
   },
   "worse_partner": {
-    "Bag": 2,
     "Chagay": 1,
+    "Bag": 1,
     "Lomba": 1,
     "Mato": 1,
     "Naicha": 1

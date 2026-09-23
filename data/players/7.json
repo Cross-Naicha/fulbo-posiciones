@@ -8,7 +8,7 @@
     "empatados": 0,
     "perdidos": 3,
     "diferencia de gol": "- 1",
-    "delta": "↑2"
+    "delta": "↓1"
   },
   "winning_streak_statistics": {
     "empieza": "2026-04-15",
@@ -32,11 +32,11 @@
     "actual": false
   },
   "last_5": {
+    "2026-09-16": "A",
     "2026-09-09": "G",
     "2026-09-02": "A",
     "2026-08-26": "G",
-    "2026-08-19": "P",
-    "2026-08-12": "A"
+    "2026-08-19": "P"
   },
   "balance_vs": {
     "Bag": 5,

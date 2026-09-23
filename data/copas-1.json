@@ -1,0 +1,84 @@
+[
+  {
+    "nombre": "COPA DE PRIMAVERA 2026",
+    "descripcion": "Fase eliminatoria ida y vuelta con ventaja deportiva.",
+    "bracket": {
+      "cuartos": [
+        {
+          "id_partido": "QF1",
+          "numero": 1,
+          "ventaja": "Ponce",
+          "jugador1": "Ponce",
+          "jugador2": "Lomba",
+          "fechas": { "ida": null, "vuelta": "2026-02-04" },
+          "ida": { "goles_j1": 0, "goles_j2": 1 },
+          "vuelta": { "goles_j1": 5, "goles_j2": 0 }
+        },
+        {
+          "id_partido": "QF2",
+          "numero": 2,
+          "ventaja": "Chagay",
+          "jugador1": "Chagay",
+          "jugador2": "Mato",
+          "fechas": { "ida": "2026-01-07", "vuelta": "2026-02-11" },
+          "ida": { "goles_j1": 2, "goles_j2": 0 },
+          "vuelta": { "goles_j1": 2, "goles_j2": 0 }
+        },
+        {
+          "id_partido": "QF3",
+          "numero": 3,
+          "ventaja": "Bag",
+          "jugador1": "Bag",
+          "jugador2": "Naicha",
+          "fechas": { "ida": "2026-01-21", "vuelta": "2026-02-18" },
+          "ida": { "goles_j1": 1, "goles_j2": 0 },
+          "vuelta": { "goles_j1": 0, "goles_j2": 1 }
+        },
+        {
+          "id_partido": "QF4",
+          "numero": 4,
+          "ventaja": "Mario",
+          "jugador1": "Mario",
+          "jugador2": "Cesar",
+          "fechas": { "ida": "2026-01-28", "vuelta": "2026-02-25" },
+          "ida": { "goles_j1": 5, "goles_j2": 0 },
+          "vuelta": { "goles_j1": 0, "goles_j2": 3 }
+        }
+      ],
+      "semifinales": [
+        {
+          "id_partido": "SF1",
+          "numero": 2,
+          "ventaja": "Lomba",
+          "jugador1": "Lomba",
+          "jugador2": "Mario",
+          "fechas": { "ida": "2026-03-25", "vuelta": "2026-04-15" },
+          "ida": { "goles_j1": 2, "goles_j2": 0 },
+          "vuelta": { "goles_j1": 1, "goles_j2": 0 }
+        },
+        {
+          "id_partido": "SF2",
+          "numero": 1,
+          "ventaja": "Chagay",
+          "jugador1": "Chagay",
+          "jugador2": "Bag",
+          "fechas": { "ida": "2026-03-18", "vuelta": "2026-04-01" },
+          "ida": { "goles_j1": 0, "goles_j2": 0 },
+          "vuelta": { "goles_j1": 0, "goles_j2": 4 }
+        }
+      ],
+      "final": [
+        {
+          "id_partido": "F1",
+          "numero": 1,
+          "ventaja": "Sin Ventajas",
+          "jugador1": "Lomba",
+          "jugador2": "Bag",
+          "fechas": { "ida": null, "vuelta": null },
+          "ida": { "goles_j1": 1, "goles_j2": 4 },
+          "vuelta": { "goles_j1": null, "goles_j2": null }
+        }
+      ]
+    }
+  }
+]

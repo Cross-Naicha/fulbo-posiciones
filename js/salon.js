@@ -42,7 +42,7 @@ const SALON_DE_LA_FAMA_DATA = {
           prioridad: 2
         },
         {
-          titulo: "??? | Liga de Invierno 2026",
+          titulo: "PONCE | Liga de Invierno 2026",
           competencia: "Liga",
           prioridad: 2
         },
