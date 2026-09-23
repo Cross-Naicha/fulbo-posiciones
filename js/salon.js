@@ -67,7 +67,7 @@ const SALON_DE_LA_FAMA_DATA = {
           prioridad: 3
         },
         {
-          titulo: "??? | SuperCopa Invernal 2026",
+          titulo: "CHIQUI | SuperCopa Invernal 2026",
           competencia: "SuperCopa",
           prioridad: 3
         },
